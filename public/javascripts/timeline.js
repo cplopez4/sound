@@ -8499,14 +8499,19 @@ TL.Media.Text = TL.Class.extend({
 		content_container: {},
 		content: {},
 		headline: {},
-		date: {}
+		date: {},
+		i_container: {},
+		i_tag: {},
+		i_prin: {},
+		i_sec: {}
 	},
 	
 	// Data
 	data: {
 		unique_id: 			"",
 		headline: 			"headline",
-		text: 				"text"
+		text: 				"text",
+		interaccion: 		"" 
 	},
 	
 	// Options
@@ -8599,10 +8604,28 @@ TL.Media.Text = TL.Class.extend({
 		if (this.data.text != "") {
 			var text_content = "";
 
-      text_content += TL.Util.htmlify(this.options.autolink == true ? TL.Util.linkify(this.data.text) : this.data.text);
+      		text_content += TL.Util.htmlify(this.options.autolink == true ? TL.Util.linkify(this.data.text) : this.data.text);
 
 			this._el.content				= TL.Dom.create("div", "tl-text-content", this._el.content_container);
 			this._el.content.innerHTML		= text_content;
+		}
+
+		// Interaccion
+		if (this.data.interaccion != "") {
+			var interaccion_tag = TL.Util.htmlify(this.data.interaccion.tag ? "<b>tags: </b>" + this.data.interaccion.tag : "");
+			var interaccion_principal = TL.Util.htmlify(this.data.interaccion.principal ? "<b>interacción principal: </b>" + this.data.interaccion.principal : "");
+			var interaccion_secundaria = TL.Util.htmlify(this.data.interaccion.secundaria ? "<b>interacción secundaria: </b>" + this.data.interaccion.secundaria : "");
+
+			this._el.i_container			= TL.Dom.create("div", "tl-inter-content", this._el.content_container);
+			
+			this._el.i_tag					= TL.Dom.create("p", "tl-inter-tag", this._el.i_container);
+			this._el.i_tag.innerHTML		= interaccion_tag;
+			
+			this._el.i_prin					= TL.Dom.create("p", "tl-inter-prin", this._el.i_container);
+			this._el.i_prin.innerHTML		= interaccion_principal;
+			
+			this._el.i_sec					= TL.Dom.create("p", "tl-inter-sec", this._el.i_container);
+			this._el.i_sec.innerHTML		= interaccion_secundaria;
 		}
 
 		// Fire event that the slide is loaded
@@ -11243,7 +11266,7 @@ TL.TimeMarker = TL.Class.extend({
 	================================================== */
 	_onMarkerClick: function(e) {
 		this.fire("markerclick", {unique_id:this.data.unique_id});
-		alert("Evento de Marker Click!");
+		//alert("Evento de Marker Click!");
 	},
 
 	/*	Private Methods
