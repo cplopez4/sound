@@ -1,8 +1,20 @@
+<link href='https://fonts.googleapis.com/css?family=Alegreya:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
 <link title="timeline-styles" rel="stylesheet" href="stylesheets/timeline.css">
 <link title="timeline-custom-styles" rel="stylesheet" href="stylesheets/style.css">
 <script src="javascripts/timeline.js"></script>
 
-<div id='timeline-embed' style="width: 100%; height: 650px"></div>
+<div class="header-filter">
+  <p class="header-title">Eventos desplegados por</p>
+  <p class="filter-title">INTERACCIÓN</p>
+  <!-- <div class="tl-menubar custom">
+    <span class="tl-menubar-button custom"><span class="tl-icon-zoom-in"></span></span>
+    <span class="tl-menubar-button custom"><span class="tl-icon-zoom-out"></span></span>
+    <span class="tl-menubar-button custom"><span class="tl-icon-goback"></span></span>
+  </div> -->
+</div>
+
+<div id='timeline-embed' style="width: 100%; height: 620px"></div>
 
 <script type="text/javascript">
 var timeline_json = {
@@ -295,7 +307,9 @@ var plus_json = {
         }
     },
     "events": [
-      {'media': {'url': '', 'caption': '', 'credit': ''}, 'start_date': {'month': '3', 'day': '20', 'year': '2010'}, 'text': { 'headline': 'Consejo Minero se opone a aumentar el royalty', 'text': 'Consejo minero', 'interaccion': { 'tag': 'N/I', 'principal': 'Consejo Minero se declara en contra del aumento del royalty', 'secundaria': 'N/I'}}},
+      {'media': {"url": "https://youtu.be/_gvJCCZzmro",
+          "caption": "A young poised Whitney Houston in an interview with EbonyJet.",
+          "credit": "EbonyJet"}, 'start_date': {'month': '3', 'day': '20', 'year': '2010'}, 'text': { 'headline': 'Consejo Minero se opone a aumentar el royalty', 'text': 'Consejo minero', 'interaccion': { 'tag': 'N/I', 'principal': 'Consejo Minero se declara en contra del aumento del royalty', 'secundaria': 'N/I'}}},
 {'media': {'url': '', 'caption': '', 'credit': ''}, 'start_date': {'month': '3', 'day': '20', 'year': '2010'}, 'text': { 'headline': 'Federación Minera dice se puede', 'text': 'Presidente de la Federación Minera de Chile Pedro Marín', 'interaccion': { 'tag': 'Declaración', 'principal': 'Presidente de la Federación Minera de Chile declara la existencia de posibles medidas para generar recursos de manera más inmediata que la modificación del royalty.', 'secundaria': 'N/I'}}},
 {'media': {'url': '', 'caption': '', 'credit': ''}, 'start_date': {'month': '3', 'day': '27', 'year': '2010'}, 'text': { 'headline': 'Felipe Ward asegura que US$500 millones no llegarán a Calama', 'text': 'Diputado Felipe Ward, Gobernador provincial Luis Garrido', 'interaccion': { 'tag': 'Declaración', 'principal': 'Diputado Felipe Ward declara que US$500 millones no están disponibles y fueron prometidos por la administración anterior ', 'secundaria': 'Gobernador provincial Luis Garrido manifestó estar de acuerdo con Ward y puso en duda la existencia de un documento oficial que haga referencia al dinero en cuestión.'}}},
 {'media': {'url': '', 'caption': '', 'credit': ''}, 'start_date': {'month': '3', 'day': '28', 'year': '2010'}, 'text': { 'headline': 'Recorte del presupuesto del FNDR podría alcanzar el 16%', 'text': 'Consejo regional Victor Alvarado, Intendente Álvaro Fernandez, Dirección de Presupuesto del Ministerio de Haciendas, legisladores locales, consejeros regionales, Presidenta de la Asociación Regional de Municipalidades, Alcaldesa de San Pedro de Atacama Sandra Berna, Gobernador Luis Garrido, ', 'interaccion': { 'tag': 'Anuncio', 'principal': 'Dirección de Presupuesto del Ministerio de Hacienda informando de la reducción del presupuesto del FNDR, la cual podría alcanzar el 16%. ', 'secundaria': 'Consejo Regional hace llamado a alcaldes a priorizar sus proyectos'}}},
@@ -410,7 +424,8 @@ var plus_json = {
 var options = {
   timenav_height_percentage:60,
   marker_height_min:25,
-  scale_factor:0.5
+  scale_factor:12,
+  timenav_position:'top'
 };
 
 // window.timeline = new TL.Timeline('timeline-embed', timeline_json, options);

@@ -25,6 +25,11 @@
 	file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 */
+@import url(https://fonts.googleapis.com/css?family=Alegreya:400,400italic,700,700italic);
+@import url(https://fonts.googleapis.com/css?family=Alegreya+SC:400,400italic,700,700italic);
+@import url(https://fonts.googleapis.com/css?family=Alegreya+Sans:400,500);
+@import url(https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,700,700italic);
+
 
 .tl-storyjs div * {
 	-webkit-box-sizing:content-box;
@@ -662,7 +667,8 @@
 	border-top-right-radius:10px;
 	top:100%;
 	left:50%;
-	left:0
+	left:0;
+	display: none;
 }
 
 @keyframes invertToBlack {fro
@@ -928,7 +934,7 @@ to {
 	background-color:#f2f2f2;
 	position:relative;
 	overflow:hidden;
-	border-top:1px solid #e5e5e5
+/*	border-top:1px solid #e5e5e5*/
 }
 
 .tl-timenav .tl-attribution {
@@ -1166,11 +1172,10 @@ to {
 
 .tl-timemarker .tl-timemarker-content-container {
 	position:absolute;
-	background-color:#e5e5e5;
-	border-radius: 50%;
+	background-color:rgb(177,127,74);
 	border:0;
-	height:50px;
-	width:50px;
+	height:20px;
+	width:20px;
 	overflow:hidden;
 	z-index:6;
 /*	-webkit-transition:height 500ms cubic-bezier(.77,0,.175,1),width 1000ms cubic-bezier(.77,0,.175,1);
@@ -1182,9 +1187,9 @@ to {
 	-o-transition-timing-function:cubic-bezier(.77,0,.175,1);
 	transition-timing-function:cubic-bezier(.77,0,.175,1);*/
 	box-sizing:border-box;
-	border:1px solid #d9d9d9;
 	box-shadow:1px 1px 1px #fff;
-	left:-25px;
+	left:-10px;
+	opacity: 0.5;
 }
 
 .tl-timemarker .tl-timemarker-content-container:hover {
@@ -1298,8 +1303,8 @@ to {
 }
 
 .tl-timemarker:hover .tl-timemarker-content-container {
-	background-color:#bfbfbf;
-	border-color:#a6a6a6;
+	background-color:rgb(177,127,74);
+	opacity: 1;
 /*	-webkit-transition:height 250ms cubic-bezier(.77,0,.175,1),width 250ms cubic-bezier(.77,0,.175,1);
 	-moz-transition:height 250ms cubic-bezier(.77,0,.175,1),width 250ms cubic-bezier(.77,0,.175,1);
 	-o-transition:height 250ms cubic-bezier(.77,0,.175,1),width 250ms cubic-bezier(.77,0,.175,1);
@@ -1630,13 +1635,13 @@ to {
 }
 
 .tl-timeaxis-background {
-	height:39px;
+	height:31px;
 	width:100%;
 	position:absolute;
-	bottom:0;
+	top:0;
 	left:0;
 	background-color:#fff;
-	border-top:1px solid #e5e5e5;
+	border-bottom:1px solid #e5e5e5;
 	z-index:2
 }
 
@@ -1644,14 +1649,14 @@ to {
 	height:39px;
 	width:100%;
 	position:absolute;
-	bottom:0;
+	top:0;
 	left:0;
 	z-index:3
 }
 
 .tl-timeaxis .tl-timeaxis-content-container {
 	position:relative;
-	bottom:0;
+	top:0;
 	height:39px
 }
 
@@ -1676,7 +1681,7 @@ to {
 	overflow:hidden
 }
 
-.tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-major .tl-timeaxis-tick:before,.tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-minor .tl-timeaxis-tick:before {
+.tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-major .tl-timeaxis-tick:after,.tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-minor .tl-timeaxis-tick:after {
 	content:"|";
 	display:block;
 	color:#fff;
@@ -1684,6 +1689,10 @@ to {
 	overflow:hidden;
 	border-left:1px solid #bfbfbf;
 	text-align:center
+}
+
+.tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-minor .tl-timeaxis-tick:after{
+	height: 4px;
 }
 
 .tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-major.tl-timeaxis-animate .tl-timeaxis-tick,.tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-minor.tl-timeaxis-animate .tl-timeaxis-tick {
@@ -1714,34 +1723,40 @@ to {
 }
 
 .tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-major .tl-timeaxis-tick {
-	font-size:12px;
+	font-size:10px;
 	line-height:14px;
-	color:#737373;
+	color:rgb(81,85,75);
 	width:100px;
-	margin-left:-50px
+	margin-left:-50px;
+	top: 4px;
+	font-family: 'Alegreya Sans';
 }
 
-.tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-major .tl-timeaxis-tick:before {
+.tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-major .tl-timeaxis-tick:after {
 	border-color:#a6a6a6;
 	font-size:18px;
 	line-height:18px;
 	margin-bottom:2px;
-	margin-left:50px
+	margin-left:50px;
+	height: 13px;
 }
 
 .tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-minor .tl-timeaxis-tick {
-	font-size:11px;
-	line-height:13px;
+	font-size:9px;
+	line-height:16px;
 	color:#bfbfbf;
 	width:50px;
-	margin-left:-25px
+	margin-left:-25px;
+	top: 11px;
 }
 
 .tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-minor .tl-timeaxis-tick .tl-timeaxis-tick-text {
 	opacity:0;
 	white-space:normal;
 	padding-left:2px;
-	padding:right:2px
+	padding-right:2px;
+	font-family: 'Alegreya';
+	font-size: 'italic';
 }
 
 .tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-minor .tl-timeaxis-tick .tl-timeaxis-tick-text span {
@@ -2972,3 +2987,28 @@ to {
 	box-shadow:0 -3px 6px rgba(0,0,0,.2)
 }
 
+/* CUSTOM STYLES */
+.header-filter {
+	margin-bottom: -15px;
+}
+
+.header-title, .filter-title {
+	display: inline-block;
+	margin-top: 0px;
+}
+
+.header-title {
+	font-family: 'Alegreya Sans';
+	font-weight: 500;
+	font-size: 10pt;
+  	max-width: 90px;
+  	text-align: right;
+  	color: rgb(81,85,75);
+}
+
+.filter-title {
+	margin-left: 15px;
+	font-family: 'Alegreya Sans SC';
+	font-weight: 700;
+	font-size: 13pt;
+}

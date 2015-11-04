@@ -10649,13 +10649,13 @@ TL.TimeNav = TL.Class.extend({
 
 			// Set Height
 			// this._markers[i].setHeight(marker_height);
-			this._markers[i].setHeight(50);
+			this._markers[i].setHeight(20);
 
 			//Position by Row
 			var row = this.timescale.getPositionInfo(i).row;
 
 			//Marker Set Y
-			var marker_y = Math.floor(row * (marker_height + this.options.marker_padding)) + this.options.marker_padding;
+			var marker_y = Math.floor(row * (marker_height + this.options.marker_padding)) + this.options.marker_padding + 30;
 
 			var remainder_height = available_height - marker_y + this.options.marker_padding;
 			
@@ -10984,7 +10984,7 @@ TL.TimeNav = TL.Class.extend({
 	================================================== */
 	_initLayout: function () {
 		// Create Layout
-		this._el.attribution 				= TL.Dom.create('div', 'tl-attribution', this._el.container);
+		/*this._el.attribution 				= TL.Dom.create('div', 'tl-attribution', this._el.container);*/
 		this._el.line						= TL.Dom.create('div', 'tl-timenav-line', this._el.container);
 		this._el.slider						= TL.Dom.create('div', 'tl-timenav-slider', this._el.container);
 		this._el.slider_background			= TL.Dom.create('div', 'tl-timenav-slider-background', this._el.slider);
@@ -10994,6 +10994,19 @@ TL.TimeNav = TL.Class.extend({
 		this._el.timeaxis 					= TL.Dom.create('div', 'tl-timeaxis', this._el.slider);
 		this._el.timeaxis_background 		= TL.Dom.create('div', 'tl-timeaxis-background', this._el.container);
 
+		// Draw background horizontal lines
+		var fixedLinesHeight = (this.options.height - 42) / 9;
+		TL.Dom.create('div', 'tl-background-line', this._el.container);
+		TL.Dom.create('div', 'tl-background-line', this._el.container);
+		TL.Dom.create('div', 'tl-background-line', this._el.container);
+		TL.Dom.create('div', 'tl-background-line', this._el.container);
+		TL.Dom.create('div', 'tl-background-line', this._el.container);
+		TL.Dom.create('div', 'tl-background-line', this._el.container);
+		TL.Dom.create('div', 'tl-background-line', this._el.container);
+		TL.Dom.create('div', 'tl-background-line', this._el.container);
+		TL.Dom.create('div', 'tl-background-line', this._el.container);
+		
+		console.log();
 
 		// Knight Lab Logo
 		this._el.attribution.innerHTML = "<a href='http://timeline.knightlab.com' target='_blank'><span class='tl-knightlab-logo'></span>Timeline JS</a>"
@@ -11255,7 +11268,7 @@ TL.TimeMarker = TL.Class.extend({
 
 	setRowPosition: function(n, remainder) {
 		this.setPosition({top:n});
-		this._el.timespan.style.height = remainder + "px";
+		this._el.timespan.style.height = (remainder + 25) + "px";
 
 		if (remainder < 56) {
 			//TL.DomUtil.removeClass(this._el.content_container, "tl-timemarker-content-container-small");
@@ -11294,7 +11307,7 @@ TL.TimeMarker = TL.Class.extend({
 		this._el.line_right				= TL.Dom.create("div", "tl-timemarker-line-right", this._el.timespan);
 
 		// Thumbnail or Icon
-		if (this.data.media) {
+/*		if (this.data.media) {
 			this._el.media_container	= TL.Dom.create("div", "tl-timemarker-media-container", this._el.content);
 
 			if (this.data.media.thumbnail && this.data.media.thumbnail != "") {
@@ -11311,7 +11324,7 @@ TL.TimeMarker = TL.Class.extend({
 		else {
 			this._el.media_container	= TL.Dom.create("div", "tl-timemarker-media-container", this._el.content);
 			this._el.media				= TL.Dom.create("span", "tl-icon-doc", this._el.media_container);
-		}
+		}*/
 
 
 		// Text
