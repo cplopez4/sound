@@ -1378,9 +1378,10 @@ to {
 .tl-timemarker.tl-timemarker-active .tl-timemarker-content-container {
 	background-color:rgb(177,127,74);
 	color:#333;
-	z-index:9;
+	z-index:13;
 	border-color:rgba(51,51,51,.5);
 	box-shadow:1px 1px 3px rgba(145,145,145,.5)
+	opacity: 1;
 }
 
 .tl-timemarker.tl-timemarker-active .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-text h2.tl-headline {
