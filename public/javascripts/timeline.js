@@ -134,6 +134,12 @@ TL.Util = {
 	  else{ return 'Otro' }
 	},
 
+	switchImageType: function(t) {
+		if(t=="0"){ return "online.png"; }
+		if(t=="1"){ return "paper.png"; }
+		else{ return "video.png"; }
+	},
+
 	isEven: function(n) {
 	  return n == parseFloat(n)? !(n%2) : void 0;
 	},
@@ -8551,6 +8557,9 @@ TL.Media.Text = TL.Class.extend({
 	_el: {
 		container: {},
 		content_container: {},
+		content_container_tophalf: {},
+		content_container_bothalf: {},
+		content_container_bothalf_r: {},
 		content: {},
 		headline: {},
 		date: {},
@@ -8647,60 +8656,45 @@ TL.Media.Text = TL.Class.extend({
 	_initLayout: function () {
 		
 		// Create Layout
-		this._el.content_container			= TL.Dom.create("div", "tl-text-content-container", this._el.container);
+
+		// Medio
+		if (this.data.medio && this.data.medio != "") {
+			var tipo = TL.Util.htmlify(this.data.medio.tipo ? "<img class='tipo-image' src='images/"+ TL.Util.switchImageType(this.data.medio.tipo) +"' />" : "");
+			var nombre = TL.Util.htmlify(this.data.medio.nombre ? this.data.medio.nombre : "");
+
+			//var story_container = TL.Dom.getByClass("tl-storyslider")[0];
+
+			this._el.m_container			= TL.Dom.create("div", "tl-medio-content", this._el.container);
+			
+			this._el.m_tipo					= TL.Dom.create("div", "tl-medio-tipo", this._el.m_container);
+			this._el.m_tipo.innerHTML		= tipo;
+
+			this._el.m_nombre				= TL.Dom.create("p", "tl-medio-nombre", this._el.m_container);
+			this._el.m_nombre.innerHTML		= nombre;
+		}
+
+		this._el.content_container_tophalf	= TL.Dom.create("div", "tl-text-content-container-half top", this._el.container);
+		this._el.content_container_bothalf	= TL.Dom.create("div", "tl-text-content-container-half bot", this._el.container);
 		
-		// Date
-		this._el.date 				= TL.Dom.create("h3", "tl-headline-date", this._el.content_container);
-		
+
 		// Headline
 		if (this.data.headline != "") {
-			var headline_class = "tl-headline";
+			var headline_class = "custom-title tl-headline";
 			if (this.options.title) {
-				headline_class = "tl-headline tl-headline-title";
+				headline_class = "custom-title tl-headline tl-headline-title";
 			}
-			this._el.headline				= TL.Dom.create("h2", headline_class, this._el.content_container);
+			this._el.headline				= TL.Dom.create("h3", headline_class, this._el.content_container_tophalf);
 			this._el.headline.innerHTML		= this.data.headline;
-		}
-
-		// Text
-		if (this.data.text != "") {
-			var text_content = "";
-
-      		text_content += TL.Util.htmlify(this.options.autolink == true ? TL.Util.linkify(this.data.text) : this.data.text);
-
-			this._el.content				= TL.Dom.create("div", "tl-text-content", this._el.content_container);
-			this._el.content.innerHTML		= text_content;
-		}
-
-		// Interaccion
-		if (this.data.interaccion && this.data.interaccion != "") {
-			var interaccion_tag = TL.Util.htmlify(this.data.interaccion.tag ? "<b>tags: </b>" + this.data.interaccion.tag : "");
-			var interaccion_principal = TL.Util.htmlify(this.data.interaccion.principal ? "<b>interacción principal: </b>" + this.data.interaccion.principal : "");
-			var interaccion_secundaria = TL.Util.htmlify(this.data.interaccion.secundaria ? "<b>interacción secundaria: </b>" + this.data.interaccion.secundaria : "");
-
-			this._el.i_container			= TL.Dom.create("div", "tl-inter-content", this._el.content_container);
-			
-			this._el.i_tag					= TL.Dom.create("p", "tl-inter-tag", this._el.i_container);
-			this._el.i_tag.innerHTML		= interaccion_tag;
-			
-			this._el.i_prin					= TL.Dom.create("p", "tl-inter-prin", this._el.i_container);
-			this._el.i_prin.innerHTML		= interaccion_principal;
-			
-			this._el.i_sec					= TL.Dom.create("p", "tl-inter-sec", this._el.i_container);
-			this._el.i_sec.innerHTML		= interaccion_secundaria;
 		}
 
 		// Conflicto
 		if (this.data.conflicto && this.data.conflicto != "") {
-			var principal = TL.Util.htmlify(this.data.conflicto.principal ? "<b>conflicto: </b>" + this.data.conflicto.principal : "");
-			var sub = TL.Util.htmlify(this.data.conflicto.sub ? "<b>sub-conflicto: </b>" + this.data.conflicto.sub : "");
-			var cat_actor = TL.Util.htmlify(this.data.conflicto.cat_actor ? "<b>categoria actores: </b>" + this.data.conflicto.cat_actor : "");
-			var ambito = TL.Util.htmlify(this.data.conflicto.ambito ? "<b>ambito: </b>" + this.data.conflicto.ambito : "");
+			var principal = TL.Util.htmlify(this.data.conflicto.principal ? "<b>CONFLICTO </b>" + this.data.conflicto.principal : "");
+			var sub = TL.Util.htmlify(this.data.conflicto.sub ? "<b>SUB-CONFLICTO </b>" + this.data.conflicto.sub : "");
+			var cat_actor = TL.Util.htmlify(this.data.conflicto.cat_actor ? "<b>CATEGORIA ACTORES </b>" + this.data.conflicto.cat_actor : "");
+			var ambito = TL.Util.htmlify(this.data.conflicto.ambito ? "<b>AMBITO </b>" + this.data.conflicto.ambito : "");
 
-			this._el.c_container			= TL.Dom.create("div", "tl-conf-content", this._el.content_container);
-			
-			this._el.c_actor				= TL.Dom.create("p", "tl-conf-actor", this._el.c_container);
-			this._el.c_actor.innerHTML		= cat_actor;
+			this._el.c_container			= TL.Dom.create("div", "tl-conf-content", this._el.content_container_tophalf);
 			
 			this._el.c_prin					= TL.Dom.create("p", "tl-conf-prin", this._el.c_container);
 			this._el.c_prin.innerHTML		= principal;
@@ -8708,22 +8702,29 @@ TL.Media.Text = TL.Class.extend({
 			this._el.c_sub					= TL.Dom.create("p", "tl-conf-sub", this._el.c_container);
 			this._el.c_sub.innerHTML		= sub;
 
+			this._el.c_actor				= TL.Dom.create("p", "tl-conf-actor", this._el.c_container);
+			this._el.c_actor.innerHTML		= cat_actor;
+
 			this._el.c_ambito				= TL.Dom.create("p", "tl-conf-ambito", this._el.c_container);
 			this._el.c_ambito.innerHTML		= ambito;
 		}
 
-		// Medio
-		if (this.data.medio && this.data.medio != "") {
-			var nombre = TL.Util.htmlify(this.data.medio.nombre ? "<b>nombre del medio: </b>" + this.data.medio.nombre : "");
-			var tipo = TL.Util.htmlify(this.data.medio.tipo ? "<b>interacción principal: </b>" + this.data.medio.tipo : "");
+		// Interaccion
+		if (this.data.interaccion && this.data.interaccion != "") {
+			var actores = TL.Util.htmlify(this.data.text ? "<b>ACTORES </b>" + this.data.text : "");
+			var interaccion_principal = TL.Util.htmlify(this.data.interaccion.principal ? "<b>INTERACCION 1 </b>" + this.data.interaccion.principal : "");
+			var interaccion_secundaria = TL.Util.htmlify(this.data.interaccion.secundaria ? "<b>INTERACCION 2 </b>" + this.data.interaccion.secundaria : "");
+			
+			this._el.i_prin					= TL.Dom.create("div", "tl-inter-prin", this._el.content_container_bothalf);
+			this._el.i_prin.innerHTML		= interaccion_principal;
 
-			this._el.m_container			= TL.Dom.create("div", "tl-medio-content", this._el.content_container);
+			this._el.content_container_bothalf_r = TL.Dom.create("div", "tl-bot-right", this._el.content_container_bothalf);
 			
-			this._el.m_nombre				= TL.Dom.create("p", "tl-medio-nombre", this._el.m_container);
-			this._el.m_nombre.innerHTML		= nombre;
-			
-			this._el.m_tipo					= TL.Dom.create("p", "tl-medio-tipo", this._el.m_container);
-			this._el.m_tipo.innerHTML		= tipo;
+			this._el.i_sec					= TL.Dom.create("div", "tl-inter-sec", this._el.content_container_bothalf_r);
+			this._el.i_sec.innerHTML		= interaccion_secundaria;
+
+			this._el.i_tag					= TL.Dom.create("div", "tl-actores", this._el.content_container_bothalf_r);
+			this._el.i_tag.innerHTML		= actores;
 		}
 
 		// Fire event that the slide is loaded
@@ -9657,8 +9658,8 @@ TL.Slide = TL.Class.extend({
 			this._text.addTo(this._el.content);
 			this._media.addTo(this._el.content);
 		} else if (this.has.text && this.has.media) {
-			this._media.addTo(this._el.content);
 			this._text.addTo(this._el.content);
+			this._media.addTo(this._el.content);
 		} else if (this.has.text || this.has.headline) {
 			TL.DomUtil.addClass(this._el.container, 'tl-slide-text-only');
 			this._text.addTo(this._el.content);
