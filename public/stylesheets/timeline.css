@@ -1311,6 +1311,16 @@ to {
 	transition:height 250ms cubic-bezier(.77,0,.175,1),width 250ms cubic-bezier(.77,0,.175,1)*/
 }
 
+.tl-timemarker:hover .tl-timemarker-content-container.n-brown { background-color: rgb(177,127,74);opacity: 1; }
+.tl-timemarker:hover .tl-timemarker-content-container.n-pink { background-color: rgb(251,153,255);opacity: 1; }
+.tl-timemarker:hover .tl-timemarker-content-container.n-red { background-color: rgb(190,12,34);opacity: 1; }
+.tl-timemarker:hover .tl-timemarker-content-container.n-orange { background-color: rgb(239,76,35);opacity: 1; }
+.tl-timemarker:hover .tl-timemarker-content-container.n-yellow { background-color: rgb(253,212,20);opacity: 1; }
+.tl-timemarker:hover .tl-timemarker-content-container.n-cyan { background-color: rgb(43,220,213);opacity: 1; }
+.tl-timemarker:hover .tl-timemarker-content-container.n-green { background-color: rgb(24,213,116);opacity: 1; }
+.tl-timemarker:hover .tl-timemarker-content-container.n-blue { background-color: rgb(42,56,220);opacity: 1; }
+.tl-timemarker:hover .tl-timemarker-content-container.n-gray { background-color: rgb(81,85,75);opacity: 1; }
+
 .tl-timemarker:hover .tl-timemarker-content-container.tl-timemarker-content-container-small {
 	/*width:200px*/
 }
@@ -1376,13 +1386,22 @@ to {
 }
 
 .tl-timemarker.tl-timemarker-active .tl-timemarker-content-container {
-	background-color:rgb(177,127,74);
 	color:#333;
 	z-index:13;
 	border-color:rgba(51,51,51,.5);
 	box-shadow:1px 1px 3px rgba(145,145,145,.5)
 	opacity: 1;
 }
+
+.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container.n-brown { background-color: rgb(177,127,74);opacity: 1; }
+.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container.n-pink { background-color: rgb(251,153,255);opacity: 1; }
+.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container.n-red { background-color: rgb(190,12,34);opacity: 1; }
+.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container.n-orange { background-color: rgb(239,76,35);opacity: 1; }
+.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container.n-yellow { background-color: rgb(253,212,20);opacity: 1; }
+.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container.n-cyan { background-color: rgb(43,220,213);opacity: 1; }
+.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container.n-green { background-color: rgb(24,213,116);opacity: 1; }
+.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container.n-blue { background-color: rgb(42,56,220);opacity: 1; }
+.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container.n-gray { background-color: rgb(81,85,75);opacity: 1; }
 
 .tl-timemarker.tl-timemarker-active .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-text h2.tl-headline {
 	color:#333
