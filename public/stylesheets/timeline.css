@@ -663,12 +663,11 @@
 	text-align:center;
 	color:#333;
 	overflow:hidden;
-	border-bottom-right-radius:10px;
-	border-top-right-radius:10px;
-	top:100%;
-	left:50%;
-	left:0;
-	display: none;
+/*	border-bottom-left-radius:10px;
+	border-top-left-radius:10px;*/
+	top:0;
+	right:0;
+	/*display: none;*/
 }
 
 @keyframes invertToBlack {fro
@@ -726,7 +725,7 @@ to {
 .tl-menubar-button {
 	font-size:18px;
 	line-height:18px;
-	background-color:rgba(242,242,242,.9);
+	background-color:rgba(240,240,238,1);
 	cursor:pointer;
 	padding:6px 12px;
 	display:inline-block;
