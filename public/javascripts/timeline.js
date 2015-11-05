@@ -26,6 +26,7 @@
 	Debug mode
 ================================================== */
 TL.debug = false;
+TL.fixedHeight = 0;
 
 
 
@@ -10673,7 +10674,9 @@ TL.TimeNav = TL.Class.extend({
 		marker.on('added', this._onMarkerAdded, this);
 	},
 
-	_createMarker: function(data, n) {
+	_createMarker: function(data, n, index) {
+		console.log(data);
+
 		var marker = new TL.TimeMarker(data, this.options);
 		this._addMarker(marker);
 		if(n < 0) {
@@ -10682,6 +10685,20 @@ TL.TimeNav = TL.Class.extend({
 		    this._markers.splice(n, 0, marker);
 		}
 	},
+
+/*	_createMarkers: function(array) {
+		for (var i = 0; i < array.length; i++) {
+			if(array[i].text.interaccion.tag instanceof Array){
+				for(var k=0;k<array[i].text.interaccion.tag.length;k++){
+					// this._createMarker(array[i], -1);
+				}
+				// console.log(array[i].text.interaccion.tag.length);
+			}
+			else {
+				this._createMarker(array[i], -1);
+			}
+		}
+	},*/
 
 	_createMarkers: function(array) {
 		for (var i = 0; i < array.length; i++) {
@@ -10745,6 +10762,7 @@ TL.TimeNav = TL.Class.extend({
 		this._calculated_row_height = this._calculateRowHeight(available_height);
 
 		for (var i = 0; i < this._markers.length; i++) {
+			// console.log(this._markers[i]);
 
 			// Set Height
 			// this._markers[i].setHeight(marker_height);
@@ -11095,6 +11113,7 @@ TL.TimeNav = TL.Class.extend({
 
 		// Draw background horizontal lines
 		var fixedLinesHeight = (this.options.height - 42) / 9;
+		fixedHeight = fixedLinesHeight;
 
 		var labels_container = TL.Dom.create('div', 'tl-labels-container', this._el.container);
 		labels_container.style.height = this.options.height;
@@ -11132,6 +11151,8 @@ TL.TimeNav = TL.Class.extend({
 
 	_initData: function() {
 		// Create Markers and then add them
+		console.log(this.config.events);
+
 		this._createMarkers(this.config.events);
 
 		if (this.config.eras) {
@@ -11331,7 +11352,7 @@ TL.TimeMarker = TL.Class.extend({
 				text_lines = 1;
 			}
 			this._text.className = "tl-headline";
-			this._text.style.webkitLineClamp = text_lines;
+			// this._text.style.webkitLineClamp = text_lines;
 		} else {
 			text_lines = h / text_line_height;
 			if (text_lines > 1) {
@@ -11364,8 +11385,8 @@ TL.TimeMarker = TL.Class.extend({
 	},
 
 	setRowPosition: function(n, remainder) {
-		this.setPosition({top:n});
-		this._el.timespan.style.height = (remainder + 25) + "px";
+		this.setPosition({top:35});
+		this._el.timespan.style.height = 310 + "px";
 
 		if (remainder < 56) {
 			//TL.DomUtil.removeClass(this._el.content_container, "tl-timemarker-content-container-small");
@@ -11396,47 +11417,23 @@ TL.TimeMarker = TL.Class.extend({
 
 		this._el.timespan				= TL.Dom.create("div", "tl-timemarker-timespan", this._el.container);
 		this._el.timespan_content		= TL.Dom.create("div", "tl-timemarker-timespan-content", this._el.timespan);
-		this._el.content_container		= TL.Dom.create("div", "tl-timemarker-content-container", this._el.container);
 
-		this._el.content				= TL.Dom.create("div", "tl-timemarker-content", this._el.content_container);
+		if(this.data.text.interaccion.tag instanceof Array){
+			for(var k=0;k<this.data.text.interaccion.tag.length;k++){
+				this._el.content_container		= TL.Dom.createLine("div", "tl-timemarker-content-container "+ TL.Util.switchColor(this.data.text.interaccion.tag[k]), this._el.container, (this.data.text.interaccion.tag[k]*fixedHeight)+(fixedHeight/2)-13);
+				this._el.content				= TL.Dom.create("div", "tl-timemarker-content", this._el.content_container);
+			}
+			// console.log(array[i].text.interaccion.tag.length);
+		}
+		else {
+			var random = Math.floor(Math.random()*6)+1;
+			// this._el.content_container		= TL.Dom.create("div", "tl-timemarker-content-container "+ TL.Util.switchColor(this.data.text.interaccion.tag[k]), this._el.container);
+			this._el.content_container		= TL.Dom.createLine("div", "tl-timemarker-content-container "+ TL.Util.switchColor(random), this._el.container, (random*fixedHeight)+(fixedHeight/2)-13);
+			this._el.content				= TL.Dom.create("div", "tl-timemarker-content", this._el.content_container);
+		}
 
 		this._el.line_left				= TL.Dom.create("div", "tl-timemarker-line-left", this._el.timespan);
 		this._el.line_right				= TL.Dom.create("div", "tl-timemarker-line-right", this._el.timespan);
-
-		// Thumbnail or Icon
-/*		if (this.data.media) {
-			this._el.media_container	= TL.Dom.create("div", "tl-timemarker-media-container", this._el.content);
-
-			if (this.data.media.thumbnail && this.data.media.thumbnail != "") {
-				this._el.media				= TL.Dom.create("img", "tl-timemarker-media", this._el.media_container);
-				this._el.media.src			= TL.Util.transformImageURL(this.data.media.thumbnail);
-
-			} else {
-				var media_type = TL.MediaType(this.data.media).type;
-				this._el.media				= TL.Dom.create("span", "tl-icon-" + media_type, this._el.media_container);
-
-			}
-
-		}
-		else {
-			this._el.media_container	= TL.Dom.create("div", "tl-timemarker-media-container", this._el.content);
-			this._el.media				= TL.Dom.create("span", "tl-icon-doc", this._el.media_container);
-		}*/
-
-
-		// Text
-		this._el.text					= TL.Dom.create("div", "tl-timemarker-text", this._el.content);
-		//this._text						= TL.Dom.create("h2", "tl-headline", this._el.text);
-		this._text						= TL.Dom.create("h2", "tl-headline", "");
-		if (this.data.text.headline && this.data.text.headline != "") {
-			this._text.innerHTML		= TL.Util.unlinkify(this.data.text.headline);
-		} else if (this.data.text.text && this.data.text.text != "") {
-			this._text.innerHTML		= TL.Util.unlinkify(this.data.text.text);
-		} else if (this.data.media.caption && this.data.media.caption != "") {
-			this._text.innerHTML		= TL.Util.unlinkify(this.data.media.caption);
-		}
-
-
 
 		// Fire event that the slide is loaded
 		this.onLoaded();
@@ -11605,7 +11602,7 @@ TL.TimeEra = TL.Class.extend({
 				text_lines = 1;
 			}
 			this._text.className = "tl-headline";
-			this._text.style.webkitLineClamp = text_lines;
+			// this._text.style.webkitLineClamp = text_lines;
 		} else {
 			text_lines = h / text_line_height;
 			if (text_lines > 1) {
