@@ -3106,6 +3106,7 @@ to {
 .tl-conf-content {
 	float: right;
 	margin-top: 15px;
+	max-width: 35%;
 }
 
 .tl-conf-content p {
@@ -3130,6 +3131,7 @@ to {
 	font-family: 'Alegreya';
 	font-size: 8pt;
 	color: rgb(60,60,75);
+	margin-bottom: 0px;
 }
 .tl-inter-prin p {
 	font-family: 'Alegreya';
