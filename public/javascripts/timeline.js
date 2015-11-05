@@ -108,6 +108,32 @@ TL.Util = {
 		return dest;
 	},
 
+	switchColor: function(i) {
+	  if(i==0){ return 'n-brown' }
+	  else if(i==1){ return 'n-pink' }
+	  else if(i==2){ return 'n-red' }
+	  else if(i==3){ return 'n-orange' }
+	  else if(i==4){ return 'n-yellow' }
+	  else if(i==5){ return 'n-cyan' }
+	  else if(i==6){ return 'n-green' }
+	  else if(i==7){ return 'n-blue' }
+	  else if(i==8){ return 'n-gray' }
+	  else{ return 'n-brown' }
+	},
+
+	switchLabel: function(i) {
+	  if(i==0){ return 'N/I' }
+	  else if(i==1){ return 'Consulta Ciudadana' }
+	  else if(i==2){ return 'Convocatoria' }
+	  else if(i==3){ return 'Entrega Documento' }
+	  else if(i==4){ return 'Manifestación Social' }
+	  else if(i==5){ return 'Interpelación' }
+	  else if(i==6){ return 'Socialización' }
+	  else if(i==7){ return 'Anuncio' }
+	  else if(i==8){ return 'Declaración' }
+	  else{ return 'Otro' }
+	},
+
 	isEven: function(n) {
 	  return n == parseFloat(n)? !(n%2) : void 0;
 	},
@@ -4840,6 +4866,34 @@ TL.Dom = {
 		return el;
 	},
 
+	createLine: function(tagName, className, container, top) {
+		var el = document.createElement(tagName);
+		el.className = className;
+		el.style.top = top + 'px';
+
+		if (container) {
+			container.appendChild(el);
+		}
+		return el;
+	},
+
+	createLabel: function(tagName, className, container, top, index) {
+		var el = document.createElement(tagName);
+		el.className = className;
+		el.style.top = top + 'px';
+
+		var p = document.createElement('p');
+		p.className = 'tl-label-text ' + TL.Util.switchColor(index);
+		p.innerHTML = TL.Util.switchLabel(index);
+
+		el.appendChild(p);
+
+		if (container) {
+			container.appendChild(el);
+		}
+		return el;
+	},
+
 	createText: function(content, container) {
 		var el = document.createTextNode(content);
 		if (container) {
@@ -8503,7 +8557,15 @@ TL.Media.Text = TL.Class.extend({
 		i_container: {},
 		i_tag: {},
 		i_prin: {},
-		i_sec: {}
+		i_sec: {},
+		c_container: {},
+		c_prin: {},
+		c_sub: {},
+		c_actor: {},
+		c_ambito: {},
+		m_container: {},
+		m_nombre: {},
+		m_tipo: {}
 	},
 	
 	// Data
@@ -8611,7 +8673,7 @@ TL.Media.Text = TL.Class.extend({
 		}
 
 		// Interaccion
-		if (this.data.interaccion != "") {
+		if (this.data.interaccion && this.data.interaccion != "") {
 			var interaccion_tag = TL.Util.htmlify(this.data.interaccion.tag ? "<b>tags: </b>" + this.data.interaccion.tag : "");
 			var interaccion_principal = TL.Util.htmlify(this.data.interaccion.principal ? "<b>interacción principal: </b>" + this.data.interaccion.principal : "");
 			var interaccion_secundaria = TL.Util.htmlify(this.data.interaccion.secundaria ? "<b>interacción secundaria: </b>" + this.data.interaccion.secundaria : "");
@@ -8626,6 +8688,42 @@ TL.Media.Text = TL.Class.extend({
 			
 			this._el.i_sec					= TL.Dom.create("p", "tl-inter-sec", this._el.i_container);
 			this._el.i_sec.innerHTML		= interaccion_secundaria;
+		}
+
+		// Conflicto
+		if (this.data.conflicto && this.data.conflicto != "") {
+			var principal = TL.Util.htmlify(this.data.conflicto.principal ? "<b>conflicto: </b>" + this.data.conflicto.principal : "");
+			var sub = TL.Util.htmlify(this.data.conflicto.sub ? "<b>sub-conflicto: </b>" + this.data.conflicto.sub : "");
+			var cat_actor = TL.Util.htmlify(this.data.conflicto.cat_actor ? "<b>categoria actores: </b>" + this.data.conflicto.cat_actor : "");
+			var ambito = TL.Util.htmlify(this.data.conflicto.ambito ? "<b>ambito: </b>" + this.data.conflicto.ambito : "");
+
+			this._el.c_container			= TL.Dom.create("div", "tl-conf-content", this._el.content_container);
+			
+			this._el.c_actor				= TL.Dom.create("p", "tl-conf-actor", this._el.c_container);
+			this._el.c_actor.innerHTML		= cat_actor;
+			
+			this._el.c_prin					= TL.Dom.create("p", "tl-conf-prin", this._el.c_container);
+			this._el.c_prin.innerHTML		= principal;
+			
+			this._el.c_sub					= TL.Dom.create("p", "tl-conf-sub", this._el.c_container);
+			this._el.c_sub.innerHTML		= sub;
+
+			this._el.c_ambito				= TL.Dom.create("p", "tl-conf-ambito", this._el.c_container);
+			this._el.c_ambito.innerHTML		= ambito;
+		}
+
+		// Medio
+		if (this.data.medio && this.data.medio != "") {
+			var nombre = TL.Util.htmlify(this.data.medio.nombre ? "<b>nombre del medio: </b>" + this.data.medio.nombre : "");
+			var tipo = TL.Util.htmlify(this.data.medio.tipo ? "<b>interacción principal: </b>" + this.data.medio.tipo : "");
+
+			this._el.m_container			= TL.Dom.create("div", "tl-medio-content", this._el.content_container);
+			
+			this._el.m_nombre				= TL.Dom.create("p", "tl-medio-nombre", this._el.m_container);
+			this._el.m_nombre.innerHTML		= nombre;
+			
+			this._el.m_tipo					= TL.Dom.create("p", "tl-medio-tipo", this._el.m_container);
+			this._el.m_tipo.innerHTML		= tipo;
 		}
 
 		// Fire event that the slide is loaded
@@ -10996,17 +11094,15 @@ TL.TimeNav = TL.Class.extend({
 
 		// Draw background horizontal lines
 		var fixedLinesHeight = (this.options.height - 42) / 9;
-		TL.Dom.create('div', 'tl-background-line', this._el.container);
-		TL.Dom.create('div', 'tl-background-line', this._el.container);
-		TL.Dom.create('div', 'tl-background-line', this._el.container);
-		TL.Dom.create('div', 'tl-background-line', this._el.container);
-		TL.Dom.create('div', 'tl-background-line', this._el.container);
-		TL.Dom.create('div', 'tl-background-line', this._el.container);
-		TL.Dom.create('div', 'tl-background-line', this._el.container);
-		TL.Dom.create('div', 'tl-background-line', this._el.container);
-		TL.Dom.create('div', 'tl-background-line', this._el.container);
-		
-		console.log();
+
+		var labels_container = TL.Dom.create('div', 'tl-labels-container', this._el.container);
+		labels_container.style.height = this.options.height;
+
+		for(var i=0;i<9;i++){
+			TL.Dom.createLine('div', 'tl-background-line', this._el.container, (i*fixedLinesHeight)+ 32 +(fixedLinesHeight/2));
+			TL.Dom.createLabel('div', 'tl-background-label', labels_container, (i*fixedLinesHeight)+ 20 +(fixedLinesHeight/2), i);
+		}
+
 
 		// Knight Lab Logo
 		this._el.attribution.innerHTML = "<a href='http://timeline.knightlab.com' target='_blank'><span class='tl-knightlab-logo'></span>Timeline JS</a>"
