@@ -1191,6 +1191,18 @@ to {
 	opacity: 0.5;
 }
 
+.tl-timemarker .tl-timemarker-content-container.square-container-medium {
+	height: 25px;
+	width: 25px;
+	left: -12px;
+}
+
+.tl-timemarker .tl-timemarker-content-container.square-container-large {
+	height: 30px;
+	width: 30px;
+	left: -15px;
+}
+
 .tl-timemarker .tl-timemarker-content-container:hover {
 	z-index:9
 }
@@ -3185,4 +3197,8 @@ to {
 
 .tl-inter-sec, .tl-actores {
 	width: 50% !important;
+}
+
+.low-opacity {
+	opacity: 0.2 !important;
 }

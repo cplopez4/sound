@@ -10958,7 +10958,7 @@ TL.TimeNav = TL.Class.extend({
 	},
 
 	_onMarkerHover: function(e) {
-		alert("Marker Hover!");
+		console.log("Marker Hover!");
 	},
 
 	_onMouseScroll: function(e) {
@@ -11334,20 +11334,27 @@ TL.TimeMarker = TL.Class.extend({
 		var text_line_height = 12,
 			text_lines = 1;
 
-		this._el.content_container.style.height = h  + "px";
-		this._el.timespan_content.style.height = h + "px";
+		/*this._el.content_container.style.height = h  + "px";
+		this._el.timespan_content.style.height = h + "px";*/
 		// Handle Line height for better display of text
-		if (h <= 30) {
+		/*if (h <= 20) {
 			this._el.content.className = "tl-timemarker-content tl-timemarker-content-small";
-		} else {
-			this._el.content.className = "tl-timemarker-content";
+			TL.DomUtil.addClass(this._el.content_container, "tl-timemarker-content-container-small");
+		} 
+		else if (h <= 25) {
+			this._el.content.className = "tl-timemarker-content tl-timemarker-content-medium";
+			TL.DomUtil.addClass(this._el.content_container, "tl-timemarker-content-container-medium");
 		}
+		else {
+			this._el.content.className = "tl-timemarker-content";
+			TL.DomUtil.addClass(this._el.content_container, "tl-timemarker-content-container-large");
+		}*/
 
-		if (h <= 56) {
+		/*if (h <= 56) {
 			TL.DomUtil.addClass(this._el.content_container, "tl-timemarker-content-container-small");
 		} else {
 			TL.DomUtil.removeClass(this._el.content_container, "tl-timemarker-content-container-small");
-		}
+		}*/
 
 		// Handle number of lines visible vertically
 
@@ -11427,9 +11434,22 @@ TL.TimeMarker = TL.Class.extend({
 		this._el.timespan				= TL.Dom.create("div", "tl-timemarker-timespan", this._el.container);
 		this._el.timespan_content		= TL.Dom.create("div", "tl-timemarker-timespan-content", this._el.timespan);
 
+		var nCat = this.data.text.conflicto.cat_actor.split(",").length;
+		var squareSize = "square-container-small";
+		var topAdjust = 13;
+
+		if(nCat > 1 && nCat < 4){
+			squareSize = "square-container-medium";
+			topAdjust = 16;
+		}
+		else if(nCat > 3){
+			squareSize = "square-container-large";
+			topAdjust = 18;
+		}
+
 		if(this.data.text.interaccion.tag instanceof Array){
 			for(var k=0;k<this.data.text.interaccion.tag.length;k++){
-				this._el.content_container		= TL.Dom.createLine("div", "tl-timemarker-content-container "+ TL.Util.switchColor(this.data.text.interaccion.tag[k]), this._el.container, (this.data.text.interaccion.tag[k]*fixedHeight)+(fixedHeight/2)-13);
+				this._el.content_container		= TL.Dom.createLine("div", "tl-timemarker-content-container "+ TL.Util.switchColor(this.data.text.interaccion.tag[k]) + " " + squareSize, this._el.container, (this.data.text.interaccion.tag[k]*fixedHeight)+(fixedHeight/2)-topAdjust);
 				this._el.content				= TL.Dom.create("div", "tl-timemarker-content", this._el.content_container);
 			}
 			// console.log(array[i].text.interaccion.tag.length);
@@ -11437,7 +11457,7 @@ TL.TimeMarker = TL.Class.extend({
 		else {
 			var random = Math.floor(Math.random()*6)+1;
 			// this._el.content_container		= TL.Dom.create("div", "tl-timemarker-content-container "+ TL.Util.switchColor(this.data.text.interaccion.tag[k]), this._el.container);
-			this._el.content_container		= TL.Dom.createLine("div", "tl-timemarker-content-container "+ TL.Util.switchColor(random), this._el.container, (random*fixedHeight)+(fixedHeight/2)-13);
+			this._el.content_container		= TL.Dom.createLine("div", "tl-timemarker-content-container "+ TL.Util.switchColor(random) + " " + squareSize, this._el.container, (random*fixedHeight)+(fixedHeight/2)-topAdjust);
 			this._el.content				= TL.Dom.create("div", "tl-timemarker-content", this._el.content_container);
 		}
 
