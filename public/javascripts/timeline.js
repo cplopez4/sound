@@ -10671,11 +10671,12 @@ TL.TimeNav = TL.Class.extend({
 	_addMarker:function(marker) {
 		marker.addTo(this._el.marker_item_container);
 		marker.on('markerclick', this._onMarkerClick, this);
+		marker.on('markerhover', this._onMarkerHover, this);
 		marker.on('added', this._onMarkerAdded, this);
 	},
 
 	_createMarker: function(data, n, index) {
-		console.log(data);
+		//console.log(data);
 
 		var marker = new TL.TimeMarker(data, this.options);
 		this._addMarker(marker);
@@ -10956,6 +10957,10 @@ TL.TimeNav = TL.Class.extend({
 		this.fire("change", {unique_id: e.unique_id});
 	},
 
+	_onMarkerHover: function(e) {
+		alert("Marker Hover!");
+	},
+
 	_onMouseScroll: function(e) {
 
 		var delta		= 0,
@@ -11151,7 +11156,7 @@ TL.TimeNav = TL.Class.extend({
 
 	_initData: function() {
 		// Create Markers and then add them
-		console.log(this.config.events);
+		//console.log(this.config.events);
 
 		this._createMarkers(this.config.events);
 
@@ -11399,6 +11404,10 @@ TL.TimeMarker = TL.Class.extend({
 		this.fire("markerclick", {unique_id:this.data.unique_id});
 		//alert("Evento de Marker Click!");
 	},
+	_onMarkerHover: function(e) {
+		// console.log("Marker Hover 2!");
+		this.fire("markerhover", {unique_id:this.data.unique_id});
+	},
 
 	/*	Private Methods
 	================================================== */
@@ -11442,6 +11451,7 @@ TL.TimeMarker = TL.Class.extend({
 
 	_initEvents: function() {
 		TL.DomEvent.addListener(this._el.container, 'click', this._onMarkerClick, this);
+		TL.DomEvent.addListener(this._el.container, 'mouseenter', this._onMarkerHover, this);
 	},
 
 	// Update Display
