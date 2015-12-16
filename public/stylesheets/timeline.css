@@ -3202,3 +3202,7 @@ to {
 .low-opacity {
 	opacity: 0.2 !important;
 }
+
+.full-opacity {
+	opacity: 1 !important;
+}

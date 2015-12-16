@@ -27,48 +27,18 @@ $(document).ready(function(){
             hide: {
                 event: 'mouseleave',
             }
-            /*events: {
-                render: function(event, api) {
-                    api.elements.target.click(function(e) {
-                        api.wasClicked = !api.wasClicked;
-                    });
-                },
-                show: function(event, api) {
-                    toggleRectColor(value);
-
-                    $("#" + api._id + "-large").qtip("hide");
-                    $("#" + api._id + "-small").qtip("hide");
-                },
-                hide: function(event, api) {
-                    $("#" + api._id + "-small").qtip("show");
-
-                    if (api.wasClicked && event.originalEvent.type === 'mouseleave') {
-                        try {
-                            event.preventDefault();
-                        } catch (e) {}
-                    } else if (!api.wasClicked && event.originalEvent.type === 'click') {
-                        try {
-                            event.preventDefault();
-                        } catch (e) {}
-                    } else {
-                        toggleRectColor(value);
-                    }
-                }
-            }*/
         })
 	});
 
-	/*$(".tl-timemarker").hover(function(){
-		$(".tl-timemarker").css("opacity", "0.3");
-		$(this).css("opacity", "1");
-	})*/
-
 	$(".tl-timemarker").hover(
 	  function() {
+	  	var group = $(this).attr("data-group");
 	  	$(".tl-timemarker").addClass("low-opacity");
-	    $(this).removeClass("low-opacity");
+	    $(".tl-timemarker[data-group='"+ group +"']").removeClass("low-opacity");
+	    $(".tl-timemarker[data-group='"+ group +"']").find(".tl-timemarker-content-container").addClass("full-opacity");
 	  }, function() {
 	    $(".tl-timemarker").removeClass("low-opacity");
+	    $(".tl-timemarker").find(".tl-timemarker-content-container").removeClass("full-opacity");
 	  }
 	);
 });

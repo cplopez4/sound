@@ -4873,10 +4873,43 @@ TL.Dom = {
 		return el;
 	},
 
+	createAnchor: function(tagName, className, container, href) {
+		var el = document.createElement(tagName);
+		el.className = className;
+		el.setAttribute("href", href);
+		el.setAttribute("target", "_blank");
+		if (container) {
+			container.appendChild(el);
+		}
+		return el;
+	},
+
+	createGroup: function(tagName, className, group, container) {
+		var el = document.createElement(tagName);
+		el.className = className;
+		el.setAttribute("data-group", group);
+		if (container) {
+			container.appendChild(el);
+		}
+		return el;
+	},
+
 	createLine: function(tagName, className, container, top) {
 		var el = document.createElement(tagName);
 		el.className = className;
 		el.style.top = top + 'px';
+
+		if (container) {
+			container.appendChild(el);
+		}
+		return el;
+	},
+
+	createLineGroup: function(tagName, className, container, top, group) {
+		var el = document.createElement(tagName);
+		el.className = className;
+		el.style.top = top + 'px';
+		el.setAttribute("data-group", group);
 
 		if (container) {
 			container.appendChild(el);
@@ -8662,10 +8695,11 @@ TL.Media.Text = TL.Class.extend({
 		if (this.data.medio && this.data.medio != "") {
 			var tipo = TL.Util.htmlify(this.data.medio.tipo ? "<img class='tipo-image' src='images/"+ TL.Util.switchImageType(this.data.medio.tipo) +"' />" : "");
 			var nombre = TL.Util.htmlify(this.data.medio.nombre ? this.data.medio.nombre : "");
+			var link = this.data.medio.link != 'N/I' ? this.data.medio.link : "";
 
 			//var story_container = TL.Dom.getByClass("tl-storyslider")[0];
 
-			this._el.m_container			= TL.Dom.create("div", "tl-medio-content", this._el.container);
+			this._el.m_container			= TL.Dom.createAnchor("a", "tl-medio-content", this._el.container, link);
 			
 			this._el.m_tipo					= TL.Dom.create("div", "tl-medio-tipo", this._el.m_container);
 			this._el.m_tipo.innerHTML		= tipo;
@@ -11421,7 +11455,7 @@ TL.TimeMarker = TL.Class.extend({
 	_initLayout: function () {
 		//trace(this.data)
 		// Create Layout
-		this._el.container 				= TL.Dom.create("div", "tl-timemarker");
+		this._el.container 				= TL.Dom.createGroup("div", "tl-timemarker", this.data.text.navegacion.grupo);
 		if (this.data.unique_id) {
 			this._el.container.id 		= this.data.unique_id + "-marker";
 		}
