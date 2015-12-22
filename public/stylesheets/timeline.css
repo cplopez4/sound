@@ -3225,3 +3225,59 @@ to {
 .hidden {
 	display: none !important;
 }
+
+select.custom-dropdown {
+	-webkit-appearance: none;  /*REMOVES DEFAULT CHROME & SAFARI STYLE*/
+	-moz-appearance: none;  /*REMOVES DEFAULT FIREFOX STYLE*/
+	border: 0 !important;  /*REMOVES BORDER*/
+
+	background-color: white;
+	color: black;
+	cursor: pointer;
+	padding: 0px;
+	/*-webkit-border-radius: 5px;
+ 	border-radius: 5px;*/
+
+	margin-left: 15px;
+	font-family: 'Alegreya Sans SC';
+	font-weight: 700;
+	font-size: 13pt;
+}
+
+select.custom-dropdown:focus{
+    outline: 0;
+}
+
+.tl-circle-container {
+	width: 80px;
+	position: absolute;
+	left: 36%;
+	height: 80px;
+	background: rgba(60,60,75,0.3);
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	color: rgb(60,60,75);
+}
+
+.tl-circle-container .circle-top {
+	text-align: center;
+	height: 50%;
+	line-height: 3.5;
+	font-size: 10pt;
+	font-family: 'Alegreya Sans';
+}
+
+.tl-circle-container .circle-bottom {
+	text-align: center;
+	height: 50%;
+	padding: 5px 00px 0px 0px;
+	border-top: 2px solid;
+	border-color: rgba(42,56,220,0.7);
+	margin-left: 10px;
+	margin-right: 10px;
+	font-size: 10pt;
+	font-family: 'Alegreya Sans';
+	font-weight: bold;
+}
+
+

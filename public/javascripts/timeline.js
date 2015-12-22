@@ -126,6 +126,23 @@ TL.Util = {
 	  else{ return 'n-brown' }
 	},
 
+	switchMonth: function(i) {
+	  if(i==1 || i=="1" || i=="01"){ return 'Ene' }
+	  else if(i==2 || i=="2" || i=="02"){ return 'Feb' }
+	  else if(i==3 || i=="3" || i=="03"){ return 'Mar' }
+	  else if(i==4 || i=="4" || i=="04"){ return 'Abr' }
+	  else if(i==5 || i=="5" || i=="05"){ return 'May' }
+	  else if(i==6 || i=="6" || i=="06"){ return 'Jun' }
+	  else if(i==7 || i=="7" || i=="07"){ return 'Jul' }
+	  else if(i==8 || i=="8" || i=="08"){ return 'Ago' }
+	  else if(i==9 || i=="9" || i=="09"){ return 'Sep' }
+	  else if(i==10 || i=="10" || i=="10"){ return 'Oct' }
+	  else if(i==11 || i=="11" || i=="11"){ return 'Nov' }
+	  else if(i==12 || i=="12" || i=="12"){ return 'Dec' }
+	  else{ return 'Dec' }
+	},
+
+
 	switchLabel: function(i,type) {
 		if(type==0){
 		  if(i==0){ return 'N/I' }
@@ -8635,6 +8652,7 @@ TL.Media.Text = TL.Class.extend({
 		content_container_bothalf_r: {},
 		content: {},
 		headline: {},
+		circle: {},
 		date: {},
 		i_container: {},
 		i_tag: {},
@@ -8655,7 +8673,8 @@ TL.Media.Text = TL.Class.extend({
 		unique_id: 			"",
 		headline: 			"headline",
 		text: 				"text",
-		interaccion: 		"" 
+		interaccion: 		"",
+		fixed_date: 		""
 	},
 	
 	// Options
@@ -8759,6 +8778,13 @@ TL.Media.Text = TL.Class.extend({
 			}
 			this._el.headline				= TL.Dom.create("h3", headline_class, this._el.content_container_tophalf);
 			this._el.headline.innerHTML		= this.data.headline;
+		}
+
+		// Date Circle
+		if (this.data.fixed_date != "") {
+			var month = TL.Util.switchMonth(this.data.fixed_date.month);
+			this._el.circle					= TL.Dom.create("div", "tl-circle-container", this._el.content_container_tophalf);
+			this._el.circle.innerHTML		= "<div class='circle-top'>"+ this.data.fixed_date.day + " " + month +"</div><div class='circle-bottom'>"+ this.data.fixed_date.year +"</div>";
 		}
 
 		// Conflicto
