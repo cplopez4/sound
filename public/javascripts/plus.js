@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$.each($(".tl-timemarker"), function(index, value) {
-		var title = $(value).attr("data-title");
+		var title = $(value).attr("data-title").toLowerCase();
 
 		$(value).qtip({
             style: {

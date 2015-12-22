@@ -152,8 +152,7 @@ TL.Util = {
 		  else if(i==4){ return 'Manifestación Social' }
 		  else if(i==5){ return 'Interpelación' }
 		  else if(i==6){ return 'Socialización' }
-		  else if(i==7){ return 'Anuncio' }
-		  else if(i==8){ return 'Declaración' }
+		  else if(i==7){ return 'Declaración' }
 		  else{ return 'Otro' }
 		}
 		else if(type==1){
@@ -8777,7 +8776,7 @@ TL.Media.Text = TL.Class.extend({
 				headline_class = "custom-title tl-headline tl-headline-title";
 			}
 			this._el.headline				= TL.Dom.create("h3", headline_class, this._el.content_container_tophalf);
-			this._el.headline.innerHTML		= this.data.headline;
+			this._el.headline.innerHTML		= this.data.headline.toLowerCase();
 		}
 
 		// Date Circle
@@ -11216,7 +11215,7 @@ TL.TimeNav = TL.Class.extend({
 		this._el.timeaxis_background 		= TL.Dom.create('div', 'tl-timeaxis-background', this._el.container);
 
 		// Draw background horizontal lines
-		var fixedLinesHeight = (this.options.height - 42) / 9;
+		var fixedLinesHeight = (this.options.height - 42) / 8;
 		fixedHeight = fixedLinesHeight;
 		fixedHeightAmb = (this.options.height - 42) / 6;
 		fixedHeightConf = (this.options.height - 42) / 7;
@@ -11225,7 +11224,7 @@ TL.TimeNav = TL.Class.extend({
 		var labels_container = TL.Dom.create('div', 'tl-labels-container', this._el.container);
 		labels_container.style.height = this.options.height;
 
-		for(var i=0;i<9;i++){
+		for(var i=0;i<8;i++){
 			TL.Dom.createLine('div', 'tl-background-line int', this._el.container, (i*fixedLinesHeight)+ 32 +(fixedLinesHeight/2));
 			TL.Dom.createLabel('div', 'tl-background-label int', labels_container, (i*fixedLinesHeight)+ 20 +(fixedLinesHeight/2), i, 0);
 		}
