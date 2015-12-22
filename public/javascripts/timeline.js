@@ -185,6 +185,7 @@ TL.Util = {
 		  else if(i==7){ return 'Asociación Religiosa' }
 		  else if(i==8){ return 'Pueblos Indígenas' }
 		  else if(i==9){ return 'Medioambientales' }
+		  else if(i==10){ return 'Medio de Comunicación' }
 		  else{ return 'Otro' }
 		}
 	},
@@ -11219,7 +11220,7 @@ TL.TimeNav = TL.Class.extend({
 		fixedHeight = fixedLinesHeight;
 		fixedHeightAmb = (this.options.height - 42) / 6;
 		fixedHeightConf = (this.options.height - 42) / 7;
-		fixedHeightAct = (this.options.height - 42) / 10;
+		fixedHeightAct = (this.options.height - 42) / 11;
 
 		var labels_container = TL.Dom.create('div', 'tl-labels-container', this._el.container);
 		labels_container.style.height = this.options.height;
@@ -11236,7 +11237,7 @@ TL.TimeNav = TL.Class.extend({
 			TL.Dom.createLine('div', 'tl-background-line conf hidden', this._el.container, (i*fixedHeightConf)+ 32 +(fixedHeightConf/2));
 			TL.Dom.createLabel('div', 'tl-background-label conf hidden', labels_container, (i*fixedHeightConf)+ 20 +(fixedHeightConf/2), i, 2);
 		}
-		for(var i=0;i<10;i++){
+		for(var i=0;i<11;i++){
 			TL.Dom.createLine('div', 'tl-background-line act hidden', this._el.container, (i*fixedHeightAct)+ 32 +(fixedHeightAct/2));
 			TL.Dom.createLabel('div', 'tl-background-label act hidden', labels_container, (i*fixedHeightAct)+ 20 +(fixedHeightAct/2), i, 3);
 		}
