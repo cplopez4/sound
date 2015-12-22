@@ -27,6 +27,9 @@
 ================================================== */
 TL.debug = false;
 TL.fixedHeight = 0;
+TL.fixedHeightAmb = 0;
+TL.fixedHeightConf = 0;
+TL.fixedHeightAct = 0;
 
 
 
@@ -119,20 +122,55 @@ TL.Util = {
 	  else if(i==6){ return 'n-green' }
 	  else if(i==7){ return 'n-blue' }
 	  else if(i==8){ return 'n-gray' }
+	  else if(i==9){ return 'n-purple' }
 	  else{ return 'n-brown' }
 	},
 
-	switchLabel: function(i) {
-	  if(i==0){ return 'N/I' }
-	  else if(i==1){ return 'Consulta Ciudadana' }
-	  else if(i==2){ return 'Convocatoria' }
-	  else if(i==3){ return 'Entrega Documento' }
-	  else if(i==4){ return 'Manifestación Social' }
-	  else if(i==5){ return 'Interpelación' }
-	  else if(i==6){ return 'Socialización' }
-	  else if(i==7){ return 'Anuncio' }
-	  else if(i==8){ return 'Declaración' }
-	  else{ return 'Otro' }
+	switchLabel: function(i,type) {
+		if(type==0){
+		  if(i==0){ return 'N/I' }
+		  else if(i==1){ return 'Consulta Ciudadana' }
+		  else if(i==2){ return 'Convocatoria' }
+		  else if(i==3){ return 'Entrega Documento' }
+		  else if(i==4){ return 'Manifestación Social' }
+		  else if(i==5){ return 'Interpelación' }
+		  else if(i==6){ return 'Socialización' }
+		  else if(i==7){ return 'Anuncio' }
+		  else if(i==8){ return 'Declaración' }
+		  else{ return 'Otro' }
+		}
+		else if(type==1){
+		  if(i==0){ return 'N/I' }
+		  else if(i==1){ return 'Economía' }
+		  else if(i==2){ return 'Infraestructura Urbana' }
+		  else if(i==3){ return 'Política' }
+		  else if(i==4){ return 'Social' }
+		  else if(i==5){ return 'Medioambiente' }
+		  else{ return 'Otro' }
+		}
+		else if(type==2){
+		  if(i==0){ return 'N/I' }
+		  else if(i==1){ return 'Alteración del ecosistema' }
+		  else if(i==2){ return 'Centralismo' }
+		  else if(i==3){ return 'Desconfianza en la Autoridad/Cuestionamiento Político' }
+		  else if(i==4){ return 'Deuda Histórica' }
+		  else if(i==5){ return 'Condiciones Calama PLUS' }
+		  else if(i==6){ return 'Prácticas Antisindicales' }
+		  else{ return 'Otro' }
+		}
+		else{
+		  if(i==0){ return 'N/I' }
+		  else if(i==1){ return 'Consorcio Calama PLUS' }
+		  else if(i==2){ return 'Grupo Social' }
+		  else if(i==3){ return 'Político' }
+		  else if(i==4){ return 'Empresas' }
+		  else if(i==5){ return 'Organización Estudiantil' }
+		  else if(i==6){ return 'Organización Laboral' }
+		  else if(i==7){ return 'Asociación Religiosa' }
+		  else if(i==8){ return 'Pueblos Indígenas' }
+		  else if(i==9){ return 'Medioambientales' }
+		  else{ return 'Otro' }
+		}
 	},
 
 	switchImageType: function(t) {
@@ -4884,10 +4922,11 @@ TL.Dom = {
 		return el;
 	},
 
-	createGroup: function(tagName, className, group, container) {
+	createGroup: function(tagName, className, group, title, container) {
 		var el = document.createElement(tagName);
 		el.className = className;
 		el.setAttribute("data-group", group);
+		el.setAttribute("data-title", title);
 		if (container) {
 			container.appendChild(el);
 		}
@@ -4917,14 +4956,14 @@ TL.Dom = {
 		return el;
 	},
 
-	createLabel: function(tagName, className, container, top, index) {
+	createLabel: function(tagName, className, container, top, index, type) {
 		var el = document.createElement(tagName);
 		el.className = className;
 		el.style.top = top + 'px';
 
 		var p = document.createElement('p');
 		p.className = 'tl-label-text ' + TL.Util.switchColor(index);
-		p.innerHTML = TL.Util.switchLabel(index);
+		p.innerHTML = TL.Util.switchLabel(index,type);
 
 		el.appendChild(p);
 
@@ -8734,8 +8773,8 @@ TL.Media.Text = TL.Class.extend({
 			this._el.c_prin					= TL.Dom.create("p", "tl-conf-prin", this._el.c_container);
 			this._el.c_prin.innerHTML		= principal;
 			
-			this._el.c_sub					= TL.Dom.create("p", "tl-conf-sub", this._el.c_container);
-			this._el.c_sub.innerHTML		= sub;
+			/*this._el.c_sub					= TL.Dom.create("p", "tl-conf-sub", this._el.c_container);
+			this._el.c_sub.innerHTML		= sub;*/
 
 			this._el.c_actor				= TL.Dom.create("p", "tl-conf-actor", this._el.c_container);
 			this._el.c_actor.innerHTML		= cat_actor;
@@ -10992,7 +11031,7 @@ TL.TimeNav = TL.Class.extend({
 	},
 
 	_onMarkerHover: function(e) {
-		console.log("Marker Hover!");
+		//console.log("Marker Hover!");
 	},
 
 	_onMouseScroll: function(e) {
@@ -11153,13 +11192,28 @@ TL.TimeNav = TL.Class.extend({
 		// Draw background horizontal lines
 		var fixedLinesHeight = (this.options.height - 42) / 9;
 		fixedHeight = fixedLinesHeight;
+		fixedHeightAmb = (this.options.height - 42) / 6;
+		fixedHeightConf = (this.options.height - 42) / 7;
+		fixedHeightAct = (this.options.height - 42) / 10;
 
 		var labels_container = TL.Dom.create('div', 'tl-labels-container', this._el.container);
 		labels_container.style.height = this.options.height;
 
 		for(var i=0;i<9;i++){
-			TL.Dom.createLine('div', 'tl-background-line', this._el.container, (i*fixedLinesHeight)+ 32 +(fixedLinesHeight/2));
-			TL.Dom.createLabel('div', 'tl-background-label', labels_container, (i*fixedLinesHeight)+ 20 +(fixedLinesHeight/2), i);
+			TL.Dom.createLine('div', 'tl-background-line int', this._el.container, (i*fixedLinesHeight)+ 32 +(fixedLinesHeight/2));
+			TL.Dom.createLabel('div', 'tl-background-label int', labels_container, (i*fixedLinesHeight)+ 20 +(fixedLinesHeight/2), i, 0);
+		}
+		for(var i=0;i<6;i++){
+			TL.Dom.createLine('div', 'tl-background-line amb hidden', this._el.container, (i*fixedHeightAmb)+ 32 +(fixedHeightAmb/2));
+			TL.Dom.createLabel('div', 'tl-background-label amb hidden', labels_container, (i*fixedHeightAmb)+ 20 +(fixedHeightAmb/2), i, 1);
+		}
+		for(var i=0;i<7;i++){
+			TL.Dom.createLine('div', 'tl-background-line conf hidden', this._el.container, (i*fixedHeightConf)+ 32 +(fixedHeightConf/2));
+			TL.Dom.createLabel('div', 'tl-background-label conf hidden', labels_container, (i*fixedHeightConf)+ 20 +(fixedHeightConf/2), i, 2);
+		}
+		for(var i=0;i<10;i++){
+			TL.Dom.createLine('div', 'tl-background-line act hidden', this._el.container, (i*fixedHeightAct)+ 32 +(fixedHeightAct/2));
+			TL.Dom.createLabel('div', 'tl-background-label act hidden', labels_container, (i*fixedHeightAct)+ 20 +(fixedHeightAct/2), i, 3);
 		}
 
 
@@ -11455,7 +11509,7 @@ TL.TimeMarker = TL.Class.extend({
 	_initLayout: function () {
 		//trace(this.data)
 		// Create Layout
-		this._el.container 				= TL.Dom.createGroup("div", "tl-timemarker", this.data.text.navegacion.grupo);
+		this._el.container 				= TL.Dom.createGroup("div", "tl-timemarker", this.data.text.navegacion.grupo, this.data.text.headline);
 		if (this.data.unique_id) {
 			this._el.container.id 		= this.data.unique_id + "-marker";
 		}
@@ -11470,24 +11524,53 @@ TL.TimeMarker = TL.Class.extend({
 
 		var nCat = this.data.text.conflicto.cat_actor.split(",").length;
 		var squareSize = "square-container-small";
-		var topAdjust = 13;
+		var topAdjust = 8;
 
 		if(nCat > 1 && nCat < 4){
 			squareSize = "square-container-medium";
-			topAdjust = 16;
+			topAdjust = 13;
 		}
 		else if(nCat > 3){
 			squareSize = "square-container-large";
 			topAdjust = 18;
 		}
 
+		// Create Squares for INTERACCION
 		if(this.data.text.interaccion.tag instanceof Array){
 			for(var k=0;k<this.data.text.interaccion.tag.length;k++){
-				this._el.content_container		= TL.Dom.createLine("div", "tl-timemarker-content-container "+ TL.Util.switchColor(this.data.text.interaccion.tag[k]) + " " + squareSize, this._el.container, (this.data.text.interaccion.tag[k]*fixedHeight)+(fixedHeight/2)-topAdjust);
+				this._el.content_container		= TL.Dom.createLine("div", "tl-timemarker-content-container int "+ TL.Util.switchColor(this.data.text.interaccion.tag[k]) + " " + squareSize, this._el.container, (this.data.text.interaccion.tag[k]*fixedHeight)+(fixedHeight/2)-topAdjust);
 				this._el.content				= TL.Dom.create("div", "tl-timemarker-content", this._el.content_container);
 			}
 			// console.log(array[i].text.interaccion.tag.length);
 		}
+
+		// Create Squares for AMBITO
+		if(this.data.text.conflicto.amb_tag instanceof Array){
+			for(var k=0;k<this.data.text.conflicto.amb_tag.length;k++){
+				this._el.content_container		= TL.Dom.createLine("div", "tl-timemarker-content-container amb hidden "+ TL.Util.switchColor(this.data.text.conflicto.amb_tag[k]) + " " + squareSize, this._el.container, (this.data.text.conflicto.amb_tag[k]*fixedHeightAmb)+(fixedHeightAmb/2)-topAdjust);
+				this._el.content				= TL.Dom.create("div", "tl-timemarker-content", this._el.content_container);
+			}
+			// console.log(array[i].text.conflicto.tag.length);
+		}
+
+		// Create Squares for CONFLICTO
+		if(this.data.text.conflicto.conf_tag instanceof Array){
+			for(var k=0;k<this.data.text.conflicto.conf_tag.length;k++){
+				this._el.content_container		= TL.Dom.createLine("div", "tl-timemarker-content-container conf hidden "+ TL.Util.switchColor(this.data.text.conflicto.conf_tag[k]) + " " + squareSize, this._el.container, (this.data.text.conflicto.conf_tag[k]*fixedHeightConf)+(fixedHeightConf/2)-topAdjust);
+				this._el.content				= TL.Dom.create("div", "tl-timemarker-content", this._el.content_container);
+			}
+			// console.log(array[i].text.conflicto.tag.length);
+		}
+
+		// Create Squares for ACTORES
+		if(this.data.text.conflicto.act_tag instanceof Array){
+			for(var k=0;k<this.data.text.conflicto.act_tag.length;k++){
+				this._el.content_container		= TL.Dom.createLine("div", "tl-timemarker-content-container act hidden "+ TL.Util.switchColor(this.data.text.conflicto.act_tag[k]) + " " + squareSize, this._el.container, (this.data.text.conflicto.act_tag[k]*fixedHeightAct)+(fixedHeightAct/2)-topAdjust);
+				this._el.content				= TL.Dom.create("div", "tl-timemarker-content", this._el.content_container);
+			}
+			// console.log(array[i].text.conflicto.tag.length);
+		}
+
 		else {
 			var random = Math.floor(Math.random()*6)+1;
 			// this._el.content_container		= TL.Dom.create("div", "tl-timemarker-content-container "+ TL.Util.switchColor(this.data.text.interaccion.tag[k]), this._el.container);
