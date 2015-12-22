@@ -11472,7 +11472,7 @@ TL.TimeMarker = TL.Class.extend({
 
 		// Handle number of lines visible vertically
 
-		if (TL.Browser.webkit) {
+		/*if (TL.Browser.webkit) {
 			text_lines = Math.floor(h / (text_line_height + 2));
 			if (text_lines < 1) {
 				text_lines = 1;
@@ -11487,7 +11487,7 @@ TL.TimeMarker = TL.Class.extend({
 				this._text.className = "tl-headline";
 			}
 			this._text.style.height = (text_lines * text_line_height)  + "px";
-		}
+		}*/
 
 	},
 
