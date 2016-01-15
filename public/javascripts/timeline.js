@@ -1,3 +1,18 @@
+var heightObj = {
+	fixedHeightInt: 0,
+	fixedHeightAmb: 0,
+	fixedHeightConf: 0,
+	fixedHeightAct: 0,
+	topFirstInt: 0,
+	deltaInt: 0,
+	topFirstAmb: 0,
+	deltaAmb: 0,
+	topFirstConf: 0,
+	deltaConf: 0,
+	topFirstAct: 0,
+	deltaAct: 0
+};
+
 /*
     TimelineJS - ver. 3.3.8 - 2015-10-21
     Copyright (c) 2012-2015 Northwestern University
@@ -124,6 +139,12 @@ TL.Util = {
 	  else if(i==8){ return 'n-gray' }
 	  else if(i==9){ return 'n-purple' }
 	  else{ return 'n-brown' }
+	},
+
+	switchSize: function(i) {
+	  if(i<2){ return 0 }
+	  else if(i>1 && i<4){ return 1 }
+	  else{ return 2 }
 	},
 
 	switchMonth: function(i) {
@@ -4954,6 +4975,19 @@ TL.Dom = {
 		var el = document.createElement(tagName);
 		el.className = className;
 		el.style.top = top + 'px';
+
+		if (container) {
+			container.appendChild(el);
+		}
+		return el;
+	},
+
+	createLineSquare: function(tagName, className, container, top, sizeArray, topArray) {
+		var el = document.createElement(tagName);
+		el.className = className;
+		el.style.top = top + 'px';
+		el.setAttribute("data-size", sizeArray);
+		el.setAttribute("data-top", topArray);
 
 		if (container) {
 			container.appendChild(el);
@@ -11535,6 +11569,20 @@ TL.TimeMarker = TL.Class.extend({
 	_initLayout: function () {
 		//trace(this.data)
 		// Create Layout
+
+		//Cantidad de interacciones - index:0
+		var iCat = this.data.text.interaccion.tag.length;
+		//Cantidad de ámbitos - index:1
+		var aCat = this.data.text.conflicto.amb_tag.length;
+		//Cantidad de conflictos - index:2
+		var cCat = this.data.text.conflicto.conf_tag.length;
+		//Cantidad de categorías de actores - index:3
+		var nCat = this.data.text.conflicto.act_tag.length;
+
+		//0: small, 1: medium, 2: large
+		var sizeArray = [TL.Util.switchSize(iCat),TL.Util.switchSize(aCat),TL.Util.switchSize(cCat),TL.Util.switchSize(nCat)];
+
+
 		this._el.container 				= TL.Dom.createGroup("div", "tl-timemarker", this.data.text.navegacion.grupo, this.data.text.headline);
 		if (this.data.unique_id) {
 			this._el.container.id 		= this.data.unique_id + "-marker";
@@ -11548,7 +11596,6 @@ TL.TimeMarker = TL.Class.extend({
 		this._el.timespan				= TL.Dom.create("div", "tl-timemarker-timespan", this._el.container);
 		this._el.timespan_content		= TL.Dom.create("div", "tl-timemarker-timespan-content", this._el.timespan);
 
-		var nCat = this.data.text.conflicto.cat_actor.split(",").length;
 		var squareSize = "square-container-small";
 		var topAdjust = 8;
 
@@ -11564,7 +11611,8 @@ TL.TimeMarker = TL.Class.extend({
 		// Create Squares for INTERACCION
 		if(this.data.text.interaccion.tag instanceof Array){
 			for(var k=0;k<this.data.text.interaccion.tag.length;k++){
-				this._el.content_container		= TL.Dom.createLine("div", "tl-timemarker-content-container int "+ TL.Util.switchColor(this.data.text.interaccion.tag[k]) + " " + squareSize, this._el.container, (this.data.text.interaccion.tag[k]*fixedHeight)+(fixedHeight/2)-topAdjust);
+				var baseAdjust = (this.data.text.interaccion.tag[k]*fixedHeight)+(fixedHeight/2);
+				this._el.content_container		= TL.Dom.createLineSquare("div", "tl-timemarker-content-container int "+ TL.Util.switchColor(this.data.text.interaccion.tag[k]) + " " + squareSize, this._el.container, (this.data.text.interaccion.tag[k]*fixedHeight)+(fixedHeight/2)-topAdjust, sizeArray, [baseAdjust-8,baseAdjust-13,baseAdjust-18]);
 				this._el.content				= TL.Dom.create("div", "tl-timemarker-content", this._el.content_container);
 			}
 			// console.log(array[i].text.interaccion.tag.length);
@@ -11573,7 +11621,8 @@ TL.TimeMarker = TL.Class.extend({
 		// Create Squares for AMBITO
 		if(this.data.text.conflicto.amb_tag instanceof Array){
 			for(var k=0;k<this.data.text.conflicto.amb_tag.length;k++){
-				this._el.content_container		= TL.Dom.createLine("div", "tl-timemarker-content-container amb hidden "+ TL.Util.switchColor(this.data.text.conflicto.amb_tag[k]) + " " + squareSize, this._el.container, (this.data.text.conflicto.amb_tag[k]*fixedHeightAmb)+(fixedHeightAmb/2)-topAdjust);
+				var baseAdjust = (this.data.text.conflicto.amb_tag[k]*fixedHeightAmb)+(fixedHeightAmb/2);
+				this._el.content_container		= TL.Dom.createLineSquare("div", "tl-timemarker-content-container amb hidden "+ TL.Util.switchColor(this.data.text.conflicto.amb_tag[k]) + " " + squareSize, this._el.container, (this.data.text.conflicto.amb_tag[k]*fixedHeightAmb)+(fixedHeightAmb/2)-topAdjust, sizeArray, [baseAdjust-8,baseAdjust-13,baseAdjust-18]);
 				this._el.content				= TL.Dom.create("div", "tl-timemarker-content", this._el.content_container);
 			}
 			// console.log(array[i].text.conflicto.tag.length);
@@ -11582,7 +11631,8 @@ TL.TimeMarker = TL.Class.extend({
 		// Create Squares for CONFLICTO
 		if(this.data.text.conflicto.conf_tag instanceof Array){
 			for(var k=0;k<this.data.text.conflicto.conf_tag.length;k++){
-				this._el.content_container		= TL.Dom.createLine("div", "tl-timemarker-content-container conf hidden "+ TL.Util.switchColor(this.data.text.conflicto.conf_tag[k]) + " " + squareSize, this._el.container, (this.data.text.conflicto.conf_tag[k]*fixedHeightConf)+(fixedHeightConf/2)-topAdjust);
+				var baseAdjust = (this.data.text.conflicto.conf_tag[k]*fixedHeightConf)+(fixedHeightConf/2);
+				this._el.content_container		= TL.Dom.createLineSquare("div", "tl-timemarker-content-container conf hidden "+ TL.Util.switchColor(this.data.text.conflicto.conf_tag[k]) + " " + squareSize, this._el.container, (this.data.text.conflicto.conf_tag[k]*fixedHeightConf)+(fixedHeightConf/2)-topAdjust, sizeArray, [baseAdjust-8,baseAdjust-13,baseAdjust-18]);
 				this._el.content				= TL.Dom.create("div", "tl-timemarker-content", this._el.content_container);
 			}
 			// console.log(array[i].text.conflicto.tag.length);
@@ -11591,7 +11641,8 @@ TL.TimeMarker = TL.Class.extend({
 		// Create Squares for ACTORES
 		if(this.data.text.conflicto.act_tag instanceof Array){
 			for(var k=0;k<this.data.text.conflicto.act_tag.length;k++){
-				this._el.content_container		= TL.Dom.createLine("div", "tl-timemarker-content-container act hidden "+ TL.Util.switchColor(this.data.text.conflicto.act_tag[k]) + " " + squareSize, this._el.container, (this.data.text.conflicto.act_tag[k]*fixedHeightAct)+(fixedHeightAct/2)-topAdjust);
+				var baseAdjust = (this.data.text.conflicto.act_tag[k]*fixedHeightAct)+(fixedHeightAct/2);
+				this._el.content_container		= TL.Dom.createLineSquare("div", "tl-timemarker-content-container act hidden "+ TL.Util.switchColor(this.data.text.conflicto.act_tag[k]) + " " + squareSize, this._el.container, (this.data.text.conflicto.act_tag[k]*fixedHeightAct)+(fixedHeightAct/2)-topAdjust, sizeArray, [baseAdjust-8,baseAdjust-13,baseAdjust-18]);
 				this._el.content				= TL.Dom.create("div", "tl-timemarker-content", this._el.content_container);
 			}
 			// console.log(array[i].text.conflicto.tag.length);

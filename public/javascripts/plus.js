@@ -72,4 +72,30 @@ $(document).ready(function(){
 	    	$(".tl-timemarker-content-container.act").removeClass("hidden");
 	    }
 	});
+
+	$('#square-dropdown').on('change', function (e) {
+	    var valueSelected = this.value;
+
+	    $.each($(".tl-timemarker-content-container"), function(index,value){
+	    	var sArray = $(value).attr("data-size").split(",");
+	    	var tArray = $(value).attr("data-top").split(",");
+
+	    	$(this).removeClass (function (index, css) {
+			    return (css.match (/(^|\s)square-container-\S+/g) || []).join(' ');
+			});
+
+	    	if(sArray[valueSelected]==0 || sArray[valueSelected]=='0'){
+	    		$(this).addClass("square-container-small");
+	    		$(this).css("top", tArray[0]);
+	    	}
+	    	else if(sArray[valueSelected]==1 || sArray[valueSelected]=='1'){
+	    		$(this).addClass("square-container-medium");
+	    		$(this).css("top", tArray[1]);
+	    	}
+	    	else if(sArray[valueSelected]==2 || sArray[valueSelected]=='2'){
+	    		$(this).addClass("square-container-large");
+	    		$(this).css("top", tArray[2]);
+	    	}
+	    })
+	});
 });
