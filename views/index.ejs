@@ -10,22 +10,28 @@
 <script src="javascripts/plus.js"></script>
 
 <div class="header-filter">
-  <p class="header-title">Eventos desplegados por</p>
 
-  <select id="filter-dropdown" class="custom-dropdown">
-    <option value="0">INTERACCIÓN</option>
-    <option value="1">ÁMBITO</option>
-    <option value="2">CONFLICTO</option>
-    <option value="3">ACTORES</option>
-  </select>
-  <p class="header-title">Tamaño categorías por</p>
+  <div class="filter-container">
+    <p class="header-title">Eventos desplegados por</p>
+    <select id="filter-dropdown" class="custom-dropdown">
+      <option value="0">INTERACCIÓN</option>
+      <option value="1">ÁMBITO</option>
+      <option value="2">CONFLICTO</option>
+      <option value="3">ACTORES</option>
+    </select>
+  </div>
 
-  <select id="square-dropdown" class="custom-dropdown">
-    <option value="3">ACTORES</option>
-    <option value="1">ÁMBITO</option>
-    <option value="2">CONFLICTO</option>
-    <option value="0">INTERACCIÓN</option>
-  </select>
+  <div class="vertical-separator"></div>
+
+  <div class="filter-container">
+    <p class="header-title">Tamaño categorías por</p>
+    <select id="square-dropdown" class="custom-dropdown">
+      <option value="3">ACTORES</option>
+      <option value="1">ÁMBITO</option>
+      <option value="2">CONFLICTO</option>
+      <option value="0">INTERACCIÓN</option>
+    </select>
+  </div>
   <!-- <div class="tl-menubar custom">
     <span class="tl-menubar-button custom"><span class="tl-icon-zoom-in"></span></span>
     <span class="tl-menubar-button custom"><span class="tl-icon-zoom-out"></span></span>
@@ -688,7 +694,7 @@ var plus_json = {
 var options = {
   timenav_height_percentage:60,
   marker_height_min:10,
-  scale_factor:12,
+  scale_factor:0.5,
   timenav_position:'top',
   start_at_slide:1
 };
