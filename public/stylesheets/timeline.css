@@ -1309,7 +1309,7 @@ to {
 }
 
 .tl-timemarker:hover .tl-timemarker-timespan .tl-timemarker-line-left,.tl-timemarker:hover .tl-timemarker-timespan .tl-timemarker-line-right {
-	border-color:#a6a6a6
+	border-color:rgb(60,60,75);
 }
 
 .tl-timemarker:hover .tl-timemarker-timespan .tl-timemarker-line-left:after,.tl-timemarker:hover .tl-timemarker-timespan .tl-timemarker-line-right:after {
@@ -1390,7 +1390,7 @@ to {
 }
 
 .tl-timemarker.tl-timemarker-active .tl-timemarker-line-left,.tl-timemarker.tl-timemarker-active .tl-timemarker-line-right {
-	border-color:rgba(51,51,51,.5);
+	border-color:rgba(60,60,75,0.8);
 	border-width:1px;
 	z-index:8;
 	box-shadow:0 1px 3px rgba(145,145,145,.5)
@@ -1404,7 +1404,7 @@ to {
 	color:#333;
 	z-index:13;
 	border-color:rgba(51,51,51,.5);
-	box-shadow:1px 1px 3px rgba(145,145,145,.5)
+	box-shadow:1px 1px 3px rgba(145,145,145,.5);
 	opacity: 1;
 }
 
@@ -3249,14 +3249,57 @@ to {
 }
 
 .tooltip-title {
-	font-size: 15px;
+	font-size: 10pt;
 	font-family: 'Alegreya Sans SC';
+	font-weight: 700;
+}
+
+.qtip-content p {
+	margin: 0px;
 }
 
 .qtip.qtip-default {
-	border-color: rgba(60,60,75,0.5);
-	background-color: #ccc;
-	color: rgba(60,60,75,0.9);
+	border: 1px solid rgba(60,60,75,0.8);
+	background-color: rgb(204,204,204);
+	color: rgb(60,60,75);
+}
+
+.tooltip-top {
+	padding-bottom: 3px;
+	border-bottom: 1px solid rgb(60,60,75);
+}
+
+.tooltip-down {
+	margin-top: 3px;
+}
+
+.tooltip-down-l {
+	width: 60%;
+	display: inline-block;
+	text-align: left;
+}
+
+.tooltip-down-r {
+	width: 40%;
+	display: inline-block;
+	text-align: right;
+}
+
+.tooltip-media {
+	font-size: 8pt;
+	font-family: 'Alegreya Sans';
+	font-weight: 400;
+}
+
+.tooltip-mediatype {
+	font-size: 8pt;
+	font-family: 'Alegreya Sans';
+	font-style: italic;
+	font-weight: lighter;
+}
+
+.qtip {
+	width: 200px;
 }
 
 .hidden {

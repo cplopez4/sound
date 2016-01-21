@@ -1,6 +1,8 @@
 $(document).ready(function(){
 	$.each($(".tl-timemarker"), function(index, value) {
 		var title = $(value).attr("data-title").toLowerCase();
+		var media = $(value).attr("data-media");
+		var mediatype = $(value).attr("data-mediatype");
 
 		$(value).qtip({
             style: {
@@ -8,7 +10,7 @@ $(document).ready(function(){
                 tip: false
             },
             content: {
-                text: "<div class='tooltip-top'><p class='tooltip-title'>"+ title +"</p></div><div class='tooltip-down'><div class='tooltip-down-l'><p class='tooltip-media'>"+ title +"</p></div><div class='tooltip-down-r'><p class='tooltip-mediatype'>"+ title +"</p></div></div>"
+                text: "<div class='tooltip-top'><p class='tooltip-title'>"+ title +"</p></div><div class='tooltip-down'><div class='tooltip-down-l'><p class='tooltip-media'>"+ media +"</p></div><div class='tooltip-down-r'><p class='tooltip-mediatype'>"+ mediatype +"</p></div></div>"
             },
             position: {
                 my: 'bottom left',

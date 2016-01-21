@@ -141,6 +141,13 @@ TL.Util = {
 	  else{ return 'n-brown' }
 	},
 
+	switchMedia: function(i) {
+	  if(i=='0'){ return 'Prensa digital' }
+	  else if(i=='1'){ return 'Prensa impresa' }
+	  else if(i=='2'){ return 'Video' }
+	  else{ return 'Prensa' }
+	},
+
 	switchSize: function(i) {
 	  if(i<2){ return 0 }
 	  else if(i>1 && i<4){ return 1 }
@@ -4960,11 +4967,13 @@ TL.Dom = {
 		return el;
 	},
 
-	createGroup: function(tagName, className, group, title, container) {
+	createGroup: function(tagName, className, group, title, container, media, mediatype) {
 		var el = document.createElement(tagName);
 		el.className = className;
 		el.setAttribute("data-group", group);
 		el.setAttribute("data-title", title);
+		el.setAttribute("data-media", media);
+		el.setAttribute("data-mediatype", TL.Util.switchMedia(mediatype));
 		if (container) {
 			container.appendChild(el);
 		}
@@ -11623,8 +11632,7 @@ TL.TimeMarker = TL.Class.extend({
 		//0: small, 1: medium, 2: large
 		var sizeArray = [TL.Util.switchSize(iCat),TL.Util.switchSize(aCat),TL.Util.switchSize(cCat),TL.Util.switchSize(nCat)];
 
-
-		this._el.container 				= TL.Dom.createGroup("div", "tl-timemarker", this.data.text.navegacion.grupo, this.data.text.headline);
+		this._el.container 				= TL.Dom.createGroup("div", "tl-timemarker", this.data.text.navegacion.grupo, this.data.text.headline, null, this.data.text.medio.nombre, this.data.text.medio.tipo);
 		if (this.data.unique_id) {
 			this._el.container.id 		= this.data.unique_id + "-marker";
 		}
