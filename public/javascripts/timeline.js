@@ -5041,9 +5041,18 @@ TL.Dom = {
 
 		el.appendChild(p);
 
-		var s = document.createElement('div');
-		s.className = 'tl-label-text-square ' + TL.Util.switchColor(index);
-		el.appendChild(s);
+		if (container) {
+			container.appendChild(el);
+		}
+		return el;
+	},
+
+	createBSquare: function(tagName, className, container, top, index, type) {
+		var el = document.createElement(tagName);
+		el.className = className;
+		el.style.top = top + 'px';
+
+		el.className += ' tl-label-text-square ' + TL.Util.switchColor(index);
 
 		if (container) {
 			container.appendChild(el);
@@ -11300,23 +11309,30 @@ TL.TimeNav = TL.Class.extend({
 		fixedHeightAct = (this.options.height - 42) / 11;
 
 		var labels_container = TL.Dom.create('div', 'tl-labels-container', this._el.container);
-		labels_container.style.height = this.options.height;
+		labels_container.style.height = this.options.height - 5;
+
+		var squares_l_container = TL.Dom.create('div', 'tl-squares-l-container', this._el.container);
+		squares_l_container.style.height = this.options.height - 5;
 
 		for(var i=0;i<8;i++){
 			TL.Dom.createLine('div', 'tl-background-line int', this._el.container, (i*fixedLinesHeight)+ 32 +(fixedLinesHeight/2));
-			TL.Dom.createLabel('div', 'tl-background-label int', labels_container, (i*fixedLinesHeight)+ 20 +(fixedLinesHeight/2), i, 0);
+			TL.Dom.createLabel('div', 'tl-background-label int', labels_container, (i*fixedLinesHeight)+ 22 +(fixedLinesHeight/2), i, 0);
+			TL.Dom.createBSquare('div', 'tl-background-square int', squares_l_container, (i*fixedLinesHeight)+ 27 +(fixedLinesHeight/2), i, 0);
 		}
 		for(var i=0;i<6;i++){
 			TL.Dom.createLine('div', 'tl-background-line amb hidden', this._el.container, (i*fixedHeightAmb)+ 32 +(fixedHeightAmb/2));
-			TL.Dom.createLabel('div', 'tl-background-label amb hidden', labels_container, (i*fixedHeightAmb)+ 20 +(fixedHeightAmb/2), i, 1);
+			TL.Dom.createLabel('div', 'tl-background-label amb hidden', labels_container, (i*fixedHeightAmb)+ 22 +(fixedHeightAmb/2), i, 1);
+			TL.Dom.createBSquare('div', 'tl-background-square amb hidden', squares_l_container, (i*fixedHeightAmb)+ 27 +(fixedHeightAmb/2), i, 1);
 		}
 		for(var i=0;i<7;i++){
 			TL.Dom.createLine('div', 'tl-background-line conf hidden', this._el.container, (i*fixedHeightConf)+ 32 +(fixedHeightConf/2));
-			TL.Dom.createLabel('div', 'tl-background-label conf hidden', labels_container, (i*fixedHeightConf)+ 20 +(fixedHeightConf/2), i, 2);
+			TL.Dom.createLabel('div', 'tl-background-label conf hidden', labels_container, (i*fixedHeightConf)+ 22 +(fixedHeightConf/2), i, 2);
+			TL.Dom.createBSquare('div', 'tl-background-square conf hidden', squares_l_container, (i*fixedHeightConf)+ 27 +(fixedHeightConf/2), i, 2);
 		}
 		for(var i=0;i<11;i++){
 			TL.Dom.createLine('div', 'tl-background-line act hidden', this._el.container, (i*fixedHeightAct)+ 32 +(fixedHeightAct/2));
-			TL.Dom.createLabel('div', 'tl-background-label act hidden', labels_container, (i*fixedHeightAct)+ 20 +(fixedHeightAct/2), i, 3);
+			TL.Dom.createLabel('div', 'tl-background-label act hidden', labels_container, (i*fixedHeightAct)+ 22 +(fixedHeightAct/2), i, 3);
+			TL.Dom.createBSquare('div', 'tl-background-square act hidden',squares_l_container, (i*fixedHeightAct)+ 27 +(fixedHeightAct/2), i, 3);
 		}
 
 
@@ -11588,8 +11604,8 @@ TL.TimeMarker = TL.Class.extend({
 	},
 
 	setRowPosition: function(n, remainder) {
-		this.setPosition({top:35});
-		this._el.timespan.style.height = 310 + "px";
+		this.setPosition({top:25});
+		this._el.timespan.style.height = 335 + "px";
 
 		if (remainder < 56) {
 			//TL.DomUtil.removeClass(this._el.content_container, "tl-timemarker-content-container-small");
@@ -11639,22 +11655,22 @@ TL.TimeMarker = TL.Class.extend({
 		this._el.timespan_content		= TL.Dom.create("div", "tl-timemarker-timespan-content", this._el.timespan);
 
 		var squareSize = "square-container-small";
-		var topAdjust = 8;
+		var topAdjust = -2;
 
 		if(nCat > 1 && nCat < 4){
 			squareSize = "square-container-medium";
-			topAdjust = 13;
+			topAdjust = 3;
 		}
 		else if(nCat > 3){
 			squareSize = "square-container-large";
-			topAdjust = 18;
+			topAdjust = 8;
 		}
 
 		// Create Squares for INTERACCION
 		if(this.data.text.interaccion.tag instanceof Array){
 			for(var k=0;k<this.data.text.interaccion.tag.length;k++){
 				var baseAdjust = (this.data.text.interaccion.tag[k]*fixedHeight)+(fixedHeight/2);
-				this._el.content_container		= TL.Dom.createLineSquare("div", "tl-timemarker-content-container int "+ TL.Util.switchColor(this.data.text.interaccion.tag[k]) + " " + squareSize, this._el.container, (this.data.text.interaccion.tag[k]*fixedHeight)+(fixedHeight/2)-topAdjust, sizeArray, [baseAdjust-8,baseAdjust-13,baseAdjust-18]);
+				this._el.content_container		= TL.Dom.createLineSquare("div", "tl-timemarker-content-container int "+ TL.Util.switchColor(this.data.text.interaccion.tag[k]) + " " + squareSize, this._el.container, (this.data.text.interaccion.tag[k]*fixedHeight)+(fixedHeight/2)-topAdjust, sizeArray, [baseAdjust+2,baseAdjust-3,baseAdjust-8]);
 				this._el.content				= TL.Dom.create("div", "tl-timemarker-content", this._el.content_container);
 			}
 			// console.log(array[i].text.interaccion.tag.length);
@@ -11664,7 +11680,7 @@ TL.TimeMarker = TL.Class.extend({
 		if(this.data.text.conflicto.amb_tag instanceof Array){
 			for(var k=0;k<this.data.text.conflicto.amb_tag.length;k++){
 				var baseAdjust = (this.data.text.conflicto.amb_tag[k]*fixedHeightAmb)+(fixedHeightAmb/2);
-				this._el.content_container		= TL.Dom.createLineSquare("div", "tl-timemarker-content-container amb hidden "+ TL.Util.switchColor(this.data.text.conflicto.amb_tag[k]) + " " + squareSize, this._el.container, (this.data.text.conflicto.amb_tag[k]*fixedHeightAmb)+(fixedHeightAmb/2)-topAdjust, sizeArray, [baseAdjust-8,baseAdjust-13,baseAdjust-18]);
+				this._el.content_container		= TL.Dom.createLineSquare("div", "tl-timemarker-content-container amb hidden "+ TL.Util.switchColor(this.data.text.conflicto.amb_tag[k]) + " " + squareSize, this._el.container, (this.data.text.conflicto.amb_tag[k]*fixedHeightAmb)+(fixedHeightAmb/2)-topAdjust, sizeArray, [baseAdjust+2,baseAdjust-3,baseAdjust-8]);
 				this._el.content				= TL.Dom.create("div", "tl-timemarker-content", this._el.content_container);
 			}
 			// console.log(array[i].text.conflicto.tag.length);
@@ -11674,7 +11690,7 @@ TL.TimeMarker = TL.Class.extend({
 		if(this.data.text.conflicto.conf_tag instanceof Array){
 			for(var k=0;k<this.data.text.conflicto.conf_tag.length;k++){
 				var baseAdjust = (this.data.text.conflicto.conf_tag[k]*fixedHeightConf)+(fixedHeightConf/2);
-				this._el.content_container		= TL.Dom.createLineSquare("div", "tl-timemarker-content-container conf hidden "+ TL.Util.switchColor(this.data.text.conflicto.conf_tag[k]) + " " + squareSize, this._el.container, (this.data.text.conflicto.conf_tag[k]*fixedHeightConf)+(fixedHeightConf/2)-topAdjust, sizeArray, [baseAdjust-8,baseAdjust-13,baseAdjust-18]);
+				this._el.content_container		= TL.Dom.createLineSquare("div", "tl-timemarker-content-container conf hidden "+ TL.Util.switchColor(this.data.text.conflicto.conf_tag[k]) + " " + squareSize, this._el.container, (this.data.text.conflicto.conf_tag[k]*fixedHeightConf)+(fixedHeightConf/2)-topAdjust, sizeArray, [baseAdjust+2,baseAdjust-3,baseAdjust-8]);
 				this._el.content				= TL.Dom.create("div", "tl-timemarker-content", this._el.content_container);
 			}
 			// console.log(array[i].text.conflicto.tag.length);
@@ -11684,7 +11700,7 @@ TL.TimeMarker = TL.Class.extend({
 		if(this.data.text.conflicto.act_tag instanceof Array){
 			for(var k=0;k<this.data.text.conflicto.act_tag.length;k++){
 				var baseAdjust = (this.data.text.conflicto.act_tag[k]*fixedHeightAct)+(fixedHeightAct/2);
-				this._el.content_container		= TL.Dom.createLineSquare("div", "tl-timemarker-content-container act hidden "+ TL.Util.switchColor(this.data.text.conflicto.act_tag[k]) + " " + squareSize, this._el.container, (this.data.text.conflicto.act_tag[k]*fixedHeightAct)+(fixedHeightAct/2)-topAdjust, sizeArray, [baseAdjust-8,baseAdjust-13,baseAdjust-18]);
+				this._el.content_container		= TL.Dom.createLineSquare("div", "tl-timemarker-content-container act hidden "+ TL.Util.switchColor(this.data.text.conflicto.act_tag[k]) + " " + squareSize, this._el.container, (this.data.text.conflicto.act_tag[k]*fixedHeightAct)+(fixedHeightAct/2)-topAdjust, sizeArray, [baseAdjust+2,baseAdjust-3,baseAdjust-8]);
 				this._el.content				= TL.Dom.create("div", "tl-timemarker-content", this._el.content_container);
 			}
 			// console.log(array[i].text.conflicto.tag.length);
