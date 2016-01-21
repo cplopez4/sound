@@ -691,12 +691,14 @@ var plus_json = {
 {'media': {'url': 'http://www.24horas.cl/regiones/antofagasta/article1658557.ece', 'caption': '', 'credit': 'TVN'}, 'start_date': {'month': '5', 'day': '23', 'year': '2015'}, 'text': { 'fixed_date': {'month': '5', 'day': '23', 'year': '2015'}, 'headline': 'Calama: finalizan obras del parque Granaderos', 'text': 'Alcalde de Calama Esteban Velásquez, Presidenta Junta de Vecinos Villa Ayquina Jacqueline Echeverría, Delegado SERVIU Provincial El Loa Marcelo Gajardo, Comunidad Calama, Codelco', 'interaccion': { 'tag': [7, 6], 'principal': 'Se inaugura el parque Granaderos, entregando espacios de recreación, ciclovías y áreas verdes a la comunidad calameña', 'secundaria': 'Autoridades comentan que "pronto comenzarán los trabajos de las obras emblemáticas"'}, 'conflicto': { 'conf_tag': [0], 'act_tag': [2, 3], 'amb_tag': [2, 3], 'principal': 'N/I', 'sub': '', 'cat_actor': 'Grupo Social, Político', 'ambito': 'Infraestructura Urbana, Política' },'navegacion':{'id':362,'grupo':335,'ant':[0],'pos':[0]}, 'medio': { 'nombre': 'TVN','link':'http://www.24horas.cl/regiones/antofagasta/article1658557.ece','tipo': '2' } }}]
 };
 
+var startAt = parseInt($.QueryString["news"]) || 127;;
+
 var options = {
   timenav_height_percentage:60,
   marker_height_min:10,
   scale_factor:0.5,
   timenav_position:'top',
-  start_at_slide:1
+  start_at_slide:startAt
 };
 
 // window.timeline = new TL.Timeline('timeline-embed', timeline_json, options);

@@ -1191,7 +1191,7 @@ to {
 	box-sizing:border-box;
 	box-shadow:1px 1px 1px #fff;
 	left:-5px;
-	opacity: 0.5;
+	opacity: 0.2;
 }
 
 .tl-timemarker .tl-timemarker-content-container.square-container-medium {
@@ -1905,11 +1905,12 @@ to {
 	position:relative;
 	width:25%;
 	display: inline-block;
+	margin-left: 2%;
 }
 
 .tl-slide .tl-slide-content-container .tl-slide-content .tl-text {
 	width:75%;
-	max-width:70%;
+	max-width:75%;
 	min-width:120px;
 	padding:0;
 	display:inline-block;
@@ -3188,16 +3189,18 @@ to {
 }
 .tl-inter-prin {
 	margin-right: 2%;
-	font-size: 9pt;
+	font-size: 11pt;
 	color: rgb(60,60,75);
 	font-family: 'Alegreya';
 	font-style: italic;
+	line-height: 1.1;
 }
 .tl-inter-sec {
 	margin-left: 2%;
-	font-size: 9pt;
+	font-size: 10pt;
 	color: rgb(60,60,75);
 	font-family: 'Alegreya';
+	line-height: 1.1;
 }
 .tl-inter-sec p, .tl-actores p {
 	font-family: 'Alegreya';
@@ -3235,6 +3238,10 @@ to {
 
 .low-opacity {
 	opacity: 0.2 !important;
+}
+
+.med-opacity {
+	opacity: 0.6 !important;
 }
 
 .full-opacity {
@@ -3299,10 +3306,10 @@ select.custom-dropdown:focus{
 	text-align: center;
 	height: 50%;
 	padding: 5px 00px 0px 0px;
-	border-top: 2px solid;
-	border-color: rgba(42,56,220,0.7);
-	margin-left: 10px;
-	margin-right: 10px;
+	border-top: 1px solid;
+	border-color: rgb(60,60,75);
+	margin-left: 6px;
+	margin-right: 6px;
 	font-size: 10pt;
 	font-family: 'Alegreya Sans';
 	font-weight: bold;
@@ -3345,8 +3352,10 @@ select.custom-dropdown:focus{
 .tl-ambito-content, .tl-text-content-container-triple-left-conf-content, .tl-text-content-container-triple-left-int-content{
 	height: 80%;
 	font-family: 'Alegreya';
-    font-size: 8pt;
+    font-size: 9pt;
     color: rgb(60,60,75);
+    line-height: 1.1;
+    margin-top: 2px;
 }
 
 .tl-text-content-container-half.bot {
@@ -3354,12 +3363,12 @@ select.custom-dropdown:focus{
 }
 
 .tl-text-content-container-topbot {
-	width: 80%;
+	width: 75%;
 	display: inline-block;
 	vertical-align: top;
 }
 .tl-text-content-container-triple {
-	width: 20%;
+	width: 25%;
 	display: inline-block;
 }
 
@@ -3392,4 +3401,10 @@ select.custom-dropdown:focus{
 
 .tl-text-content-container-triple-left-conf {
 	vertical-align: top;
+}
+
+.tl-timemarker.tl-timemarker-active .tl-timemarker-line-left:after, .tl-timemarker.tl-timemarker-active .tl-timemarker-line-right:after {
+	width: 9px;
+	height: 9px;
+	left: -5px;
 }
