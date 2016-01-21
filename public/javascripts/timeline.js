@@ -4956,6 +4956,19 @@ TL.Dom = {
 		return el;
 	},
 
+	createSlideText: function(tagName, className, container, inter, conf, amb, act) {
+		var el = document.createElement(tagName);
+		el.className = className;
+		el.setAttribute("data-int", inter);
+		el.setAttribute("data-conf", conf);
+		el.setAttribute("data-amb", amb);
+		el.setAttribute("data-act", act);
+		if (container) {
+			container.appendChild(el);
+		}
+		return el;
+	},
+
 	createAnchor: function(tagName, className, container, href) {
 		var el = document.createElement(tagName);
 		el.className = className;
@@ -8750,8 +8763,10 @@ TL.Media.Text = TL.Class.extend({
 		
 		// Merge Options
 		TL.Util.mergeData(this.options, options);
+
+		console.log(data);
 		
-		this._el.container = TL.Dom.create("div", "tl-text");
+		this._el.container = TL.Dom.createSlideText("div", "tl-text", null, data.conflicto.cat_actor, data.conflicto.principal, data.conflicto.ambito, data.conflicto.cat_actor);
 		this._el.container.id = this.data.unique_id;
 		
 		this._initLayout();
@@ -8806,7 +8821,6 @@ TL.Media.Text = TL.Class.extend({
 	/*	Private Methods
 	================================================== */
 	_initLayout: function () {
-		
 		// Create Layout
 
 		// Medio
@@ -8860,27 +8874,6 @@ TL.Media.Text = TL.Class.extend({
 		this._el.content_container_triple_left_conf_title.innerHTML	= "CONFLICTO";
 		this._el.content_container_triple_left_conf_content	= TL.Dom.create("div", "tl-text-content-container-triple-left-conf-content", this._el.content_container_triple_left_conf);
 		this._el.content_container_triple_left_conf_content.innerHTML	= this.data.conflicto ? this.data.conflicto.principal : "";
-		// Conflicto
-		/*if (this.data.conflicto && this.data.conflicto != "") {
-			var principal = TL.Util.htmlify(this.data.conflicto.principal ? "<b>CONFLICTO </b>" + this.data.conflicto.principal : "");
-			var sub = TL.Util.htmlify(this.data.conflicto.sub ? "<b>SUB-CONFLICTO </b>" + this.data.conflicto.sub : "");
-			var cat_actor = TL.Util.htmlify(this.data.conflicto.cat_actor ? "<b>CATEGORIA ACTORES </b>" + this.data.conflicto.cat_actor : "");
-			var ambito = TL.Util.htmlify(this.data.conflicto.ambito ? "<b>AMBITO </b>" + this.data.conflicto.ambito : "");
-
-			this._el.c_container			= TL.Dom.create("div", "tl-conf-content", this._el.content_container_tophalf);
-			
-			this._el.c_prin					= TL.Dom.create("p", "tl-conf-prin", this._el.c_container);
-			this._el.c_prin.innerHTML		= principal;
-			
-			//this._el.c_sub					= TL.Dom.create("p", "tl-conf-sub", this._el.c_container);
-			//this._el.c_sub.innerHTML		= sub;
-
-			this._el.c_actor				= TL.Dom.create("p", "tl-conf-actor", this._el.c_container);
-			this._el.c_actor.innerHTML		= cat_actor;
-
-			this._el.c_ambito				= TL.Dom.create("p", "tl-conf-ambito", this._el.c_container);
-			this._el.c_ambito.innerHTML		= ambito;
-		}*/
 
 		// Interaccion
 		if (this.data.interaccion && this.data.interaccion != "") {
@@ -8906,7 +8899,7 @@ TL.Media.Text = TL.Class.extend({
 
 			this._el.content_container_triple_left_int	= TL.Dom.create("div", "tl-text-content-container-triple-left-int", this._el.content_container_bothalf);
 			this._el.content_container_triple_left_int_title	= TL.Dom.create("div", "tl-text-content-container-triple-left-int-title", this._el.content_container_triple_left_int);
-			this._el.content_container_triple_left_int_title.innerHTML	= "INTERACCIÓN";
+			this._el.content_container_triple_left_int_title.innerHTML	= "ACTORES";
 			this._el.content_container_triple_left_int_content	= TL.Dom.create("div", "tl-text-content-container-triple-left-int-content", this._el.content_container_triple_left_int);
 			this._el.content_container_triple_left_int_content.innerHTML	= this.data.conflicto ? this.data.conflicto.cat_actor : "";
 		}

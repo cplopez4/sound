@@ -43,7 +43,7 @@ $(document).ready(function(){
 	);
 
 	$(document).on('click',".tl-timemarker",function(){
-		var id = parseInt($(this).attr("data-hasqtip")) + 1;
+		var id = parseInt($(this).attr("data-hasqtip"));
 		history.pushState(null, null, "?news=" + id);
 	});
 
@@ -74,6 +74,66 @@ $(document).ready(function(){
 	    	$(".tl-background-label.act").removeClass("hidden");
 	    	$(".tl-timemarker-content-container.act").removeClass("hidden");
 	    }
+
+	    $.each($(".tl-text"), function(index, value){
+	    	var inter = $(value).attr("data-int");
+	    	var amb = $(value).attr("data-amb");
+	    	var conf = $(value).attr("data-conf");
+	    	var act = $(value).attr("data-act");
+
+	    	if(valueSelected==0){
+	    		//Tile de arriba a la derecha
+	    		$(value).find(".tl-text-content-container-triple-left-conf-title").html("CONFLICTO");
+	    		$(value).find(".tl-text-content-container-triple-left-conf-content").html(conf);
+
+	    		//Tile de abajo a la izquierda
+	    		$(value).find(".tl-ambito-title").html("ÁMBITO");
+	    		$(value).find(".tl-ambito-content").html(amb);
+
+	    		//Tile de abajo a la derecha
+	    		$(value).find(".tl-text-content-container-triple-left-int-title").html("ACTORES");
+	    		$(value).find(".tl-text-content-container-triple-left-int-content").html(act);
+		    }
+		    else if(valueSelected==1){
+		    	//Tile de arriba a la derecha
+	    		$(value).find(".tl-text-content-container-triple-left-conf-title").html("INTERACCIÓN");
+	    		$(value).find(".tl-text-content-container-triple-left-conf-content").html(inter);
+
+	    		//Tile de abajo a la izquierda
+	    		$(value).find(".tl-ambito-title").html("CONFLICTO");
+	    		$(value).find(".tl-ambito-content").html(conf);
+
+	    		//Tile de abajo a la derecha
+	    		$(value).find(".tl-text-content-container-triple-left-int-title").html("ACTORES");
+	    		$(value).find(".tl-text-content-container-triple-left-int-content").html(act);
+		    }
+		    else if(valueSelected==2){
+		    	//Tile de arriba a la derecha
+	    		$(value).find(".tl-text-content-container-triple-left-conf-title").html("INTERACCIÓN");
+	    		$(value).find(".tl-text-content-container-triple-left-conf-content").html(inter);
+
+	    		//Tile de abajo a la izquierda
+	    		$(value).find(".tl-ambito-title").html("ÁMBITO");
+	    		$(value).find(".tl-ambito-content").html(amb);
+
+	    		//Tile de abajo a la derecha
+	    		$(value).find(".tl-text-content-container-triple-left-int-title").html("ACTORES");
+	    		$(value).find(".tl-text-content-container-triple-left-int-content").html(act);
+		    }
+		    else if(valueSelected==3){
+		    	//Tile de arriba a la derecha
+	    		$(value).find(".tl-text-content-container-triple-left-conf-title").html("INTERACCIÓN");
+	    		$(value).find(".tl-text-content-container-triple-left-conf-content").html(inter);
+
+	    		//Tile de abajo a la izquierda
+	    		$(value).find(".tl-ambito-title").html("ÁMBITO");
+	    		$(value).find(".tl-ambito-content").html(amb);
+
+	    		//Tile de abajo a la derecha
+	    		$(value).find(".tl-text-content-container-triple-left-int-title").html("CONFLICTO");
+	    		$(value).find(".tl-text-content-container-triple-left-int-content").html(conf);
+		    }
+	    });
 	});
 
 	$('#square-dropdown').on('change', function (e) {

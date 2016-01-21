@@ -320,17 +320,6 @@ var timeline_json = {
 };
 
 var plus_json = {
-    "title": {
-        "media": {
-          "url": "http://www.timeline.cl/wp-content/uploads/2015/05/Captura-de-pantalla-2015-05-04-a-las-22.10.46-890x395.png",
-          "caption": "Calama, 2015",
-          "credit": "<a href='http://www.timeline.cl/'>timeline.cl</a>"
-        },
-        "text": {
-          "headline": "Controversias Calama<br/> 2010 - 2015",
-          "text": "<p>Línea de tiempo de las controversias más importantes asociadas a la ciudad de Calama y sus habitantes.</p>"
-        }
-    },
     "events": [
     {'media': {'url': 'https://dl.dropboxusercontent.com/u/6548854/placeholder03.jpg', 'caption': '', 'credit': 'N/I'}, 'start_date': {'month': '3', 'day': '20', 'year': '2010'}, 'text': { 'fixed_date': {'month': '3', 'day': '20', 'year': '2010'}, 'headline': 'Consejo Minero se opone a aumentar el royalty', 'text': 'Consejo minero', 'interaccion': { 'tag': [0], 'principal': 'Consejo Minero se declara en contra del aumento del royalty', 'secundaria': 'N/I'}, 'conflicto': { 'conf_tag': [2, 4], 'act_tag': [6], 'amb_tag': [1, 3], 'principal': 'Centralismo, Deuda Histórica', 'sub': '', 'cat_actor': 'Organización Laboral', 'ambito': 'Economía, Política' },'navegacion':{'id':2,'grupo':2,'ant':[0],'pos':[0]}, 'medio': { 'nombre': 'N/I','link':'N/I','tipo': '1' } }},
 {'media': {'url': 'https://dl.dropboxusercontent.com/u/6548854/placeholder03.jpg', 'caption': '', 'credit': 'El Mercurio de Calama'}, 'start_date': {'month': '3', 'day': '20', 'year': '2010'}, 'text': { 'fixed_date': {'month': '3', 'day': '20', 'year': '2010'}, 'headline': 'Federación Minera dice se puede', 'text': 'Presidente de la Federación Minera de Chile Pedro Marín', 'interaccion': { 'tag': [7], 'principal': 'Presidente de la Federación Minera de Chile declara la existencia de posibles medidas para generar recursos de manera más inmediata que la modificación del royalty.', 'secundaria': 'N/I'}, 'conflicto': { 'conf_tag': [2, 4], 'act_tag': [6], 'amb_tag': [1, 3], 'principal': 'Centralismo, Deuda Histórica', 'sub': '', 'cat_actor': 'Organización Laboral', 'ambito': 'Economía, Política' },'navegacion':{'id':3,'grupo':3,'ant':[0],'pos':[0]}, 'medio': { 'nombre': 'El Mercurio de Calama','link':'N/I','tipo': '1' } }},
@@ -691,7 +680,8 @@ var plus_json = {
 {'media': {'url': 'http://www.24horas.cl/regiones/antofagasta/article1658557.ece', 'caption': '', 'credit': 'TVN'}, 'start_date': {'month': '5', 'day': '23', 'year': '2015'}, 'text': { 'fixed_date': {'month': '5', 'day': '23', 'year': '2015'}, 'headline': 'Calama: finalizan obras del parque Granaderos', 'text': 'Alcalde de Calama Esteban Velásquez, Presidenta Junta de Vecinos Villa Ayquina Jacqueline Echeverría, Delegado SERVIU Provincial El Loa Marcelo Gajardo, Comunidad Calama, Codelco', 'interaccion': { 'tag': [7, 6], 'principal': 'Se inaugura el parque Granaderos, entregando espacios de recreación, ciclovías y áreas verdes a la comunidad calameña', 'secundaria': 'Autoridades comentan que "pronto comenzarán los trabajos de las obras emblemáticas"'}, 'conflicto': { 'conf_tag': [0], 'act_tag': [2, 3], 'amb_tag': [2, 3], 'principal': 'N/I', 'sub': '', 'cat_actor': 'Grupo Social, Político', 'ambito': 'Infraestructura Urbana, Política' },'navegacion':{'id':362,'grupo':335,'ant':[0],'pos':[0]}, 'medio': { 'nombre': 'TVN','link':'http://www.24horas.cl/regiones/antofagasta/article1658557.ece','tipo': '2' } }}]
 };
 
-var startAt = parseInt($.QueryString["news"]) || 127;;
+var startAt = $.QueryString["news"] || 126;
+startAt = parseInt(startAt);
 
 var options = {
   timenav_height_percentage:60,
