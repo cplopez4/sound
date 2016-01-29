@@ -47,6 +47,16 @@ $(document).ready(function(){
 		history.pushState(null, null, "?news=" + id);
 	});
 
+	$(document).on('click',".tutorialIcon",function(){
+		$(".overMaskContainer").removeClass("hidden");
+		$(".mask").removeClass("hidden");
+	});
+
+	$(document).on('click',".overMaskContainer",function(){
+		$(".overMaskContainer").addClass("hidden");
+		$(".mask").addClass("hidden");
+	});
+
 	$('#filter-dropdown').on('change', function (e) {
 	    var valueSelected = this.value;
 

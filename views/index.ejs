@@ -9,6 +9,45 @@
 <script src="javascripts/timeline.js"></script>
 <script src="javascripts/plus.js"></script>
 
+<div class="mask hidden"></div>
+<div class="overMaskContainer hidden">
+  <div class="lightPalet maskpalet1">
+    <p>Para explorar la línea de tiempo elige bajo qué categoría se mostrarán las noticias</p>
+    <div class="maskpalet1-div">
+      <img src="images/ins1.png">
+      <p>Cada eje vertical es una noticia. Si por ejemplo elejiste la categoría Interacción, los cuadrados de color indicarán qué tipo de interacciones se presentan en esa noticia.</p>
+    </div>
+  </div>
+
+  <div class="lightPalet maskpalet2">
+    <p>Además, podrás elegir una segunda categoría que definirá el tamaño de los cuadrados</p>
+    <p>Por ejemplo, si elejiste la categoría Actores, cada tamaño indicará que:</p>
+    <div>
+      <img src="images/ins2.png">
+      <p></p>
+    </div>
+  </div>
+  
+  <div class="lightPalet maskpalet3">
+    <p>Al hacer click en una noticia, toda la información relativa a ésta se desplegará en la parte inferior</p>
+    <img src="images/ins3.png">
+  </div>
+  
+  <div class="lightPalet maskpalet4">
+    <img src="images/ins4.png">
+    <p>Clickeando los íconos puedes consultar la fuente de la noticia</p>
+  </div>
+  
+  <div class="lightPalet maskpalet5">
+    <p>También puedes navegar con las flechas, que te desplazarán a la noticia anterior o posterior a la noticia seleccionada.</p>
+    <img src="images/ins5.png">
+  </div>
+  
+  <div class="lightPalet maskpalet6">
+    <p>La barra de navegación te indicará en qué sección del total te encuentras</p>
+  </div>
+</div>
+
 <div class="header-filter">
 
   <div class="filter-container">
@@ -31,6 +70,15 @@
       <option value="2">CONFLICTO</option>
       <option value="0">INTERACCIÓN</option>
     </select>
+  </div>
+
+  <div class="menuContainer">
+    <div class="tutorialIcon">
+      <img src="images/video.png"></img>
+    </div>
+    <div class="menuBtn">
+      <img src="images/video.png"></img>
+    </div>
   </div>
   <!-- <div class="tl-menubar custom">
     <span class="tl-menubar-button custom"><span class="tl-icon-zoom-in"></span></span>
@@ -698,7 +746,7 @@ var plus_json = {
 {'media': {'url': 'http://www.24horas.cl/regiones/antofagasta/article1658557.ece', 'caption': '', 'credit': 'TVN'}, 'start_date': {'month': '5', 'day': '23', 'year': '2015'}, 'text': { 'fixed_date': {'month': '5', 'day': '23', 'year': '2015'}, 'headline': 'Calama: finalizan obras del parque Granaderos', 'text': 'Alcalde de Calama Esteban Velásquez, Presidenta Junta de Vecinos Villa Ayquina Jacqueline Echeverría, Delegado SERVIU Provincial El Loa Marcelo Gajardo, Comunidad Calama, Codelco', 'interaccion': { 'tag': [0, 3],'body':'Declaración, Socialización', 'principal': 'Se inaugura el parque Granaderos, entregando espacios de recreación, ciclovías y áreas verdes a la comunidad calameña', 'secundaria': 'Autoridades comentan que "pronto comenzarán los trabajos de las obras emblemáticas"'}, 'conflicto': { 'conf_tag': [5], 'act_tag': [5, 0], 'amb_tag': [2], 'principal': 'N/I', 'sub': '', 'cat_actor': 'Grupo Social, Político', 'ambito': 'Infraestructura Urbana' },'navegacion':{'id':374,'grupo':373,'ant':[],'pos':[]},'contextual':{'bool':0,'type':''}, 'medio': { 'nombre': 'TVN','link':'http://www.24horas.cl/regiones/antofagasta/article1658557.ece','tipo': '2' } }}]
 };
 
-var startAt = $.QueryString["news"] || 126;
+var startAt = $.QueryString["news"] || 115;
 startAt = parseInt(startAt);
 
 var options = {
