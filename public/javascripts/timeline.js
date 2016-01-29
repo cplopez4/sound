@@ -173,47 +173,47 @@ TL.Util = {
 
 	switchLabel: function(i,type) {
 		if(type==0){
-		  if(i==0){ return 'N/I' }
-		  else if(i==1){ return 'Consulta Ciudadana' }
-		  else if(i==2){ return 'Convocatoria' }
-		  else if(i==3){ return 'Entrega Documento' }
-		  else if(i==4){ return 'Manifestación Social' }
-		  else if(i==5){ return 'Interpelación' }
-		  else if(i==6){ return 'Socialización' }
-		  else if(i==7){ return 'Declaración' }
+		  if(i==0){ return 'Declaración' }
+		  else if(i==1){ return 'Entrega Documento' }
+		  else if(i==2){ return 'Interpelación' }
+		  else if(i==3){ return 'Socialización' }
+		  else if(i==4){ return 'Convocatoria' }
+		  else if(i==5){ return 'Consulta Ciudadana' }
+		  else if(i==6){ return 'Manifestación Social' }
+		  else if(i==7){ return 'Anuncio' }
+		  else if(i==8){ return 'N/I' }
 		  else{ return 'Otro' }
 		}
 		else if(type==1){
-		  if(i==0){ return 'N/I' }
-		  else if(i==1){ return 'Economía' }
+		  if(i==0){ return 'Economía' }
+		  else if(i==1){ return 'Política' }
 		  else if(i==2){ return 'Infraestructura Urbana' }
-		  else if(i==3){ return 'Política' }
-		  else if(i==4){ return 'Social' }
-		  else if(i==5){ return 'Medioambiente' }
+		  else if(i==3){ return 'Social' }
+		  else if(i==4){ return 'Medioambiente' }
+		  else if(i==5){ return 'N/I' }
 		  else{ return 'Otro' }
 		}
 		else if(type==2){
-		  if(i==0){ return 'N/I' }
-		  else if(i==1){ return 'Alteración del ecosistema' }
-		  else if(i==2){ return 'Centralismo' }
-		  else if(i==3){ return 'Desconfianza en la Autoridad/Cuestionamiento Político' }
-		  else if(i==4){ return 'Deuda Histórica' }
-		  else if(i==5){ return 'Condiciones Calama PLUS' }
-		  else if(i==6){ return 'Prácticas Antisindicales' }
+		  if(i==0){ return 'Deuda Histórica/ Centralismo' }
+		  else if(i==1){ return 'Cuestionamiento Político' }
+		  else if(i==2){ return 'Prácticas Antisindicales' }
+		  else if(i==3){ return 'Condiciones Calama PLUS' }
+		  else if(i==4){ return 'Alteración del ecosistema' }
+		  else if(i==5){ return 'N/I' }
 		  else{ return 'Otro' }
 		}
 		else{
-		  if(i==0){ return 'N/I' }
-		  else if(i==1){ return 'Consorcio Calama PLUS' }
-		  else if(i==2){ return 'Grupo Social' }
-		  else if(i==3){ return 'Político' }
-		  else if(i==4){ return 'Empresas' }
-		  else if(i==5){ return 'Organización Estudiantil' }
-		  else if(i==6){ return 'Organización Laboral' }
-		  else if(i==7){ return 'Asociación Religiosa' }
-		  else if(i==8){ return 'Pueblos Indígenas' }
-		  else if(i==9){ return 'Medioambientales' }
-		  else if(i==10){ return 'Medio de Comunicación' }
+		  if(i==0){ return 'Político' }
+		  else if(i==1){ return 'Empresas' }
+		  else if(i==2){ return 'Calama PLUS' }
+		  else if(i==3){ return 'Org. Laboral' }
+		  else if(i==4){ return 'Org. Estudiantil' }
+		  else if(i==5){ return 'Grupo Social' }
+		  else if(i==6){ return 'Asoc. Religiosa' }
+		  else if(i==7){ return 'Pueblos Indígenas' }
+		  else if(i==8){ return 'Medioambientales' }
+		  else if(i==9){ return 'Medio de Comunicación' }
+		  else if(i==10){ return 'N/I' }
 		  else{ return 'Otro' }
 		}
 	},
@@ -8773,7 +8773,7 @@ TL.Media.Text = TL.Class.extend({
 		// Merge Options
 		TL.Util.mergeData(this.options, options);
 
-		console.log(data);
+		//console.log(data);
 		
 		this._el.container = TL.Dom.createSlideText("div", "tl-text", null, data.conflicto.cat_actor, data.conflicto.principal, data.conflicto.ambito, data.conflicto.cat_actor);
 		this._el.container.id = this.data.unique_id;
@@ -11302,10 +11302,10 @@ TL.TimeNav = TL.Class.extend({
 		this._el.timeaxis_background 		= TL.Dom.create('div', 'tl-timeaxis-background', this._el.container);
 
 		// Draw background horizontal lines
-		var fixedLinesHeight = (this.options.height - 42) / 8;
+		var fixedLinesHeight = (this.options.height - 42) / 9;
 		fixedHeight = fixedLinesHeight;
 		fixedHeightAmb = (this.options.height - 42) / 6;
-		fixedHeightConf = (this.options.height - 42) / 7;
+		fixedHeightConf = (this.options.height - 42) / 6;
 		fixedHeightAct = (this.options.height - 42) / 11;
 
 		var labels_container = TL.Dom.create('div', 'tl-labels-container', this._el.container);
@@ -11314,7 +11314,7 @@ TL.TimeNav = TL.Class.extend({
 		var squares_l_container = TL.Dom.create('div', 'tl-squares-l-container', this._el.container);
 		squares_l_container.style.height = this.options.height - 5;
 
-		for(var i=0;i<8;i++){
+		for(var i=0;i<9;i++){
 			TL.Dom.createLine('div', 'tl-background-line int', this._el.container, (i*fixedLinesHeight)+ 32 +(fixedLinesHeight/2));
 			TL.Dom.createLabel('div', 'tl-background-label int', labels_container, (i*fixedLinesHeight)+ 22 +(fixedLinesHeight/2), i, 0);
 			TL.Dom.createBSquare('div', 'tl-background-square int', squares_l_container, (i*fixedLinesHeight)+ 27 +(fixedLinesHeight/2), i, 0);
@@ -11324,7 +11324,7 @@ TL.TimeNav = TL.Class.extend({
 			TL.Dom.createLabel('div', 'tl-background-label amb hidden', labels_container, (i*fixedHeightAmb)+ 22 +(fixedHeightAmb/2), i, 1);
 			TL.Dom.createBSquare('div', 'tl-background-square amb hidden', squares_l_container, (i*fixedHeightAmb)+ 27 +(fixedHeightAmb/2), i, 1);
 		}
-		for(var i=0;i<7;i++){
+		for(var i=0;i<6;i++){
 			TL.Dom.createLine('div', 'tl-background-line conf hidden', this._el.container, (i*fixedHeightConf)+ 32 +(fixedHeightConf/2));
 			TL.Dom.createLabel('div', 'tl-background-label conf hidden', labels_container, (i*fixedHeightConf)+ 22 +(fixedHeightConf/2), i, 2);
 			TL.Dom.createBSquare('div', 'tl-background-square conf hidden', squares_l_container, (i*fixedHeightConf)+ 27 +(fixedHeightConf/2), i, 2);
