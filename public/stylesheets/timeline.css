@@ -3468,3 +3468,18 @@ select.custom-dropdown:focus{
 .tl-background-square {
 	position: absolute;
 }
+
+.tl-timemarker[data-context='1'] .tl-timemarker-line-left, .tl-timemarker[data-context='1'] .tl-timemarker-line-right{
+	border-left: 1px solid rgba(255,204,0, 0.4);
+	z-index: 8;
+}
+
+.tl-timemarker-icon {
+	position: absolute;
+  	top: -28px;
+  	left: -15px;
+}
+
+.tl-timespan-icon {
+	width: 30px;
+}

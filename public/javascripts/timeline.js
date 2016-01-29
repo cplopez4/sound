@@ -148,6 +148,15 @@ TL.Util = {
 	  else{ return 'Prensa' }
 	},
 
+	switchTypeIcon: function(i) {
+	  if(i=='Hito político'){ return 'politico.png' }
+	  else if(i=='Conflicto mediático'){ return 'medios.png' }
+	  else if(i=='Consulta ciudadana'){ return 'consulta.png' }
+	  else if(i=='Manifestación social'){ return 'manifestacion.png' }
+	  else if(i=='Relativo a Calama PLUS'){ return 'calamaplus.png' }
+	  else{ return '' }
+	},
+
 	switchSize: function(i) {
 	  if(i<2){ return 0 }
 	  else if(i>1 && i<4){ return 1 }
@@ -4956,6 +4965,22 @@ TL.Dom = {
 		return el;
 	},
 
+	createIcon: function(tagName, className, container, type) {
+		var el = document.createElement(tagName);
+		el.className = className;
+
+		var img = document.createElement('img');
+		img.className = 'tl-timespan-icon';
+		img.src = "images/" + TL.Util.switchTypeIcon(type);
+
+		el.appendChild(img);
+
+		if (container) {
+			container.appendChild(el);
+		}
+		return el;
+	},
+
 	createSlideText: function(tagName, className, container, inter, conf, amb, act) {
 		var el = document.createElement(tagName);
 		el.className = className;
@@ -4980,9 +5005,12 @@ TL.Dom = {
 		return el;
 	},
 
-	createGroup: function(tagName, className, group, title, container, media, mediatype) {
+	createGroup: function(tagName, className, group, title, container, media, mediatype, contextual, contextType) {
 		var el = document.createElement(tagName);
 		el.className = className;
+		
+		el.setAttribute("data-context", contextual);
+		el.setAttribute("data-type", contextType);
 		el.setAttribute("data-group", group);
 		el.setAttribute("data-title", title);
 		el.setAttribute("data-media", media);
@@ -10961,8 +10989,13 @@ TL.TimeNav = TL.Class.extend({
 			var marker_y = Math.floor(row * (marker_height + this.options.marker_padding)) + this.options.marker_padding + 30;
 
 			var remainder_height = available_height - marker_y + this.options.marker_padding;
-			
-			this._markers[i].setRowPosition(marker_y, remainder_height);
+
+			if(this._markers[i].data.text.contextual.bool == 0){
+				this._markers[i].setRowPosition(marker_y, remainder_height);
+			}
+			else {
+				this._markers[i].setRowPositionYellow(marker_y, remainder_height);
+			}
 			// this._markers[i].setRowPosition(100, remainder_height);
 		};
 
@@ -11406,6 +11439,8 @@ TL.TimeMarker = TL.Class.extend({
 			timespan: {},
 			line_left: {},
 			line_right: {},
+			icon_container: {},
+			icon_image: {},
 			content: {},
 			text: {},
 			media: {},
@@ -11612,6 +11647,15 @@ TL.TimeMarker = TL.Class.extend({
 		}
 	},
 
+	setRowPositionYellow: function(n, remainder) {
+		this.setPosition({top:-10});
+		this._el.timespan.style.height = 370 + "px";
+
+		if (remainder < 56) {
+			//TL.DomUtil.removeClass(this._el.content_container, "tl-timemarker-content-container-small");
+		}
+	},
+
 	/*	Events
 	================================================== */
 	_onMarkerClick: function(e) {
@@ -11641,7 +11685,8 @@ TL.TimeMarker = TL.Class.extend({
 		//0: small, 1: medium, 2: large
 		var sizeArray = [TL.Util.switchSize(iCat),TL.Util.switchSize(aCat),TL.Util.switchSize(cCat),TL.Util.switchSize(nCat)];
 
-		this._el.container 				= TL.Dom.createGroup("div", "tl-timemarker", this.data.text.navegacion.grupo, this.data.text.headline, null, this.data.text.medio.nombre, this.data.text.medio.tipo);
+		this._el.container 				= TL.Dom.createGroup("div", "tl-timemarker", this.data.text.navegacion.grupo, this.data.text.headline, null, this.data.text.medio.nombre, this.data.text.medio.tipo, this.data.text.contextual.bool, this.data.text.contextual.type);
+		
 		if (this.data.unique_id) {
 			this._el.container.id 		= this.data.unique_id + "-marker";
 		}
@@ -11715,6 +11760,10 @@ TL.TimeMarker = TL.Class.extend({
 
 		this._el.line_left				= TL.Dom.create("div", "tl-timemarker-line-left", this._el.timespan);
 		this._el.line_right				= TL.Dom.create("div", "tl-timemarker-line-right", this._el.timespan);
+
+		if(this.data.text.contextual.bool == 1){
+			this._el.icon_container		= TL.Dom.createIcon("div", "tl-timemarker-icon", this._el.timespan, this.data.text.contextual.type);
+		}
 
 		// Fire event that the slide is loaded
 		this.onLoaded();
