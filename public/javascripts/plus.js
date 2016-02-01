@@ -1,4 +1,26 @@
 $(document).ready(function(){
+	var panelText = 
+	[
+		{
+			_id: 0,
+			_title: "Sobre el proyecto",
+			_text: "<b>¿Qué es?</b></br> La Partitura es una plataforma digital multimedia e interactiva, que recopila, visualiza y vincula una serie de eventos noticiosos (impresos y digitales) sobre el proyecto Calama Plus. Desarrollada por el el <a href='http://visualizacionycontroversias.cl/' target='_blank'>Grupo de Estudio sobre Visualización y Controversias</a> en el marco del proyecto de investigación ‘Nueva gobernabilidad emergencia y gestión de disyuntivas públicas en Chile”, esta plataforma permite una navegación temporal a través de los diferentes actores, ámbitos, conflictos e interacciones que se desprenden del corpus informativo sobre Calama Plus. </br></br> En otras palabras, esta plataforma forma ofrece una forma de visualización de ciertas situaciones problemáticas, precipitando situaciones de diálogo y debate entre los actores involucrados. </br></br> Esta plataforma está diseñada como una herramienta de exploración abierta, que permite tanto al equipo de investigación como a nuevos colaboradores, ir retroalimentando y enriqueciendo el material sobre los diferentes argumentos, intereses, actores y conflictos involucrados en este hecho. En otras palabras, esta plataforma permite cartografiar las relaciones y asociaciones, consensos y disensos, definiciones y conceptos que se fueron desarrollando alrededor del proyecto urbano. </br></br> <b>Qué es CALAMA PLUS</b></br> La versión actualmente disponible despliega eventos noticiosos relacionados con el Plan Calama Plus (en adelante PCP), publicados entre 2010 y 2015. El PCP es la respuesta que el gobierno central y la gran minería da a las demandas levantadas por los movimientos ciudadanos de 2010. Con un fuerte liderazgo edilicio, lo que estos movimientos reivindican de manera unitaria es la percepción de un contraste injusto entre el aporte que la zona entrega a la economía de Chile versus la magra calidad de vida que ofrece la ciudad. </br></br> En su origen, el PCP tiene como meta pagar la deuda histórica de Chile con Calama. Como moneda de cambio propone la planificación e implementación de una infraestructura urbana moderna y sustentable para esta ciudad. El PCP pretende reunir, consolidar y complementar 'diversos planes inconclusos pasados (PEDUC, Bicentenario, Nueva Calama, Calama Oasis, entre otros), a través del reordenamiento en torno a una visión de desarrollo sustentable de la ciudad y propone una implementación en un esquema de trabajo colaborativo público-privado, considerando un periodo de ejecución de 14 años, desde 2012 hasta el 2025.' (Calama Plus, 2016) </br></br> 'A partir de allí se establece el Consorcio Calama PLUS, entidad que tiene como misión la implementación del Plan Urbano Sustentable con el mismo nombre. Dicha entidad la componen diversos actores del mundo público y privado, quienes de una forma conjunta y colaborativa toman decisiones para la formulación, gestión, financiamiento y ejecución de los proyectos comprometidos en el Plan, conforme a su interés en la materialización de iniciativas para generar una mejor calidad de vida y una Calama sustentable acorde a su realidad económica.' (Calama Plus, 2016) </br></br> Si bien las manifestaciones ciudadanas se han reducido en frecuencia, convocatoria e intensidad, el interés que hoy presenta Calama Plus como caso de estudio radica en que las tensiones que originaron las protestas del 2010 siguen presentes en las personas pero ausentes de los medios noticiosos. A pesar de que la aparición en la escena calameña del PCP coincide con el apaciguamiento de los movimientos ciudadanos -coincidencia interpretada por algunos de los actores como la dilución del conflicto-, ni el malestar de los diversos colectivos y agrupaciones que participaron de las manifestaciones del 2010 ni las controversias respecto de la calidad de vida en Calama han desaparecido. </br></br> Consecuentemente, como instrumento, la Partitura Calama Plus es parte de una investigación mayor."
+		},
+		{
+			_id: 1,
+			_title: "Metodología",
+			_text: "Al día de hoy, la base de datos de esta aplicación cuenta con 350 noticias. Para la búsqueda de noticias asociadas a Calama Plus se consultaron tanto fuentes de prensa local (Calama) como nacional. Los medios indagados fueron noticias y video publicados en la web y prensa digital. Éstas fueron organizadas según las siguientes categorías y sub-categorías:</br></br> <ol class='ol-met'> <li>ÁMBITO <ul class='ul-met'> <li>Economía</li> <li>Política</li> <li>Infraestructura Urbana</li> <li>Social</li> <li>Medioambiente</li> </ul> </li> <li>CONFLICTO <ul class='ul-met'> <li>Deuda Histórica/Centralismo</li> <li>Cuestionamiento Político</li> <li>Prácticas Antisindicales</li> <li>Condiciones Calama PLUS</li> <li>Alteración del ecosistema</li> </ul> </li> <li>INTERACCIÓN <ul class='ul-met'> <li>Declaración</li> <li>Entrega Documento</li> <li>Interpelación</li> <li>Socialización</li> <li>Convocatoria</li> <li>Consulta Ciudadana</li> <li>Manifestación Social</li> </ul> </li> <li>ACTORES <ul class='ul-met'> <li>Político</li> <li>Empresas</li> <li>Consorcio Calama PLUS</li> <li>Organización Laboral</li> <li>Organización Estudiantil </li> <li>Grupo Social</li> <li>Asociación Religiosa</li> <li>Pueblos Indígenas</li> <li>Medioambientales</li> <li>Medio de Comunicación</li> </ul> </li> </ol>"
+		},
+		{
+			_id: 2,
+			_title: "Definición de Categorías",
+			_text: "La organización del corpus informativos en base a categorías responde a dos desafíos principales del proyecto investigativo:</br></br> - Ofrecer una lectura en términos de las <b>dinámicas de las controversias</b> del corpus de información recopilada, esto es, generar un modelo de visualización que considere las texturas, ritmos y configuraciones que pueden darse frente a un hecho problemático.</br></br> - Ofrecer una estructuración y visualización que se haga cargo de la heterogeneidad de posiciones, intereses, voces y argumentos, actores y conflictos, involucrados en una situación problemática.</br></br> <ul class='ul-top-cat'> <li class='li-top-cat'><b>ÁMBITO:</b> Se entiende por ámbito diferentes dominios temáticos donde transcurren y se desenvuelven, mayoritariamente, los hechos noticiosos en torno a Calama PLUS.</br> <ul class='ul-met ul-cat'> <li>Economía</li> <li>Política</li> <li>Infraestructura Urbana</li> <li>Social</li> <li>Medioambiente</li> </ul> </li> <li class='li-top-cat'><b>CONFLICTO:</b> Se entiende por Conflicto diferentes reivindicaciones, expectativas y estados que generan disputa e insatisfacción a un determinado grupos de actores vinculados directa o indirectamente con Calama PLUS.</br> <ul class='ul-met ul-cat'> <li>Deuda Histórica/Centralismo</li> <li>Cuestionamiento Político</li> <li>Prácticas Antisindicales</li> <li>Condiciones Calama PLUS</li> <li>Alteración del ecosistema</li> </ul> </li> <li class='li-top-cat'><b>INTERACCIÓN:</b> Se entiende por Interacción los modos en que los actores involucrados en un determinado conflicto buscan resolver o visibilizar su reivindicaciones, expectativas o insatisfacción.</br> <ul class='ul-met ul-cat'> <li>Declaración</li> <li>Entrega Documento</li> <li>Interpelación</li> <li>Socialización</li> <li>Convocatoria</li> <li>Consulta Ciudadana</li> <li>Manifestación Social</li> </ul> </li> <li class='li-top-cat'><b>ACTORES:</b> Se entiende por Actores los diferentes grupos de presión (personas, organizaciones, empresas, colectivos, etc.) que tienen interés de interactuar y movilizar algún tipo de causa en algunos de los ámbitos de Calama PLUS.</br> <ul class='ul-met ul-cat'> <li>Político</li> <li>Empresas</li> <li>Consorcio Calama PLUS</li> <li>Organización Laboral</li> <li>Organización Estudiantil </li> <li>Grupo Social</li> <li>Asociación Religiosa</li> <li>Pueblos Indígenas</li> <li>Medioambientales</li> <li>Medio de Comunicación</li> </ul> </li> </ul>"
+		}
+	];
+
+
+	$(".menu-body").height($(window).height()-65);
+
 	$.each($(".tl-timemarker"), function(index, value) {
 		var title = $(value).attr("data-title").toLowerCase();
 		var media = $(value).attr("data-media");
@@ -55,6 +77,26 @@ $(document).ready(function(){
 	$(document).on('click',".overMaskContainer",function(){
 		$(".overMaskContainer").addClass("hidden");
 		$(".mask").addClass("hidden");
+	});
+
+	$(document).on('click',".menuBtn",function(){
+		$(".menu-display").slideToggle("fast");
+		$(".menu-body").slideUp("fast");
+	});
+
+	$(document).on('click',".menu-display-list li",function(){
+		var id = $(this).attr("data-id");
+		var elem = $.grep(panelText, function(e){ return e._id == parseInt(id); })[0];
+		$(".menu-body-title p").html(elem._title);
+		$(".menu-body-content").html(elem._text);
+
+		$(".menu-display").hide();
+		$(".menu-body").show();
+	});
+
+	$(document).on('click',".menu-body-title",function(){
+		$(".menu-body").hide();
+		$(".menu-display").show();
 	});
 
 	$('#filter-dropdown').on('change', function (e) {
