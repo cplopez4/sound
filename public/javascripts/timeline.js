@@ -189,8 +189,7 @@ TL.Util = {
 		  else if(i==4){ return 'Convocatoria' }
 		  else if(i==5){ return 'Consulta Ciudadana' }
 		  else if(i==6){ return 'Manifestación Social' }
-		  else if(i==7){ return 'Anuncio' }
-		  else if(i==8){ return 'N/I' }
+		  else if(i==7){ return 'N/I' }
 		  else{ return 'Otro' }
 		}
 		else if(type==1){
@@ -11335,7 +11334,7 @@ TL.TimeNav = TL.Class.extend({
 		this._el.timeaxis_background 		= TL.Dom.create('div', 'tl-timeaxis-background', this._el.container);
 
 		// Draw background horizontal lines
-		var fixedLinesHeight = (this.options.height - 42) / 9;
+		var fixedLinesHeight = (this.options.height - 42) / 8;
 		fixedHeight = fixedLinesHeight;
 		fixedHeightAmb = (this.options.height - 42) / 6;
 		fixedHeightConf = (this.options.height - 42) / 6;
@@ -11347,24 +11346,24 @@ TL.TimeNav = TL.Class.extend({
 		var squares_l_container = TL.Dom.create('div', 'tl-squares-l-container', this._el.container);
 		squares_l_container.style.height = this.options.height - 5;
 
-		for(var i=0;i<9;i++){
+		for(var i=0;i<8;i++){
 			TL.Dom.createLine('div', 'tl-background-line int', this._el.container, (i*fixedLinesHeight)+ 32 +(fixedLinesHeight/2));
-			TL.Dom.createLabel('div', 'tl-background-label int', labels_container, (i*fixedLinesHeight)+ 22 +(fixedLinesHeight/2), i, 0);
+			TL.Dom.createLabel('div', 'tl-background-label int', labels_container, (i*fixedLinesHeight)+ 24 +(fixedLinesHeight/2), i, 0);
 			TL.Dom.createBSquare('div', 'tl-background-square int', squares_l_container, (i*fixedLinesHeight)+ 27 +(fixedLinesHeight/2), i, 0);
 		}
 		for(var i=0;i<6;i++){
 			TL.Dom.createLine('div', 'tl-background-line amb hidden', this._el.container, (i*fixedHeightAmb)+ 32 +(fixedHeightAmb/2));
-			TL.Dom.createLabel('div', 'tl-background-label amb hidden', labels_container, (i*fixedHeightAmb)+ 22 +(fixedHeightAmb/2), i, 1);
+			TL.Dom.createLabel('div', 'tl-background-label amb hidden', labels_container, (i*fixedHeightAmb)+ 24 +(fixedHeightAmb/2), i, 1);
 			TL.Dom.createBSquare('div', 'tl-background-square amb hidden', squares_l_container, (i*fixedHeightAmb)+ 27 +(fixedHeightAmb/2), i, 1);
 		}
 		for(var i=0;i<6;i++){
 			TL.Dom.createLine('div', 'tl-background-line conf hidden', this._el.container, (i*fixedHeightConf)+ 32 +(fixedHeightConf/2));
-			TL.Dom.createLabel('div', 'tl-background-label conf hidden', labels_container, (i*fixedHeightConf)+ 22 +(fixedHeightConf/2), i, 2);
+			TL.Dom.createLabel('div', 'tl-background-label conf hidden', labels_container, (i*fixedHeightConf)+ 24 +(fixedHeightConf/2), i, 2);
 			TL.Dom.createBSquare('div', 'tl-background-square conf hidden', squares_l_container, (i*fixedHeightConf)+ 27 +(fixedHeightConf/2), i, 2);
 		}
 		for(var i=0;i<11;i++){
 			TL.Dom.createLine('div', 'tl-background-line act hidden', this._el.container, (i*fixedHeightAct)+ 32 +(fixedHeightAct/2));
-			TL.Dom.createLabel('div', 'tl-background-label act hidden', labels_container, (i*fixedHeightAct)+ 22 +(fixedHeightAct/2), i, 3);
+			TL.Dom.createLabel('div', 'tl-background-label act hidden', labels_container, (i*fixedHeightAct)+ 24 +(fixedHeightAct/2), i, 3);
 			TL.Dom.createBSquare('div', 'tl-background-square act hidden',squares_l_container, (i*fixedHeightAct)+ 27 +(fixedHeightAct/2), i, 3);
 		}
 
