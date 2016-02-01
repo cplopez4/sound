@@ -8803,7 +8803,7 @@ TL.Media.Text = TL.Class.extend({
 
 		//console.log(data);
 		
-		this._el.container = TL.Dom.createSlideText("div", "tl-text", null, data.conflicto.cat_actor, data.conflicto.principal, data.conflicto.ambito, data.conflicto.cat_actor);
+		this._el.container = TL.Dom.createSlideText("div", "tl-text", null, data.interaccion.body, data.conflicto.principal, data.conflicto.ambito, data.conflicto.cat_actor);
 		this._el.container.id = this.data.unique_id;
 		
 		this._initLayout();
