@@ -7318,6 +7318,7 @@ TL.Media = TL.Class.extend({
 			content_container: {},
 			content: {},
 			content_item: {},
+			content_link_image: {},
 			content_link: {},
 			caption: null,
 			credit: null,
@@ -8134,7 +8135,10 @@ TL.Media.Image = TL.Media.extend({
 			this._el.content_link.target 		= "_blank";
 			this._el.content_item				= TL.Dom.create("img", image_class, this._el.content_link);
 		} else {
-			this._el.content_item				= TL.Dom.create("img", image_class, this._el.content);
+			this._el.content_link_image 		= TL.Dom.create("a", "", this._el.content);
+			this._el.content_link_image.href 	= this.getImageURL();
+			this._el.content_link_image.target 	= "_blank";
+			this._el.content_item				= TL.Dom.create("img", image_class, this._el.content_link_image);
 		}
 		
 		// Media Loaded Event
