@@ -19,7 +19,7 @@ $(document).ready(function(){
 	];
 
 
-	$(".menu-body").height($(window).height()-65);
+	$(".menu-body").height($(window).height()-50);
 
 	$.each($(".tl-timemarker"), function(index, value) {
 		var title = $(value).attr("data-title").toLowerCase();

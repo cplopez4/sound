@@ -3494,6 +3494,32 @@ select.custom-dropdown:focus{
 .menuContainer div {
 	display: inline-block;
 	cursor: pointer;
+	width: 30px;
+	height: 30px;
+	margin-left: 12px;
+	vertical-align: middle;
+}
+
+.menuContainer .tutorialIcon {
+	width: 26px;
+	height: 25px;
+}
+
+.menuContainer .tutorialIcon {
+	border: 2px solid black;
+}
+.menuContainer span {
+	display: block;
+	text-align: center;
+}
+
+.menuContainer .tutorialIcon i {
+	font-size: 16pt;
+	line-height: 1.4;
+}
+
+.menuContainer .menuBtn i {
+	font-size: 25pt;
 }
 
 .menuContainer div:hover {
@@ -3612,7 +3638,7 @@ body {
 	display: none;
 	position: absolute;
 	right: 20px;
-	top: 55px;
+	top: 40px;
 	width: 105px;
 	background-color: rgba(51,51,51,0.6);
 	font-family: 'Alegreya Sans';
@@ -3653,7 +3679,7 @@ body {
 	display: none;
 	position: absolute;
 	right: 20px;
-	top: 55px;
+	top: 40px;
 	width: 260px;
 	background-color: rgba(51,51,51,0.6);
 	font-family: 'Alegreya Sans';
@@ -3675,7 +3701,7 @@ body {
 }
 
 .menu-body-title p{
-	margin-left: 6px;
+	margin-left: 10px;
 	display: inline-block;
 }
 
