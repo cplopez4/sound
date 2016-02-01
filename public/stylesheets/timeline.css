@@ -202,7 +202,7 @@ body {
 
 .tl-timeline p {
 	margin-top:5px;
-	margin-bottom:10px;
+	margin-bottom:8px;
 	font-size:15px;
 	line-height:1.42857143;
 	color:#666
@@ -3127,6 +3127,7 @@ to {
   	z-index: 10;
   	max-width: 70px;
   	border-bottom: 1px solid #cccccc;
+  	min-height: 105px;
 }
 
 .tipo-image {

@@ -69,6 +69,11 @@ $(document).ready(function(){
 		history.pushState(null, null, "?news=" + id);
 	});
 
+	$(document).on('click',".tl-slidenav-content-container",function(){
+		var id = parseInt($(".tl-timemarker.tl-timemarker-active").attr("data-hasqtip"));
+		history.pushState(null, null, "?news=" + id);
+	});
+
 	$(document).on('click',".tutorialIcon",function(){
 		$(".overMaskContainer").removeClass("hidden");
 		$(".mask").removeClass("hidden");
