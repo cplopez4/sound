@@ -1312,6 +1312,10 @@ to {
 	border-color:rgb(60,60,75);
 }
 
+.tl-timemarker:hover .tl-timemarker-timespan.yellow-timespan .tl-timemarker-line-left,.tl-timemarker:hover .tl-timemarker-timespan.yellow-timespan .tl-timemarker-line-right {
+	border-color:rgb(255,204,0);
+}
+
 .tl-timemarker:hover .tl-timemarker-timespan .tl-timemarker-line-left:after,.tl-timemarker:hover .tl-timemarker-timespan .tl-timemarker-line-right:after {
 	background-color:#3d3d3d
 }
@@ -3255,6 +3259,13 @@ to {
 	font-weight: 700;
 }
 
+.tooltip-title.context-title {
+	font-size: 8pt;
+	font-family: 'Alegreya Sans SC';
+	font-weight: 700;
+	text-align: center
+}
+
 .qtip-content p {
 	margin: 0px;
 }
@@ -3268,6 +3279,11 @@ to {
 .tooltip-top {
 	padding-bottom: 3px;
 	border-bottom: 1px solid rgb(60,60,75);
+}
+
+.tooltip-top.no-border {
+	padding-bottom: 0px;
+	border-bottom: none;
 }
 
 .tooltip-down {
@@ -3477,6 +3493,7 @@ select.custom-dropdown:focus{
 }
 
 .tl-timemarker-icon {
+	pointer-events: initial;
 	position: absolute;
   	top: -28px;
   	left: -15px;

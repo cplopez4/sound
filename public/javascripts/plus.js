@@ -52,6 +52,36 @@ $(document).ready(function(){
         })
 	});
 
+	$.each($(".tl-timemarker-icon"), function(index, value) {
+		var title = $(value).closest(".tl-timemarker").attr("data-title").toLowerCase();
+		$(value).closest(".tl-timemarker").qtip("destroy");
+
+		$(value).qtip({
+            style: {
+                //classes: area,
+                tip: false
+            },
+            content: {
+                text: "<div class='tooltip-top no-border'><p class='tooltip-title context-title'>"+ title +"</p></div>"
+            },
+            position: {
+                my: 'bottom center',
+                at: 'top center',
+				/*target: 'mouse',*/
+                adjust: {
+                	x: 0,
+                	y: 10
+                }
+            },
+            show: {
+                event: 'mouseenter'
+            },
+            hide: {
+                event: 'mouseleave',
+            }
+        })
+	});
+
 	$(".tl-timemarker").hover(
 	  function() {
 	  	var group = $(this).attr("data-group");

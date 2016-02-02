@@ -11651,8 +11651,8 @@ TL.TimeMarker = TL.Class.extend({
 	},
 
 	setRowPositionYellow: function(n, remainder) {
-		this.setPosition({top:-10});
-		this._el.timespan.style.height = 370 + "px";
+		this.setPosition({top:0});
+		this._el.timespan.style.height = 360 + "px";
 
 		if (remainder < 56) {
 			//TL.DomUtil.removeClass(this._el.content_container, "tl-timemarker-content-container-small");
@@ -11699,7 +11699,13 @@ TL.TimeMarker = TL.Class.extend({
 			this._el.container.className = 'tl-timemarker tl-timemarker-with-end';
 		}
 
-		this._el.timespan				= TL.Dom.create("div", "tl-timemarker-timespan", this._el.container);
+		if(this.data.text.contextual.bool == 1){
+			this._el.timespan			= TL.Dom.create("div", "tl-timemarker-timespan yellow-timespan", this._el.container);
+		}
+		else {
+			this._el.timespan			= TL.Dom.create("div", "tl-timemarker-timespan", this._el.container);
+		}
+
 		this._el.timespan_content		= TL.Dom.create("div", "tl-timemarker-timespan-content", this._el.timespan);
 
 		var squareSize = "square-container-small";
