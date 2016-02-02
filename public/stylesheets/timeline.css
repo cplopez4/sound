@@ -3261,8 +3261,8 @@ to {
 
 .tooltip-title.context-title {
 	font-size: 8pt;
-	font-family: 'Alegreya Sans SC';
-	font-weight: 700;
+	font-family: 'Alegreya Sans';
+	font-weight: 300;
 	text-align: center
 }
 
@@ -3274,6 +3274,13 @@ to {
 	border: 1px solid rgba(60,60,75,0.8);
 	background-color: rgb(204,204,204);
 	color: rgb(60,60,75);
+}
+
+.qtip.qtip-contextual {
+	border: 1px solid rgb(255,204,0);
+	background-color: white;
+	color: #6C6D6D;
+	max-width: 100px;
 }
 
 .tooltip-top {
@@ -3762,7 +3769,7 @@ body {
 .logo-container {
 	display: inline-block;
   	height: 33px;
-  	vertical-align: middle;
+  	vertical-align: top;
   	margin-right: 5px;
 }
 

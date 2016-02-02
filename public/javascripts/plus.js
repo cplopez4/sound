@@ -53,13 +53,14 @@ $(document).ready(function(){
 	});
 
 	$.each($(".tl-timemarker-icon"), function(index, value) {
-		var title = $(value).closest(".tl-timemarker").attr("data-title").toLowerCase();
+		var title = $(value).closest(".tl-timemarker").attr("data-title");
 		$(value).closest(".tl-timemarker").qtip("destroy");
 
 		$(value).qtip({
             style: {
-                //classes: area,
-                tip: false
+                classes: "qtip-contextual",
+                tip: false,
+                width: 100
             },
             content: {
                 text: "<div class='tooltip-top no-border'><p class='tooltip-title context-title'>"+ title +"</p></div>"
