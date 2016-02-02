@@ -3313,7 +3313,7 @@ select.custom-dropdown {
 	border: 0 !important;  /*REMOVES BORDER*/
 
 	background-color: white;
-	color: black;
+	color: #3C3C45;
 	cursor: pointer;
 	padding: 0px;
 	/*-webkit-border-radius: 5px;
