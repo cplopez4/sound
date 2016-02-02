@@ -3019,7 +3019,7 @@ to {
 /* CUSTOM STYLES */
 .header-filter {
 	margin-bottom: -15px;
-	padding-left: 110px;
+	margin-left: -7px;
 	margin-top: 7px;
 }
 
@@ -3739,4 +3739,16 @@ body {
 
 .ul-cat {
 	margin-top: 5px;
+}
+
+.logo-container {
+	display: inline-block;
+  	height: 33px;
+  	vertical-align: middle;
+  	margin-right: 5px;
+}
+
+.filter-container i {
+	color: #cccccc;
+	cursor: pointer;
 }
