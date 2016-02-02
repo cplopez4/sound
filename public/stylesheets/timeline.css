@@ -3490,6 +3490,7 @@ select.custom-dropdown:focus{
 	display: inline-block;
   	position: absolute;
   	right: 20px;
+  	color: #3C3C45;
 }
 
 .menuContainer div {
@@ -3507,7 +3508,7 @@ select.custom-dropdown:focus{
 }
 
 .menuContainer .tutorialIcon {
-	border: 2px solid black;
+	border: 2px solid #3C3C45;
 }
 .menuContainer span {
 	display: block;
