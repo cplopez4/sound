@@ -3504,6 +3504,7 @@ select.custom-dropdown:focus{
 	position: absolute;
   	top: -28px;
   	left: -15px;
+  	cursor: initial;
 }
 
 .tl-timespan-icon {
