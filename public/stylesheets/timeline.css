@@ -3064,7 +3064,7 @@ to {
 	text-align: right;
 	overflow: hidden;
 	background-color: #F0F0EE;
-	z-index: 6;
+	z-index: 13;
 	border-right: 25px solid #F0F0EE;
 }
 
@@ -3487,7 +3487,7 @@ select.custom-dropdown:focus{
   	width: 10px;
   	overflow: hidden;
   	background-color: #F0F0EE;
-  	z-index: 6;
+  	z-index: 13;
 }
 
 .tl-background-square {

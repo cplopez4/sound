@@ -47,7 +47,7 @@ $(document).ready(function(){
                 event: 'mouseenter'
             },
             hide: {
-                event: 'mouseleave',
+                event: 'mouseleave'
             }
         })
 	});
@@ -68,7 +68,7 @@ $(document).ready(function(){
             position: {
                 my: 'bottom center',
                 at: 'top center',
-				/*target: 'mouse',*/
+				/*target: 'event',*/
                 adjust: {
                 	x: 0,
                 	y: 10
@@ -78,7 +78,7 @@ $(document).ready(function(){
                 event: 'mouseenter'
             },
             hide: {
-                event: 'mouseleave',
+                event: 'mouseleave'
             }
         })
 	});
