@@ -11375,7 +11375,8 @@ TL.TimeNav = TL.Class.extend({
 		for(var i=0;i<6;i++){
 			TL.Dom.createLine('div', 'tl-background-line conf hidden', this._el.container, (i*fixedHeightConf)+ 32 +(fixedHeightConf/2));
 			TL.Dom.createLabel('div', 'tl-background-label conf hidden', labels_container, (i*fixedHeightConf) - 7 +(fixedHeightConf/2), i, 2);
-			TL.Dom.createBSquare('div', 'tl-background-square conf hidden', squares_l_container, (i*fixedHeightConf) - 4 +(fixedHeightConf/2), i, 2);
+			var confSquare = TL.Dom.createBSquare('div', 'tl-background-square conf hidden', squares_l_container, (i*fixedHeightConf) - 4 +(fixedHeightConf/2), i, 2);
+			confSquare.innerHTML = "<span>+</span>";
 		}
 		for(var i=0;i<11;i++){
 			TL.Dom.createLine('div', 'tl-background-line act hidden', this._el.container, (i*fixedHeightAct)+ 32 +(fixedHeightAct/2));

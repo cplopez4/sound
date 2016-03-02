@@ -3778,3 +3778,16 @@ body {
 	color: #cccccc;
 	cursor: pointer;
 }
+
+.tl-background-square span {
+	font-size: 10pt;
+  	/*color: rgba(60,60,75,0.8);*/
+  	color: white;
+  	position: absolute;
+  	left: 1px;
+  	top: -3px;
+}
+
+.tl-background-square.conf {
+	cursor: pointer;
+}
