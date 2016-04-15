@@ -3668,10 +3668,10 @@ body {
 	position: absolute;
 	right: 20px;
 	top: 40px;
-	width: 105px;
+	width: 120px;
 	background-color: rgba(51,51,51,0.6);
 	font-family: 'Alegreya Sans';
-	font-size: 9pt;
+	font-size: 11pt;
 	color: rgb(255,255,255);
 	z-index: 998;
 }
@@ -3709,10 +3709,10 @@ body {
 	position: absolute;
 	right: 20px;
 	top: 40px;
-	width: 260px;
+	width: 346px;
 	background-color: rgba(51,51,51,0.6);
 	font-family: 'Alegreya Sans';
-	font-size: 9pt;
+	font-size: 11pt;
 	color: rgb(255,255,255);
 	z-index: 998;
 	padding: 0px;
@@ -3736,7 +3736,7 @@ body {
 
 .menu-body-content {
 	padding: 20px 30px 25px 30px;
-	font-size: 8pt;
+	font-size: 10pt;
 }
 
 .menu-body-content a{
@@ -3823,4 +3823,83 @@ body {
 
 .tl-timemarker-icontext.hidden {
 	display: none;
+}
+
+.tl-background-desc {
+	width: 310px;
+	position: absolute;
+    left: 0px;
+    z-index: 15; 
+}
+
+.tl-background-desc.desc-hidden {
+	display: none;
+}
+
+.tl-mask-label {
+	width: 115px;
+	background-color: #F0F0EE;
+	position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 15;
+}
+
+.tl-mask-color{
+	width: 310px;
+	background-color: rgba(42,56,220,0.6);
+	position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 16;
+}
+
+.close-icon-mask {
+	font-size: 10px;
+	position: absolute;
+	top: 6px;
+	right: 6px;
+	color: white;
+	z-index: 17;
+	font-style: normal !important;
+	cursor: pointer;
+}
+
+.close-icon-mask:hover {
+	opacity: 0.5;
+}
+
+.tl-title-desc-cont {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	color: white;
+	z-index: 17;
+	width: 90px;
+}
+
+.tl-title-desc {
+	text-align: right;
+	color: white !important;
+	z-index: 17;
+	font-family: 'Alegreya Sans';
+    font-weight: 500;
+    font-size: 10pt !important;
+    margin-top: 6px !important;
+    line-height: 1 !important;
+}
+
+.tl-desc-content {
+	width: 190px;
+	position: absolute;
+	right: 20px;
+	top: 0px;
+	color: white !important;
+	z-index: 17;
+	font-family: 'Alegreya Sans';
+    font-weight: 500;
+    font-size: 8pt !important;
+    line-height: 1.1 !important;
+    margin-bottom: 0px !important;
+    margin-top: 6px !important;
 }

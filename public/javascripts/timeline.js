@@ -5099,10 +5099,90 @@ TL.Dom = {
 		return el;
 	},
 
+	createDesc: function(tagName, className, container, top, index, height) {
+		var el = document.createElement(tagName);
+		el.className = className;
+		el.style.top = top + 'px';
+		el.style.height = height + 'px';
+		el.dataset.indexRow = index;
+
+		var mask1 = document.createElement('div');
+		mask1.className = 'tl-mask-label';
+		mask1.style.height = (parseInt(height)/2+5) + 'px';
+
+		var mask2 = document.createElement('div');
+		mask2.className = 'tl-mask-color';
+		mask2.style.height = height + 'px';
+
+		var title_cont = document.createElement('div');
+		title_cont.className = 'tl-title-desc-cont';
+		title_cont.style.height = height + 'px';
+
+		var title = document.createElement('p');
+		title.className = 'tl-title-desc';
+
+		var content = document.createElement('p');
+		content.className = 'tl-desc-content';
+		
+		if(index == 0){
+			title.innerHTML = 'Deuda Histórica/ Centralismo';
+			content.innerHTML = 'Se refiere a las demandas que la población calameña ha visto históricamente aplazadas por el gobierno central.';
+		}
+		else if(index == 1){
+			title.innerHTML = 'Cuestionamiento Político';
+			content.innerHTML = 'Se refiere a acciones o declaraciones que reflejan un rechazo y desconfianza hacia los actores políticos institucionales.';
+		}
+		else if(index == 2){
+			title.innerHTML = 'Prácticas Antisindicales';
+			content.innerHTML = 'Se refiere a la reacción a las demandas laborales de los sindicatos mineros. Relación entre huelgas y negociaciones colectivas.';
+		}
+		else if(index == 3){
+			title.innerHTML = 'Condiciones Calama PLUS';
+			content.innerHTML = 'Se refiere a cuestionamientos que plantean los actores frente al desarrollo, implementación e impacto del proyecto Calama Plus.';
+		}
+		else if(index == 4){
+			title.innerHTML = 'Alteración del ecosistema';
+			content.innerHTML = 'Se refiere a acciones y demandas sobre el cuidado del medioambiente.';
+		}
+		else{
+			title.innerHTML = '';
+			content.innerHTML = '';
+		}
+
+		var closemask = document.createElement('i');
+		closemask.className = 'fa fa-chevron-up close-icon-mask';
+
+		el.appendChild(mask1);
+		el.appendChild(mask2);
+		el.appendChild(closemask);
+		el.appendChild(title_cont);
+		el.appendChild(content);
+		title_cont.appendChild(title);
+
+		if (container) {
+			container.appendChild(el);
+		}
+		return el;
+	},
+
 	createBSquare: function(tagName, className, container, top, index, type) {
 		var el = document.createElement(tagName);
 		el.className = className;
 		el.style.top = top + 'px';
+
+		el.className += ' tl-label-text-square ' + TL.Util.switchColor(index);
+
+		if (container) {
+			container.appendChild(el);
+		}
+		return el;
+	},
+
+	createBSquareDesc: function(tagName, className, container, top, index, type) {
+		var el = document.createElement(tagName);
+		el.className = className;
+		el.style.top = top + 'px';
+		el.dataset.indexRow = index;
 
 		el.className += ' tl-label-text-square ' + TL.Util.switchColor(index);
 
@@ -11400,8 +11480,11 @@ TL.TimeNav = TL.Class.extend({
 		for(var i=0;i<6;i++){
 			TL.Dom.createLine('div', 'tl-background-line conf hidden', this._el.container, (i*fixedHeightConf)+ 32 +(fixedHeightConf/2));
 			TL.Dom.createLabel('div', 'tl-background-label conf hidden', labels_container, (i*fixedHeightConf) - 7 +(fixedHeightConf/2), i, 2);
-			var confSquare = TL.Dom.createBSquare('div', 'tl-background-square conf hidden', squares_l_container, (i*fixedHeightConf) - 4 +(fixedHeightConf/2), i, 2);
-			confSquare.innerHTML = "<span>+</span>";
+			var confSquare = TL.Dom.createBSquareDesc('div', 'tl-background-square conf hidden', squares_l_container, (i*fixedHeightConf) - 4 +(fixedHeightConf/2), i, 2);
+			if(i<5){
+				confSquare.innerHTML = "<span>+</span>";
+				TL.Dom.createDesc('div', 'tl-background-desc desc-hidden', this._el.container, (i*fixedHeightConf) + 18 +(fixedHeightConf/2), i, fixedHeightConf);
+			}
 		}
 		for(var i=0;i<11;i++){
 			TL.Dom.createLine('div', 'tl-background-line act hidden', this._el.container, (i*fixedHeightAct)+ 32 +(fixedHeightAct/2));

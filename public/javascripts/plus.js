@@ -99,6 +99,15 @@ $(document).ready(function(){
 		openDD($($(this).siblings("select")[0]));
 	});
 
+	$(document).on('click',".tl-background-square.conf",function(){
+		var index = $(this).attr("data-index-row");
+		$(".tl-background-desc[data-index-row='"+ index +"']").slideToggle("normal");
+	});
+
+	$(document).on('click',".close-icon-mask",function(){
+		$(this).closest(".tl-background-desc").slideToggle("normal");
+	});
+
 	$(document).on('click',".tl-timemarker",function(){
 		var id = parseInt($(this).attr("data-hasqtip"));
 		history.pushState(null, null, "?news=" + id);
