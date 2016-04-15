@@ -3066,6 +3066,7 @@ to {
 	background-color: #F0F0EE;
 	z-index: 13;
 	border-right: 25px solid #F0F0EE;
+	box-shadow: 0 15px 0px 0px white;
 }
 
 .tl-background-label {
@@ -3408,7 +3409,7 @@ select.custom-dropdown:focus{
 
 .tl-ambito-title, .tl-text-content-container-triple-left-conf-title, .tl-text-content-container-triple-left-int-title{
 	height: 20%;
-    background: rgba(102,102,51,0.4);
+    background: rgba(102,102,90,0.4);
     color: rgb(60,60,75);
     font-family: 'Alegreya Sans SC';
     font-weight: 700;
@@ -3488,6 +3489,7 @@ select.custom-dropdown:focus{
   	overflow: hidden;
   	background-color: #F0F0EE;
   	z-index: 13;
+  	box-shadow: 0 15px 0px 0px white;
 }
 
 .tl-background-square {
