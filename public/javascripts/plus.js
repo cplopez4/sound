@@ -95,6 +95,10 @@ $(document).ready(function(){
 	  }
 	);
 
+	$(document).on('click',".dropdown-arrow",function(){
+		openDD($($(this).siblings("select")[0]));
+	});
+
 	$(document).on('click',".tl-timemarker",function(){
 		var id = parseInt($(this).attr("data-hasqtip"));
 		history.pushState(null, null, "?news=" + id);
@@ -269,3 +273,13 @@ $(document).ready(function(){
         return b;
     })(window.location.search.substr(1).split('&'))
 })(jQuery);
+
+function openDD(elem) {
+    if (document.createEvent) {
+        var e = document.createEvent("MouseEvents");
+        e.initMouseEvent("mousedown", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+        elem[0].dispatchEvent(e);
+    } else if (element.fireEvent) {
+        elem[0].fireEvent("onmousedown");
+    }
+}

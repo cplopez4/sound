@@ -157,6 +157,15 @@ TL.Util = {
 	  else{ return '' }
 	},
 
+	switchTypeIconInt: function(i) {
+	  if(i=='Hito político'){ return 'icontype-0' }
+	  else if(i=='Conflicto mediático'){ return 'icontype-1' }
+	  else if(i=='Consulta ciudadana'){ return 'icontype-2' }
+	  else if(i=='Manifestación social'){ return 'icontype-3' }
+	  else if(i=='Relativo a Calama PLUS'){ return 'icontype-4' }
+	  else{ return 'icontype-5' }
+	},
+
 	switchSize: function(i) {
 	  if(i<2){ return 0 }
 	  else if(i>1 && i<4){ return 1 }
@@ -4973,6 +4982,22 @@ TL.Dom = {
 		img.src = "images/" + TL.Util.switchTypeIcon(type);
 
 		el.appendChild(img);
+
+		if (container) {
+			container.appendChild(el);
+		}
+		return el;
+	},
+
+	createIconText: function(tagName, className, container, text) {
+		var el = document.createElement(tagName);
+		el.className = className;
+
+		var p = document.createElement('p');
+		p.className = 'tl-timespan-text';
+		p.innerHTML = text;
+
+		el.appendChild(p);
 
 		if (container) {
 			container.appendChild(el);
@@ -10833,13 +10858,13 @@ TL.TimeNav = TL.Class.extend({
 	setZoomFactor: function(factor) {
 		this.options.scale_factor = factor;
 		if(factor >= 13){
-			$.each($(".tl-timemarker-icon"), function(index, value) {
-				$(value).trigger('mouseenter');
+			$.each($(".tl-timemarker-icontext"), function(index, value) {
+				$(value).removeClass('hidden');
 			});
 		}
 		else{
-			$.each($(".tl-timemarker-icon"), function(index, value) {
-				$(value).trigger('mouseleave');
+			$.each($(".tl-timemarker-icontext"), function(index, value) {
+				$(value).addClass('hidden');
 			});
 		}
 		//this._updateDrawTimeline(true);
@@ -11457,6 +11482,7 @@ TL.TimeMarker = TL.Class.extend({
 			line_right: {},
 			icon_container: {},
 			icon_image: {},
+			icon_text: {},
 			content: {},
 			text: {},
 			media: {},
@@ -11784,7 +11810,9 @@ TL.TimeMarker = TL.Class.extend({
 		this._el.line_right				= TL.Dom.create("div", "tl-timemarker-line-right", this._el.timespan);
 
 		if(this.data.text.contextual.bool == 1){
-			this._el.icon_container		= TL.Dom.createIcon("div", "tl-timemarker-icon", this._el.timespan, this.data.text.contextual.type);
+			var iconClass = TL.Util.switchTypeIconInt(this.data.text.contextual.type);
+			this._el.icon_container		= TL.Dom.createIcon("div", "tl-timemarker-icon " + iconClass, this._el.timespan, this.data.text.contextual.type);
+			this._el.icon_text			= TL.Dom.createIconText("div", "tl-timemarker-icontext hidden", this._el.timespan, this.data.text.headline);
 		}
 
 		// Fire event that the slide is loaded

@@ -3793,3 +3793,34 @@ body {
 .tl-background-square.conf {
 	cursor: pointer;
 }
+
+.dropdown-arrow:hover {
+	opacity: 0.8;
+}
+
+.tl-timemarker-icon.icontype-3 {
+	left: -14px;
+}
+
+.tl-timemarker-icon.icontype-4 {
+	left: -8px;
+}
+
+.tl-timemarker-icontext {
+	top: -28px;
+    left: 22px;
+    position: absolute;
+    height: 50px;
+    min-width: 100px;
+}
+
+.tl-timeline p.tl-timespan-text {
+	font-size: 8pt;
+	font-family: 'Alegreya Sans';
+	font-weight: 300;
+	line-height: 1.1;
+}
+
+.tl-timemarker-icontext.hidden {
+	display: none;
+}
