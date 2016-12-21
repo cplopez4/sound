@@ -19,7 +19,7 @@ var siriWave2 = new SiriWave({
     height: heightFixed,
     color: '#00ff98',
     autostart: true,
-    speed: 0.06,
+    speed: 0.03,
     amplitude: 0.7,
     frequency: 40,
     top: heightFixed
@@ -55,8 +55,8 @@ var siriWave5 = new SiriWave({
     height: heightFixed,
     color: '#050096',
     autostart: true,
-    speed: 0.03,
-    amplitude: 0.7,
+    speed: 0.06,
+    amplitude: 1,
     frequency: 35,
     top: heightFixed*4
 });

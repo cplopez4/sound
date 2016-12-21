@@ -14,13 +14,27 @@
 <script src="javascripts/jquery.qtip.min.js"></script>
 <script src="javascripts/wave.js"></script>
 
-<div id="siri-container-1"></div>
-<div id="siri-container-2"></div>
-<div id="siri-container-3"></div>
-<div id="siri-container-4"></div>
-<div id="siri-container-5"></div>
-<div id="siri-container-6"></div>
-<div id="siri-container-7"></div>
+<div id="siri-container-1" class="hidden"></div>
+<div id="siri-container-2" class="hidden"></div>
+<div id="siri-container-3" class="hidden"></div>
+<div id="siri-container-4" class="hidden"></div>
+<div id="siri-container-5" class=""></div>
+<div id="siri-container-6" class="hidden"></div>
+<div id="siri-container-7" class="hidden"></div>
+
+<div class="cover-container">
+  <div class="title-container">
+    <p class="cover-title-b">HISTORIAS POR DEFAULT</p>
+    <p class="cover-title-s">Una experiencia interactiva sobre la red neuronal por defecto</p>
+  </div>
+  <div class="cover-legend">
+    <div class="cover-text">
+      <p>Es altamente recomendable que utilices audífonos.</p>
+      <p>Para comenzar, debes subir el volumen a tu derecha.</p>
+    </div>
+    <div class="cover-img"><img src="images/audifonos.svg"></div>
+  </div>
+</div>
 
 <!-- Modal Video -->
 <div class="video-modal">
@@ -34,61 +48,71 @@
   <!-- Fin Volumen -->
 
   <!-- About -->
-  <div class="over-content about" id="about-container" style="left:60px;top:40px;"><img class="about-img" src="images/about.svg"></div>
-  <div class="over-content about" id="about-text-container" style="left:107px;top:53px;"><p class="about-title">SOBRE EL PROYECTO</p></div>
+  <div class="over-content about-container hidden">
+    <div class="over-content about" id="about-container" style="left:60px;top:40px;"><img class="about-img" src="images/about.svg"></div>
+    <div class="over-content about" id="about-text-container" style="left:107px;top:53px;"><p class="about-title">SOBRE EL PROYECTO</p></div> 
+  </div>
   <!-- Fin About -->
 
-  <!-- Preguntas -->
-  <div class="over-content question" id="q1-l20t50" style="left:20%;top:50%;"><img class="question-img" src="images/pregunta.svg"></div>
-  <div class="over-content question" id="q2-l55t60" style="left:55%;top:60%;"><img class="question-img" src="images/pregunta.svg"></div>
-  <div class="over-content question" id="q3-l85t23" style="left:85%;top:23%;"><img class="question-img" src="images/pregunta.svg"></div>
-  <!-- Fin Preguntas -->
+
+  <!-- Puntos -->
+
+  <div class="points-layer hidden">
+
+    <!-- Preguntas -->
+    <div class="over-content question" id="q1-l20t50" style="left:20%;top:50%;"><img class="question-img" src="images/pregunta.svg"></div>
+    <div class="over-content question" id="q2-l55t60" style="left:55%;top:60%;"><img class="question-img" src="images/pregunta.svg"></div>
+    <div class="over-content question" id="q3-l85t23" style="left:85%;top:23%;"><img class="question-img" src="images/pregunta.svg"></div>
+    <!-- Fin Preguntas -->
 
 
-  <!-- Respuestas -->
-  <div class="over-content answer" id="q1a1-l67t21" style="left:67%;top:21%;"><img class="answer-img" src="images/respuesta.svg"></div>
-  <div class="over-content answer" id="q1a2-l45t90" style="left:45%;top:90%;"><img class="answer-img" src="images/respuesta.svg"></div>
-  <div class="over-content answer" id="q2a1-l28t80" style="left:28%;top:80%;"><img class="answer-img" src="images/respuesta.svg"></div>
-  <div class="over-content answer" id="q2a2-l42t50" style="left:42%;top:50%;"><img class="answer-img" src="images/respuesta.svg"></div>
-  <div class="over-content answer" id="q2a3-l45t10" style="left:45%;top:10%;"><img class="answer-img" src="images/respuesta.svg"></div>
-  <div class="over-content answer" id="q3a1-l95t55" style="left:95%;top:55%;"><img class="answer-img" src="images/respuesta.svg"></div>
-  <div class="over-content answer" id="q3a2-l72t80" style="left:72%;top:80%;"><img class="answer-img" src="images/respuesta.svg"></div>
-  <!-- Fin Respuestas -->
+    <!-- Respuestas -->
+    <div class="over-content answer" id="q1a1-l67t21" style="left:67%;top:21%;"><img class="answer-img" src="images/respuesta.svg"></div>
+    <div class="over-content answer" id="q1a2-l45t90" style="left:45%;top:90%;"><img class="answer-img" src="images/respuesta.svg"></div>
+    <div class="over-content answer" id="q2a1-l28t80" style="left:28%;top:80%;"><img class="answer-img" src="images/respuesta.svg"></div>
+    <div class="over-content answer" id="q2a2-l42t50" style="left:42%;top:50%;"><img class="answer-img" src="images/respuesta.svg"></div>
+    <div class="over-content answer" id="q2a3-l45t10" style="left:45%;top:10%;"><img class="answer-img" src="images/respuesta.svg"></div>
+    <div class="over-content answer" id="q3a1-l95t55" style="left:95%;top:55%;"><img class="answer-img" src="images/respuesta.svg"></div>
+    <div class="over-content answer" id="q3a2-l72t80" style="left:72%;top:80%;"><img class="answer-img" src="images/respuesta.svg"></div>
+    <!-- Fin Respuestas -->
 
 
-  <!-- Puntos Extra -->
+    <!-- Puntos Extra -->
 
-  <!-- Extra Pregunta 1 -->
-  <div class="over-content extra" id="q1a1e1-l36t30" style="left:36%;top:30%;"><img class="extra-img" src="images/extra.svg"></div>
-  <div class="over-content extra" id="q1a1e2-l50t21" style="left:50%;top:21%;"><img class="extra-img" src="images/extra.svg"></div>
-  <div class="over-content extra" id="q1a2e1-l35t70" style="left:35%;top:70%;"><img class="extra-img" src="images/extra.svg"></div>
+    <!-- Extra Pregunta 1 -->
+    <div class="over-content extra" id="q1a1e1-l36t30" style="left:36%;top:30%;"><img class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra" id="q1a1e2-l50t21" style="left:50%;top:21%;"><img class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra" id="q1a2e1-l35t70" style="left:35%;top:70%;"><img class="extra-img" src="images/extra.svg"></div>
 
-  <!-- Extra Pregunta 2 -->
-  <div class="over-content extra" id="q2a1e1-l54t75" style="left:54%;top:75%;"><img class="extra-img" src="images/extra.svg"></div>
-  <div class="over-content extra" id="q2a3e1-l50t40" style="left:50%;top:40%;"><img class="extra-img" src="images/extra.svg"></div>
-  <!-- Q2A3E2 OK -->
+    <!-- Extra Pregunta 2 -->
+    <div class="over-content extra" id="q2a1e1-l54t75" style="left:54%;top:75%;"><img class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra" id="q2a3e1-l50t40" style="left:50%;top:40%;"><img class="extra-img" src="images/extra.svg"></div>
+    <!-- Q2A3E2 OK -->
 
-  <!-- Extra Pregunta 3 -->
-  <div class="over-content extra" id="q3a2e1-l80t40" style="left:80%;top:40%;"><img class="extra-img" src="images/extra.svg"></div>
-  <div class="over-content extra" id="q3a2e2-l76t59" style="left:76%;top:59%;"><img class="extra-img" src="images/extra.svg"></div>
+    <!-- Extra Pregunta 3 -->
+    <div class="over-content extra" id="q3a2e1-l80t40" style="left:80%;top:40%;"><img class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra" id="q3a2e2-l76t59" style="left:76%;top:59%;"><img class="extra-img" src="images/extra.svg"></div>
 
-  <!-- Extras Individuales -->
-  <div class="over-content extra" id="e1-l22t21" style="left:22%;top:21%;"><img class="extra-img" src="images/extra.svg"></div>
-  <div class="over-content extra" id="e2-l10t40" style="left:10%;top:40%;"><img class="extra-img" src="images/extra.svg"></div>
-  <div class="over-content extra" id="e3-l7t65" style="left:7%;top:65%;"><img class="extra-img" src="images/extra.svg"></div>
-  <div class="over-content extra" id="e4-l20t68" style="left:20%;top:68%;"><img class="extra-img" src="images/extra.svg"></div>
-  <div class="over-content extra" id="e5-l13t85" style="left:13%;top:85%;"><img class="extra-img" src="images/extra.svg"></div>
-  <div class="over-content extra" id="e6-l30t91" style="left:30%;top:91%;"><img class="extra-img" src="images/extra.svg"></div>
-  <div class="over-content extra" id="e7-l40t96" style="left:40%;top:96%;"><img class="extra-img" src="images/extra.svg"></div>
-  <div class="over-content extra" id="e8-l65t7" style="left:65%;top:7%;"><img class="extra-img" src="images/extra.svg"></div>
-  <div class="over-content extra" id="e9-l61t90" style="left:61%;top:90%;"><img class="extra-img" src="images/extra.svg"></div>
-  <div class="over-content extra" id="e10-l75t95" style="left:75%;top:95%;"><img class="extra-img" src="images/extra.svg"></div>
-  <div class="over-content extra" id="e11-l85t82" style="left:85%;top:82%;"><img class="extra-img" src="images/extra.svg"></div>
-  <div class="over-content extra" id="e12-l90t85" style="left:90%;top:85%;"><img class="extra-img" src="images/extra.svg"></div>
-  <div class="over-content extra" id="e13-l96t75" style="left:96%;top:75%;"><img class="extra-img" src="images/extra.svg"></div>
+    <!-- Extras Individuales -->
+    <div class="over-content extra" id="e1-l22t21" style="left:22%;top:21%;"><img class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra" id="e2-l10t40" style="left:10%;top:40%;"><img class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra" id="e3-l7t65" style="left:7%;top:65%;"><img class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra" id="e4-l20t68" style="left:20%;top:68%;"><img class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra" id="e5-l13t85" style="left:13%;top:85%;"><img class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra" id="e6-l30t91" style="left:30%;top:91%;"><img class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra" id="e7-l40t96" style="left:40%;top:96%;"><img class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra" id="e8-l65t7" style="left:65%;top:7%;"><img class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra" id="e9-l61t90" style="left:61%;top:90%;"><img class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra" id="e10-l75t95" style="left:75%;top:95%;"><img class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra" id="e11-l85t82" style="left:85%;top:82%;"><img class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra" id="e12-l90t85" style="left:90%;top:85%;"><img class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra" id="e13-l96t75" style="left:96%;top:75%;"><img class="extra-img" src="images/extra.svg"></div>
 
-  <!-- Fin Puntos Extra -->
+    <!-- Fin Puntos Extra -->
 
+  </div>
+
+  <!-- Fin Puntos -->
 
 
   <!-- Tooltips -->
@@ -96,7 +120,7 @@
     
     <!-- Pregunta 1 -->
     <div class="tt-q1-container hidden">
-      <div class="over-content tooltip arrowbox-q1 tt-question" id="tt-q1" style="left:27%;top:44%;">
+      <div class="over-content tooltip arrowbox-left tt-question" id="tt-q1" style="left:27%;top:44%;">
         <p class="tt-content">Hay dos principales momentos en los que estamos el cerebro entra en estado de reposo.</p>
         <p class="tt-title">¿En cuál de estas dos situaciones te encuentras más a menudo?</p>
       </div>

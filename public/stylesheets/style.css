@@ -11,6 +11,10 @@ a {
 
 canvas {
   position: absolute;
+  /*opacity: 0.3;*/
+}
+
+canvas.init {
   opacity: 0.3;
 }
 
@@ -95,7 +99,12 @@ line {
   font-size: 11px;
 }
 
-.tooltip-layer {
+.over-content.about-container {
+  position: relative;
+  z-index: 999;
+}
+
+.tooltip-layer, .points-layer {
   width: 100%;
   height: 100%;
 }
@@ -201,4 +210,8 @@ line {
 iframe {
   width: 100% !important;
   height: 100% !important;
+}
+
+.points-layer {
+  position: absolute;
 }
