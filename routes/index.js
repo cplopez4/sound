@@ -3,12 +3,12 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('cover', { title: 'Partitura' });
+  res.render('index', { title: 'Cerebro - Sound' });
 });
 
 /* GET timeline page. */
-router.get('/plus', function(req, res, next) {
-  res.render('index', { title: 'Partitura - Timeline' });
+router.get('/sound', function(req, res, next) {
+  res.render('cover', { title: 'Cerebro - Sound' });
 });
 
 module.exports = router;
