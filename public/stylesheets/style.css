@@ -16,6 +16,7 @@ canvas {
 
 canvas.init {
   opacity: 0.3;
+  z-index: -9999;
 }
 
 svg {
@@ -24,7 +25,7 @@ svg {
 }
 
 line {
-   animation: dash 30s linear;
+   animation: dash 400s linear;
 }
 
 @keyframes dash {
