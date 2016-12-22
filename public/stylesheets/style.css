@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Apercu Regular";
+  src: url("../fonts/Apercu/apercupro-regular/apercu_regular_pro.otf") format("opentype");
+}
+
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   margin: 0px;
@@ -98,6 +103,7 @@ line {
   margin: 0;
   color: white;
   font-size: 11px;
+  font-family: "Apercu Regular";
 }
 
 .over-content.about-container {
@@ -138,6 +144,10 @@ line {
 
 .over-content.tooltip .tt-title {
   font-weight: bold;
+}
+
+.tt-main-container {
+  font-family: "Apercu Regular";
 }
 
 .arrowbox-left {
@@ -199,7 +209,7 @@ line {
 .video-modal {
   display: none;
   position: absolute;
-  z-index: 100;
+  z-index: 1001;
   top: 0;
   left: 0;
   width: 0px;
@@ -236,7 +246,8 @@ iframe {
   position: relative;
   left: -50%;
   padding: 27px;
-  margin-bottom: 50px;
+  margin-bottom: 70px;
+  font-family: "Apercu Regular";
 }
 
 .title-container p {
@@ -257,6 +268,7 @@ iframe {
   margin: auto;
   padding: 15px;
   border: 1px dotted white;
+  font-family: "Apercu Regular";
 }
 
 .cover-text {
@@ -274,11 +286,10 @@ iframe {
 }
 
 .cover-title-b {
-  font-weight: bold;
-  font-size: 27px;
+  font-size: 28px;
   margin: 0;
   margin-bottom: 9px;
-  letter-spacing: 6;
+  letter-spacing: 8;
 }
 
 .cover-title-s {
@@ -291,6 +302,7 @@ iframe {
   position: absolute;
   right: 7%;
   top: 10%;
+  z-index: 1000;
 }
 
 .ui-widget-content {
@@ -318,5 +330,91 @@ iframe {
   left: -.6em !important;
 }
 
+.mask {
+  width: 100%;
+  height: 100%;
+  z-index: 998;
+  background-color: rgba(5,0,25,0.2);
+  position: absolute;
+}
 
+.init-form-container{
+  position: absolute;
+  left: 50%;
+  z-index: 999;
+}
 
+.init-form {
+  position: relative;
+  left: -50%;
+  width: 335px;
+  background-color: rgba(5,0,25,0.5);
+  margin-top: 40%;
+  color: white;
+  padding: 30px 40px 30px 40px;
+  font-family: "Apercu Regular";
+  border: 1px dotted white;
+  font-size: 11px;
+}
+
+#country-select {
+  padding: 5px;
+  color: #fff;
+  font-size: 12px;
+  background-color: transparent;
+  appearance:none;
+  -moz-appearance:none;
+  -webkit-appearance:none;
+  font-family: "Apercu Regular";
+  width: 154px;
+}
+
+#country-select option {
+  background-color: rgb(5,0,25);
+  font-family: "Apercu Regular";
+}
+
+#city-input {
+  background-color: transparent;
+  color: white;
+  font-family: "Apercu Regular";
+  font-size: 12px;
+  padding: 3px;
+  border-width: 1px;
+}
+
+.form-title {
+  margin: 0;
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+
+.left-age {
+  margin-bottom: 15px;
+}
+
+.form-left, .form-right {
+  width: 49%;
+  display: inline-block;
+}
+
+.form-right {
+  vertical-align: top;
+}
+
+.btn-ok {
+  position: absolute;
+  bottom: 30px;
+  right: 40px;
+  background-color: transparent;
+  color: white;
+  font-family: "Apercu Regular";
+  border: 1px dotted white;
+  padding: 7px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.btn-ok:hover {
+  opacity: 0.8;
+} 

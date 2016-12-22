@@ -1,5 +1,9 @@
 var audio = document.querySelector('audio');
 audio.volume = 0.3;
+var route1 = false;
+var route2 = false;
+var route3 = false;
+var lastClick = 0;
 
 var widthFixed = window.innerWidth*2;
 var heightFixed = window.innerHeight/7;
@@ -56,11 +60,11 @@ var siriWave5 = new SiriWave({
     container: document.getElementById('siri-container-5'),
     width: widthFixed,
     height: heightFixed,
-    color: '#050096',
+    color: '#00ff98',
     autostart: true,
-    speed: 0.06,
-    amplitude: 1,
-    frequency: 35,
+    speed: 0.02,
+    amplitude: 0.7,
+    frequency: 25,
     top: heightFixed*4
 });
 
@@ -68,11 +72,11 @@ var siriWave6 = new SiriWave({
     container: document.getElementById('siri-container-6'),
     width: widthFixed,
     height: heightFixed,
-    color: '#00ff98',
+    color: '#050096',
     autostart: true,
-    speed: 0.02,
-    amplitude: 0.7,
-    frequency: 25,
+    speed: 0.06,
+    amplitude: 1,
+    frequency: 35,
     top: heightFixed*5
 });
 
@@ -132,14 +136,17 @@ $(document).ready(function(){
     });
 
     function coverTransition(){
-        siriWave5.setAmplitude(0.7);
+        siriWave6.setAmplitude(0.7);
         $("canvas").addClass("init");
 
         $(".cover-container").fadeToggle(1800);
 
         window.setTimeout($(".points-layer").fadeToggle(1800), 1000);
         window.setTimeout($(".about-container").fadeToggle(1800), 2000);
-        window.setTimeout($(".wave-container:not(#siri-container-5)").fadeToggle(1800), 3000);
+        window.setTimeout($(".wave-container:not(#siri-container-6)").fadeToggle(1800), 3000);
+
+        $(".mask").fadeToggle(1000);
+        $(".init-form-container").fadeToggle(2000);
     }
 
     function drawLine(origin,target,id,type_origin,type_target){
@@ -169,7 +176,7 @@ $(document).ready(function(){
         newLine.setAttribute('stroke-width', "1");
         newLine.setAttribute('stroke-linecap', "round");
         newLine.setAttribute('stroke-dasharray', "1,5");
-        /*newLine.setAttribute('class', "hidden");*/
+        newLine.setAttribute('class', "hidden");
         $("svg").append(newLine);
     }
 
@@ -220,6 +227,23 @@ $(document).ready(function(){
             padding: "0px",
             margin: mc
         }, 800);
+
+        fixRoute(lastClick);
+    });
+
+
+    $(document).on("click", ".btn-ok", function(){
+        if($("#city-input").val() == ""){
+            $("#city-input").css("border","1px solid #F1002F");
+        }
+        else {
+            $(".mask").fadeToggle(1200);
+            $(".init-form-container").fadeToggle(1200);
+        }
+    });
+
+    $(document).on("focus", "#city-input", function(){
+        $("#city-input").css("border","1px solid white");
     });
 
 
@@ -276,6 +300,117 @@ $(document).ready(function(){
 
     });
 
+    /* Fin Rutas */
+
+    /* ******************************** */
+
+    /* Fijar Rutas */
+
+    function fixRoute(type){
+        if(type == 1){
+            /* Respuesta 1 */
+            fixLine($("#line-q1-q1a1e1"));
+            fixLine($("#line-q1a1e1-q1a1e2"));
+            fixLine($("#line-q1a1-q1a1e2"));
+            /* Respuesta 2 */
+            fixLine($("#line-q1-q1a2e1"));
+            fixLine($("#line-q1a2-q1a2e1"));
+
+            /* Extras */
+            fixLine($("#line-q1-e1"));
+            fixLine($("#line-q1-e2"));
+            fixLine($("#line-q1-e3"));
+            fixLine($("#line-q1-e4"));
+            fixLine($("#line-e4-e5"));
+            fixLine($("#line-q2a1-e4"));
+            fixLine($("#line-e1-e2"));
+            fixLine($("#line-e2-e3"));
+            fixLine($("#line-e3-e5"));  
+        }
+        else if(type == 2){
+            /* Respuesta 1 */
+            fixLine($("#line-q2-q2a1e1"));
+            /* Respuesta 2 */
+            fixLine($("#line-q2-q2a2"));
+            fixLine($("#line-q1a2e1-q2a1e1"));
+            fixLine($("#line-q2a1-q1a2e1"));
+            /* Respuesta 3 */
+            fixLine($("#line-q2-q2a3e1"));
+            fixLine($("#line-q1a1e2-q2a3e1"));
+            fixLine($("#line-q2a3-q1a1e2"));
+
+            /* Extras */
+            fixLine($("#line-q2-e9"));
+            fixLine($("#line-q2-q3a2"));
+            fixLine($("#line-q2-q3a2e2"));
+            fixLine($("#line-q2a2-q1a1e1"));
+            fixLine($("#line-q1a1-q2a3e1"));
+        }
+        else if(type == 3){
+            /* Respuesta 1 */
+            fixLine($("#line-q3-q3a1"));
+            /* Respuesta 2 */
+            fixLine($("#line-q3-q3a2e1"));
+            fixLine($("#line-q3a2e1-q3a2e2"));
+            fixLine($("#line-q3a2-q3a2e2"));
+
+            /* Extras */
+            fixLine($("#line-q1a1-e8"));
+            fixLine($("#line-q1a1-q3a2e1"));
+            fixLine($("#line-q1a1-q3a2e2"));
+            fixLine($("#line-q3a1-q3a2e1"));
+            fixLine($("#line-q3a1-e13"));
+            fixLine($("#line-e11-e13"));
+            fixLine($("#line-e12-e13"));
+            fixLine($("#line-e10-e12"));
+            
+            fixLine($("#line-q3a1-q3a2e2"));
+            fixLine($("#line-q3a2e2-e11"));
+            fixLine($("#line-q3-e8"));
+        }
+
+        if(route1 && route2 && route3){
+            $("line").attr("stroke-width",2);
+            $("line").attr("stroke-linecap","");
+            $("line").attr("stroke-dasharray","");
+            
+            $("line").filter(function() { return $(this).css("display") == "none" }).fadeToggle(5000);
+            
+            $("canvas").fadeToggle(5000);
+        }
+    }
+
+    /* Pregunta 1 */
+    $(document).on("click", "#tt-q1a1,#tt-q1a2", function(e){
+        lastClick = 1;
+        route1 = true;
+        $(".tt-q1-container").css("display","none");
+    });
+
+    /* Pregunta 2 */
+    $(document).on("click", "#tt-q2a1,#tt-q2a2,#tt-q2a3", function(e){
+        lastClick = 2;
+        route2 = true;
+        $(".tt-q2-container").css("display","none");
+    });
+
+    /* Pregunta 3 */
+    $(document).on("click", "#tt-q3a1,#tt-q3a2", function(e){
+        lastClick = 3;
+        route3 = true;
+        $(".tt-q3-container").css("display","none");
+    });
+
+    /* Fin Fijar Rutas */
+
+    /* ****************************** */
+
+    function fixLine(elem){
+        $(elem).attr("style","display:inline;animation:none;");
+        $(elem).attr("stroke-width",2);
+        $(elem).attr("stroke-linecap","");
+        $(elem).attr("stroke-dasharray","");
+    }
 
     /* Init de Líneas */
     /* 1=Q, 2=A, 3=E */
@@ -376,6 +511,7 @@ $(document).ready(function(){
         drawLine($("div[id^='e2-']"),$("div[id^='e3-']"), "line-e2-e3", 3, 3);
         drawLine($("div[id^='e3-']"),$("div[id^='e5-']"), "line-e3-e5", 3, 3);
         drawLine($("div[id^='e3-']"),$("div[id^='e4-']"), "line-e3-e4", 3, 3);
+        drawLine($("div[id^='e4-']"),$("div[id^='e5-']"), "line-e4-e5", 3, 3);
         drawLine($("div[id^='e5-']"),$("div[id^='e6-']"), "line-e5-e6", 3, 3);
         drawLine($("div[id^='e6-']"),$("div[id^='e7-']"), "line-e6-e7", 3, 3);
         drawLine($("div[id^='e9-']"),$("div[id^='e10-']"), "line-e9-e10", 3, 3);
