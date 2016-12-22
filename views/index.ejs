@@ -7,20 +7,28 @@
 
 <link href="stylesheets/style.css" rel="stylesheet" type="text/css">
 <link href="stylesheets/jquery.qtip.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 <!-- <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script> -->
 <script src="http://a.vimeocdn.com/js/froogaloop2.min.js"></script>
 <script src="javascripts/jquery-1.10.2.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="javascripts/jquery.qtip.min.js"></script>
 <script src="javascripts/wave.js"></script>
 
-<div id="siri-container-1" class="hidden"></div>
-<div id="siri-container-2" class="hidden"></div>
-<div id="siri-container-3" class="hidden"></div>
-<div id="siri-container-4" class="hidden"></div>
-<div id="siri-container-5" class=""></div>
-<div id="siri-container-6" class="hidden"></div>
-<div id="siri-container-7" class="hidden"></div>
+<audio loop>
+  <source src="audio/rain.mp3" type="audio/mpeg">
+</audio>
+
+<div id="slider-vertical" style="height:219px;"></div>
+
+<div id="siri-container-1" class="wave-container hidden"></div>
+<div id="siri-container-2" class="wave-container hidden"></div>
+<div id="siri-container-3" class="wave-container hidden"></div>
+<div id="siri-container-4" class="wave-container hidden"></div>
+<div id="siri-container-5" class="wave-container"></div>
+<div id="siri-container-6" class="wave-container hidden"></div>
+<div id="siri-container-7" class="wave-container hidden"></div>
 
 <div class="cover-container">
   <div class="title-container">
@@ -44,7 +52,7 @@
 
 <div id="main-container">
   <!-- Volumen -->
-  <div class="over-content volume" id="volume-container" style="right:-9%;top:2%;"><img class="volume-img" src="images/volumen.svg"></div>
+  <div class="over-content volume" id="volume-container" style="right:-9%;top:7%;"><img class="volume-img" src="images/volumen.svg"></div>
   <!-- Fin Volumen -->
 
   <!-- About -->

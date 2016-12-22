@@ -215,3 +215,107 @@ iframe {
 .points-layer {
   position: absolute;
 }
+
+.cover-img {
+  display: inline-block;
+  width: 28%;
+  vertical-align: top;
+}
+
+.cover-img img {
+  width: 73%;
+  margin: auto;
+  display: block;
+}
+
+.title-container {
+  width: 500px;
+  background-color: #050096;
+  margin: auto;
+  position: relative;
+  left: -50%;
+  padding: 27px;
+  margin-bottom: 50px;
+}
+
+.title-container p {
+  text-align: center;
+}
+
+.cover-container {
+  position: absolute;
+  left: 50%;
+  color: white;
+  margin-top: 85px;
+}
+
+.cover-legend {
+  position: relative;
+  left: -50%;
+  width: 262px;
+  margin: auto;
+  padding: 15px;
+  border: 1px dotted white;
+}
+
+.cover-text {
+  width: 70%;
+  display: inline-block;
+}
+
+.cover-text p {
+  margin: 8px;
+  font-size: 12px;
+}
+
+.cover-text p:first-child {
+  margin-bottom: 15px;
+}
+
+.cover-title-b {
+  font-weight: bold;
+  font-size: 27px;
+  margin: 0;
+  margin-bottom: 9px;
+  letter-spacing: 6;
+}
+
+.cover-title-s {
+  font-size: 12px;
+  margin: 0;
+  letter-spacing: 1;
+}
+
+#slider-vertical {
+  position: absolute;
+  right: 7%;
+  top: 10%;
+}
+
+.ui-widget-content {
+  background-color: transparent !important;
+}
+
+.ui-widget-header {
+  background-color: transparent !important;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+  background-color: transparent !important;
+  border: 2px solid #c5c5c5 !important;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+  border: 2px solid #c5c5c5 !important;
+}
+
+.ui-slider-vertical {
+  width: 0.4em !important;
+}
+
+.ui-slider-vertical .ui-slider-handle {
+  left: -.6em !important;
+}
+
+
+

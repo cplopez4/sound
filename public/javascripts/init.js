@@ -1,3 +1,6 @@
+var audio = document.querySelector('audio');
+audio.volume = 0.3;
+
 var widthFixed = window.innerWidth*2;
 var heightFixed = window.innerHeight/7;
 
@@ -108,6 +111,39 @@ function startAll(){
 }
 
 $(document).ready(function(){
+
+    var count = 0;
+    $( "#slider-vertical" ).slider({
+      orientation: "vertical",
+      range: "min",
+      step: 1,
+      min: 0,
+      max: 100,
+      value: 30,
+      slide: function( event, ui ) {
+        document.querySelector('audio').volume = (ui.value / 100);
+
+        if(ui.value > 60 && count==0){
+            count++;
+            coverTransition();
+        }
+      }
+    });
+
+    function coverTransition(){
+        siriWave5.setAmplitude(0.7);
+        /*$(".cover-container").addClass("hidden");
+
+        $(".about-container").removeClass("hidden");
+        $(".points-layer").removeClass("hidden");
+        $(".wave-container").removeClass("hidden");*/
+
+        $(".cover-container").fadeToggle(1800);
+
+        window.setTimeout($(".about-container").fadeToggle(1800), 1000);
+        window.setTimeout($(".points-layer").fadeToggle(1800), 2000);
+        window.setTimeout($(".wave-container:not(#siri-container-5)").fadeToggle(1800), 3000);
+    }
 
     function drawLine(origin,target,id,type_origin,type_target){
         /* 1=Q, 2=A, 3=E */
