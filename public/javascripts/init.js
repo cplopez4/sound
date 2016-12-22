@@ -242,6 +242,10 @@ $(document).ready(function(){
         }
     });
 
+    $(document).on("click", ".about-container", function(){
+        $(".about-main-container").fadeToggle(800);
+    });
+
     $(document).on("focus", "#city-input", function(){
         $("#city-input").css("border","1px solid white");
     });
@@ -377,6 +381,10 @@ $(document).ready(function(){
             $("line").filter(function() { return $(this).css("display") == "none" }).fadeToggle(5000);
             
             $("canvas").fadeToggle(5000);
+
+            setTimeout(function(){
+                $(".about-main-container").fadeIn(800);
+            }, 10000)
         }
     }
 
