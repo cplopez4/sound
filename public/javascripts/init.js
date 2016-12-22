@@ -4,6 +4,26 @@ var route1 = false;
 var route2 = false;
 var route3 = false;
 var lastClick = 0;
+var globalCounter = 0;
+var initTime = new Date();
+
+/* En cirlcles, 1=Q1A1, 2=Q1A2, 3=Q2A1, 4=Q2A2, 5=Q2A3, 6=Q3A1, 7=Q3A2 */
+var json = { data: {
+        clicks: [],
+        name: "",
+        email: "",
+        age: "",
+        gender: "",
+        country: "",
+        city: "",
+        comment: "",
+        circles: {
+            first_answer: 0,
+            second_answer: 0,
+            third_answer: 0
+        }
+    } 
+};
 
 var widthFixed = window.innerWidth*2;
 var heightFixed = window.innerHeight/7;
@@ -116,6 +136,16 @@ function startAll(){
 
 $(document).ready(function(){
 
+    $(document).click(function(e) {
+        var elem = e.target;
+        var d = new Date();
+        var n = d.getTime();
+        
+        var obj = { global_time: n, ref_time: ((n - initTime.getTime())/1000), pos: { x: e.clientX, y: e.clientY }, target: elem.className, target_id: elem.id };
+
+        json.data.clicks.push(obj);
+    });
+
     var count = 0;
     $( "#slider-vertical" ).slider({
       orientation: "vertical",
@@ -184,7 +214,18 @@ $(document).ready(function(){
         alert('video has ended');
     }
 
-    $(".tt-answer").click(function() {
+    function mapCircle(str){
+        if(str == "tt-q1a1"){ return 1; }
+        else if(str == "tt-q1a2"){ return 2; }
+        else if(str == "tt-q2a1"){ return 3; }
+        else if(str == "tt-q2a2"){ return 4; }
+        else if(str == "tt-q2a3"){ return 5; }
+        else if(str == "tt-q3a1"){ return 6; }
+        else if(str == "tt-q3a2"){ return 7; }
+        else { return 0; }
+    }
+
+    $(".tt-answer").click(function(e) {
 
         var id = $(this).attr("video-id");
         $('.video-modal').html("<iframe id='vimeo-player' src='https://player.vimeo.com/video/"+ id +"?color=00ff98&api=1&autoplay=1' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
@@ -207,6 +248,17 @@ $(document).ready(function(){
             margin: '0',
             padding: '80px',
         }, 800);
+
+        globalCounter++;
+        if(globalCounter == 1){
+            json.data.circles.first_answer = mapCircle(e.currentTarget.id);
+        }
+        else if(globalCounter == 2){
+            json.data.circles.second_answer = mapCircle(e.currentTarget.id);
+        }
+        else if(globalCounter == 3){
+            json.data.circles.third_answer = mapCircle(e.currentTarget.id);
+        }
     });
 
     $(".video-modal > iframe").click(function(e){
@@ -238,7 +290,14 @@ $(document).ready(function(){
         }
         else {
             $(".mask").fadeToggle(1200);
-            $(".init-form-container").fadeToggle(1200);
+            $(".init-form-container").fadeToggle(1200); 
+
+            /*json.data.name = $("#");*/
+            /*json.data.email = $("#");*/
+            json.data.age = $("input[name='age']:checked").val();
+            json.data.gender = $("input[name='gender']:checked").val();
+            json.data.country = $("#country-select option:selected").text();
+            json.data.city = $("#city-input").val();
         }
     });
 
