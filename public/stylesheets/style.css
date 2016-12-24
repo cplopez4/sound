@@ -73,14 +73,14 @@ line {
 }
 
 .question-img {
-  -webkit-transition: -webkit-transform 1.1s ease-in-out;
-          transition:         transform 1.1s ease-in-out;
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+          transition:         transform 0.5s ease-in-out;
 }
 
 .over-content.question:hover .question-img{
-    -webkit-transform:rotate(360deg);
-    -moz-transform:rotate(360deg);
-    -o-transform:rotate(360deg);
+    -webkit-transform:rotate(180deg);
+    -moz-transform:rotate(180deg);
+    -o-transform:rotate(180deg);
 }
 
 .answer-img {
@@ -104,6 +104,7 @@ line {
   color: white;
   font-size: 11px;
   font-family: "Apercu Regular";
+  width: 105px;
 }
 
 .over-content.about-container {
@@ -293,7 +294,7 @@ iframe {
   font-size: 28px;
   margin: 0;
   margin-bottom: 9px;
-  letter-spacing: 8;
+  letter-spacing: 5;
 }
 
 .cover-title-s {
@@ -434,7 +435,7 @@ iframe {
 }
 
 .about-inner-container {
-  padding: 95px 80px 95px 80px;
+  padding: 80px 80px 95px 80px;
   width: 88%;
   height: 74%;
 }
@@ -449,14 +450,16 @@ iframe {
 }
 
 .about-left p{
-  padding: 0px 100px 0px 80px;
+  padding: 0px 80px 0px 60px;
   font-size: 12px;
   text-align: justify;
+  line-height: 1.5;
 }
 
-.about-content-t {
-  margin-top: 50px;
+p.about-content-t {
+  margin-top: 35px;
   font-weight: bold;
+  letter-spacing: 1;
 }
 
 .about-title-container{
@@ -469,8 +472,13 @@ iframe {
   padding: 27px;
   background-color: #050096;
   font-size: 22px;
-  letter-spacing: 8;
+  letter-spacing: 5;
   text-align: center;
+}
+
+.about-title-container p b, .about-content-p b {
+  font-weight: normal;
+  text-decoration: underline;
 }
 
 .about-right {
@@ -500,4 +508,75 @@ iframe {
 
 .about-links li a {
   color: white;
+}
+
+input[name='explain'] {
+  margin-top: 6px;
+}
+
+ul.credits-list {
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.credits-item p {
+  margin: 0;
+}
+
+.credits-item {
+  margin-bottom: 20px
+}
+
+.credits-item-t.right, .credits-item-c.right {
+  padding-left: 0;
+}
+
+.credits-item-t {
+  letter-spacing: 0.6;
+}
+
+p.credits-item-c {
+  font-weight: bold;
+  font-size: 11px;
+  letter-spacing: 0.4;
+}
+
+#input-email {
+  background-color: transparent;
+  color: white;
+  font-family: "Apercu Regular";
+  font-size: 10px;
+  padding: 3px;
+  border-width: 1px;
+  border-color: white;
+  margin-right: 10px;
+}
+
+.btn-send {
+  background-color: transparent;
+  color: white;
+  font-family: "Apercu Regular";
+  border: 1px solid white;
+  padding: 3px 7px;
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.about-email {
+  margin-bottom: 20px;
+}
+
+.about-flash, .about-wrong {
+  display: inline-block;
+  font-size: 10px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.about-wrong {
+  margin-left: 5px;
 }

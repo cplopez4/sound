@@ -17,6 +17,7 @@ var json = { data: {
         country: "",
         city: "",
         comment: "",
+        explain: "",
         circles: {
             first_answer: 0,
             second_answer: 0,
@@ -206,7 +207,7 @@ $(document).ready(function(){
         newLine.setAttribute('stroke-width', "1");
         newLine.setAttribute('stroke-linecap', "round");
         newLine.setAttribute('stroke-dasharray', "1,5");
-        newLine.setAttribute('class', "hidden");
+        /*newLine.setAttribute('class', "hidden");*/
         $("svg").append(newLine);
     }
 
@@ -301,9 +302,50 @@ $(document).ready(function(){
         }
     });
 
+    $(document).on("click", ".btn-send", function(){
+        if($("#input-email").val() == ""){
+            $("#input-email").css("border","1px solid #F1002F");
+        }
+        else if(!isValidEmailAddress($("#input-email").val())) {
+            $("#input-email").css("border","1px solid #F1002F");
+            $(".about-wrong").fadeToggle(400); 
+            
+        }
+        else {
+            $(".btn-send").hide();
+            $(".about-flash").fadeToggle(400); 
+
+            /*json.data.name = $("#");*/
+            json.data.email = $("#input-email").val();
+            json.data.explain = $("input[name='explain']:checked").val();
+        }
+    });
+
+    function isValidEmailAddress(emailAddress) {
+        var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+        return pattern.test(emailAddress);
+    };
+
+    $(document).on("focus", "#input-email", function(){
+        $("#input-email").css("border","1px solid white");
+        $(".about-wrong").fadeOut(400);
+    });
+
     $(document).on("click", ".about-container", function(){
         $(".about-main-container").fadeToggle(800);
     });
+
+    $(".over-content.about-container").hover(function(){
+        $(".about-title").show("slide", { direction: "left" }, 400);
+    });
+
+    $(".over-content.about-container").hover(
+      function() {
+        $(".about-title").show("slide", { direction: "left" }, 400);
+      }, function() {
+        $(".about-title").hide("slide", { direction: "left" }, 400);
+      }
+    );
 
     $(document).on("focus", "#city-input", function(){
         $("#city-input").css("border","1px solid white");
@@ -442,6 +484,7 @@ $(document).ready(function(){
             $("canvas").fadeToggle(5000);
 
             setTimeout(function(){
+                $(".about-right").show();
                 $(".about-main-container").fadeIn(800);
             }, 10000)
         }
