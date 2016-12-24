@@ -351,59 +351,225 @@ $(document).ready(function(){
         $("#city-input").css("border","1px solid white");
     });
 
+    function dist(line){
+        var x1 = line.x1.baseVal.value;
+        var x2 = line.x2.baseVal.value;
+        var y1 = line.y1.baseVal.value;
+        var y2 = line.y2.baseVal.value;
+
+        return Math.sqrt( (x2-=x1)*x2 + (y2-=y1)*y2 );
+    }
+
+    function drawAnimateLine(line, options, n) {
+
+        setTimeout(function(){
+
+            $(line).attr("class","");
+            options = options || {}
+            var duration = options.duration || 1000
+            var easing = options.easing || 'ease-in-out'
+            var reverse = options.reverse || false
+            var undraw = options.undraw || false
+            var callback = options.callback || function () {}
+            var length = options.length || dist($(line).get(0))
+
+            var dashOffsetStates = [length, 0]
+            if (reverse) {
+                dashOffsetStates = [length, 2 * length]
+            }
+            if (undraw) {
+                dashOffsetStates.reverse()
+            }
+
+            line.style.transition = line.style.WebkitTransition = 'none';
+
+            var dashArray = line.style.strokeDasharray || line.getAttribute("stroke-dasharray");
+
+            if (dashArray != '') {
+                var dashLength = dashArray.split(/[\s,]/).map(function (a) {
+                    return parseFloat(a) || 0
+                }).reduce(function (a, b) {
+                    return a + b
+                })
+                var dashCount = length / dashLength + 1
+                var a = new Array(Math.ceil(dashCount)).join(dashArray + " ")
+                line.style.strokeDasharray = a + '0' + ' ' + length
+            } else {
+                line.style.strokeDasharray = length + ' ' + length;
+            }
+            line.style.strokeDashoffset = dashOffsetStates[0];
+            line.getBoundingClientRect();
+            line.style.transition = line.style.WebkitTransition =
+                'stroke-dashoffset ' + duration + 'ms ' + easing;
+            line.style.strokeDashoffset = dashOffsetStates[1]
+            setTimeout(function() {
+                line.style.strokeDasharray = dashArray
+                callback()
+            }, duration)
+
+        }, ((n*1000)+500))
+    }
+
 
     /* Rutas */
 
     /* Pregunta 1 */
-    $(document).on("click", "#q1-l20t50", function(){
+    $("#q1-l20t50").on("click", function(){
+        clickQ1();
+    });
+
+    function clickQ1(){
+        /* Animation first click */
         $(".tt-main-container").addClass("hidden");
         $(".tt-q1-container").removeClass("hidden");
 
         $("line").attr("class","hidden");
 
-        /* Respuesta 1 */
-        $("#line-q1-q1a1e1").attr("class","");
-        $("#line-q1a1e1-q1a1e2").attr("class","");
-        $("#line-q1a1-q1a1e2").attr("class","");
-        /* Respuesta 2 */
-        $("#line-q1-q1a2e1").attr("class","");
-        $("#line-q1a2-q1a2e1").attr("class","");
-    });
+        setTimeout(function(){
+             /* Respuesta 1 */
+            drawAnimateLine(document.querySelector("#line-q1-q1a1e1"),{},0);
+            drawAnimateLine(document.querySelector("#line-q1a1e1-q1a1e2"),{},1);
+            drawAnimateLine(document.querySelector("#line-q1a1-q1a1e2"),{ reverse: true },2);
+
+            /* Respuesta 2 */
+            drawAnimateLine(document.querySelector("#line-q1-q1a2e1"),{},0)
+            drawAnimateLine(document.querySelector("#line-q1a2-q1a2e1"),{ reverse: true },1)
+
+            setTimeout(function(){
+                $("#tt-q1a1").fadeIn(700);
+            }, 3000);
+            setTimeout(function(){
+                $("#tt-q1a2").fadeIn(700);
+            }, 2000);
+
+        }, 500);
+        /* Fin Animation first click */
+
+        $("#q1-l20t50").off("click");
+
+        $("#q1-l20t50").on("click", function(){
+            $(".tt-main-container").addClass("hidden");
+            $(".tt-q1-container").removeClass("hidden");
+
+            $("line").attr("class","hidden");
+
+            /* Respuesta 1 */
+            $("#line-q1-q1a1e1").attr("class","");
+            $("#line-q1a1e1-q1a1e2").attr("class","");
+            $("#line-q1a1-q1a1e2").attr("class","");
+            /* Respuesta 2 */
+            $("#line-q1-q1a2e1").attr("class","");
+            $("#line-q1a2-q1a2e1").attr("class","");
+        }); 
+    }
 
     /* Pregunta 2 */
-    $(document).on("click", "#q2-l55t60", function(){
+    $("#q2-l55t60").on("click", function(){
+        clickQ2();
+    });
+
+    function clickQ2(){
+        /* Animation first click */
         $(".tt-main-container").addClass("hidden");
         $(".tt-q2-container").removeClass("hidden");
 
         $("line").attr("class","hidden");
 
-        /* Respuesta 1 */
-        $("#line-q2-q2a1e1").attr("class","");
-        /* Respuesta 2 */
-        $("#line-q2-q2a2").attr("class","");
-        $("#line-q1a2e1-q2a1e1").attr("class","");
-        $("#line-q2a1-q1a2e1").attr("class","");
-        /* Respuesta 3 */
-        $("#line-q2-q2a3e1").attr("class","");
-        $("#line-q1a1e2-q2a3e1").attr("class","");
-        $("#line-q2a3-q1a1e2").attr("class","");
-    });
+        setTimeout(function(){
+            /* Respuesta 1 */
+            drawAnimateLine(document.querySelector("#line-q2-q2a1e1"),{},0);
+            drawAnimateLine(document.querySelector("#line-q1a2e1-q2a1e1"),{ reverse: true },1);
+            drawAnimateLine(document.querySelector("#line-q2a1-q1a2e1"),{ reverse: true },2);
+            /* Respuesta 2 */
+            drawAnimateLine(document.querySelector("#line-q2-q2a2"),{},0);
+            /* Respuesta 3 */
+            drawAnimateLine(document.querySelector("#line-q2-q2a3e1"),{},0);
+            drawAnimateLine(document.querySelector("#line-q1a1e2-q2a3e1"),{ reverse: true },1);
+            drawAnimateLine(document.querySelector("#line-q2a3-q1a1e2"),{ reverse: true },2);
+
+            setTimeout(function(){
+                $("#tt-q2a1").fadeIn(700);
+            }, 3000);
+            setTimeout(function(){
+                $("#tt-q2a2").fadeIn(700);
+            }, 1000);
+            setTimeout(function(){
+                $("#tt-q2a3").fadeIn(700);
+            }, 3000);
+
+        }, 500);
+        /* Fin Animation first click */
+
+        $("#q2-l55t60").off("click");
+
+        $("#q2-l55t60").on("click", function(){
+            $(".tt-main-container").addClass("hidden");
+            $(".tt-q2-container").removeClass("hidden");
+
+            $("line").attr("class","hidden");
+
+            /* Respuesta 1 */
+            $("#line-q2-q2a1e1").attr("class","");
+            /* Respuesta 2 */
+            $("#line-q2-q2a2").attr("class","");
+            $("#line-q1a2e1-q2a1e1").attr("class","");
+            $("#line-q2a1-q1a2e1").attr("class","");
+            /* Respuesta 3 */
+            $("#line-q2-q2a3e1").attr("class","");
+            $("#line-q1a1e2-q2a3e1").attr("class","");
+            $("#line-q2a3-q1a1e2").attr("class","");
+        }); 
+    }
+
 
     /* Pregunta 3 */
-    $(document).on("click", "#q3-l85t23", function(){
+    $("#q3-l85t23").on("click", function(){
+        clickQ3();
+    });
+
+    function clickQ3(){
+        /* Animation first click */
         $(".tt-main-container").addClass("hidden");
         $(".tt-q3-container").removeClass("hidden");
 
         $("line").attr("class","hidden");
 
-        /* Respuesta 1 */
-        $("#line-q3-q3a1").attr("class","");
-        /* Respuesta 2 */
-        $("#line-q3-q3a2e1").attr("class","");
-        $("#line-q3a2e1-q3a2e2").attr("class","");
-        $("#line-q3a2-q3a2e2").attr("class","");
+        setTimeout(function(){
 
-    });
+            /* Respuesta 1 */
+            drawAnimateLine(document.querySelector("#line-q3-q3a1"),{},0);
+            /* Respuesta 2 */
+            drawAnimateLine(document.querySelector("#line-q3-q3a2e1"),{},0);
+            drawAnimateLine(document.querySelector("#line-q3a2e1-q3a2e2"),{},1);
+            drawAnimateLine(document.querySelector("#line-q3a2-q3a2e2"),{ reverse: true },2);
+
+
+            setTimeout(function(){
+                $("#tt-q3a1").fadeIn(700);
+            }, 1000);
+            setTimeout(function(){
+                $("#tt-q3a2").fadeIn(700);
+            }, 3000);
+
+        }, 500);
+        /* Fin Animation first click */
+
+        $("#q3-l85t23").off("click");
+
+        $("#q3-l85t23").on("click", function(){
+            $(".tt-main-container").addClass("hidden");
+            $(".tt-q3-container").removeClass("hidden");
+
+            $("line").attr("class","hidden");
+
+            /* Respuesta 1 */
+            $("#line-q3-q3a1").attr("class","");
+            /* Respuesta 2 */
+            $("#line-q3-q3a2e1").attr("class","");
+            $("#line-q3a2e1-q3a2e2").attr("class","");
+            $("#line-q3a2-q3a2e2").attr("class","");
+        }); 
+    }
 
     /* Fin Rutas */
 
@@ -494,21 +660,21 @@ $(document).ready(function(){
     $(document).on("click", "#tt-q1a1,#tt-q1a2", function(e){
         lastClick = 1;
         route1 = true;
-        $(".tt-q1-container").css("display","none");
+        /*$(".tt-q1-container").css("display","none");*/
     });
 
     /* Pregunta 2 */
     $(document).on("click", "#tt-q2a1,#tt-q2a2,#tt-q2a3", function(e){
         lastClick = 2;
         route2 = true;
-        $(".tt-q2-container").css("display","none");
+        /*$(".tt-q2-container").css("display","none");*/
     });
 
     /* Pregunta 3 */
     $(document).on("click", "#tt-q3a1,#tt-q3a2", function(e){
         lastClick = 3;
         route3 = true;
-        $(".tt-q3-container").css("display","none");
+        /*$(".tt-q3-container").css("display","none");*/
     });
 
     /* Fin Fijar Rutas */

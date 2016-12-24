@@ -29,7 +29,7 @@ svg {
   height: 100%;
 }
 
-line {
+/*line {
    animation: dash 400s linear;
 }
 
@@ -37,7 +37,7 @@ line {
   to {
     stroke-dashoffset: 10000;
   }
-}
+}*/
 
 .svg-container {
   width: 100%;
