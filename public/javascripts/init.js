@@ -1,6 +1,7 @@
 var route1, route2, route3, route4, route5, route6, route7 = false;
 var lastClick = 0;
 var globalCounter = 0;
+var audioTotalValue = false;
 var initTime = new Date();
 
 /* En cirlcles, 1=Q1A1, 2=Q1A2, 3=Q2A1, 4=Q2A2, 5=Q2A3, 6=Q3A1, 7=Q3A2 */
@@ -22,7 +23,61 @@ var json = { data: {
     } 
 };
 
+/* Siri Container Init */
 var widthFixed = window.innerWidth*2;
+var heightFixedInit = window.innerHeight/5;
+
+var siriWaveInit1 = new SiriWave({
+    container: document.getElementById('siri-container-init-1'),
+    width: widthFixed,
+    height: heightFixedInit,
+    color: '#5a5fff',
+    autostart: true,
+    speed: 0.06,
+    amplitude: 0.9,
+    frequency: 40,
+    top: heightFixedInit/2
+});
+
+var siriWaveInit2 = new SiriWave({
+    container: document.getElementById('siri-container-init-2'),
+    width: widthFixed,
+    height: heightFixedInit,
+    color: '#00ff98',
+    autostart: true,
+    speed: 0.06,
+    amplitude: 0.9,
+    frequency: 33,
+    top: heightFixedInit + (heightFixedInit/2)
+});
+
+var siriWaveInit3 = new SiriWave({
+    container: document.getElementById('siri-container-init-3'),
+    width: widthFixed,
+    height: heightFixedInit,
+    color: '#0fe6f0',
+    autostart: true,
+    speed: 0.06,
+    amplitude: 0.9,
+    frequency: 35,
+    top: (heightFixedInit*2) + (heightFixedInit/2)
+});
+
+var siriWaveInit4 = new SiriWave({
+    container: document.getElementById('siri-container-init-4'),
+    width: widthFixed,
+    height: heightFixedInit,
+    color: '#050096',
+    autostart: true,
+    speed: 0.06,
+    amplitude: 0.9,
+    frequency: 38,
+    top: (heightFixedInit*3) + (heightFixedInit/2)
+});
+/* Fin Siri Container Init */
+
+
+/* Siri Container */
 var heightFixed = window.innerHeight/7;
 
 var siriWave1 = new SiriWave({
@@ -92,7 +147,7 @@ var siriWave6 = new SiriWave({
     color: '#050096',
     autostart: true,
     speed: 0.06,
-    amplitude: 1,
+    amplitude: 0.7,
     frequency: 35,
     top: heightFixed*5
 });
@@ -108,6 +163,8 @@ var siriWave7 = new SiriWave({
     frequency: 30,
     top: heightFixed*6
 });
+
+/* Fin Siri Container */
 
 $("canvas").css("left", (window.innerWidth/2)*(-1));
 
@@ -175,6 +232,11 @@ $(document).ready(function(){
       max: 100,
       value: 30,
       slide: function(event, ui) {
+        /* Audio 100 Intro */
+        if(audioTotalValue && ui.value == 100){
+            thirdTransition();
+            audioTotalValue = false;
+        }
 
         /* Audio 1 - Atención */
         if(ui.value <= 25){
@@ -251,27 +313,107 @@ $(document).ready(function(){
 
 
         /* Primera Transición */
-        if(ui.value > 38 && count==0){
+        if(ui.value > 38 && count == 0){
             count++;
-            coverTransition();
-            initLines();
+            firstTransition();
         }
       }
     });
 
+    /* Guión Transiciones */
+
+    function firstTransition(){
+        $(".cover-container").fadeToggle(1800);
+        $(".wave-container-init:not('#siri-container-init-4')").fadeToggle(1800)
+        $(".brain-1").fadeToggle(1800);
+        $(".brain-absolute").fadeToggle(1800);
+
+        setTimeout(function(){
+            document.querySelector("#locucion-1").play();
+            setTimeout(function(){
+                $("#first-mask").show();
+            }, 12000);
+        }, 2300);
+    }
+
+    $(document).on("click", "#first-mask", function(){
+        secondTransition();
+    });
+
+    function secondTransition(){
+        siriWaveInit1.setColor("#ff00a0");
+        siriWaveInit4.setColor("#ffff00");
+
+        siriWaveInit1.setAmplitude(0.4);
+        siriWaveInit2.setAmplitude(0.4);
+        siriWaveInit3.setAmplitude(0.4);
+        siriWaveInit4.setAmplitude(0.4);
+
+        $(".brain-1").hide();
+        $(".brain-2").show();
+
+        $("body").css("background-color", "#050096");
+        $("#slider-vertical").slider("value", 0);
+        $("#first-mask").hide();
+
+        setTimeout(function(){
+            document.querySelector("#locucion-2").play();
+            setTimeout(function(){
+                /* Sacar flechas */
+                document.querySelector("#locucion-3").play();
+                setTimeout(function(){
+                    $(".img-brain-color").fadeToggle(1500);
+                    document.querySelector("#locucion-4").play();
+                    setTimeout(function(){
+                        audioTotalValue = true;
+                        $(".img-brain-white").hide();
+                        $(".img-brain-outline").show();
+                        document.querySelector("#locucion-5").play();
+                    },25000);
+                },14000);
+            },6000);
+        },1500);
+    }
+
+    function thirdTransition(){
+        /* Desaparecer Flechas */
+        $(".brain-2").fadeToggle(2000);
+        $(".img-brain-outline").fadeToggle(2000);
+        $(".img-brain-color").fadeToggle(2000);
+
+        siriWaveInit1.setColor("#5a5fff");
+        siriWaveInit4.setColor("#050096");
+
+        siriWaveInit1.setAmplitude(0.9);
+        siriWaveInit2.setAmplitude(0.9);
+        siriWaveInit3.setAmplitude(0.9);
+        siriWaveInit4.setAmplitude(0.9);
+
+        $("body").css("background-color", "#040019");
+
+        setTimeout(function(){
+            document.querySelector("#locucion-6").play();
+            setTimeout(function(){
+                coverTransition();
+                /* Cambiar de lugar initLines() para performance */
+                initLines();
+            },4000);
+        },1000);
+    }
+
     function coverTransition(){
-        siriWave6.setAmplitude(0.7);
+        $(".wave-container-init").fadeToggle(1800);
         $("canvas").addClass("init");
 
-        $(".cover-container").fadeToggle(1800);
-
-        window.setTimeout($(".points-layer").fadeToggle(1800), 1000);
-        window.setTimeout($(".about-container").fadeToggle(1800), 2000);
-        window.setTimeout($(".wave-container:not(#siri-container-6)").fadeToggle(1800), 3000);
+        setTimeout($(".points-layer").fadeToggle(1800), 1000);
+        setTimeout($(".about-container").fadeToggle(1800), 2000);
+        setTimeout($(".wave-container").fadeToggle(1800), 3000);
 
         $(".mask").fadeToggle(1000);
         $(".init-form-container").fadeToggle(2000);
     }
+
+    /* Fin Guión Transiciones */
 
     function drawLine(origin,target,id,type_origin,type_target){
         /* 1=Q, 2=A, 3=E */
@@ -300,7 +442,7 @@ $(document).ready(function(){
         newLine.setAttribute('stroke-width', "1");
         newLine.setAttribute('stroke-linecap', "round");
         newLine.setAttribute('stroke-dasharray', "1,5");
-        /*newLine.setAttribute('class', "hidden");*/
+        newLine.setAttribute('class', "hidden");
         $("svg").append(newLine);
     }
 

@@ -8,6 +8,12 @@ body {
   margin: 0px;
   background-color: #040019;
   overflow-x: hidden; 
+  overflow-y: hidden; 
+  -webkit-transition: background-color 0.5s ease-in-out;
+  -moz-transition: background-color 0.5s ease-in-out;
+  -o-transition: background-color 0.5s ease-in-out;
+  -khtml-transition: background-color 0.5s ease-in-out;
+  transition: background-color 0.5s ease-in-out;
 }
 
 a {
@@ -234,12 +240,12 @@ iframe {
 
 .cover-img {
   display: inline-block;
-  width: 28%;
+  width: 100%;
   vertical-align: top;
 }
 
 .cover-img img {
-  width: 73%;
+  width: 49%;
   margin: auto;
   display: block;
 }
@@ -251,7 +257,7 @@ iframe {
   position: relative;
   left: -50%;
   padding: 27px;
-  margin-bottom: 70px;
+  margin-bottom: 35px;
   font-family: "Apercu Regular";
 }
 
@@ -286,8 +292,34 @@ iframe {
   font-size: 12px;
 }
 
-.cover-text p:first-child {
-  margin-bottom: 15px;
+.cover-text p:first-child, .cover-text p:nth-child(2) {
+  margin-bottom: 18px;
+}
+
+.cover-img-container {
+  display: inline-block;
+  width: 28%;
+  vertical-align: top;
+}
+
+.cover-img.audifono {
+  margin-top: 5px;
+}
+
+.cover-img.reloj {
+  margin-top: 5px;
+}
+
+.cover-img.reloj img {
+  width: 58%;
+}
+
+.cover-img.flecha {
+  margin-top: -5px;
+}
+
+.cover-img.flecha img {
+  width: 55%;
 }
 
 .cover-title-b {
@@ -476,7 +508,7 @@ p.about-content-t {
   text-align: center;
 }
 
-.about-title-container p b, .about-content-p b {
+.about-title-container p b, .about-content-p b, .cover-title-b b {
   font-weight: normal;
   text-decoration: underline;
 }
@@ -579,4 +611,42 @@ p.credits-item-c {
 
 .about-wrong {
   margin-left: 5px;
+}
+
+
+/* Intro */
+.brain-container {
+  position: absolute;
+  left: 40px;
+  bottom: -65px;
+}
+
+.brain-container img {
+  width: 350px;
+}
+
+.brain-absolute {
+  position: absolute;
+  bottom: 280px;
+  left: 50px;
+}
+
+.brain-absolute img {
+  width: 335px;
+  position: absolute;
+}
+
+/*.img-brain-white, .img-brain-outline {
+  z-index: 997;
+}
+
+.img-brain-color {
+  z-index: 998;
+}*/
+
+#first-mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 995;
 }

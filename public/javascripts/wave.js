@@ -288,6 +288,10 @@ SiriWave.prototype.setAmplitude = function(v) {
 	this.cache.interpolation.amplitude = Math.max(Math.min(v, 1), 0);
 };
 
+SiriWave.prototype.setColor = function(c) {
+	this.color = this._hex2rgb(c || '#fff');
+};
+
 if (typeof define === 'function' && define.amd) {
 	define(function(){ return SiriWave; });
 } else {

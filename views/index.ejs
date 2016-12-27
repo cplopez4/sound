@@ -14,22 +14,22 @@
 <script src="javascripts/wave.js"></script>
 
 <!-- Audio Atención (0-25) -->
-<audio id="audio-1" loop autoplay>
+<audio id="audio-1" loop>
   <source src="audio/1-atencion.mp3" type="audio/mpeg">
 </audio>
 
 <!-- Audio Introducción (23-40) -->
-<audio id="audio-2" loop autoplay>
+<audio id="audio-2" loop>
   <source src="audio/2-intro.mp3" type="audio/mpeg">
 </audio>
 
 <!-- Audio Medio (38-70) -->
-<audio id="audio-3" loop autoplay>
+<audio id="audio-3" loop>
   <source src="audio/3-medio.mp3" type="audio/mpeg">
 </audio>
 
 <!-- Audio Máximo (68-100) -->
-<audio id="audio-4" loop autoplay>
+<audio id="audio-4" loop>
   <source src="audio/4-maximo.mp3" type="audio/mpeg">
 </audio>
 
@@ -38,6 +38,14 @@
   <source src="audio/5-red.mp3" type="audio/mpeg">
 </audio>
 
+
+<!-- Locuciones -->
+<audio id="locucion-1"><source src="audio/locucion-1.mp3" type="audio/mpeg"></audio>
+<audio id="locucion-2"><source src="audio/locucion-2.mp3" type="audio/mpeg"></audio>
+<audio id="locucion-3"><source src="audio/locucion-3.mp3" type="audio/mpeg"></audio>
+<audio id="locucion-4"><source src="audio/locucion-4.mp3" type="audio/mpeg"></audio>
+<audio id="locucion-5"><source src="audio/locucion-5.mp3" type="audio/mpeg"></audio>
+<audio id="locucion-6"><source src="audio/locucion-6.mp3" type="audio/mpeg"></audio>
 
 
 <!-- Slider Vertical Audio -->
@@ -369,26 +377,55 @@
   </div>
 </div>
   
+<!-- Waves Init -->
+<div id="siri-container-init-1" class="wave-container-init hidden"></div>
+<div id="siri-container-init-2" class="wave-container-init hidden"></div>
+<div id="siri-container-init-3" class="wave-container-init hidden"></div>
+<div id="siri-container-init-4" class="wave-container-init"></div>
 
+<!-- Brain SVG -->
+<div class="brain-container brain-1 hidden">
+  <img src="images/cabeza1.svg">
+</div>
+
+<div class="brain-container brain-2 hidden">
+  <img src="images/cabeza2.svg">
+</div>
+
+<div class="brain-absolute hidden">
+  <img class="img-brain-white" src="images/cerebro_partes_blancas.svg">
+  <img class="img-brain-outline hidden" src="images/cerebro_contorno.svg">
+  <img class="img-brain-color hidden" src="images/cerebro_partes_color.svg">
+</div>
+
+<!-- First Mask -->
+<div id="first-mask" class="hidden"></div>
+
+<!-- Waves Red -->
 <div id="siri-container-1" class="wave-container hidden"></div>
 <div id="siri-container-2" class="wave-container hidden"></div>
 <div id="siri-container-3" class="wave-container hidden"></div>
 <div id="siri-container-4" class="wave-container hidden"></div>
 <div id="siri-container-5" class="wave-container hidden"></div>
-<div id="siri-container-6" class="wave-container"></div>
+<div id="siri-container-6" class="wave-container hidden"></div>
 <div id="siri-container-7" class="wave-container hidden"></div>
 
 <div class="cover-container">
   <div class="title-container">
-    <p class="cover-title-b">HISTORIAS POR DEFAULT</p>
+    <p class="cover-title-b">HISTORIAS POR <b>DEFAULT</b></p>
     <p class="cover-title-s">Una experiencia interactiva sobre la red neuronal por defecto</p>
   </div>
   <div class="cover-legend">
     <div class="cover-text">
       <p>Es altamente recomendable que utilices audífonos.</p>
+      <p>Esta experiencia dura aproximadamente 14 minutos.</p>
       <p>Para comenzar, debes subir el volumen a tu derecha.</p>
     </div>
-    <div class="cover-img"><img src="images/audifonos.svg"></div>
+    <div class="cover-img-container">
+      <div class="cover-img audifono"><img src="images/audifonos.svg"></div>
+      <div class="cover-img reloj"><img src="images/reloj.svg"></div>
+      <div class="cover-img flecha"><img src="images/flecha.png"></div>
+    </div>
   </div>
 </div>
 
