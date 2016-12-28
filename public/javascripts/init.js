@@ -260,6 +260,10 @@ $(document).ready(function(){
             }
             else {
                 document.querySelector('#audio-1').volume = 1;
+
+                document.querySelector('#audio-2').volume = 0;
+                document.querySelector('#audio-3').volume = 0;
+                document.querySelector('#audio-4').volume = 0;
             }
         }
         /* Audio 2 - Introducción*/
@@ -282,6 +286,10 @@ $(document).ready(function(){
             }
             else {
                 document.querySelector('#audio-2').volume = 1;
+
+                document.querySelector('#audio-1').volume = 0;
+                document.querySelector('#audio-3').volume = 0;
+                document.querySelector('#audio-4').volume = 0;
             }
         }
         /* Audio 3 - Medio */
@@ -304,6 +312,10 @@ $(document).ready(function(){
             }
             else {
                 document.querySelector('#audio-3').volume = 1;
+
+                document.querySelector('#audio-1').volume = 0;
+                document.querySelector('#audio-2').volume = 0;
+                document.querySelector('#audio-4').volume = 0;
             }
         }
         /* Audio 4 - Máximo */
@@ -318,6 +330,10 @@ $(document).ready(function(){
             }
             else {
                 document.querySelector('#audio-4').volume = 1;
+
+                document.querySelector('#audio-1').volume = 0;
+                document.querySelector('#audio-2').volume = 0;
+                document.querySelector('#audio-3').volume = 0;
             }
         }
 
@@ -368,7 +384,13 @@ $(document).ready(function(){
 
         $("body").css("background-color", "#050096");
         $(".canvas-mask").css("background-color", "#050096");
+
         $("#slider-vertical").slider("value", 0);
+        audio1.volume = 1;
+        audio2.volume = 0;
+        audio3.volume = 0;
+        audio4.volume = 0;
+
         $("#first-mask").hide();
 
         setTimeout(function(){
