@@ -200,6 +200,9 @@ $(document).ready(function(){
     var audio4 = document.querySelector('#audio-4');
     audio4.volume = 0;
 
+    /* Init SVG lines */
+    initLines();
+
     $(document).click(function(e) {
         var elem = e.target;
         var d = new Date();
@@ -323,6 +326,10 @@ $(document).ready(function(){
     /* Guión Transiciones */
 
     function firstTransition(){
+        $(".points-mask").hide();
+        $(".points-layer").css("z-index", "auto");
+        $(".points-layer").addClass("hidden");
+
         $(".cover-container").fadeToggle(1800);
         $(".wave-container-init:not('#siri-container-init-4')").fadeToggle(1800)
         $(".brain-1").fadeToggle(1800);
@@ -395,19 +402,18 @@ $(document).ready(function(){
             document.querySelector("#locucion-6").play();
             setTimeout(function(){
                 coverTransition();
-                /* Cambiar de lugar initLines() para performance */
-                initLines();
             },4000);
         },1000);
     }
 
     function coverTransition(){
+        /* Revisar performance de esta transición */
         $(".wave-container-init").fadeToggle(1800);
         $("canvas").addClass("init");
 
-        setTimeout($(".points-layer").fadeToggle(1800), 1000);
-        setTimeout($(".about-container").fadeToggle(1800), 2000);
-        setTimeout($(".wave-container").fadeToggle(1800), 3000);
+        $(".points-layer").fadeToggle(1800);
+        $(".about-container").fadeToggle(1800);
+        $(".wave-container").fadeToggle(1800);
 
         $(".mask").fadeToggle(1000);
         $(".init-form-container").fadeToggle(2000);
@@ -820,75 +826,100 @@ $(document).ready(function(){
             fixLine($("#line-q1a1e1-q1a1e2"));
             fixLine($("#line-q1a1-q1a1e2"));
 
+            /* Extras */
+            fixLine($("#line-q3-q1a1"));
+            fixLine($("#line-q2-q1a1"));
+            fixLine($("#line-q2-q3a2e2"));
+            fixLine($("#line-q1a1-e8"));
+            fixLine($("#line-q1a1-q2a3e1"));
+            fixLine($("#line-q2a2-q2a3e1"));
+            fixLine($("#line-q2a3-q1a1"));
+        }
+        /* Q1A2 */
+        else if(type == 2){
             /* Respuesta 2 */
             fixLine($("#line-q1-q1a2e1"));
             fixLine($("#line-q1a2-q1a2e1"));
 
             /* Extras */
-            fixLine($("#line-q1-e1"));
-            fixLine($("#line-q1-e2"));
-            fixLine($("#line-q1-e3"));
-            fixLine($("#line-q1-e4"));
-            fixLine($("#line-e4-e5"));
-            fixLine($("#line-q2a1-e4"));
-            fixLine($("#line-e1-e2"));
-            fixLine($("#line-e2-e3"));
-            fixLine($("#line-e3-e5"));  
+            fixLine($("#line-q2a1-e7"));
+            fixLine($("#line-q1a2e1-e7"));
+            fixLine($("#line-q1a2-q2a1e1"));
+            /*fixLine($("#line-q1a2e1-q2a1e1"));*/
+            fixLine($("#line-q2a1e1-e9"));
         }
-        /* Q1A2 */
-        else if(type == 2){
+        /* Q2A1 */
+        else if(type == 3){
             /* Respuesta 1 */
-            fixLine($("#line-q2-q2a2"));
-            /* Respuesta 2 */
             fixLine($("#line-q2-q2a1e1"));
             fixLine($("#line-q1a2e1-q2a1e1"));
             fixLine($("#line-q2a1-q1a2e1"));
+            
+            /* Extras */
+            fixLine($("#line-q1-e2"));
+            fixLine($("#line-q1-e3"));
+            fixLine($("#line-q1-e4"));
+            fixLine($("#line-q1-q2a1"));
+            fixLine($("#line-e3-e4"));
+            fixLine($("#line-e4-e5"));
+            fixLine($("#line-q2a1-e4"));
+            fixLine($("#line-q2a1-e6"));
+        }
+        /* Q2A2 */
+        else if(type == 4){
+            /* Respuesta 2 */
+            fixLine($("#line-q2-q2a2"));
+
+            /* Extras */
+            fixLine($("#line-q2-e9"));
+            fixLine($("#line-q2a2-q1a2e1"));
+            fixLine($("#line-q1a2-e9"));
+            fixLine($("#line-q2a2-q2a1e1"));
+            fixLine($("#line-q2a1e1-e9"));
+        }
+        /* Q2A3 */
+        else if(type == 5){
             /* Respuesta 3 */
             fixLine($("#line-q2-q2a3e1"));
             fixLine($("#line-q1a1e2-q2a3e1"));
             fixLine($("#line-q2a3-q1a1e2"));
 
             /* Extras */
-            fixLine($("#line-q2-e9"));
-            fixLine($("#line-q2-q3a2"));
-            fixLine($("#line-q2-q3a2e2"));
+            fixLine($("#line-q1-e1"));
+            fixLine($("#line-q1a1e1-e1"));
+            fixLine($("#line-q1a1e1-q2a3e1"));
+            fixLine($("#line-q2a3-q1a1e1"));
             fixLine($("#line-q2a2-q1a1e1"));
-            fixLine($("#line-q1a1-q2a3e1"));
         }
-        /* Q2A1 */
-        else if(type == 3){
+        /* Q3A1 */
+        else if(type == 6){
             /* Respuesta 1 */
             fixLine($("#line-q3-q3a1"));
+
+            /* Extras */
+            fixLine($("#line-q3a1-q3a2e1"));
+            fixLine($("#line-q3a1-q3a2e2"));
+            
+            fixLine($("#line-q1a1-q3a2e1"));
+            fixLine($("#line-q1a1-q3a2e2"));
+            
+            fixLine($("#line-q3a2e2-e11"));
+            fixLine($("#line-q3a2e2-e13"));
+            fixLine($("#line-e11-e13"));
+        }
+        /* Q3A2 */
+        else if(type == 7){
             /* Respuesta 2 */
             fixLine($("#line-q3-q3a2e1"));
             fixLine($("#line-q3a2e1-q3a2e2"));
             fixLine($("#line-q3a2-q3a2e2"));
 
             /* Extras */
-            fixLine($("#line-q1a1-e8"));
-            fixLine($("#line-q1a1-q3a2e1"));
-            fixLine($("#line-q1a1-q3a2e2"));
-            fixLine($("#line-q3a1-q3a2e1"));
-            fixLine($("#line-q3a1-e13"));
-            fixLine($("#line-e11-e13"));
-            fixLine($("#line-e12-e13"));
-            fixLine($("#line-e10-e12"));
-            
-            fixLine($("#line-q3a1-q3a2e2"));
-            fixLine($("#line-q3a2e2-e11"));
-            fixLine($("#line-q3-e8"));
-        }
-        /* Q2A2 */
-        else if(type == 4){
-        }
-        /* Q2A3 */
-        else if(type == 5){
-        }
-        /* Q3A1 */
-        else if(type == 6){
-        }
-        /* Q3A2 */
-        else if(type == 7){
+            fixLine($("#line-q2-q3a2"));
+            fixLine($("#line-q3a2-e9"));
+            fixLine($("#line-q3a2-e10"));
+            fixLine($("#line-q3a2-e11"));
+            fixLine($("#line-e12-e11"));
         }
 
         if(route1 && route2 && route3 && route4 && route5 && route6 && route7){
@@ -905,7 +936,7 @@ $(document).ready(function(){
             setTimeout(function(){
                 $(".about-right").show();
                 $(".about-main-container").fadeIn(800);
-            }, 10000)
+            }, 8000)
         }
     }
 
