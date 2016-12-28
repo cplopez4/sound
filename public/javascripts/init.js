@@ -197,7 +197,7 @@ function startAll(){
 
 $(document).ready(function(){
 
-    /* variables Audios */
+    /* Variables Audios */
     var audio1 = document.querySelector('#audio-1');
     audio1.volume = 0;
     var audio2 = document.querySelector('#audio-2');
@@ -206,6 +206,9 @@ $(document).ready(function(){
     audio3.volume = 0;
     var audio4 = document.querySelector('#audio-4');
     audio4.volume = 0;
+    /* Audio Red */
+    var audio5 = document.querySelector('#audio-5');
+    audio5.volume = 0;
 
     /* Init SVG lines */
     initLines();
@@ -433,8 +436,37 @@ $(document).ready(function(){
             document.querySelector("#locucion-6").play();
             setTimeout(function(){
                 coverTransition();
+                $("#slider-vertical").slider({
+                    slide: function(event, ui){}
+                });
             },4000);
+            setTimeout(function(){
+                fadeAudioRed();
+            },17000);
         },1000);
+    }
+
+    var audioInterval = 0;
+    function fadeAudioRed(){
+
+        audioInterval = setInterval(function(){
+            if(document.querySelector('#audio-4').volume >= 0.1){
+                document.querySelector('#audio-4').volume -= 0.1;
+            }
+            else {
+                document.querySelector('#audio-4').volume = 0;
+                clearInterval(audioInterval);
+            }
+
+            if(document.querySelector('#audio-5').volume <= 0.9){
+                document.querySelector('#audio-5').volume += 0.1;
+            }
+            else {
+                document.querySelector('#audio-5').volume = 1;
+                clearInterval(audioInterval);
+            }
+
+        },400);
     }
 
     function coverTransition(){
