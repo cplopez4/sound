@@ -87,9 +87,10 @@ var siriWave1 = new SiriWave({
     color: '#050096',
     autostart: true,
     speed: 0.01,
-    amplitude: 0.7,
+    amplitude: 0.6,
     frequency: 30,
-    top: 0
+    top: 0,
+    className: "second-wave"
 });
 
 var siriWave2 = new SiriWave({
@@ -101,7 +102,8 @@ var siriWave2 = new SiriWave({
     speed: 0.03,
     amplitude: 0.7,
     frequency: 40,
-    top: heightFixed
+    top: heightFixed,
+    className: "second-wave"
 });
 
 var siriWave3 = new SiriWave({
@@ -113,7 +115,8 @@ var siriWave3 = new SiriWave({
     speed: 0.04,
     amplitude: 0.7,
     frequency: 20,
-    top: heightFixed*2
+    top: heightFixed*2,
+    className: "second-wave"
 });
 
 var siriWave4 = new SiriWave({
@@ -125,7 +128,8 @@ var siriWave4 = new SiriWave({
     speed: 0.01,
     amplitude: 0.7,
     frequency: 15,
-    top: heightFixed*3
+    top: heightFixed*3,
+    className: "second-wave"
 });
 
 var siriWave5 = new SiriWave({
@@ -137,7 +141,8 @@ var siriWave5 = new SiriWave({
     speed: 0.02,
     amplitude: 0.7,
     frequency: 25,
-    top: heightFixed*4
+    top: heightFixed*4,
+    className: "second-wave"
 });
 
 var siriWave6 = new SiriWave({
@@ -149,7 +154,8 @@ var siriWave6 = new SiriWave({
     speed: 0.06,
     amplitude: 0.7,
     frequency: 35,
-    top: heightFixed*5
+    top: heightFixed*5,
+    className: "second-wave"
 });
 
 var siriWave7 = new SiriWave({
@@ -161,7 +167,8 @@ var siriWave7 = new SiriWave({
     speed: 0.01,
     amplitude: 0.7,
     frequency: 30,
-    top: heightFixed*6
+    top: heightFixed*6,
+    className: "second-wave"
 });
 
 /* Fin Siri Container */
@@ -360,6 +367,7 @@ $(document).ready(function(){
         $(".brain-2").show();
 
         $("body").css("background-color", "#050096");
+        $(".canvas-mask").css("background-color", "#050096");
         $("#slider-vertical").slider("value", 0);
         $("#first-mask").hide();
 
@@ -397,6 +405,7 @@ $(document).ready(function(){
         siriWaveInit4.setAmplitude(0.9);
 
         $("body").css("background-color", "#040019");
+        $(".canvas-mask").css("background-color", "#040019");
 
         setTimeout(function(){
             document.querySelector("#locucion-6").play();
@@ -409,11 +418,10 @@ $(document).ready(function(){
     function coverTransition(){
         /* Revisar performance de esta transición */
         $(".wave-container-init").fadeToggle(1800);
-        $("canvas").addClass("init");
 
         $(".points-layer").fadeToggle(1800);
         $(".about-container").fadeToggle(1800);
-        $(".wave-container").fadeToggle(1800);
+        $(".canvas-mask").fadeToggle(1800);
 
         $(".mask").fadeToggle(1000);
         $(".init-form-container").fadeToggle(2000);
@@ -432,10 +440,10 @@ $(document).ready(function(){
         if(type_target==2){ offset_target = 15; }
         else if(type_target==3){ offset_target = 9; }
         
-        var posXOrigin = $(origin).position().left + offset_origin;
+        var posXOrigin = $(origin).position().left + offset_origin + 3;
         var posYOrigin = $(origin).position().top + offset_origin;
 
-        var posXTarget = $(target).position().left + offset_target;
+        var posXTarget = $(target).position().left + offset_target + 3;
         var posYTarget = $(target).position().top + offset_target;
 
         var newLine = document.createElementNS('http://www.w3.org/2000/svg','line');

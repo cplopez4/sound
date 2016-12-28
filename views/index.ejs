@@ -14,22 +14,22 @@
 <script src="javascripts/wave.js"></script>
 
 <!-- Audio Atención (0-25) -->
-<audio id="audio-1" loop>
+<audio id="audio-1" loop autoplay>
   <source src="audio/1-atencion.mp3" type="audio/mpeg">
 </audio>
 
 <!-- Audio Introducción (23-40) -->
-<audio id="audio-2" loop>
+<audio id="audio-2" loop autoplay>
   <source src="audio/2-intro.mp3" type="audio/mpeg">
 </audio>
 
 <!-- Audio Medio (38-70) -->
-<audio id="audio-3" loop>
+<audio id="audio-3" loop autoplay>
   <source src="audio/3-medio.mp3" type="audio/mpeg">
 </audio>
 
 <!-- Audio Máximo (68-100) -->
-<audio id="audio-4" loop>
+<audio id="audio-4" loop autoplay>
   <source src="audio/4-maximo.mp3" type="audio/mpeg">
 </audio>
 
@@ -402,13 +402,16 @@
 <div id="first-mask" class="hidden"></div>
 
 <!-- Waves Red -->
-<div id="siri-container-1" class="wave-container hidden"></div>
-<div id="siri-container-2" class="wave-container hidden"></div>
-<div id="siri-container-3" class="wave-container hidden"></div>
-<div id="siri-container-4" class="wave-container hidden"></div>
-<div id="siri-container-5" class="wave-container hidden"></div>
-<div id="siri-container-6" class="wave-container hidden"></div>
-<div id="siri-container-7" class="wave-container hidden"></div>
+<div class="wave-inner-container">
+  <div class="canvas-mask"></div>
+  <div id="siri-container-1" class="wave-container"></div>
+  <div id="siri-container-2" class="wave-container"></div>
+  <div id="siri-container-3" class="wave-container"></div>
+  <div id="siri-container-4" class="wave-container"></div>
+  <div id="siri-container-5" class="wave-container"></div>
+  <div id="siri-container-6" class="wave-container"></div>
+  <div id="siri-container-7" class="wave-container"></div>
+</div>
 
 <div class="cover-container">
   <div class="title-container">

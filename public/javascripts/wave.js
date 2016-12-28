@@ -177,6 +177,7 @@ function SiriWave(opt) {
 	this.ctx = this.canvas.getContext('2d');
 	this.canvas.width = this.cache.width;
 	this.canvas.height = this.cache.height;
+	this.canvas.className = opt.className || "";
 
 	if (opt.cover) {
 		this.canvas.style.width = this.canvas.style.height = '100%';

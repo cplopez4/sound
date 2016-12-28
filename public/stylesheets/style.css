@@ -25,9 +25,21 @@ canvas {
   /*opacity: 0.3;*/
 }
 
-canvas.init {
-  opacity: 0.3;
+canvas.second-wave {
   z-index: -9999;
+  opacity: 0.3;
+}
+
+.wave-container {
+  z-index: -9999;
+}
+
+.canvas-mask {
+  width: 100%;
+  height: 100%;
+  z-index: -9998;
+  background-color: #040019;
+  position: absolute;
 }
 
 svg {
@@ -71,7 +83,7 @@ svg {
 }
 
 .question-img {
-  width: 40px;
+  width: 50px;
 }
 
 .over-content.question, .over-content.about {
@@ -90,11 +102,11 @@ svg {
 }
 
 .answer-img {
-  width: 30px;
+  width: 40px;
 }
 
 .extra-img {
-  width: 17px;
+  width: 24px;
 }
 
 .volume-img {
@@ -658,4 +670,11 @@ p.credits-item-c {
   height: 100%;
   z-index: -9998;
   background-color: #040019;
+}
+
+.wave-inner-container {
+  position:absolute;
+  width:100%;
+  height:100%;
+  z-index:-9999;
 }
