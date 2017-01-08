@@ -18,23 +18,23 @@
   <source src="audio/intro.mp3" type="audio/mpeg">
 </audio>
 
-<!-- Audio Atención -->
-<audio class="audio-interval" id="audio-atencion" loop>
-  <source src="audio/atencion.mp3" type="audio/mpeg">
-</audio>
-
 <!-- Audio Ruido -->
-<audio class="audio-interval" id="audio-ruido" loop>
+<audio class="audio-interval" id="audio-ruido" loop autoplay>
   <source src="audio/ruido.mp3" type="audio/mpeg">
 </audio>
 
+<!-- Audio Atención -->
+<audio class="audio-interval" id="audio-atencion" loop autoplay>
+  <source src="audio/atencion.mp3" type="audio/mpeg">
+</audio>
+
 <!-- Click Atención -->
-<audio class="audio-click" id="audio-click-a" autoplay>
+<audio class="audio-click" id="audio-click-a" >
   <source src="audio/click_atencion.aif" type="audio/aif">
 </audio>
 
 <!-- Click Ruido -->
-<audio class="audio-click" id="audio-click-r" autoplay>
+<audio class="audio-click" id="audio-click-r" >
   <source src="audio/click_ruido.aif" type="audio/aif">
 </audio>
 
@@ -373,15 +373,22 @@
 
 <!-- Waves Red -->
 <div class="wave-inner-container">
-  <div class="canvas-mask"></div>
-  <div id="siri-container-1" class="wave-container"></div>
+  <!-- <div id="siri-container-1" class="wave-container"></div>
   <div id="siri-container-2" class="wave-container"></div>
   <div id="siri-container-3" class="wave-container"></div>
   <div id="siri-container-4" class="wave-container"></div>
   <div id="siri-container-5" class="wave-container"></div>
   <div id="siri-container-6" class="wave-container"></div>
-  <div id="siri-container-7" class="wave-container"></div>
+  <div id="siri-container-7" class="wave-container"></div> -->
+  <video loop muted autoplay id="waves1" class="fullscreen-bg-video">
+      <source src="videos/waves1.webm" type="video/webm">
+  </video>
+  <video loop muted autoplay id="waves2" class="fullscreen-bg-video hidden">
+      <source src="videos/waves2.webm" type="video/webm">
+  </video>
 </div>
+<div class="canvas-mask"></div>
+<div class="canvas-mask-net hidden"></div>
 
 
 <!-- Elementos de Introducción -->

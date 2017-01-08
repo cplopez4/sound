@@ -25,101 +25,6 @@ var json = { data: {
     } 
 };
 
-/* Siri Container */
-var widthFixed = window.innerWidth*2;
-var heightFixed = window.innerHeight/7;
-
-var siriWave1 = new SiriWave({
-    container: document.getElementById('siri-container-1'),
-    width: widthFixed,
-    height: heightFixed,
-    color: '#050096',
-    autostart: true,
-    speed: 0.01,
-    amplitude: 0.6,
-    frequency: 30,
-    top: 0,
-    className: "second-wave"
-});
-
-var siriWave2 = new SiriWave({
-    container: document.getElementById('siri-container-2'),
-    width: widthFixed,
-    height: heightFixed,
-    color: '#00ff98',
-    autostart: true,
-    speed: 0.03,
-    amplitude: 0.7,
-    frequency: 40,
-    top: heightFixed,
-    className: "second-wave"
-});
-
-var siriWave3 = new SiriWave({
-    container: document.getElementById('siri-container-3'),
-    width: widthFixed,
-    height: heightFixed,
-    color: '#0fe6f0',
-    autostart: true,
-    speed: 0.04,
-    amplitude: 0.7,
-    frequency: 20,
-    top: heightFixed*2,
-    className: "second-wave"
-});
-
-var siriWave4 = new SiriWave({
-    container: document.getElementById('siri-container-4'),
-    width: widthFixed,
-    height: heightFixed,
-    color: '#5a5fff',
-    autostart: true,
-    speed: 0.01,
-    amplitude: 0.7,
-    frequency: 15,
-    top: heightFixed*3,
-    className: "second-wave"
-});
-
-var siriWave5 = new SiriWave({
-    container: document.getElementById('siri-container-5'),
-    width: widthFixed,
-    height: heightFixed,
-    color: '#00ff98',
-    autostart: true,
-    speed: 0.02,
-    amplitude: 0.7,
-    frequency: 25,
-    top: heightFixed*4,
-    className: "second-wave"
-});
-
-var siriWave6 = new SiriWave({
-    container: document.getElementById('siri-container-6'),
-    width: widthFixed,
-    height: heightFixed,
-    color: '#050096',
-    autostart: true,
-    speed: 0.06,
-    amplitude: 0.7,
-    frequency: 35,
-    top: heightFixed*5,
-    className: "second-wave"
-});
-
-var siriWave7 = new SiriWave({
-    container: document.getElementById('siri-container-7'),
-    width: widthFixed,
-    height: heightFixed,
-    color: '#0fe6f0',
-    autostart: true,
-    speed: 0.01,
-    amplitude: 0.7,
-    frequency: 30,
-    top: heightFixed*6,
-    className: "second-wave"
-});
-
 /* Fin Siri Container */
 
 $("canvas").css("left", (window.innerWidth/2)*(-1));
@@ -146,6 +51,11 @@ function startAll(){
 
 $(document).ready(function(){
 
+    var audio_ruido = document.querySelector('#audio-ruido');
+    audio_ruido.volume = 0;
+    var audio_atencion = document.querySelector('#audio-atencion');
+    audio_atencion.volume = 0;
+
     setTimeout(function(){
         $("#cover-1").fadeToggle(3000);
         setTimeout(function(){
@@ -171,6 +81,8 @@ $(document).ready(function(){
     }, 1200);
 
     $(document).on("click", "#cover-btn-init", function(){
+        $("#audio-intro").animate({volume: 0}, 2000);
+        $("#audio-ruido").animate({volume: 1}, 2000);
         firstTransition();
     });
 
@@ -265,7 +177,6 @@ $(document).ready(function(){
         $(".points-mask").hide();
         $(".point-elem").addClass("hidden");
         $(".point-elem").css("z-index", "auto");
-        $("#first-mask").hide();
         $(".main-cover-container#cover-home").fadeToggle(1800);
 
 
@@ -281,6 +192,7 @@ $(document).ready(function(){
         }, 1000);
         $(".about-container").fadeToggle(1800);
         $(".canvas-mask").fadeToggle(1800);
+        $(".canvas-mask-net").fadeToggle(1800);
         $(".point-elem").fadeToggle(1800);
     }
 
@@ -373,6 +285,9 @@ $(document).ready(function(){
         }, 800);
         $('#video-modal-close').fadeIn(500);
 
+        $("#audio-atencion").animate({volume: 0}, 1000);
+        $("#audio-ruido").animate({volume: 0}, 1000);
+
         globalCounter++;
         if(globalCounter == 1){
             json.data.circles.first_answer = mapCircle(e.currentTarget.id);
@@ -391,6 +306,8 @@ $(document).ready(function(){
 
     $(".video-modal").click(function(){
         $('#video-modal-close').fadeOut(500);
+        $("#audio-ruido").animate({volume: 1}, 1000);
+
         var iframe = $('#vimeo-player')[0];
         var player = $f(iframe);
         player.api('pause');
