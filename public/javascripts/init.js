@@ -55,58 +55,294 @@ $(document).ready(function(){
     audio_ruido.volume = 0;
     var audio_atencion = document.querySelector('#audio-atencion');
     audio_atencion.volume = 0;
+    var audio_intro = document.querySelector('#audio-intro');
+    audio_intro.volume = 0.75;
 
     setTimeout(function(){
         $("#cover-1").fadeToggle(3000);
+        showIntroLines(1);
         setTimeout(function(){
             $("#cover-1").fadeToggle(2500);
             $("#cover-2").fadeToggle(2500);
+            $("line").fadeOut(1500);
+            showIntroLines(2);
 
             setTimeout(function(){
                 $("#cover-2").fadeToggle(2500);                
-                $("#cover-3").fadeToggle(2500);                
+                $("#cover-3").fadeToggle(2500);
+                $("line").fadeOut(1500);
+                showIntroLines(3);
 
                 setTimeout(function(){
                     $("#cover-3").fadeToggle(2500);                
-                    $("#cover-4").fadeToggle(2500);                
+                    $("#cover-4").fadeToggle(2500);
+                    $("line").fadeOut(1500);
+                    showIntroLines(4);                
                     
                     setTimeout(function(){
+                        $("line").fadeOut(1500);
                         $("#cover-4").fadeToggle(2500);                
-                        $("#cover-home").fadeToggle(2500);                
+                        $("#cover-home").fadeIn(2500);
+                        resetLines();
+                        showIntroLines(5);             
                         
-                    }, 7000);
-                }, 7000);
-            }, 7000);
-        }, 6000);
+                    }, 8000);
+                }, 8000);
+            }, 8000);
+        }, 7000);
     }, 1200);
+
+    function showIntroLines(type){
+        if(type == 1){
+            /* Respuesta 1 */
+            fixLineAnimated($("#line-q1-q1a1e1"),2500);
+            fixLineAnimated($("#line-q1a1e1-q1a1e2"),2500);
+            fixLineAnimated($("#line-q1a1-q1a1e2"),2500);
+
+            /* Extras */
+            fixLineAnimated($("#line-q3-q1a1"),2500);
+            fixLineAnimated($("#line-q2-q1a1"),2500);
+            fixLineAnimated($("#line-q2-q3a2e2"),2500);
+            fixLineAnimated($("#line-q1a1-e8"),2500);
+            fixLineAnimated($("#line-q1a1-q2a3e1"),2500);
+            fixLineAnimated($("#line-q2a2-q2a3e1"),2500);
+            fixLineAnimated($("#line-q2a3-q1a1"),2500);
+            fixLineAnimated($("#line-q1-e3"),2500);
+            fixLineAnimated($("#line-q1-e4"),2500);
+            fixLineAnimated($("#line-q1-q2a1"),2500);
+            fixLineAnimated($("#line-e3-e4"),2500);
+            fixLineAnimated($("#line-e4-e5"),2500);
+            /* Respuesta 2 */
+            fixLineAnimated($("#line-q1-q1a2e1"),2500);
+            fixLineAnimated($("#line-q1a2-q1a2e1"),2500);
+
+            /* Extras */
+            fixLineAnimated($("#line-q2a1-e7"),2500);
+            fixLineAnimated($("#line-q1a2e1-e7"),2500);
+            fixLineAnimated($("#line-q1a2-q2a1e1"),2500);
+            fixLineAnimated($("#line-q2a1e1-e9"),2500);
+
+            /* Respuesta 1 */
+            fixLineAnimated($("#line-q3-q3a1"),2500);
+
+            /* Extras */
+            fixLineAnimated($("#line-q3a1-q3a2e1"),2500);
+            fixLineAnimated($("#line-q3a1-q3a2e2"),2500);
+            
+            fixLineAnimated($("#line-q1a1-q3a2e1"),2500);
+            fixLineAnimated($("#line-q1a1-q3a2e2"),2500);
+            
+            fixLineAnimated($("#line-q3a2e2-e11"),2500);
+            fixLineAnimated($("#line-q3a2e2-e13"),2500);
+            fixLineAnimated($("#line-e11-e13"),2500);
+
+            /* Respuesta 2 */
+            fixLineAnimated($("#line-q3-q3a2e1"),2500);
+            fixLineAnimated($("#line-q3a2e1-q3a2e2"),2500);
+            fixLineAnimated($("#line-q3a2-q3a2e2"),2500);
+
+            /* Extras */
+            fixLineAnimated($("#line-q2-q3a2"),2500);
+            fixLineAnimated($("#line-q3a2-e9"),2500);
+            fixLineAnimated($("#line-q3a2-e10"),2500);
+            fixLineAnimated($("#line-q3a2-e11"),2500);
+            fixLineAnimated($("#line-e12-e11"),2500);
+        }
+        else if(type == 2){
+            fixLineAnimated($("#line-q2-q2a1e1"),2500);
+            fixLineAnimated($("#line-q1a2e1-q2a1e1"),2500);
+            fixLineAnimated($("#line-q2a1-q1a2e1"),2500);
+            
+            /* Extras */
+            fixLineAnimated($("#line-q1-e2"),2500);
+            fixLineAnimated($("#line-q1-e3"),2500);
+            fixLineAnimated($("#line-q1-e4"),2500);
+            fixLineAnimated($("#line-q1-q2a1"),2500);
+            fixLineAnimated($("#line-e3-e4"),2500);
+            fixLineAnimated($("#line-e4-e5"),2500);
+            fixLineAnimated($("#line-q2a1-e4"),2500);
+            fixLineAnimated($("#line-q2a1-e6"),2500);
+
+            fixLineAnimated($("#line-q2-q3a2e2"),2500);
+            fixLineAnimated($("#line-q1a1-e8"),2500);
+            fixLineAnimated($("#line-q1a1-q2a3e1"),2500);
+            fixLineAnimated($("#line-q2a2-q2a3e1"),2500);
+            fixLineAnimated($("#line-q2a3-q1a1"),2500);
+
+            /* Respuesta 2 */
+            fixLineAnimated($("#line-q1-q1a2e1"),2500);
+            fixLineAnimated($("#line-q1a2-q1a2e1"),2500);
+
+            /* Respuesta 2 */
+            fixLineAnimated($("#line-q2-q2a2"),2500);
+            fixLineAnimated($("#line-q3a1-q3a2e1"),2500);
+            fixLineAnimated($("#line-q3a1-q3a2e2"),2500);
+            /* Extras */
+            fixLineAnimated($("#line-q2-e9"),2500);
+            fixLineAnimated($("#line-q2a2-q1a2e1"),2500);
+            fixLineAnimated($("#line-q1a2-e9"),2500);
+            fixLineAnimated($("#line-q2a2-q2a1e1"),2500);
+            fixLineAnimated($("#line-q2a1e1-e9"),2500);
+
+            /* Respuesta 3 */
+            fixLineAnimated($("#line-q2-q2a3e1"),2500);
+            fixLineAnimated($("#line-q1a1e2-q2a3e1"),2500);
+            fixLineAnimated($("#line-q2a3-q1a1e2"),2500);
+
+            /* Extras */
+            fixLineAnimated($("#line-q1-e1"),2500);
+            fixLineAnimated($("#line-q1a1e1-e1"),2500);
+            fixLineAnimated($("#line-q1a1e1-q2a3e1"),2500);
+            fixLineAnimated($("#line-q2a3-q1a1e1"),2500);
+            fixLineAnimated($("#line-q2a2-q1a1e1"),2500);
+        }
+        else if(type == 3){
+            /* Respuesta 1 */
+           
+            fixLineAnimated($("#line-q1-q1a1e1"),2500);
+            fixLineAnimated($("#line-q1a1e1-q1a1e2"),2500);
+            fixLineAnimated($("#line-q1a1-q1a1e2"),2500);
+
+
+            fixLineAnimated($("#line-q2-q1a1"),2500);
+            fixLineAnimated($("#line-q2-q3a2e2"),2500);
+            fixLineAnimated($("#line-q1a1-e8"),2500);
+            /* Extras */
+            fixLineAnimated($("#line-q3a1-q3a2e1"),2500);
+            fixLineAnimated($("#line-q2a2-q2a3e1"),2500);
+            fixLineAnimated($("#line-q2a3-q1a1"),2500);
+
+            /* Respuesta 2 */
+            fixLineAnimated($("#line-q1-q1a2e1"),2500);
+            fixLineAnimated($("#line-q1a2-q1a2e1"),2500);
+
+            /* Respuesta 2 */
+            fixLineAnimated($("#line-q2-q2a2"),2500);
+            fixLineAnimated($("#line-q3a1-q3a2e1"),2500);
+            
+            fixLineAnimated($("#line-q1a1-q3a2e1"),2500);
+            fixLineAnimated($("#line-q1a1-q3a2e2"),2500);
+            
+            fixLineAnimated($("#line-q3a2e2-e11"),2500);
+            fixLineAnimated($("#line-q3a2e2-e13"),2500);
+            fixLineAnimated($("#line-e11-e13"),2500);
+
+            /* Respuesta 2 */
+            fixLineAnimated($("#line-q3-q3a2e1"),2500);
+            fixLineAnimated($("#line-q3a2e1-q3a2e2"),2500);
+            fixLineAnimated($("#line-q3a2-q3a2e2"),2500);
+
+            /* Extras */
+            fixLineAnimated($("#line-q2-q3a2"),2500);
+            fixLineAnimated($("#line-q3a2-e9"),2500);
+            fixLineAnimated($("#line-q3a2-e10"),2500);
+            fixLineAnimated($("#line-q3a2-e11"),2500);
+            fixLineAnimated($("#line-e12-e11"),2500);
+            fixLineAnimated($("#line-q1-q2a1"),2500);
+            fixLineAnimated($("#line-e3-e4"),2500);
+            fixLineAnimated($("#line-e4-e5"),2500);
+            fixLineAnimated($("#line-q2a1-e4"),2500);
+            fixLineAnimated($("#line-q2a1-e6"),2500);
+
+            fixLineAnimated($("#line-q2-q3a2e2"),2500);
+            fixLineAnimated($("#line-q1a1-e8"),2500);
+            fixLineAnimated($("#line-q1a1-q2a3e1"),2500);
+            fixLineAnimated($("#line-q2a2-q2a3e1"),2500);
+            fixLineAnimated($("#line-q2a3-q1a1"),2500);
+        }
+        else if(type == 4){
+             /* Extras */
+            fixLineAnimated($("#line-q2-q3a2"),2500);
+            fixLineAnimated($("#line-q3a2-e9"),2500);
+            fixLineAnimated($("#line-q3a2-e10"),2500);
+            fixLineAnimated($("#line-q3a2-e11"),2500);
+            fixLineAnimated($("#line-e12-e11"),2500);
+            fixLineAnimated($("#line-q1-q2a1"),2500);
+            fixLineAnimated($("#line-e3-e4"),2500);
+            fixLineAnimated($("#line-e4-e5"),2500);
+            fixLineAnimated($("#line-q2a1-e4"),2500);
+            fixLineAnimated($("#line-q2a1-e6"),2500);
+
+            fixLineAnimated($("#line-q2-q3a2e2"),2500);
+            fixLineAnimated($("#line-q1a1-e8"),2500);
+            fixLineAnimated($("#line-q1a1-q2a3e1"),2500);
+            fixLineAnimated($("#line-q2a2-q2a3e1"),2500);
+            fixLineAnimated($("#line-q2a2-q1a2e1"),2500);
+            fixLineAnimated($("#line-q2a2-q2a1e1"),2500);
+            fixLineAnimated($("#line-q2a1e1-e9"),2500);
+            fixLineAnimated($("#line-q2-q3a2"),2500);
+            fixLineAnimated($("#line-q3a2-e9"),2500);
+            fixLineAnimated($("#line-q3a2-e10"),2500);
+            fixLineAnimated($("#line-q3a2-e11"),2500);
+            fixLineAnimated($("#line-e12-e11"),2500);
+            fixLineAnimated($("#line-q1-q2a1"),2500);
+            fixLineAnimated($("#line-e3-e4"),2500);
+            /* Extras */
+            fixLineAnimated($("#line-q2-q3a2"),2500);
+            fixLineAnimated($("#line-q3a2-e9"),2500);
+            fixLineAnimated($("#line-q3a2-e10"),2500);
+            fixLineAnimated($("#line-q3a2-e11"),2500);
+            fixLineAnimated($("#line-e12-e11"),2500);
+            fixLineAnimated($("#line-q1-q2a1"),2500);
+            fixLineAnimated($("#line-e3-e4"),2500);
+
+            fixLineAnimated($("#line-q1a1-e8"),2500);
+            fixLineAnimated($("#line-q1a1-q2a3e1"),2500);
+            fixLineAnimated($("#line-q2a2-q2a3e1"),2500);
+            fixLineAnimated($("#line-q2a3-q1a1"),2500);
+        }
+        else if(type == 5){
+            /* Contorno del Cerebro */
+            fixLineAnimated($("#line-q3-q3a1"),2500);
+            fixLineAnimated($("#line-q3a1-e13"),2500);
+            fixLineAnimated($("#line-e12-e13"),2500);
+            fixLineAnimated($("#line-e10-e12"),2500);
+            fixLineAnimated($("#line-e9-e10"),2500);
+            fixLineAnimated($("#line-q1a2-e9"),2500);
+            fixLineAnimated($("#line-q1a2-e7"),2500);
+            fixLineAnimated($("#line-e6-e7"),2500);
+            fixLineAnimated($("#line-e5-e6"),2500);
+            fixLineAnimated($("#line-e3-e5"),2500);
+            fixLineAnimated($("#line-e2-e3"),2500);
+            fixLineAnimated($("#line-e1-e2"),2500);
+            fixLineAnimated($("#line-q2a3-e1"),2500);
+            fixLineAnimated($("#line-q2a3-e8"),2500);
+            fixLineAnimated($("#line-q3-e8"),2500);
+            /* Fin Contorno del Cerebro */
+        }
+        else{
+            /* Para reutilizar */
+        }
+    }
+
+    function resetLines(){
+        $("line").attr("style","");
+        $("line").attr('stroke-linecap', "round");
+        $("line").attr('stroke-dasharray', "1,5");
+    }
+
+    function fixLineAnimated(elem,time){
+        $(elem).attr("stroke-width",1);
+        $(elem).attr("stroke-linecap","");
+        $(elem).attr("stroke-dasharray","");
+        $(elem).fadeIn(time);
+        /*$(elem).attr("stroke-opacity",0.5);*/
+    }
+
 
     $(document).on("click", "#cover-btn-init", function(){
         $("#audio-intro").animate({volume: 0}, 2000);
-        $("#audio-ruido").animate({volume: 1}, 2000);
+        $("#audio-ruido").animate({volume: 0.75}, 2000);
         firstTransition();
+    });
+
+    $(document).on("click", "#about-panel-close", function(){
+        $(".about-main-container").fadeToggle(800);
     });
 
     /* Init SVG lines */
     initPolygon();
     initLines();
-
-    /* Contorno del Cerebro */
-    fixLine($("#line-q3-q3a1"));
-    fixLine($("#line-q3a1-e13"));
-    fixLine($("#line-e12-e13"));
-    fixLine($("#line-e10-e12"));
-    fixLine($("#line-e9-e10"));
-    fixLine($("#line-q1a2-e9"));
-    fixLine($("#line-q1a2-e7"));
-    fixLine($("#line-e6-e7"));
-    fixLine($("#line-e5-e6"));
-    fixLine($("#line-e3-e5"));
-    fixLine($("#line-e2-e3"));
-    fixLine($("#line-e1-e2"));
-    fixLine($("#line-q2a3-e1"));
-    fixLine($("#line-q2a3-e8"));
-    fixLine($("#line-q3-e8"));
-    /* Fin Contorno del Cerebro */
 
     function initPolygon(){
 
@@ -306,7 +542,7 @@ $(document).ready(function(){
 
     $(".video-modal").click(function(){
         $('#video-modal-close').fadeOut(500);
-        $("#audio-ruido").animate({volume: 1}, 1000);
+        $("#audio-ruido").animate({volume: 0.75}, 1000);
 
         var iframe = $('#vimeo-player')[0];
         var player = $f(iframe);
@@ -461,7 +697,7 @@ $(document).ready(function(){
     /* Rutas */
 
     /* Pregunta 1 */
-    $("#q1-l20t50").on("click", function(){
+    $("#q1-l25t47").on("click", function(){
         clickQ1();
     });
 
@@ -492,9 +728,9 @@ $(document).ready(function(){
         }, 500);
         /* Fin Animation first click */
 
-        $("#q1-l20t50").off("click");
+        $("#q1-l25t47").off("click");
 
-        $("#q1-l20t50").on("click", function(){
+        $("#q1-l25t47").on("click", function(){
             $(".tt-main-container").addClass("hidden");
             $(".tt-q1-container").removeClass("hidden");
 
@@ -570,7 +806,7 @@ $(document).ready(function(){
 
 
     /* Pregunta 3 */
-    $("#q3-l85t23").on("click", function(){
+    $("#q3-l81t20").on("click", function(){
         clickQ3();
     });
 
@@ -601,9 +837,9 @@ $(document).ready(function(){
         }, 500);
         /* Fin Animation first click */
 
-        $("#q3-l85t23").off("click");
+        $("#q3-l81t20").off("click");
 
-        $("#q3-l85t23").on("click", function(){
+        $("#q3-l81t20").on("click", function(){
             $(".tt-main-container").addClass("hidden");
             $(".tt-q3-container").removeClass("hidden");
 
@@ -763,7 +999,7 @@ $(document).ready(function(){
 
             $("line").filter(function() { return $(this).css("display") == "none" }).fadeToggle(5000);
             
-            $("canvas").fadeToggle(5000);
+            $("video").fadeOut(5000);
 
             setTimeout(function(){  
                 $("#final-1").fadeToggle(2500);
