@@ -1,7 +1,6 @@
 var route1, route2, route3, route4, route5, route6, route7 = false;
 var lastClick = 0;
 var globalCounter = 0;
-var audioTotalValue = false;
 var initTime = new Date();
 
 /* En cirlcles, 1=Q1A1, 2=Q1A2, 3=Q2A1, 4=Q2A2, 5=Q2A3, 6=Q3A1, 7=Q3A2 */
@@ -23,61 +22,8 @@ var json = { data: {
     } 
 };
 
-/* Siri Container Init */
-var widthFixed = window.innerWidth*2;
-var heightFixedInit = window.innerHeight/5;
-
-var siriWaveInit1 = new SiriWave({
-    container: document.getElementById('siri-container-init-1'),
-    width: widthFixed,
-    height: heightFixedInit,
-    color: '#5a5fff',
-    autostart: true,
-    speed: 0.06,
-    amplitude: 0.9,
-    frequency: 40,
-    top: heightFixedInit/2
-});
-
-var siriWaveInit2 = new SiriWave({
-    container: document.getElementById('siri-container-init-2'),
-    width: widthFixed,
-    height: heightFixedInit,
-    color: '#00ff98',
-    autostart: true,
-    speed: 0.06,
-    amplitude: 0.9,
-    frequency: 33,
-    top: heightFixedInit + (heightFixedInit/2)
-});
-
-var siriWaveInit3 = new SiriWave({
-    container: document.getElementById('siri-container-init-3'),
-    width: widthFixed,
-    height: heightFixedInit,
-    color: '#0fe6f0',
-    autostart: true,
-    speed: 0.06,
-    amplitude: 0.9,
-    frequency: 35,
-    top: (heightFixedInit*2) + (heightFixedInit/2)
-});
-
-var siriWaveInit4 = new SiriWave({
-    container: document.getElementById('siri-container-init-4'),
-    width: widthFixed,
-    height: heightFixedInit,
-    color: '#050096',
-    autostart: true,
-    speed: 0.06,
-    amplitude: 0.9,
-    frequency: 38,
-    top: (heightFixedInit*3) + (heightFixedInit/2)
-});
-/* Fin Siri Container Init */
-
-
 /* Siri Container */
+var widthFixed = window.innerWidth*2;
 var heightFixed = window.innerHeight/7;
 
 var siriWave1 = new SiriWave({
@@ -197,21 +143,83 @@ function startAll(){
 
 $(document).ready(function(){
 
-    /* Variables Audios */
-    var audio1 = document.querySelector('#audio-1');
-    audio1.volume = 0;
-    var audio2 = document.querySelector('#audio-2');
-    audio2.volume = 1;
-    var audio3 = document.querySelector('#audio-3');
-    audio3.volume = 0;
-    var audio4 = document.querySelector('#audio-4');
-    audio4.volume = 0;
-    /* Audio Red */
-    var audio5 = document.querySelector('#audio-5');
-    audio5.volume = 0;
+    $(document).on("click", ".cover-inline-img", function(){
+        firstTransition();
+    });
 
     /* Init SVG lines */
+    initPolygon();
     initLines();
+
+    /* Contorno del Cerebro */
+    fixLine($("#line-q3-q3a1"));
+    fixLine($("#line-q3a1-e13"));
+    fixLine($("#line-e12-e13"));
+    fixLine($("#line-e10-e12"));
+    fixLine($("#line-e9-e10"));
+    fixLine($("#line-q1a2-e9"));
+    fixLine($("#line-q1a2-e7"));
+    fixLine($("#line-e6-e7"));
+    fixLine($("#line-e5-e6"));
+    fixLine($("#line-e3-e5"));
+    fixLine($("#line-e2-e3"));
+    fixLine($("#line-e1-e2"));
+    fixLine($("#line-q2a3-e1"));
+    fixLine($("#line-q2a3-e8"));
+    fixLine($("#line-q3-e8"));
+    /* Fin Contorno del Cerebro */
+
+    function initPolygon(){
+
+        var pointsArray = [
+            { point: $("div[id^='q3-']"), type: 1 },
+            { point: $("div[id^='q3a1-']"), type: 2 },
+            { point: $("div[id^='e13-']"), type: 3 },
+            { point: $("div[id^='e12-']"), type: 3 },
+            { point: $("div[id^='e10-']"), type: 3 },
+            { point: $("div[id^='e9-']"), type: 3 },
+            { point: $("div[id^='q1a2-']"), type: 2 },
+            { point: $("div[id^='e7-']"), type: 3 },
+            { point: $("div[id^='e6-']"), type: 3 },
+            { point: $("div[id^='e5-']"), type: 3 },
+            { point: $("div[id^='e3-']"), type: 3 },
+            { point: $("div[id^='e2-']"), type: 3 },
+            { point: $("div[id^='e1-']"), type: 3 },
+            { point: $("div[id^='q2a3-']"), type: 2 },
+            { point: $("div[id^='e8-']"), type: 3 }
+        ];
+
+        var pointsStr = "";
+        $.each(pointsArray, function(i,v){
+            var pos = getRealPos(v.point,v.type);
+            pointsStr += (""+pos.posX+","+pos.posY+" ");
+        });
+
+        var brain = document.createElementNS('http://www.w3.org/2000/svg','polygon');
+        brain.setAttribute('id','brain-svg');
+        brain.setAttribute('stroke', "transparent");
+        brain.setAttribute('stroke-width', "0");
+        brain.setAttribute('onclick', "changePoly(evt)");
+        brain.setAttribute('points', pointsStr);
+        $("svg").append(brain);
+    }
+
+    function changePoly(evt){
+        console.log("Hola");
+    }
+
+    function getRealPos(point,type){
+        /* 1=Q, 2=A, 3=E */
+        var offset = 20;
+        
+        if(type==2){ offset = 15; }
+        else if(type==3){ offset = 9; }
+
+        var posX = $(point).position().left + offset + 3;
+        var posY = $(point).position().top + offset;
+
+        return { posX: posX, posY: posY };
+    }
 
     $(document).click(function(e) {
         var elem = e.target;
@@ -223,262 +231,30 @@ $(document).ready(function(){
         json.data.clicks.push(obj);
     });
 
-    /*$("#slider-vertical").on('mousewheel DOMMouseScroll', function(e) {
-        var o = e.originalEvent;
-        var delta = o && (o.wheelDelta || (o.detail && -o.detail));
-
-        if (delta) {
-            e.preventDefault();
-
-            var step = $(this).slider("option", "step");
-                step *= delta < 0 ? 1 : -1;
-            $(this).slider("value", $(this).slider("value") + step);
-        }
-    });*/
-
-    var count = 0;
-    $("#slider-vertical").slider({
-      orientation: "vertical",
-      range: "min",
-      step: 1,
-      min: 0,
-      max: 100,
-      value: 30,
-      slide: function(event, ui) {
-        /* Audio 100 Intro */
-        if(audioTotalValue && ui.value == 100){
-            thirdTransition();
-            audioTotalValue = false;
-        }
-
-        /* Audio 1 - Atención */
-        if(ui.value <= 25){
-            if(ui.value - 20 > 1){
-                if(ui.value - 20 == 5){
-                    document.querySelector('#audio-1').volume = 0;
-                }
-                else {
-                    document.querySelector('#audio-1').volume = ( 1 / (ui.value - 20));
-                }
-            }
-            else {
-                document.querySelector('#audio-1').volume = 1;
-
-                document.querySelector('#audio-2').volume = 0;
-                document.querySelector('#audio-3').volume = 0;
-                document.querySelector('#audio-4').volume = 0;
-            }
-        }
-        /* Audio 2 - Introducción*/
-        if(ui.value >= 23 && ui.value <= 40){
-            if(ui.value - 35 > 1){
-                if(ui.value - 35 == 5){
-                    document.querySelector('#audio-2').volume = 0;
-                }
-                else {
-                    document.querySelector('#audio-2').volume = ( 1 / (ui.value - 35));
-                }
-            }
-            else if(28 - ui.value > 1){
-                if(28 - ui.value == 5){
-                    document.querySelector('#audio-2').volume = 0;
-                }
-                else {
-                    document.querySelector('#audio-2').volume = ( 1 / (28 - ui.value));
-                }
-            }
-            else {
-                document.querySelector('#audio-2').volume = 1;
-
-                document.querySelector('#audio-1').volume = 0;
-                document.querySelector('#audio-3').volume = 0;
-                document.querySelector('#audio-4').volume = 0;
-            }
-        }
-        /* Audio 3 - Medio */
-        if(ui.value >= 38 && ui.value <= 70){
-            if(ui.value - 65 > 1){
-                if(ui.value - 65 == 5){
-                    document.querySelector('#audio-3').volume = 0;
-                }
-                else {
-                    document.querySelector('#audio-3').volume = ( 1 / (ui.value - 65));
-                }
-            }
-            else if(43 - ui.value > 1){
-                if(43 - ui.value == 5){
-                    document.querySelector('#audio-3').volume = 0;
-                }
-                else {
-                    document.querySelector('#audio-3').volume = ( 1 / (43 - ui.value));
-                }
-            }
-            else {
-                document.querySelector('#audio-3').volume = 1;
-
-                document.querySelector('#audio-1').volume = 0;
-                document.querySelector('#audio-2').volume = 0;
-                document.querySelector('#audio-4').volume = 0;
-            }
-        }
-        /* Audio 4 - Máximo */
-        if(ui.value >= 68){
-            if(73 - ui.value > 1){
-                if(73 - ui.value == 5){
-                    document.querySelector('#audio-4').volume = 0;
-                }
-                else {
-                    document.querySelector('#audio-4').volume = ( 1 / (73 - ui.value));
-                }
-            }
-            else {
-                document.querySelector('#audio-4').volume = 1;
-
-                document.querySelector('#audio-1').volume = 0;
-                document.querySelector('#audio-2').volume = 0;
-                document.querySelector('#audio-3').volume = 0;
-            }
-        }
-
-
-        /* Primera Transición */
-        if(ui.value > 38 && count == 0){
-            count++;
-            firstTransition();
-        }
-      }
-    });
 
     /* Guión Transiciones */
 
     function firstTransition(){
         $(".points-mask").hide();
-        $(".points-layer").css("z-index", "auto");
-        $(".points-layer").addClass("hidden");
-
-        $(".cover-container").fadeToggle(1800);
-        $(".wave-container-init:not('#siri-container-init-4')").fadeToggle(1800)
-        $(".brain-1").fadeToggle(1800);
-        $(".brain-absolute").fadeToggle(1800);
-
-        setTimeout(function(){
-            document.querySelector("#locucion-1").play();
-            setTimeout(function(){
-                $("#first-mask").show();
-            }, 12000);
-        }, 2300);
-    }
-
-    $(document).on("click", "#first-mask", function(){
-        secondTransition();
-    });
-
-    function secondTransition(){
-        siriWaveInit1.setColor("#ff00a0");
-        siriWaveInit4.setColor("#ffff00");
-
-        siriWaveInit1.setAmplitude(0.4);
-        siriWaveInit2.setAmplitude(0.4);
-        siriWaveInit3.setAmplitude(0.4);
-        siriWaveInit4.setAmplitude(0.4);
-
-        $(".brain-1").hide();
-        $(".brain-2").show();
-
-        $("body").css("background-color", "#050096");
-        $(".canvas-mask").css("background-color", "#050096");
-
-        $("#slider-vertical").slider("value", 0);
-        audio1.volume = 1;
-        audio2.volume = 0;
-        audio3.volume = 0;
-        audio4.volume = 0;
-
+        $(".point-elem").addClass("hidden");
+        $(".point-elem").css("z-index", "auto");
         $("#first-mask").hide();
+        $(".main-cover-container").fadeToggle(1800);
+
 
         setTimeout(function(){
-            document.querySelector("#locucion-2").play();
-            setTimeout(function(){
-                /* Sacar flechas */
-                document.querySelector("#locucion-3").play();
-                setTimeout(function(){
-                    $(".img-brain-color").fadeToggle(1500);
-                    document.querySelector("#locucion-4").play();
-                    setTimeout(function(){
-                        audioTotalValue = true;
-                        $(".img-brain-white").hide();
-                        $(".img-brain-outline").show();
-                        document.querySelector("#locucion-5").play();
-                    },25000);
-                },14000);
-            },6000);
-        },1500);
-    }
-
-    function thirdTransition(){
-        /* Desaparecer Flechas */
-        $(".brain-2").fadeToggle(2000);
-        $(".img-brain-outline").fadeToggle(2000);
-        $(".img-brain-color").fadeToggle(2000);
-
-        siriWaveInit1.setColor("#5a5fff");
-        siriWaveInit4.setColor("#050096");
-
-        siriWaveInit1.setAmplitude(0.9);
-        siriWaveInit2.setAmplitude(0.9);
-        siriWaveInit3.setAmplitude(0.9);
-        siriWaveInit4.setAmplitude(0.9);
-
-        $("body").css("background-color", "#040019");
-        $(".canvas-mask").css("background-color", "#040019");
-
-        setTimeout(function(){
-            document.querySelector("#locucion-6").play();
-            setTimeout(function(){
-                coverTransition();
-                $("#slider-vertical").slider({
-                    slide: function(event, ui){}
-                });
-            },4000);
-            setTimeout(function(){
-                fadeAudioRed();
-            },17000);
-        },1000);
-    }
-
-    var audioInterval = 0;
-    function fadeAudioRed(){
-
-        audioInterval = setInterval(function(){
-            if(document.querySelector('#audio-4').volume >= 0.1){
-                document.querySelector('#audio-4').volume -= 0.1;
-            }
-            else {
-                document.querySelector('#audio-4').volume = 0;
-                clearInterval(audioInterval);
-            }
-
-            if(document.querySelector('#audio-5').volume <= 0.9){
-                document.querySelector('#audio-5').volume += 0.1;
-            }
-            else {
-                document.querySelector('#audio-5').volume = 1;
-                clearInterval(audioInterval);
-            }
-
-        },400);
+            coverTransition();
+        }, 1000);
     }
 
     function coverTransition(){
         /* Revisar performance de esta transición */
-        $(".wave-container-init").fadeToggle(1800);
-
-        $(".points-layer").fadeToggle(1800);
+        setTimeout(function(){
+            $(".over-content.info").fadeToggle(1800);
+        }, 1000);
         $(".about-container").fadeToggle(1800);
         $(".canvas-mask").fadeToggle(1800);
-
-        $(".mask").fadeToggle(1000);
-        $(".init-form-container").fadeToggle(2000);
+        $(".point-elem").fadeToggle(1800);
     }
 
     /* Fin Guión Transiciones */
@@ -532,7 +308,7 @@ $(document).ready(function(){
     $(".tt-answer").click(function(e) {
 
         var id = $(this).attr("video-id");
-        $('.video-modal').html("<iframe id='vimeo-player' src='https://player.vimeo.com/video/"+ id +"?color=00ff98&api=1&autoplay=1' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
+        $('.video-modal').html("<iframe id='vimeo-player' src='https://player.vimeo.com/video/"+ id +"?color=00ff98&api=1&autoplay=1&title=0&byline=0&portrait=0' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
         
         var iframe = $('#vimeo-player')[0];
         var player = $f(iframe);
@@ -587,8 +363,14 @@ $(document).ready(function(){
         fixRoute(lastClick);
     });
 
+    $(document).on("click", ".info-border,.info-close,#about-info-container", function(e){
+        $(".over-content.info").fadeToggle(1000);
 
-    $(document).on("click", ".btn-ok", function(){
+        e.stopPropagation();
+    });
+
+
+    /* $(document).on("click", ".btn-ok", function(){
         if($("#city-input").val() == ""){
             $("#city-input").css("border","1px solid #F1002F");
         }
@@ -596,14 +378,14 @@ $(document).ready(function(){
             $(".mask").fadeToggle(1200);
             $(".init-form-container").fadeToggle(1200); 
 
-            /*json.data.name = $("#");*/
-            /*json.data.email = $("#");*/
+            json.data.name = $("#");
+            json.data.email = $("#");
             json.data.age = $("input[name='age']:checked").val();
             json.data.gender = $("input[name='gender']:checked").val();
             json.data.country = $("#country-select option:selected").text();
             json.data.city = $("#city-input").val();
         }
-    });
+    }); */
 
     $(document).on("click", ".btn-send", function(){
         if($("#input-email").val() == ""){
@@ -996,8 +778,11 @@ $(document).ready(function(){
             $("canvas").fadeToggle(5000);
 
             setTimeout(function(){
-                $(".about-right").show();
-                $(".about-main-container").fadeIn(800);
+                $(".credits-container").hide();
+                $(".content-p-init").hide();
+                $(".form-left-final").show();
+                $(".form-right-final").show();
+                $(".about-main-container").fadeIn(1000);
             }, 8000)
         }
     }

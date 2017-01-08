@@ -63,7 +63,7 @@ svg {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -999;
+  z-index: -998;
 }
 
 .hidden {
@@ -264,25 +264,54 @@ iframe {
 }
 
 .title-container {
-  width: 500px;
-  background-color: #050096;
-  margin: auto;
-  position: relative;
-  left: -50%;
-  padding: 27px;
-  margin-bottom: 35px;
-  font-family: "Apercu Regular";
+
 }
 
 .title-container p {
   text-align: center;
 }
 
-.cover-container {
+.main-cover-container {
   position: absolute;
   left: 50%;
   color: white;
-  margin-top: 85px;
+  margin-top: 22%;
+  text-align: center;
+  z-index: 1020;
+}
+
+.cover-container {
+  background-color: #050096;
+  margin: auto;
+  position: relative;
+  left: -50%;
+  padding: 10px 20px;
+  font-family: "Apercu Regular";
+  display: inline-block;
+}
+
+.cover-container.cover-msg {
+  background-color: transparent;
+}
+
+.cover-next-msg {
+  width: 235px;
+}
+
+.cover-next-s {
+  font-size: 11px;
+  text-align: left;
+  width: 80%;
+  display: inline-block;
+}
+
+.cover-inline-img {
+  width: 18%;
+  display: inline-block;
+}
+
+.cover-inline-img img {
+  cursor: pointer;
 }
 
 .cover-legend {
@@ -336,14 +365,19 @@ iframe {
 }
 
 .cover-title-b {
-  font-size: 28px;
+  font-size: 20px;
   margin: 0;
-  margin-bottom: 9px;
-  letter-spacing: 5;
+  letter-spacing: 3;
 }
 
 .cover-title-s {
   font-size: 12px;
+  margin: 0;
+  letter-spacing: 1;
+}
+
+.cover-title-i {
+  font-size: 13px;
   margin: 0;
   letter-spacing: 1;
 }
@@ -394,6 +428,17 @@ iframe {
   z-index: 999;
 }
 
+.form-about-left-fix {
+  color: white;
+  padding: 30px 80px 30px 60px;
+  font-family: "Apercu Regular";
+  font-size: 11px;
+}
+
+.form-about-left-fix span {
+  font-weight: bold;
+}
+
 .init-form {
   position: relative;
   left: -50%;
@@ -410,13 +455,15 @@ iframe {
 #country-select {
   padding: 5px;
   color: #fff;
-  font-size: 12px;
+  font-size: 11px;
   background-color: transparent;
   appearance:none;
   -moz-appearance:none;
   -webkit-appearance:none;
   font-family: "Apercu Regular";
   width: 154px;
+  margin-left: 10px;
+  margin-top: 4px;
 }
 
 #country-select option {
@@ -431,6 +478,8 @@ iframe {
   font-size: 12px;
   padding: 3px;
   border-width: 1px;
+  margin-left: 10px;
+  margin-top: 4px;
 }
 
 .form-title {
@@ -502,7 +551,7 @@ iframe {
 }
 
 p.about-content-t {
-  margin-top: 35px;
+  margin-top: 3px;
   font-weight: bold;
   letter-spacing: 1;
 }
@@ -555,7 +604,7 @@ p.about-content-t {
   color: white;
 }
 
-input[name='explain'] {
+input[name='explain'], input[name='manifest'] {
   margin-top: 6px;
 }
 
@@ -668,7 +717,7 @@ p.credits-item-c {
   position: absolute;
   width: 100%;
   height: 100%;
-  z-index: -9998;
+  z-index: -998;
   background-color: #040019;
 }
 
@@ -677,4 +726,66 @@ p.credits-item-c {
   width:100%;
   height:100%;
   z-index:-9999;
+}
+
+.logo-uc {
+  margin-top: 20px;
+}
+
+.logo-uc img {
+  width: 160px;
+  margin-left: -7px;
+}
+
+.about-info {
+  width: 40px;
+}
+
+.over-content.info {
+  z-index: 1015;
+}
+
+.info-container {
+  width: 147px;
+  padding: 30px;
+  color: white;
+  font-size: 11px;
+  border: 1px dashed white;
+  font-family: "Apercu Regular";
+  background-color: rgba(4,0,25,0.8);
+}
+
+.info-content {
+  margin-bottom: 0px;
+}
+
+.info-close, .info-border {
+  width: 20px;
+  position: absolute;
+  text-align: center;
+  height: 20px;
+  border: 1px dashed white;
+  cursor: pointer;
+  top: 0px;
+}
+
+.info-close {
+  right: 0px;
+}
+
+.info-border {
+  left: 0px;
+}
+
+.info-close span {
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+#brain-svg {
+  fill: rgba(4,0,25,0.8);
+}
+
+.point-elem {
+  z-index: -999;
 }

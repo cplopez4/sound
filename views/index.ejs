@@ -13,43 +13,30 @@
 <script src="javascripts/jquery.qtip.min.js"></script>
 <script src="javascripts/wave.js"></script>
 
-<!-- Audio Atención (0-25) -->
-<audio class="audio-interval" id="audio-1" loop autoplay>
-  <source src="audio/1-atencion.mp3" type="audio/mpeg">
+<!-- Audio Introducción -->
+<audio class="audio-interval" id="audio-intro" loop>
+  <source src="audio/intro.mp3" type="audio/mpeg">
 </audio>
 
-<!-- Audio Introducción (23-40) -->
-<audio class="audio-interval" id="audio-2" loop autoplay>
-  <source src="audio/2-intro.mp3" type="audio/mpeg">
+<!-- Audio Atención -->
+<audio class="audio-interval" id="audio-atencion" loop>
+  <source src="audio/atencion.mp3" type="audio/mpeg">
 </audio>
 
-<!-- Audio Medio (38-70) -->
-<audio class="audio-interval" id="audio-3" loop autoplay>
-  <source src="audio/3-medio.mp3" type="audio/mpeg">
+<!-- Audio Ruido -->
+<audio class="audio-interval" id="audio-ruido" loop>
+  <source src="audio/ruido.mp3" type="audio/mpeg">
 </audio>
 
-<!-- Audio Máximo (68-100) -->
-<audio class="audio-interval" id="audio-4" loop autoplay>
-  <source src="audio/4-maximo.mp3" type="audio/mpeg">
+<!-- Click Atención -->
+<audio class="audio-click" id="audio-click-a" autoplay>
+  <source src="audio/click_atencion.aif" type="audio/aif">
 </audio>
 
-<!-- Audio Red -->
-<audio id="audio-5" loop autoplay>
-  <source src="audio/5-red.mp3" type="audio/mpeg">
+<!-- Click Ruido -->
+<audio class="audio-click" id="audio-click-r" autoplay>
+  <source src="audio/click_ruido.aif" type="audio/aif">
 </audio>
-
-
-<!-- Locuciones -->
-<audio id="locucion-1"><source src="audio/locucion-1.mp3" type="audio/mpeg"></audio>
-<audio id="locucion-2"><source src="audio/locucion-2.mp3" type="audio/mpeg"></audio>
-<audio id="locucion-3"><source src="audio/locucion-3.mp3" type="audio/mpeg"></audio>
-<audio id="locucion-4"><source src="audio/locucion-4.mp3" type="audio/mpeg"></audio>
-<audio id="locucion-5"><source src="audio/locucion-5.mp3" type="audio/mpeg"></audio>
-<audio id="locucion-6"><source src="audio/locucion-6.mp3" type="audio/mpeg"></audio>
-
-
-<!-- Slider Vertical Audio -->
-<div id="slider-vertical" style="height:219px;"></div>
 
 <!-- About Page -->
 <div class="about-main-container hidden">
@@ -63,43 +50,316 @@
 
     <div class="about-bottom">
       <div class="about-left">
-        <p class="about-content-p">Frente a la necesidad de dar a conocer lo que está sucediendo actualmente en los estudios de neurociencia, nace <b>Visualizando las dinámicas intrínsecas del cerebro</b>, un proyecto colaborativo entre diseño y neurociencia. Durante el 2016 ha estado desarrollado una obra interactiva e inmersiva que permita conocer la red neuronal principal de estos estados. Con el fin de generar conciencia sobre estos estados y comprender la relevancia que tiene el estudio orientado al descanso, se diseñó una versión preliminar de la obra en formato web. <b>Historias por default</b> nace con el objetivo de testear la narrativa general y la comprensión de los conceptos que aquí se presentan. Todos los datos recolectados servirán para realizar el diseño final de la obra a presentarse en el Museo de Arte Contemporáneo de Santiago, Chile entre septiembre y noviembre de 2017, te esperamos!</p>
-        <p class="about-content-t">CRÉDITOS</p>
-        <div class="about-credits">
-          <ul class="credits-list">
-            <li class="credits-item"><p class="credits-item-t">Diseño y realización</p><p class="credits-item-c">Karina Hyland</p></li>
-            <li class="credits-item"><p class="credits-item-t">Asesoría neurociencia</p><p class="credits-item-c">Tomás Ossandón</p></li>
-            <li class="credits-item"><p class="credits-item-t">Programación web</p><p class="credits-item-c">Cristhian López</p></li>
-            <li class="credits-item"><p class="credits-item-t right">Consultoría</p><p class="credits-item-c right">Manuela Garretón</p></li>
-            <li class="credits-item"><p class="credits-item-t right">Diseño sonoro</p><p class="credits-item-c right">Pablo Garretón</p></li>
-            <li class="credits-item"><p class="credits-item-t right">Locución</p><p class="credits-item-c right">Francisca Huber</p></li>
-          </ul>
-        </div>
-      </div>
-      <div class="about-right" style="display:none">
+
+        <p class="about-content-p content-p-init">Frente a la necesidad de dar a conocer lo que está sucediendo actualmente en los estudios de neurociencia, nace <b>Visualizando las dinámicas intrínsecas del cerebro</b>, un proyecto colaborativo entre diseño y neurociencia. Durante el 2016 ha estado desarrollado una obra interactiva e inmersiva que permita conocer la red neuronal principal de estos estados. Con el fin de generar conciencia sobre estos estados y comprender la relevancia que tiene el estudio orientado al descanso, se diseñó una versión preliminar de la obra en formato web. <b>Historias por default</b> nace con el objetivo de testear la narrativa general y la comprensión de los conceptos que aquí se presentan. Todos los datos recolectados servirán para realizar el diseño final de la obra a presentarse en el Museo de Arte Contemporáneo de Santiago, Chile entre septiembre y noviembre de 2017, te esperamos!</p>
         
-        <span>¿Podrías explicarle a alguien qué es la red neuronal por defecto?</span><br>
-        <input type="radio" name="explain" value="1" checked> Si<br>
-        <input type="radio" name="explain" value="0"> No<br><br>
-
-        <span>¿Tienes alguna pregunta adicional? Puedes escribirla en el siguiente recuadro:</span><br>
-        <textarea class="about-textarea" name="comment" rows="10" cols="50"></textarea><br><br>
-
-        <div class="about-email">
-          <input type="text" name="email" id="input-email" placeholder="nombre@email.com" />
-          <button class="btn-send">Enviar</button>
-          <p class="about-flash" style="display:none">Su comentario ha sido enviado</p>
-          <p class="about-wrong" style="display:none">Debe ingresar un correo válido</p>
+        <div class="form-left-final hidden">
+          <p class="about-content-p about-content-p-final">Esta plataforma es el primer prototipo de un proyecto colaborativo entre neurociencia y diseño, acogido por la Escuela de Diseño y la Facultad de Medicina de la Pontificia Universidad Católica de Chile. Este, tiene por objetivo desarrollar una obra interactiva para la Sala Anilla del Museo de Arte Contemporáneo (MAC, Parque Forestal), a inaugurarse en septiembre de 2017. Las respuestas que contestaste junto al formulario a continuación, servirán para diseñar la obra futura. Te agradecemos tu participación.</p><br>
+          <div class="form-about-left-fix">
+            <div class="form-inner">
+              <div class="form-left">
+                <div class="left-age">
+                  <span>Edad</span><br>
+                  <input type="radio" name="age" value="0" checked> 14-20<br>
+                  <input type="radio" name="age" value="1"> 21-27<br>
+                  <input type="radio" name="age" value="2"> 28-34<br>
+                  <input type="radio" name="age" value="3"> 35-42<br>
+                  <input type="radio" name="age" value="4"> 43 o más<br>
+                </div>
+                <div class="left-country">
+                  <span>País</span><br>
+                  <select id="country-select" name="country">
+                    <option value="AF">Afganistán</option>
+                    <option value="AL">Albania</option>
+                    <option value="DE">Alemania</option>
+                    <option value="AD">Andorra</option>
+                    <option value="AO">Angola</option>
+                    <option value="AI">Anguilla</option>
+                    <option value="AQ">Antártida</option>
+                    <option value="AG">Antigua y Barbuda</option>
+                    <option value="AN">Antillas Holandesas</option>
+                    <option value="SA">Arabia Saudí</option>
+                    <option value="DZ">Argelia</option>
+                    <option value="AR">Argentina</option>
+                    <option value="AM">Armenia</option>
+                    <option value="AW">Aruba</option>
+                    <option value="AU">Australia</option>
+                    <option value="AT">Austria</option>
+                    <option value="AZ">Azerbaiyán</option>
+                    <option value="BS">Bahamas</option>
+                    <option value="BH">Bahrein</option>
+                    <option value="BD">Bangladesh</option>
+                    <option value="BB">Barbados</option>
+                    <option value="BE">Bélgica</option>
+                    <option value="BZ">Belice</option>
+                    <option value="BJ">Benin</option>
+                    <option value="BM">Bermudas</option>
+                    <option value="BY">Bielorrusia</option>
+                    <option value="MM">Birmania</option>
+                    <option value="BO">Bolivia</option>
+                    <option value="BA">Bosnia y Herzegovina</option>
+                    <option value="BW">Botswana</option>
+                    <option value="BR">Brasil</option>
+                    <option value="BN">Brunei</option>
+                    <option value="BG">Bulgaria</option>
+                    <option value="BF">Burkina Faso</option>
+                    <option value="BI">Burundi</option>
+                    <option value="BT">Bután</option>
+                    <option value="CV">Cabo Verde</option>
+                    <option value="KH">Camboya</option>
+                    <option value="CM">Camerún</option>
+                    <option value="CA">Canadá</option>
+                    <option value="TD">Chad</option>
+                    <option value="CL" selected>Chile</option>
+                    <option value="CN">China</option>
+                    <option value="CY">Chipre</option>
+                    <option value="VA">Ciudad del Vaticano (Santa Sede)</option>
+                    <option value="CO">Colombia</option>
+                    <option value="KM">Comores</option>
+                    <option value="CG">Congo</option>
+                    <option value="CD">Congo, República Democrática del</option>
+                    <option value="KR">Corea</option>
+                    <option value="KP">Corea del Norte</option>
+                    <option value="CI">Costa de Marfíl</option>
+                    <option value="CR">Costa Rica</option>
+                    <option value="HR">Croacia (Hrvatska)</option>
+                    <option value="CU">Cuba</option>
+                    <option value="DK">Dinamarca</option>
+                    <option value="DJ">Djibouti</option>
+                    <option value="DM">Dominica</option>
+                    <option value="EC">Ecuador</option>
+                    <option value="EG">Egipto</option>
+                    <option value="SV">El Salvador</option>
+                    <option value="AE">Emiratos Árabes Unidos</option>
+                    <option value="ER">Eritrea</option>
+                    <option value="SI">Eslovenia</option>
+                    <option value="ES">España</option>
+                    <option value="US">Estados Unidos</option>
+                    <option value="EE">Estonia</option>
+                    <option value="ET">Etiopía</option>
+                    <option value="FJ">Fiji</option>
+                    <option value="PH">Filipinas</option>
+                    <option value="FI">Finlandia</option>
+                    <option value="FR">Francia</option>
+                    <option value="GA">Gabón</option>
+                    <option value="GM">Gambia</option>
+                    <option value="GE">Georgia</option>
+                    <option value="GH">Ghana</option>
+                    <option value="GI">Gibraltar</option>
+                    <option value="GD">Granada</option>
+                    <option value="GR">Grecia</option>
+                    <option value="GL">Groenlandia</option>
+                    <option value="GP">Guadalupe</option>
+                    <option value="GU">Guam</option>
+                    <option value="GT">Guatemala</option>
+                    <option value="GY">Guayana</option>
+                    <option value="GF">Guayana Francesa</option>
+                    <option value="GN">Guinea</option>
+                    <option value="GQ">Guinea Ecuatorial</option>
+                    <option value="GW">Guinea-Bissau</option>
+                    <option value="HT">Haití</option>
+                    <option value="HN">Honduras</option>
+                    <option value="HU">Hungría</option>
+                    <option value="IN">India</option>
+                    <option value="ID">Indonesia</option>
+                    <option value="IQ">Irak</option>
+                    <option value="IR">Irán</option>
+                    <option value="IE">Irlanda</option>
+                    <option value="BV">Isla Bouvet</option>
+                    <option value="CX">Isla de Christmas</option>
+                    <option value="IS">Islandia</option>
+                    <option value="KY">Islas Caimán</option>
+                    <option value="CK">Islas Cook</option>
+                    <option value="CC">Islas de Cocos o Keeling</option>
+                    <option value="FO">Islas Faroe</option>
+                    <option value="HM">Islas Heard y McDonald</option>
+                    <option value="FK">Islas Malvinas</option>
+                    <option value="MP">Islas Marianas del Norte</option>
+                    <option value="MH">Islas Marshall</option>
+                    <option value="UM">Islas menores de Estados Unidos</option>
+                    <option value="PW">Islas Palau</option>
+                    <option value="SB">Islas Salomón</option>
+                    <option value="SJ">Islas Svalbard y Jan Mayen</option>
+                    <option value="TK">Islas Tokelau</option>
+                    <option value="TC">Islas Turks y Caicos</option>
+                    <option value="VI">Islas Vírgenes (EE.UU.)</option>
+                    <option value="VG">Islas Vírgenes (Reino Unido)</option>
+                    <option value="WF">Islas Wallis y Futuna</option>
+                    <option value="IL">Israel</option>
+                    <option value="IT">Italia</option>
+                    <option value="JM">Jamaica</option>
+                    <option value="JP">Japón</option>
+                    <option value="JO">Jordania</option>
+                    <option value="KZ">Kazajistán</option>
+                    <option value="KE">Kenia</option>
+                    <option value="KG">Kirguizistán</option>
+                    <option value="KI">Kiribati</option>
+                    <option value="KW">Kuwait</option>
+                    <option value="LA">Laos</option>
+                    <option value="LS">Lesotho</option>
+                    <option value="LV">Letonia</option>
+                    <option value="LB">Líbano</option>
+                    <option value="LR">Liberia</option>
+                    <option value="LY">Libia</option>
+                    <option value="LI">Liechtenstein</option>
+                    <option value="LT">Lituania</option>
+                    <option value="LU">Luxemburgo</option>
+                    <option value="MK">Macedonia, Ex-República Yugoslava de</option>
+                    <option value="MG">Madagascar</option>
+                    <option value="MY">Malasia</option>
+                    <option value="MW">Malawi</option>
+                    <option value="MV">Maldivas</option>
+                    <option value="ML">Malí</option>
+                    <option value="MT">Malta</option>
+                    <option value="MA">Marruecos</option>
+                    <option value="MQ">Martinica</option>
+                    <option value="MU">Mauricio</option>
+                    <option value="MR">Mauritania</option>
+                    <option value="YT">Mayotte</option>
+                    <option value="MX">México</option>
+                    <option value="FM">Micronesia</option>
+                    <option value="MD">Moldavia</option>
+                    <option value="MC">Mónaco</option>
+                    <option value="MN">Mongolia</option>
+                    <option value="MS">Montserrat</option>
+                    <option value="MZ">Mozambique</option>
+                    <option value="NA">Namibia</option>
+                    <option value="NR">Nauru</option>
+                    <option value="NP">Nepal</option>
+                    <option value="NI">Nicaragua</option>
+                    <option value="NE">Níger</option>
+                    <option value="NG">Nigeria</option>
+                    <option value="NU">Niue</option>
+                    <option value="NF">Norfolk</option>
+                    <option value="NO">Noruega</option>
+                    <option value="NC">Nueva Caledonia</option>
+                    <option value="NZ">Nueva Zelanda</option>
+                    <option value="OM">Omán</option>
+                    <option value="NL">Países Bajos</option>
+                    <option value="PA">Panamá</option>
+                    <option value="PG">Papúa Nueva Guinea</option>
+                    <option value="PK">Paquistán</option>
+                    <option value="PY">Paraguay</option>
+                    <option value="PE">Perú</option>
+                    <option value="PN">Pitcairn</option>
+                    <option value="PF">Polinesia Francesa</option>
+                    <option value="PL">Polonia</option>
+                    <option value="PT">Portugal</option>
+                    <option value="PR">Puerto Rico</option>
+                    <option value="QA">Qatar</option>
+                    <option value="UK">Reino Unido</option>
+                    <option value="CF">República Centroafricana</option>
+                    <option value="CZ">República Checa</option>
+                    <option value="ZA">República de Sudáfrica</option>
+                    <option value="DO">República Dominicana</option>
+                    <option value="SK">República Eslovaca</option>
+                    <option value="RE">Reunión</option>
+                    <option value="RW">Ruanda</option>
+                    <option value="RO">Rumania</option>
+                    <option value="RU">Rusia</option>
+                    <option value="EH">Sahara Occidental</option>
+                    <option value="KN">Saint Kitts y Nevis</option>
+                    <option value="WS">Samoa</option>
+                    <option value="AS">Samoa Americana</option>
+                    <option value="SM">San Marino</option>
+                    <option value="VC">San Vicente y Granadinas</option>
+                    <option value="SH">Santa Helena</option>
+                    <option value="LC">Santa Lucía</option>
+                    <option value="ST">Santo Tomé y Príncipe</option>
+                    <option value="SN">Senegal</option>
+                    <option value="SC">Seychelles</option>
+                    <option value="SL">Sierra Leona</option>
+                    <option value="SG">Singapur</option>
+                    <option value="SY">Siria</option>
+                    <option value="SO">Somalia</option>
+                    <option value="LK">Sri Lanka</option>
+                    <option value="PM">St. Pierre y Miquelon</option>
+                    <option value="SZ">Suazilandia</option>
+                    <option value="SD">Sudán</option>
+                    <option value="SE">Suecia</option>
+                    <option value="CH">Suiza</option>
+                    <option value="SR">Surinam</option>
+                    <option value="TH">Tailandia</option>
+                    <option value="TW">Taiwán</option>
+                    <option value="TZ">Tanzania</option>
+                    <option value="TJ">Tayikistán</option>
+                    <option value="TF">Territorios Franceses del Sur</option>
+                    <option value="TP">Timor Oriental</option>
+                    <option value="TG">Togo</option>
+                    <option value="TO">Tonga</option>
+                    <option value="TT">Trinidad y Tobago</option>
+                    <option value="TN">Túnez</option>
+                    <option value="TM">Turkmenistán</option>
+                    <option value="TR">Turquía</option>
+                    <option value="TV">Tuvalu</option>
+                    <option value="UA">Ucrania</option>
+                    <option value="UG">Uganda</option>
+                    <option value="UY">Uruguay</option>
+                    <option value="UZ">Uzbekistán</option>
+                    <option value="VU">Vanuatu</option>
+                    <option value="VE">Venezuela</option>
+                    <option value="VN">Vietnam</option>
+                    <option value="YE">Yemen</option>
+                    <option value="YU">Yugoslavia</option>
+                    <option value="ZM">Zambia</option>
+                    <option value="ZW">Zimbawe</option>
+                  </select>
+                  <br><br>
+                  <span>Ciudad</span><br>
+                  <input type="text" name="city" id="city-input"/>
+                </div>
+              </div>
+              
+              <div class="form-right">
+                <span>Género</span><br>
+                <input type="radio" name="gender" value="M" checked>Masculino<br>
+                <input type="radio" name="gender" value="F"> Femenino<br>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <span>¿Quieres saber más sobre el tema?</span><br>
+      </div>
+      <div class="about-right">
 
-        <ul class="about-links">
-          <li><a target="_blank" href="http://www.linkinteresante.com">www.linkinteresante.com</a></li>
-          <li><a target="_blank" href="http://www.linkinteresante.com">www.linkinteresante.com</a></li>
-          <li><a target="_blank" href="http://www.linkinteresante.com">www.linkinteresante.com</a></li>
-          <li><a target="_blank" href="http://www.linkinteresante.com">www.linkinteresante.com</a></li>
-        </ul>
+        <div class="credits-container">
+          <p class="about-content-t">CRÉDITOS</p>
+          <div class="about-credits">
+            <ul class="credits-list">
+              <li class="credits-item"><p class="credits-item-t">Diseño y realización</p><p class="credits-item-c">Karina Hyland</p></li>
+              <li class="credits-item"><p class="credits-item-t">Asesoría neurociencia</p><p class="credits-item-c">Tomás Ossandón</p></li>
+              <li class="credits-item"><p class="credits-item-t">Programación web</p><p class="credits-item-c">Cristhian López</p></li>
+              <li class="credits-item"><p class="credits-item-t right">Consultoría</p><p class="credits-item-c right">Manuela Garretón</p></li>
+              <li class="credits-item"><p class="credits-item-t right">Diseño sonoro</p><p class="credits-item-c right">Pablo Garretón</p></li>
+              <li class="credits-item"><p class="credits-item-t right">Locución</p><p class="credits-item-c right">Francisca Huber</p></li>
+            </ul>
+          </div>
+          <div class="logo-uc"><img src="images/logo.svg"></div>
+        </div>
+        
+        <div class="form-right-final hidden">
+          <span>¿Podrías explicarle a alguien qué es la red neuronal por defecto?</span><br>
+          <input type="radio" name="explain" value="1" checked> Si<br>
+          <input type="radio" name="explain" value="0"> No<br><br>
+
+          <span>¿Cómo se manifiesta en ti la DMN? Puedes marcar más de una.</span><br>
+          <input type="radio" name="manifest" value="0" checked> Voces<br>
+          <input type="radio" name="manifest" value="1"> Imágenes<br>
+          <input type="radio" name="manifest" value="2"> Sonidos<br>
+          <input type="radio" name="manifest" value="3"> Emociones<br>
+          <input type="radio" name="manifest" value="4"> Personas<br>
+          <input type="radio" name="manifest" value="5"> Conceptos<br><br><br><br>
+
+          <span>¿Tienes alguna pregunta adicional? Puedes escribirla en el siguiente recuadro:</span><br>
+          <textarea class="about-textarea" name="comment" rows="6" cols="50"></textarea><br><br>
+
+          <div class="about-email">
+            <input type="text" name="email" id="input-email" placeholder="nombre@email.com" />
+            <button class="btn-send">Enviar</button>
+            <p class="about-flash" style="display:none">Su comentario ha sido enviado</p>
+            <p class="about-wrong" style="display:none">Debe ingresar un correo válido</p>
+          </div>
+        </div>
 
       </div>
     </div>
@@ -107,296 +367,6 @@
   </div>
 </div>
 <!-- Fin About Page -->
-
-<!--  Mask & Init Form  -->
-<div class="mask hidden"></div>
-<div class="init-form-container hidden">
-  <div class="init-form">
-    <p class="form-title">Antes de comenzar, ¿podrías completar los siguientes datos?</p>
-    <div class="form-inner">
-      <div class="form-left">
-        <div class="left-age">
-          <span>Edad</span><br>
-          <input type="radio" name="age" value="0" checked> 14-20<br>
-          <input type="radio" name="age" value="1"> 21-27<br>
-          <input type="radio" name="age" value="2"> 28-34<br>
-          <input type="radio" name="age" value="3"> 35-42<br>
-          <input type="radio" name="age" value="4"> 43 o más<br>
-        </div>
-        <div class="left-country">
-          <span>País</span><br>
-          <select id="country-select" name="country">
-            <option value="AF">Afganistán</option>
-            <option value="AL">Albania</option>
-            <option value="DE">Alemania</option>
-            <option value="AD">Andorra</option>
-            <option value="AO">Angola</option>
-            <option value="AI">Anguilla</option>
-            <option value="AQ">Antártida</option>
-            <option value="AG">Antigua y Barbuda</option>
-            <option value="AN">Antillas Holandesas</option>
-            <option value="SA">Arabia Saudí</option>
-            <option value="DZ">Argelia</option>
-            <option value="AR">Argentina</option>
-            <option value="AM">Armenia</option>
-            <option value="AW">Aruba</option>
-            <option value="AU">Australia</option>
-            <option value="AT">Austria</option>
-            <option value="AZ">Azerbaiyán</option>
-            <option value="BS">Bahamas</option>
-            <option value="BH">Bahrein</option>
-            <option value="BD">Bangladesh</option>
-            <option value="BB">Barbados</option>
-            <option value="BE">Bélgica</option>
-            <option value="BZ">Belice</option>
-            <option value="BJ">Benin</option>
-            <option value="BM">Bermudas</option>
-            <option value="BY">Bielorrusia</option>
-            <option value="MM">Birmania</option>
-            <option value="BO">Bolivia</option>
-            <option value="BA">Bosnia y Herzegovina</option>
-            <option value="BW">Botswana</option>
-            <option value="BR">Brasil</option>
-            <option value="BN">Brunei</option>
-            <option value="BG">Bulgaria</option>
-            <option value="BF">Burkina Faso</option>
-            <option value="BI">Burundi</option>
-            <option value="BT">Bután</option>
-            <option value="CV">Cabo Verde</option>
-            <option value="KH">Camboya</option>
-            <option value="CM">Camerún</option>
-            <option value="CA">Canadá</option>
-            <option value="TD">Chad</option>
-            <option value="CL" selected>Chile</option>
-            <option value="CN">China</option>
-            <option value="CY">Chipre</option>
-            <option value="VA">Ciudad del Vaticano (Santa Sede)</option>
-            <option value="CO">Colombia</option>
-            <option value="KM">Comores</option>
-            <option value="CG">Congo</option>
-            <option value="CD">Congo, República Democrática del</option>
-            <option value="KR">Corea</option>
-            <option value="KP">Corea del Norte</option>
-            <option value="CI">Costa de Marfíl</option>
-            <option value="CR">Costa Rica</option>
-            <option value="HR">Croacia (Hrvatska)</option>
-            <option value="CU">Cuba</option>
-            <option value="DK">Dinamarca</option>
-            <option value="DJ">Djibouti</option>
-            <option value="DM">Dominica</option>
-            <option value="EC">Ecuador</option>
-            <option value="EG">Egipto</option>
-            <option value="SV">El Salvador</option>
-            <option value="AE">Emiratos Árabes Unidos</option>
-            <option value="ER">Eritrea</option>
-            <option value="SI">Eslovenia</option>
-            <option value="ES">España</option>
-            <option value="US">Estados Unidos</option>
-            <option value="EE">Estonia</option>
-            <option value="ET">Etiopía</option>
-            <option value="FJ">Fiji</option>
-            <option value="PH">Filipinas</option>
-            <option value="FI">Finlandia</option>
-            <option value="FR">Francia</option>
-            <option value="GA">Gabón</option>
-            <option value="GM">Gambia</option>
-            <option value="GE">Georgia</option>
-            <option value="GH">Ghana</option>
-            <option value="GI">Gibraltar</option>
-            <option value="GD">Granada</option>
-            <option value="GR">Grecia</option>
-            <option value="GL">Groenlandia</option>
-            <option value="GP">Guadalupe</option>
-            <option value="GU">Guam</option>
-            <option value="GT">Guatemala</option>
-            <option value="GY">Guayana</option>
-            <option value="GF">Guayana Francesa</option>
-            <option value="GN">Guinea</option>
-            <option value="GQ">Guinea Ecuatorial</option>
-            <option value="GW">Guinea-Bissau</option>
-            <option value="HT">Haití</option>
-            <option value="HN">Honduras</option>
-            <option value="HU">Hungría</option>
-            <option value="IN">India</option>
-            <option value="ID">Indonesia</option>
-            <option value="IQ">Irak</option>
-            <option value="IR">Irán</option>
-            <option value="IE">Irlanda</option>
-            <option value="BV">Isla Bouvet</option>
-            <option value="CX">Isla de Christmas</option>
-            <option value="IS">Islandia</option>
-            <option value="KY">Islas Caimán</option>
-            <option value="CK">Islas Cook</option>
-            <option value="CC">Islas de Cocos o Keeling</option>
-            <option value="FO">Islas Faroe</option>
-            <option value="HM">Islas Heard y McDonald</option>
-            <option value="FK">Islas Malvinas</option>
-            <option value="MP">Islas Marianas del Norte</option>
-            <option value="MH">Islas Marshall</option>
-            <option value="UM">Islas menores de Estados Unidos</option>
-            <option value="PW">Islas Palau</option>
-            <option value="SB">Islas Salomón</option>
-            <option value="SJ">Islas Svalbard y Jan Mayen</option>
-            <option value="TK">Islas Tokelau</option>
-            <option value="TC">Islas Turks y Caicos</option>
-            <option value="VI">Islas Vírgenes (EE.UU.)</option>
-            <option value="VG">Islas Vírgenes (Reino Unido)</option>
-            <option value="WF">Islas Wallis y Futuna</option>
-            <option value="IL">Israel</option>
-            <option value="IT">Italia</option>
-            <option value="JM">Jamaica</option>
-            <option value="JP">Japón</option>
-            <option value="JO">Jordania</option>
-            <option value="KZ">Kazajistán</option>
-            <option value="KE">Kenia</option>
-            <option value="KG">Kirguizistán</option>
-            <option value="KI">Kiribati</option>
-            <option value="KW">Kuwait</option>
-            <option value="LA">Laos</option>
-            <option value="LS">Lesotho</option>
-            <option value="LV">Letonia</option>
-            <option value="LB">Líbano</option>
-            <option value="LR">Liberia</option>
-            <option value="LY">Libia</option>
-            <option value="LI">Liechtenstein</option>
-            <option value="LT">Lituania</option>
-            <option value="LU">Luxemburgo</option>
-            <option value="MK">Macedonia, Ex-República Yugoslava de</option>
-            <option value="MG">Madagascar</option>
-            <option value="MY">Malasia</option>
-            <option value="MW">Malawi</option>
-            <option value="MV">Maldivas</option>
-            <option value="ML">Malí</option>
-            <option value="MT">Malta</option>
-            <option value="MA">Marruecos</option>
-            <option value="MQ">Martinica</option>
-            <option value="MU">Mauricio</option>
-            <option value="MR">Mauritania</option>
-            <option value="YT">Mayotte</option>
-            <option value="MX">México</option>
-            <option value="FM">Micronesia</option>
-            <option value="MD">Moldavia</option>
-            <option value="MC">Mónaco</option>
-            <option value="MN">Mongolia</option>
-            <option value="MS">Montserrat</option>
-            <option value="MZ">Mozambique</option>
-            <option value="NA">Namibia</option>
-            <option value="NR">Nauru</option>
-            <option value="NP">Nepal</option>
-            <option value="NI">Nicaragua</option>
-            <option value="NE">Níger</option>
-            <option value="NG">Nigeria</option>
-            <option value="NU">Niue</option>
-            <option value="NF">Norfolk</option>
-            <option value="NO">Noruega</option>
-            <option value="NC">Nueva Caledonia</option>
-            <option value="NZ">Nueva Zelanda</option>
-            <option value="OM">Omán</option>
-            <option value="NL">Países Bajos</option>
-            <option value="PA">Panamá</option>
-            <option value="PG">Papúa Nueva Guinea</option>
-            <option value="PK">Paquistán</option>
-            <option value="PY">Paraguay</option>
-            <option value="PE">Perú</option>
-            <option value="PN">Pitcairn</option>
-            <option value="PF">Polinesia Francesa</option>
-            <option value="PL">Polonia</option>
-            <option value="PT">Portugal</option>
-            <option value="PR">Puerto Rico</option>
-            <option value="QA">Qatar</option>
-            <option value="UK">Reino Unido</option>
-            <option value="CF">República Centroafricana</option>
-            <option value="CZ">República Checa</option>
-            <option value="ZA">República de Sudáfrica</option>
-            <option value="DO">República Dominicana</option>
-            <option value="SK">República Eslovaca</option>
-            <option value="RE">Reunión</option>
-            <option value="RW">Ruanda</option>
-            <option value="RO">Rumania</option>
-            <option value="RU">Rusia</option>
-            <option value="EH">Sahara Occidental</option>
-            <option value="KN">Saint Kitts y Nevis</option>
-            <option value="WS">Samoa</option>
-            <option value="AS">Samoa Americana</option>
-            <option value="SM">San Marino</option>
-            <option value="VC">San Vicente y Granadinas</option>
-            <option value="SH">Santa Helena</option>
-            <option value="LC">Santa Lucía</option>
-            <option value="ST">Santo Tomé y Príncipe</option>
-            <option value="SN">Senegal</option>
-            <option value="SC">Seychelles</option>
-            <option value="SL">Sierra Leona</option>
-            <option value="SG">Singapur</option>
-            <option value="SY">Siria</option>
-            <option value="SO">Somalia</option>
-            <option value="LK">Sri Lanka</option>
-            <option value="PM">St. Pierre y Miquelon</option>
-            <option value="SZ">Suazilandia</option>
-            <option value="SD">Sudán</option>
-            <option value="SE">Suecia</option>
-            <option value="CH">Suiza</option>
-            <option value="SR">Surinam</option>
-            <option value="TH">Tailandia</option>
-            <option value="TW">Taiwán</option>
-            <option value="TZ">Tanzania</option>
-            <option value="TJ">Tayikistán</option>
-            <option value="TF">Territorios Franceses del Sur</option>
-            <option value="TP">Timor Oriental</option>
-            <option value="TG">Togo</option>
-            <option value="TO">Tonga</option>
-            <option value="TT">Trinidad y Tobago</option>
-            <option value="TN">Túnez</option>
-            <option value="TM">Turkmenistán</option>
-            <option value="TR">Turquía</option>
-            <option value="TV">Tuvalu</option>
-            <option value="UA">Ucrania</option>
-            <option value="UG">Uganda</option>
-            <option value="UY">Uruguay</option>
-            <option value="UZ">Uzbekistán</option>
-            <option value="VU">Vanuatu</option>
-            <option value="VE">Venezuela</option>
-            <option value="VN">Vietnam</option>
-            <option value="YE">Yemen</option>
-            <option value="YU">Yugoslavia</option>
-            <option value="ZM">Zambia</option>
-            <option value="ZW">Zimbawe</option>
-          </select>
-          <br><br>
-          <span>Ciudad</span><br>
-          <input type="text" name="city" id="city-input"/>
-        </div>
-      </div>
-      
-      <div class="form-right">
-        <span>Género</span><br>
-        <input type="radio" name="gender" value="M" checked>Masculino<br>
-        <input type="radio" name="gender" value="F"> Femenino<br>
-        <button class="btn-ok">Listo</button>
-      </div>
-    </div>
-  </div>
-</div>
-  
-<!-- Waves Init -->
-<div id="siri-container-init-1" class="wave-container-init hidden"></div>
-<div id="siri-container-init-2" class="wave-container-init hidden"></div>
-<div id="siri-container-init-3" class="wave-container-init hidden"></div>
-<div id="siri-container-init-4" class="wave-container-init"></div>
-
-<!-- Brain SVG -->
-<div class="brain-container brain-1 hidden">
-  <img src="images/cabeza1.svg">
-</div>
-
-<div class="brain-container brain-2 hidden">
-  <img src="images/cabeza2.svg">
-</div>
-
-<div class="brain-absolute hidden">
-  <img class="img-brain-white" src="images/cerebro_partes_blancas.svg">
-  <img class="img-brain-outline hidden" src="images/cerebro_contorno.svg">
-  <img class="img-brain-color hidden" src="images/cerebro_partes_color.svg">
-</div>
 
 <!-- First Mask -->
 <div id="first-mask" class="hidden"></div>
@@ -413,106 +383,191 @@
   <div id="siri-container-7" class="wave-container"></div>
 </div>
 
-<div class="cover-container">
-  <div class="title-container">
-    <p class="cover-title-b">HISTORIAS POR <b>DEFAULT</b></p>
-    <p class="cover-title-s">Una experiencia interactiva sobre la red neuronal por defecto</p>
-  </div>
-  <div class="cover-legend">
-    <div class="cover-text">
-      <p>Es altamente recomendable que utilices audífonos.</p>
-      <p>Esta experiencia dura aproximadamente 14 minutos.</p>
-      <p>Para comenzar, debes subir el volumen a tu derecha.</p>
+
+<!-- Elementos de Introducción -->
+
+<!-- Elemento Intro 1 -->
+<div class="main-cover-container" id="cover-1">
+  <div class="cover-container cover-intro">
+    <div class="title-container">
+      <p class="cover-title-i">Desde el año 1900, se pensaba que cuando el</p>
     </div>
-    <div class="cover-img-container">
-      <div class="cover-img audifono"><img src="images/audifonos.svg"></div>
-      <div class="cover-img reloj"><img src="images/reloj.svg"></div>
-      <div class="cover-img flecha"><img src="images/flecha.png"></div>
+  </div>
+  <div class="cover-container cover-intro">
+    <div class="title-container">
+      <p class="cover-title-i">cerebro no estaba siendo estimulado o realizando</p>
+    </div>
+  </div>
+  <div class="cover-container cover-intro">
+    <div class="title-container">
+      <p class="cover-title-i">alguna tarea, entraba en estado de reposo.</p>
     </div>
   </div>
 </div>
+
+<!-- Elemento Intro 2 -->
+<div class="main-cover-container hidden" id="cover-2">
+  <div class="cover-container cover-intro">
+    <div class="title-container">
+      <p class="cover-title-i">Se pensaba que sin estímulos,</p>
+    </div>
+  </div>
+  <div class="cover-container cover-intro">
+    <div class="title-container">
+      <p class="cover-title-i">la actividad neuronal no correspondía a</p>
+    </div>
+  </div>
+  <div class="cover-container cover-intro">
+    <div class="title-container">
+      <p class="cover-title-i">ningún proceso cognitivo relevante.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Elemento Intro 3 -->
+<div class="main-cover-container hidden" id="cover-3">
+  <div class="cover-container cover-intro">
+    <div class="title-container">
+      <p class="cover-title-i">En el año 2001 se descubrió que el cerebro no solo</p>
+    </div>
+  </div>
+  <div class="cover-container cover-intro">
+    <div class="title-container">
+      <p class="cover-title-i">está trabajando cuando realizamos una tarea,</p>
+    </div>
+  </div>
+  <div class="cover-container cover-intro">
+    <div class="title-container">
+      <p class="cover-title-i">sino que toda la actividad previa y posterior a un estímulo,</p>
+    </div>
+  </div>
+  <div class="cover-container cover-intro">
+    <div class="title-container">
+      <p class="cover-title-i">consume mucha energía y ocupa gran parte del día.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Elemento Intro 4 -->
+<div class="main-cover-container hidden" id="cover-4">
+  <div class="cover-container cover-intro">
+    <div class="title-container">
+      <p class="cover-title-i">El cerebro se cuenta historias constantemente, y lo hace por default.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Elemento Home -->
+<div class="main-cover-container hidden" id="cover-home">
+  <div class="cover-container">
+    <div class="title-container">
+      <p class="cover-title-b">HISTORIAS POR <b>DEFAULT</b></p>
+    </div>
+  </div>
+  <div class="cover-container">
+    <div class="title-container">
+      <p class="cover-title-s">Una experiencia interactiva sobre la red neuronal por defecto</p>
+    </div>
+  </div>
+
+  <div class="cover-container cover-msg">
+    <div class="cover-next-msg">
+      <p class="cover-next-s">Antes de comenzar, es altamente recomendable que utilices audífonos.</p>
+      <div class="cover-inline-img"><img src="images/flecha2.svg"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Fin Elementos de Introducción -->
+
 
 <!-- Modal Video -->
 <div class="video-modal">
-  <iframe id="vimeo-player" src="https://player.vimeo.com/video/195433452?color=00ff98&api=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+  <iframe id="vimeo-player" src="https://player.vimeo.com/video/195433452?color=00ff98&api=1&title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 </div>
 <!-- Fin Modal Video -->
 
+
 <div id="main-container">
-  <!-- Volumen -->
-  <div class="over-content volume" id="volume-container" style="right:-9%;top:7%;"><img class="volume-img" src="images/volumen.svg"></div>
-  <!-- Fin Volumen -->
 
   <!-- About -->
   <div class="over-content about-container hidden">
     <div class="over-content about" id="about-container" style="left:68px;top:32px;"><img class="about-img" src="images/about.svg"></div>
+    <div class="over-content about" id="about-info-container" style="left:106px;top:69px;"><img class="about-info" src="images/info.svg"></div>
     <div class="over-content about" id="about-text-container" style="left:115px;top:47px;"><p class="about-title hidden">SOBRE EL PROYECTO</p></div> 
   </div>
   <!-- Fin About -->
 
+  <div class="over-content info hidden" style="left:107px;top:68px;">
+    <div class="info-container">
+      <p class="info-content">Cuando el cerebro no está recibiendo ningún estímulo externo, se desactivan todas las áreas asociadas a la atención y se encienden una serie de regiones asociadas a los proceso internos de la mente.<br><br>Contradictorio a lo que se creía anteriormente, los momentos de mayor actividad metabólica ocurren en estados de reposo y solo se ocupa un pequeño porcentaje en la realización de tareas, sin importar la dificultad de éstas.<br><br>El descubrimiento de toda la actividad asociada al reposo, impulsó un nuevo paradigma para la neurociencia la cual se centra en estudiar a los individuos según su actividad más interna, profunda y personal.</p>
+      <div class="info-close"><span>x</span></div>
+      <div class="info-border"></div>
+    </div>
+  </div>
+
 
   <!-- Puntos -->
   <div class="points-mask"></div>
-  <div class="points-layer">
+
 
     <!-- Preguntas -->
-    <div class="over-content question" id="q1-l20t50" style="left:20%;top:50%;"><img id="img-q1" class="question-img" src="images/pregunta.svg"></div>
-    <div class="over-content question" id="q2-l55t60" style="left:55%;top:60%;"><img id="img-q2" class="question-img" src="images/pregunta.svg"></div>
-    <div class="over-content question" id="q3-l85t23" style="left:85%;top:23%;"><img id="img-q3" class="question-img" src="images/pregunta.svg"></div>
+    <div class="over-content question point-elem" id="q1-l20t50" style="left:20%;top:50%;"><img id="img-q1" class="question-img" src="images/pregunta.svg"></div>
+    <div class="over-content question point-elem" id="q2-l55t60" style="left:55%;top:60%;"><img id="img-q2" class="question-img" src="images/pregunta.svg"></div>
+    <div class="over-content question point-elem" id="q3-l85t23" style="left:85%;top:23%;"><img id="img-q3" class="question-img" src="images/pregunta.svg"></div>
     <!-- Fin Preguntas -->
 
 
     <!-- Respuestas -->
-    <div class="over-content answer" id="q1a1-l67t27" style="left:67%;top:27%;"><img id="img-q1a1" class="answer-img" src="images/respuesta.svg"></div>
-    <div class="over-content answer" id="q1a2-l45t90" style="left:45%;top:90%;"><img id="img-q1a2" class="answer-img" src="images/respuesta.svg"></div>
-    <div class="over-content answer" id="q2a1-l25t80" style="left:25%;top:80%;"><img id="img-q2a1" class="answer-img" src="images/respuesta.svg"></div>
-    <div class="over-content answer" id="q2a2-l42t50" style="left:42%;top:50%;"><img id="img-q2a2" class="answer-img" src="images/respuesta.svg"></div>
-    <div class="over-content answer" id="q2a3-l45t10" style="left:45%;top:10%;"><img id="img-q2a3" class="answer-img" src="images/respuesta.svg"></div>
-    <div class="over-content answer" id="q3a1-l95t55" style="left:95%;top:55%;"><img id="img-q3a1" class="answer-img" src="images/respuesta.svg"></div>
-    <div class="over-content answer" id="q3a2-l72t80" style="left:72%;top:80%;"><img id="img-q3a2" class="answer-img" src="images/respuesta.svg"></div>
+    <div class="over-content answer point-elem" id="q1a1-l67t27" style="left:67%;top:27%;"><img id="img-q1a1" class="answer-img" src="images/respuesta.svg"></div>
+    <div class="over-content answer point-elem" id="q1a2-l45t90" style="left:45%;top:90%;"><img id="img-q1a2" class="answer-img" src="images/respuesta.svg"></div>
+    <div class="over-content answer point-elem" id="q2a1-l25t80" style="left:25%;top:80%;"><img id="img-q2a1" class="answer-img" src="images/respuesta.svg"></div>
+    <div class="over-content answer point-elem" id="q2a2-l42t50" style="left:42%;top:50%;"><img id="img-q2a2" class="answer-img" src="images/respuesta.svg"></div>
+    <div class="over-content answer point-elem" id="q2a3-l45t10" style="left:45%;top:10%;"><img id="img-q2a3" class="answer-img" src="images/respuesta.svg"></div>
+    <div class="over-content answer point-elem" id="q3a1-l95t55" style="left:95%;top:55%;"><img id="img-q3a1" class="answer-img" src="images/respuesta.svg"></div>
+    <div class="over-content answer point-elem" id="q3a2-l72t80" style="left:72%;top:80%;"><img id="img-q3a2" class="answer-img" src="images/respuesta.svg"></div>
     <!-- Fin Respuestas -->
 
 
     <!-- Puntos Extra -->
 
     <!-- Extra Pregunta 1 -->
-    <div class="over-content extra" id="q1a1e1-l32t28" style="left:32%;top:28%;"><img id="img-q1a1e1" class="extra-img" src="images/extra.svg"></div>
-    <div class="over-content extra" id="q1a1e2-l50t21" style="left:50%;top:21%;"><img id="img-q1a1e2" class="extra-img" src="images/extra.svg"></div>
-    <div class="over-content extra" id="q1a2e1-l34t75" style="left:34%;top:75%;"><img id="img-q1a2e1" class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra point-elem" id="q1a1e1-l32t28" style="left:32%;top:28%;"><img id="img-q1a1e1" class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra point-elem" id="q1a1e2-l50t21" style="left:50%;top:21%;"><img id="img-q1a1e2" class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra point-elem" id="q1a2e1-l34t75" style="left:34%;top:75%;"><img id="img-q1a2e1" class="extra-img" src="images/extra.svg"></div>
 
     <!-- Extra Pregunta 2 -->
-    <div class="over-content extra" id="q2a1e1-l50t75" style="left:50%;top:75%;"><img id="img-q2a1e1" class="extra-img" src="images/extra.svg"></div>
-    <div class="over-content extra" id="q2a3e1-l50t40" style="left:50%;top:40%;"><img id="img-q2a3e1" class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra point-elem" id="q2a1e1-l50t75" style="left:50%;top:75%;"><img id="img-q2a1e1" class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra point-elem" id="q2a3e1-l50t40" style="left:50%;top:40%;"><img id="img-q2a3e1" class="extra-img" src="images/extra.svg"></div>
     <!-- Q2A3E2 OK -->
 
     <!-- Extra Pregunta 3 -->
-    <div class="over-content extra" id="q3a2e1-l80t40" style="left:80%;top:40%;"><img id="img-q3a2e1" class="extra-img" src="images/extra.svg"></div>
-    <div class="over-content extra" id="q3a2e2-l76t59" style="left:76%;top:59%;"><img id="img-q3a2e2" class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra point-elem" id="q3a2e1-l80t40" style="left:80%;top:40%;"><img id="img-q3a2e1" class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra point-elem" id="q3a2e2-l76t59" style="left:76%;top:59%;"><img id="img-q3a2e2" class="extra-img" src="images/extra.svg"></div>
 
     <!-- Extras Individuales -->
-    <div class="over-content extra" id="e1-l22t21" style="left:22%;top:21%;"><img id="img-e1" class="extra-img" src="images/extra.svg"></div>
-    <div class="over-content extra" id="e2-l10t40" style="left:10%;top:40%;"><img id="img-e2" class="extra-img" src="images/extra.svg"></div>
-    <div class="over-content extra" id="e3-l7t65" style="left:7%;top:65%;"><img id="img-e3" class="extra-img" src="images/extra.svg"></div>
-    <div class="over-content extra" id="e4-l20t68" style="left:20%;top:68%;"><img id="img-e4" class="extra-img" src="images/extra.svg"></div>
-    <div class="over-content extra" id="e5-l13t85" style="left:13%;top:85%;"><img id="img-e5" class="extra-img" src="images/extra.svg"></div>
-    <div class="over-content extra" id="e6-l30t91" style="left:30%;top:91%;"><img id="img-e6" class="extra-img" src="images/extra.svg"></div>
-    <div class="over-content extra" id="e7-l40t96" style="left:40%;top:96%;"><img id="img-e7" class="extra-img" src="images/extra.svg"></div>
-    <div class="over-content extra" id="e8-l65t7" style="left:65%;top:7%;"><img id="img-e8" class="extra-img" src="images/extra.svg"></div>
-    <div class="over-content extra" id="e9-l61t90" style="left:61%;top:90%;"><img id="img-e9" class="extra-img" src="images/extra.svg"></div>
-    <div class="over-content extra" id="e10-l75t95" style="left:75%;top:95%;"><img id="img-e10" class="extra-img" src="images/extra.svg"></div>
-    <div class="over-content extra" id="e11-l85t82" style="left:85%;top:82%;"><img id="img-e11" class="extra-img" src="images/extra.svg"></div>
-    <div class="over-content extra" id="e12-l90t85" style="left:90%;top:85%;"><img id="img-e12" class="extra-img" src="images/extra.svg"></div>
-    <div class="over-content extra" id="e13-l96t75" style="left:96%;top:75%;"><img id="img-e13" class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra point-elem" id="e1-l22t21" style="left:22%;top:21%;"><img id="img-e1" class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra point-elem" id="e2-l10t40" style="left:10%;top:40%;"><img id="img-e2" class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra point-elem" id="e3-l7t65" style="left:7%;top:65%;"><img id="img-e3" class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra point-elem" id="e4-l20t68" style="left:20%;top:68%;"><img id="img-e4" class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra point-elem" id="e5-l13t85" style="left:13%;top:85%;"><img id="img-e5" class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra point-elem" id="e6-l30t91" style="left:30%;top:91%;"><img id="img-e6" class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra point-elem" id="e7-l40t96" style="left:40%;top:96%;"><img id="img-e7" class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra point-elem" id="e8-l65t7" style="left:65%;top:7%;"><img id="img-e8" class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra point-elem" id="e9-l61t90" style="left:61%;top:90%;"><img id="img-e9" class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra point-elem" id="e10-l75t95" style="left:75%;top:95%;"><img id="img-e10" class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra point-elem" id="e11-l85t82" style="left:85%;top:82%;"><img id="img-e11" class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra point-elem" id="e12-l90t85" style="left:90%;top:85%;"><img id="img-e12" class="extra-img" src="images/extra.svg"></div>
+    <div class="over-content extra point-elem" id="e13-l96t75" style="left:96%;top:75%;"><img id="img-e13" class="extra-img" src="images/extra.svg"></div>
 
     <!-- Fin Puntos Extra -->
 
-  </div>
+
 
   <!-- Fin Puntos -->
 
 
   <!-- Tooltips -->
-  <div class="tooltip-layer">
     
     <!-- Pregunta 1 -->
     <div class="tt-q1-container tt-main-container hidden">
@@ -571,9 +626,8 @@
     </div>
     <!-- Fin Pregunta 3 -->
     
-  </div>
-  <!-- Fin Tooltips -->
 
+  <!-- Fin Tooltips -->
 
   <!-- Líneas -->
   <div class="svg-container">
@@ -581,7 +635,7 @@
   </div>
   <!-- Fin Líneas -->
 
-
 </div>
+
 
 <script src="javascripts/init.js"></script>
