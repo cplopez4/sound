@@ -775,8 +775,7 @@ p.credits-item-c {
 }
 
 .info-container {
-  width: 147px;
-  padding: 30px;
+  width: 207px;
   color: white;
   font-size: 11px;
   border: 1px dashed white;
@@ -787,6 +786,9 @@ p.credits-item-c {
 
 .info-content {
   margin-bottom: 0px;
+  padding: 30px;
+  margin-top: 0;
+  padding-top: 40px;
 }
 
 .info-close, .info-border {

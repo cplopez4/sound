@@ -5,6 +5,7 @@ var initTime = new Date();
 var readyQ1 = false;
 var readyQ2 = false;
 var readyQ3 = false;
+var pointsArrayTotal = [];
 
 /* En cirlcles, 1=Q1A1, 2=Q1A2, 3=Q2A1, 4=Q2A2, 5=Q2A3, 6=Q3A1, 7=Q3A2 */
 var json = { data: {
@@ -368,6 +369,8 @@ $(document).ready(function(){
         $.each(pointsArray, function(i,v){
             var pos = getRealPos(v.point,v.type);
             pointsStr += (""+pos.posX+","+pos.posY+" ");
+            var localArray = [ pos.posX, pos.posY ];
+            pointsArrayTotal.push(localArray);
         });
 
         var brain = document.createElementNS('http://www.w3.org/2000/svg','polygon');
@@ -406,6 +409,20 @@ $(document).ready(function(){
         json.data.clicks.push(obj);
     });
 
+    $(document).on("click", "#main-container", function(e){
+        if(d3.polygonContains(pointsArrayTotal,[(e.pageX + 38),(e.pageY + 13)])){
+            $("#waves1").show();
+            $("#waves2").hide();
+            $("#audio-atencion").animate({volume: 0}, 200);
+            $("#audio-ruido").animate({volume: 0.75}, 200);
+        }
+        else{
+            $("#waves2").show();
+            $("#waves1").hide();
+            $("#audio-atencion").animate({volume: 0.75}, 200);
+            $("#audio-ruido").animate({volume: 0}, 200);
+        }
+    });
 
     /* Guión Transiciones */
 
@@ -534,6 +551,8 @@ $(document).ready(function(){
         else if(globalCounter == 3){
             json.data.circles.third_answer = mapCircle(e.currentTarget.id);
         }
+
+        e.stopPropagation();
     });
 
     $(".video-modal > iframe").click(function(e){
@@ -614,8 +633,14 @@ $(document).ready(function(){
         $(".about-wrong").fadeOut(400);
     });
 
-    $(document).on("click", ".about-container", function(){
+    $(document).on("click", ".about-container", function(e){
         $(".about-main-container").fadeToggle(800);
+
+        e.stopPropagation();
+    });
+
+    $(document).on("click", ".info-content", function(e){
+        e.stopPropagation();
     });
 
     $(".over-content.about-container").hover(function(){
