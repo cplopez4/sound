@@ -387,7 +387,7 @@
 <!-- Elementos de Introducción -->
 
 <!-- Elemento Intro 1 -->
-<div class="main-cover-container" id="cover-1">
+<div class="main-cover-container hidden" id="cover-1">
   <div class="cover-container cover-intro">
     <div class="title-container">
       <p class="cover-title-i">Desde el año 1900, se pensaba que cuando el</p>
@@ -473,17 +473,96 @@
   <div class="cover-container cover-msg">
     <div class="cover-next-msg">
       <p class="cover-next-s">Antes de comenzar, es altamente recomendable que utilices audífonos.</p>
-      <div class="cover-inline-img"><img src="images/flecha2.svg"></div>
+      <div id="cover-btn-init" class="cover-inline-img"><img src="images/flecha2.svg"></div>
     </div>
   </div>
 </div>
 
 <!-- Fin Elementos de Introducción -->
 
+<!-- Elementos de Conclusión -->
+
+<!-- Elemento Final 1 -->
+<div class="main-cover-container hidden" id="final-1">
+  <div class="cover-container cover-intro">
+    <div class="title-container">
+      <p class="cover-title-i">En el 2001, el neurocientífico Marcus Raichle</p>
+    </div>
+  </div>
+  <div class="cover-container cover-intro">
+    <div class="title-container">
+      <p class="cover-title-i">descubrió el conjunto de zonas que se activan</p>
+    </div>
+  </div>
+  <div class="cover-container cover-intro">
+    <div class="title-container">
+      <p class="cover-title-i">durante la divagación mental como una red neuronal</p>
+    </div>
+  </div>
+  <div class="cover-container cover-intro">
+    <div class="title-container">
+      <p class="cover-title-i">distinta de otras, a la cual se le otorgó</p>
+    </div>
+  </div>
+  <div class="cover-container cover-intro">
+    <div class="title-container">
+      <p class="cover-title-i">el nombre de RED NEURONAL POR DEFECTO</p>
+    </div>
+  </div>
+  <div class="cover-container cover-intro">
+    <div class="title-container">
+      <p class="cover-title-i">o en inglés: DEFAULT MODE NETWORK (DMN)</p>
+    </div>
+  </div>
+</div>
+
+<!-- Elemento Final 2 -->
+<div class="main-cover-container hidden" id="final-2">
+  <div class="cover-container cover-intro">
+    <div class="title-container">
+      <p class="cover-title-i">El descubrimiento de esta red cambió</p>
+    </div>
+  </div>
+  <div class="cover-container cover-intro">
+    <div class="title-container">
+      <p class="cover-title-i">nuestra noción de que el cerebro solamente</p>
+    </div>
+  </div>
+  <div class="cover-container cover-intro">
+    <div class="title-container">
+      <p class="cover-title-i">está activo cuando realizamos una tarea.</p>
+    </div>
+  </div>
+  <div class="cover-container cover-intro">
+    <div class="title-container">
+      <p class="cover-title-i">Hoy sabemos que el cerebro jamás está en reposo</p>
+    </div>
+  </div>
+  <div class="cover-container cover-intro">
+    <div class="title-container">
+      <p class="cover-title-i">y que los momentos en los que no existen metas</p>
+    </div>
+  </div>
+  <div class="cover-container cover-intro">
+    <div class="title-container">
+      <p class="cover-title-i">claras son los de mayor lucidez y creatividad.</p>
+    </div>
+  </div>
+  <div class="cover-container cover-msg btns-container">
+    <div class="cover-next-msg">
+      <div class="cover-inline-img final-inline"><img id="arrow-inv" src="images/flecha2.svg"><div id="back-btn" class="final-btn"><p>Volver</p></div></div>
+      <div class="cover-inline-img final-inline"><div id="finish-btn" class="final-btn"><p>Finalizar</p></div><img src="images/flecha2.svg"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Fin Elementos de Conclusión -->
+
 
 <!-- Modal Video -->
 <div class="video-modal">
-  <iframe id="vimeo-player" src="https://player.vimeo.com/video/195433452?color=00ff98&api=1&title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+  <img id="video-modal-close" src="images/pregunta.svg">
+  <iframe id="vimeo-player" src="https://player.vimeo.com/video/198436388?color=00ff98&api=1&title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 </div>
 <!-- Fin Modal Video -->
 
@@ -493,7 +572,7 @@
   <!-- About -->
   <div class="over-content about-container hidden">
     <div class="over-content about" id="about-container" style="left:68px;top:32px;"><img class="about-img" src="images/about.svg"></div>
-    <div class="over-content about" id="about-info-container" style="left:106px;top:69px;"><img class="about-info" src="images/info.svg"></div>
+    <div class="over-content about" id="about-info-container" style="left:114px;top:72px;"><img class="about-info" src="images/info.svg"></div>
     <div class="over-content about" id="about-text-container" style="left:115px;top:47px;"><p class="about-title hidden">SOBRE EL PROYECTO</p></div> 
   </div>
   <!-- Fin About -->
@@ -576,12 +655,12 @@
         <p class="tt-title">¿En cuál de estas dos situaciones te encuentras más a menudo?</p>
       </div>
       
-      <div class="over-content tooltip tt-answer hidden" video-id="193102703" id="tt-q1a1" style="left:69%;top:30%;">
+      <div class="over-content tooltip tt-answer hidden" video-id="198436388" id="tt-q1a1" style="left:69%;top:30%;">
         <p class="tt-title">A. No realizando ninguna actividad</p>
         <p class="tt-content">(contemplación, soñando despierto)</p>
       </div>
 
-      <div class="over-content tooltip tt-answer hidden" video-id="193103370" id="tt-q1a2" style="left:47%;top:82%;">
+      <div class="over-content tooltip tt-answer hidden" video-id="198436637" id="tt-q1a2" style="left:47%;top:82%;">
         <p class="tt-title">B. Realizando alguna actividad mecánica</p>
         <p class="tt-content">(lavarse los dientes, preparar café, colorear, caminar)</p>
       </div>
@@ -595,15 +674,15 @@
         <p class="tt-title">¿Hacia qué tiempos sueles ir?</p>
       </div>
       
-      <div class="over-content tooltip tt-answer hidden" video-id="193103605" id="tt-q2a1" style="left:27%;top:83%;">
+      <div class="over-content tooltip tt-answer hidden" video-id="198436888" id="tt-q2a1" style="left:27%;top:83%;">
         <p class="tt-content">A. Pasado</p>
       </div>
 
-      <div class="over-content tooltip tt-answer hidden" video-id="193103745" id="tt-q2a2" style="left:38%;top:46%;">
+      <div class="over-content tooltip tt-answer hidden" video-id="198437182" id="tt-q2a2" style="left:38%;top:46%;">
         <p class="tt-content">B. Futuro</p>
       </div>
 
-      <div class="over-content tooltip tt-answer hidden" video-id="193104160" id="tt-q2a3" style="left:36%;top:13%;">
+      <div class="over-content tooltip tt-answer hidden" video-id="198439697" id="tt-q2a3" style="left:36%;top:13%;">
         <p class="tt-content">C. Ninguno en particular</p>
       </div>
     </div>
@@ -616,11 +695,11 @@
         <p class="tt-title">¿Qué consecuencias crees que ha tenido para tí estar en estados de reposo?</p>
       </div>
       
-      <div class="over-content tooltip tt-answer hidden" video-id="193104645" id="tt-q3a1" style="left:90%;top:58%;">
+      <div class="over-content tooltip tt-answer hidden" video-id="198441387" id="tt-q3a1" style="left:90%;top:58%;">
         <p class="tt-content">A. Positivos</p>
       </div>
 
-      <div class="over-content tooltip tt-answer hidden" video-id="193107409" id="tt-q3a2" style="left:74%;top:83%;">
+      <div class="over-content tooltip tt-answer hidden" video-id="198473361" id="tt-q3a2" style="left:74%;top:83%;">
         <p class="tt-content">B. Negativos</p>
       </div>
     </div>
