@@ -82,8 +82,10 @@ $(document).ready(function(){
                     
                     setTimeout(function(){
                         $("line").fadeOut(1500);
-                        $("#cover-4").fadeToggle(2500);                
-                        $("#cover-home").fadeIn(2500);
+                        $("#cover-4").fadeToggle(2500);
+                        setTimeout(function(){
+                            $("#cover-home").fadeIn(2500);
+                        },2000);
                         resetLines();
                         showIntroLines(5);             
                         
