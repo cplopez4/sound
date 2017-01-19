@@ -52,6 +52,8 @@ function startAll(){
 
 $(document).ready(function(){
 
+    var timeout1, timeout2, timeout3, timeout4, timeout5;
+
     var audio_ruido = document.querySelector('#audio-ruido');
     audio_ruido.volume = 0;
     var audio_atencion = document.querySelector('#audio-atencion');
@@ -59,30 +61,32 @@ $(document).ready(function(){
     var audio_intro = document.querySelector('#audio-intro');
     audio_intro.volume = 0.5;
 
-    setTimeout(function(){
+    timeout1 = setTimeout(function(){
+        $(".skip-arrow").fadeToggle(1500);
         $("#cover-1").fadeToggle(3000);
         showIntroLines(1);
-        setTimeout(function(){
+        timeout2 = setTimeout(function(){
             $("#cover-1").fadeToggle(2500);
             $("#cover-2").fadeToggle(2500);
             $("line").fadeOut(1500);
             showIntroLines(2);
 
-            setTimeout(function(){
+            timeout3 = setTimeout(function(){
                 $("#cover-2").fadeToggle(2500);                
                 $("#cover-3").fadeToggle(2500);
                 $("line").fadeOut(1500);
                 showIntroLines(3);
 
-                setTimeout(function(){
+                timeout4 = setTimeout(function(){
                     $("#cover-3").fadeToggle(2500);                
                     $("#cover-4").fadeToggle(2500);
                     $("line").fadeOut(1500);
                     showIntroLines(4);                
                     
-                    setTimeout(function(){
+                    timeout5 = setTimeout(function(){
                         $("line").fadeOut(1500);
                         $("#cover-4").fadeToggle(2500);
+                        $(".skip-arrow").fadeOut(2500);
                         setTimeout(function(){
                             $("#cover-home").fadeIn(2500);
                         },2000);
@@ -94,6 +98,29 @@ $(document).ready(function(){
             }, 8000);
         }, 7000);
     }, 1200);
+
+    $(document).on("click", ".skip-arrow img", function(){
+        clearTimeout(timeout1);
+        clearTimeout(timeout2);
+        clearTimeout(timeout3);
+        clearTimeout(timeout4);
+        clearTimeout(timeout5);
+
+        setTimeout(function(){
+            $("line").fadeOut(1500);
+            $("div[id^='cover-']").fadeOut(1500);
+            $(".skip-arrow").fadeOut(1500);
+
+            setTimeout(function(){
+                setTimeout(function(){
+                    $("#cover-home").fadeIn(2500);
+                },2000);
+                resetLines();
+                showIntroLines(5);
+            },1500);
+
+        }, 1000);
+    });
 
     function showIntroLines(type){
         if(type == 1){
@@ -324,6 +351,13 @@ $(document).ready(function(){
         $("line").attr('stroke-dasharray', "1,5");
     }
 
+    function resetSingleLine(elem,time){
+        $(elem).fadeOut(time);
+        $(elem).attr("style","");
+        $(elem).attr('stroke-linecap', "round");
+        $(elem).attr('stroke-dasharray', "1,5");
+    }
+
     function fixLineAnimated(elem,time){
         $(elem).attr("stroke-width",1);
         $(elem).attr("stroke-linecap","");
@@ -333,7 +367,7 @@ $(document).ready(function(){
     }
 
 
-    $(document).on("click", "#cover-btn-init", function(){
+    $(document).on("click", "#bcover-btn-init", function(){
         $("#audio-intro").animate({volume: 0}, 2000);
         $("#audio-ruido").animate({volume: 0.5}, 2000);
         firstTransition();
@@ -412,18 +446,52 @@ $(document).ready(function(){
     });
 
     $(document).on("click", "#main-container", function(e){
+        //Adentro del cerebro
         if(d3.polygonContains(pointsArrayTotal,[(e.pageX + 38),(e.pageY + 13)])){
             $("#waves1").show();
             $("#waves2").hide();
             $("#audio-atencion").animate({volume: 0}, 200);
             $("#audio-ruido").animate({volume: 0.5}, 200);
+
+            fixLineAnimated($("#line-q3-q3a1"),1500);
+            fixLineAnimated($("#line-q3a1-e13"),1500);
+            fixLineAnimated($("#line-e12-e13"),1500);
+            fixLineAnimated($("#line-e10-e12"),1500);
+            fixLineAnimated($("#line-e9-e10"),1500);
+            fixLineAnimated($("#line-q1a2-e9"),1500);
+            fixLineAnimated($("#line-q1a2-e7"),1500);
+            fixLineAnimated($("#line-e6-e7"),1500);
+            fixLineAnimated($("#line-e5-e6"),1500);
+            fixLineAnimated($("#line-e3-e5"),1500);
+            fixLineAnimated($("#line-e2-e3"),1500);
+            fixLineAnimated($("#line-e1-e2"),1500);
+            fixLineAnimated($("#line-q2a3-e1"),1500);
+            fixLineAnimated($("#line-q2a3-e8"),1500);
+            fixLineAnimated($("#line-q3-e8"),1500);
         }
+        //Afuera del cerebro
         else{
             $("#waves2").show();
             $("#waves1").hide();
             $("#audio-atencion").animate({volume: 0.5}, 200);
             $("#audio-ruido").animate({volume: 0}, 200);
             $(".tt-main-container").addClass("hidden");
+
+            $("#line-q3-q3a1").fadeOut(1500);
+            $("#line-q3a1-e13").fadeOut(1500);
+            $("#line-e12-e13").fadeOut(1500);
+            $("#line-e10-e12").fadeOut(1500);
+            $("#line-e9-e10").fadeOut(1500);
+            $("#line-q1a2-e9").fadeOut(1500);
+            $("#line-q1a2-e7").fadeOut(1500);
+            $("#line-e6-e7").fadeOut(1500);
+            $("#line-e5-e6").fadeOut(1500);
+            $("#line-e3-e5").fadeOut(1500);
+            $("#line-e2-e3").fadeOut(1500);
+            $("#line-e1-e2").fadeOut(1500);
+            $("#line-q2a3-e1").fadeOut(1500);
+            $("#line-q2a3-e8").fadeOut(1500);
+            $("#line-q3-e8").fadeOut(1500);
         }
     });
 
@@ -638,7 +706,7 @@ $(document).ready(function(){
         $(".about-wrong").fadeOut(400);
     });
 
-    $(document).on("click", ".about-container", function(e){
+    $(document).on("click", "#about-info-square", function(e){
         $(".about-main-container").fadeToggle(800);
 
         e.stopPropagation();
@@ -669,13 +737,14 @@ $(document).ready(function(){
         return Math.sqrt( (x2-=x1)*x2 + (y2-=y1)*y2 );
     }
 
-    function drawAnimateLine(line, options, n) {
+    function drawAnimateLine(line, options, n, dashedOp) {
 
         setTimeout(function(){
 
             $(line).attr("class","");
             options = options || {}
             var duration = options.duration || 1000
+            var dashed = dashedOp || false; 
             var easing = options.easing || 'ease-in-out'
             var reverse = options.reverse || false
             var undraw = options.undraw || false
@@ -692,7 +761,10 @@ $(document).ready(function(){
 
             line.style.transition = line.style.WebkitTransition = 'none';
 
-            var dashArray = line.style.strokeDasharray || line.getAttribute("stroke-dasharray");
+            var dashArray = '';
+            if(dashed){
+                dashArray = line.style.strokeDasharray || line.getAttribute("stroke-dasharray");
+            }
 
             if (dashArray != '') {
                 var dashLength = dashArray.split(/[\s,]/).map(function (a) {
@@ -712,11 +784,19 @@ $(document).ready(function(){
                 'stroke-dashoffset ' + duration + 'ms ' + easing;
             line.style.strokeDashoffset = dashOffsetStates[1]
             setTimeout(function() {
-                line.style.strokeDasharray = dashArray
+                if(dashed){
+                    line.style.strokeDasharray = dashArray;
+                }
+                else {
+                    $(line).attr("style","display:inline;animation:none;");
+                    $(line).attr("stroke-width",1);
+                    $(line).attr("stroke-linecap","");
+                    $(line).attr("stroke-dasharray","");
+                }
                 callback()
             }, duration)
 
-        }, ((n*1000)+500))
+        }, ((n*1000)+500));
     }
 
 
@@ -736,13 +816,13 @@ $(document).ready(function(){
 
         setTimeout(function(){
              /* Respuesta 1 */
-            drawAnimateLine(document.querySelector("#line-q1-q1a1e1"),{},0);
-            drawAnimateLine(document.querySelector("#line-q1a1e1-q1a1e2"),{},1);
-            drawAnimateLine(document.querySelector("#line-q1a1-q1a1e2"),{ reverse: true },2);
+            drawAnimateLine(document.querySelector("#line-q1-q1a1e1"),{},0,true);
+            drawAnimateLine(document.querySelector("#line-q1a1e1-q1a1e2"),{},1,true);
+            drawAnimateLine(document.querySelector("#line-q1a1-q1a1e2"),{ reverse: true },2,true);
 
             /* Respuesta 2 */
-            drawAnimateLine(document.querySelector("#line-q1-q1a2e1"),{},0)
-            drawAnimateLine(document.querySelector("#line-q1a2-q1a2e1"),{ reverse: true },1)
+            drawAnimateLine(document.querySelector("#line-q1-q1a2e1"),{},0,true);
+            drawAnimateLine(document.querySelector("#line-q1a2-q1a2e1"),{ reverse: true },1,true);
 
             setTimeout(function(){
                 $("#tt-q1a1").fadeIn(700);
@@ -786,15 +866,15 @@ $(document).ready(function(){
 
         setTimeout(function(){
             /* Respuesta 1 */
-            drawAnimateLine(document.querySelector("#line-q2-q2a1e1"),{},0);
-            drawAnimateLine(document.querySelector("#line-q1a2e1-q2a1e1"),{ reverse: true },1);
-            drawAnimateLine(document.querySelector("#line-q2a1-q1a2e1"),{ reverse: true },2);
+            drawAnimateLine(document.querySelector("#line-q2-q2a1e1"),{},0,true);
+            drawAnimateLine(document.querySelector("#line-q1a2e1-q2a1e1"),{ reverse: true },1,true);
+            drawAnimateLine(document.querySelector("#line-q2a1-q1a2e1"),{ reverse: true },2,true);
             /* Respuesta 2 */
-            drawAnimateLine(document.querySelector("#line-q2-q2a2"),{},0);
+            drawAnimateLine(document.querySelector("#line-q2-q2a2"),{},0,true);
             /* Respuesta 3 */
-            drawAnimateLine(document.querySelector("#line-q2-q2a3e1"),{},0);
-            drawAnimateLine(document.querySelector("#line-q1a1e2-q2a3e1"),{ reverse: true },1);
-            drawAnimateLine(document.querySelector("#line-q2a3-q1a1e2"),{ reverse: true },2);
+            drawAnimateLine(document.querySelector("#line-q2-q2a3e1"),{},0,true);
+            drawAnimateLine(document.querySelector("#line-q1a1e2-q2a3e1"),{ reverse: true },1,true);
+            drawAnimateLine(document.querySelector("#line-q2a3-q1a1e2"),{ reverse: true },2,true);
 
             setTimeout(function(){
                 $("#tt-q2a1").fadeIn(700);
@@ -846,11 +926,11 @@ $(document).ready(function(){
         setTimeout(function(){
 
             /* Respuesta 1 */
-            drawAnimateLine(document.querySelector("#line-q3-q3a1"),{},0);
+            drawAnimateLine(document.querySelector("#line-q3-q3a1"),{},0,true);
             /* Respuesta 2 */
-            drawAnimateLine(document.querySelector("#line-q3-q3a2e1"),{},0);
-            drawAnimateLine(document.querySelector("#line-q3a2e1-q3a2e2"),{},1);
-            drawAnimateLine(document.querySelector("#line-q3a2-q3a2e2"),{ reverse: true },2);
+            drawAnimateLine(document.querySelector("#line-q3-q3a2e1"),{},0,true);
+            drawAnimateLine(document.querySelector("#line-q3a2e1-q3a2e2"),{},1,true);
+            drawAnimateLine(document.querySelector("#line-q3a2-q3a2e2"),{ reverse: true },2,true);
 
 
             setTimeout(function(){
@@ -888,25 +968,26 @@ $(document).ready(function(){
 
     function fixRoute(type){
         /* Q1A1 */
-        if(type == 1){
+        if(type == 1 && !route1){
             /* Respuesta 1 */
             fixLine($("#line-q1-q1a1e1"));
             fixLine($("#line-q1a1e1-q1a1e2"));
             fixLine($("#line-q1a1-q1a1e2"));
 
-            /* Extras */
-            fixLine($("#line-q3-q1a1"));
-            fixLine($("#line-q2-q1a1"));
-            fixLine($("#line-q2-q3a2e2"));
-            fixLine($("#line-q1a1-e8"));
-            fixLine($("#line-q1a1-q2a3e1"));
-            fixLine($("#line-q2a2-q2a3e1"));
-            fixLine($("#line-q2a3-q1a1"));
+            // Extras 
+            drawAnimateLine(document.querySelector("#line-q3-q1a1"),{},0,false);
+            drawAnimateLine(document.querySelector("#line-q2-q1a1"),{},0,false);
+            drawAnimateLine(document.querySelector("#line-q2-q3a2e2"),{},0,false);
+            drawAnimateLine(document.querySelector("#line-q1a1-e8"),{},0,false);
+            drawAnimateLine(document.querySelector("#line-q1a1-q2a3e1"),{},0,false);
+            drawAnimateLine(document.querySelector("#line-q2a2-q2a3e1"),{},0,false);
+            drawAnimateLine(document.querySelector("#line-q2a3-q1a1"),{},0,false);
 
             readyQ1 = true;
+            route1 = true;
         }
         /* Q1A2 */
-        else if(type == 2){
+        else if(type == 2 && !route2){
             /* Respuesta 2 */
             fixLine($("#line-q1-q1a2e1"));
             fixLine($("#line-q1a2-q1a2e1"));
@@ -919,9 +1000,10 @@ $(document).ready(function(){
             fixLine($("#line-q2a1e1-e9"));
 
             readyQ1 = true;
+            route2 = true;
         }
         /* Q2A1 */
-        else if(type == 3){
+        else if(type == 3 && !route3){
             /* Respuesta 1 */
             fixLine($("#line-q2-q2a1e1"));
             fixLine($("#line-q1a2e1-q2a1e1"));
@@ -938,9 +1020,10 @@ $(document).ready(function(){
             fixLine($("#line-q2a1-e6"));
 
             readyQ2 = true;
+            route3 = true;
         }
         /* Q2A2 */
-        else if(type == 4){
+        else if(type == 4 && !route4){
             /* Respuesta 2 */
             fixLine($("#line-q2-q2a2"));
 
@@ -952,9 +1035,10 @@ $(document).ready(function(){
             fixLine($("#line-q2a1e1-e9"));
 
             readyQ2 = true;
+            route4 = true;
         }
         /* Q2A3 */
-        else if(type == 5){
+        else if(type == 5 && !route5){
             /* Respuesta 3 */
             fixLine($("#line-q2-q2a3e1"));
             fixLine($("#line-q1a1e2-q2a3e1"));
@@ -968,9 +1052,10 @@ $(document).ready(function(){
             fixLine($("#line-q2a2-q1a1e1"));
 
             readyQ2 = true;
+            route5 = true;
         }
         /* Q3A1 */
-        else if(type == 6){
+        else if(type == 6 && !route6){
             /* Respuesta 1 */
             fixLine($("#line-q3-q3a1"));
 
@@ -986,9 +1071,10 @@ $(document).ready(function(){
             fixLine($("#line-e11-e13"));
 
             readyQ3 = true;
+            route6 = true;
         }
         /* Q3A2 */
-        else if(type == 7){
+        else if(type == 7 && !route7){
             /* Respuesta 2 */
             fixLine($("#line-q3-q3a2e1"));
             fixLine($("#line-q3a2e1-q3a2e2"));
@@ -1002,6 +1088,7 @@ $(document).ready(function(){
             fixLine($("#line-e12-e11"));
 
             readyQ3 = true;
+            route7 = true;
         }
 
         if(route1 && route2){
@@ -1041,49 +1128,42 @@ $(document).ready(function(){
     /* Pregunta 1 */
     $(document).on("click", "#tt-q1a1", function(e){
         lastClick = 1;
-        route1 = true;
         /*$(".tt-q1-container").css("display","none");*/
     });
 
     /* Pregunta 2 */
     $(document).on("click", "#tt-q1a2", function(e){
         lastClick = 2;
-        route2 = true;
         /*$(".tt-q1-container").css("display","none");*/
     });
 
     /* Pregunta 3 */
     $(document).on("click", "#tt-q2a1", function(e){
         lastClick = 3;
-        route3 = true;
         /*$(".tt-q2-container").css("display","none");*/
     });
 
     /* Pregunta 4 */
     $(document).on("click", "#tt-q2a2", function(e){
         lastClick = 4;
-        route4 = true;
         /*$(".tt-q2-container").css("display","none");*/
     });
 
     /* Pregunta 5 */
     $(document).on("click", "#tt-q2a3", function(e){
         lastClick = 5;
-        route5 = true;
         /*$(".tt-q2-container").css("display","none");*/
     });
 
     /* Pregunta 6 */
     $(document).on("click", "#tt-q3a1", function(e){
         lastClick = 6;
-        route6 = true;
         /*$(".tt-q3-container").css("display","none");*/
     });
 
     /* Pregunta 7 */
     $(document).on("click", "#tt-q3a2", function(e){
         lastClick = 7;
-        route7 = true;
         /*$(".tt-q3-container").css("display","none");*/
     });
 

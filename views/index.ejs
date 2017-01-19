@@ -314,7 +314,7 @@
               
               <div class="form-right">
                 <span>Género</span><br>
-                <input type="radio" name="gender" value="M" checked>Masculino<br>
+                <input type="radio" name="gender" value="M" checked> Masculino<br>
                 <input type="radio" name="gender" value="F"> Femenino<br>
               </div>
             </div>
@@ -345,12 +345,12 @@
           <input type="radio" name="explain" value="0"> No<br><br>
 
           <span>¿Cómo se manifiesta en ti la DMN? Puedes marcar más de una.</span><br>
-          <input type="radio" name="manifest" value="0" checked> Voces<br>
-          <input type="radio" name="manifest" value="1"> Imágenes<br>
-          <input type="radio" name="manifest" value="2"> Sonidos<br>
-          <input type="radio" name="manifest" value="3"> Emociones<br>
-          <input type="radio" name="manifest" value="4"> Personas<br>
-          <input type="radio" name="manifest" value="5"> Conceptos<br><br><br><br>
+          <input type="checkbox" name="manifest" value="Voces" checked> Voces<br>
+          <input type="checkbox" name="manifest" value="Imagenes"> Imágenes<br>
+          <input type="checkbox" name="manifest" value="Sonidos"> Sonidos<br>
+          <input type="checkbox" name="manifest" value="Emociones"> Emociones<br>
+          <input type="checkbox" name="manifest" value="Personas"> Personas<br>
+          <input type="checkbox" name="manifest" value="Conceptos"> Conceptos<br><br><br><br>
 
           <span>¿Tienes alguna pregunta adicional? Puedes escribirla en el siguiente recuadro:</span><br>
           <textarea class="about-textarea" name="comment" rows="6" cols="50"></textarea><br><br>
@@ -482,10 +482,12 @@
   <div class="cover-container cover-msg">
     <div class="cover-next-msg">
       <p class="cover-next-s">Antes de comenzar, es altamente recomendable que utilices audífonos.</p>
-      <div id="cover-btn-init" class="cover-inline-img"><img src="images/flecha2.svg"></div>
+      <div id="bcover-btn-init" class="cover-inline-img"><img src="images/flecha2.svg"></div>
     </div>
   </div>
 </div>
+
+<div class="skip-arrow hidden"><img src="images/flecha2.svg"></div>
 
 <!-- Fin Elementos de Introducción -->
 
@@ -589,7 +591,7 @@
 
   <div class="over-content info hidden" style="left:107px;top:68px;">
     <div class="info-container">
-      <p class="info-content">Cuando el cerebro no está recibiendo ningún estímulo externo, se desactivan todas las áreas asociadas a la atención y se encienden una serie de regiones asociadas a los proceso internos de la mente.<br><br>Contradictorio a lo que se creía anteriormente, los momentos de mayor actividad metabólica ocurren en estados de reposo y solo se ocupa un pequeño porcentaje en la realización de tareas, sin importar la dificultad de éstas.<br><br>El descubrimiento de toda la actividad asociada al reposo, impulsó un nuevo paradigma para la neurociencia la cual se centra en estudiar a los individuos según su actividad más interna, profunda y personal.</p>
+      <p class="info-content">Para explorar y distinguir los dos estados principales en los que puede estar la mente, puedes hacer click en cualquier cruz de la pantalla.</p>
       <div class="info-close"><span>x</span></div>
       <div class="info-border"></div>
     </div>

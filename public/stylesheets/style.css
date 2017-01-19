@@ -10,6 +10,14 @@
   font-family: "Apercu Mono";
   src: url("../fonts/Apercu/apercupro-mono/apercu_mono_pro.otf") format("opentype");
 }
+@font-face {
+  font-family: "Apercu Light";
+  src: url("../fonts/Apercu/apercupro-light/apercu_light_pro.otf") format("opentype");
+}
+@font-face {
+  font-family: "Apercu Bold";
+  src: url("../fonts/Apercu/apercupro-bold/apercu_bold_pro.otf") format("opentype");
+}
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -186,7 +194,8 @@ svg {
 }
 
 .over-content.tooltip .tt-title {
-  font-weight: bold;
+  /*font-weight: bold;*/
+  font-family: "Apercu Bold";
 }
 
 .tt-main-container {
@@ -579,7 +588,8 @@ iframe {
 
 p.about-content-t {
   margin-top: 3px;
-  font-weight: bold;
+  font-family: "Apercu Bold";
+  /*font-weight: bold;*/
   letter-spacing: 1;
 }
 
@@ -632,8 +642,10 @@ p.about-content-t {
   color: white;
 }
 
-input[name='explain'], input[name='manifest'] {
-  margin-top: 6px;
+input[type='radio'], input[type='checkbox'] {
+  vertical-align: middle;
+  margin-top: 3px;
+  margin-bottom: 3px;
 }
 
 ul.credits-list {
@@ -664,7 +676,8 @@ ul.credits-list {
 }
 
 p.credits-item-c {
-  font-weight: bold;
+  font-family: "Apercu Bold";
+  /*font-weight: bold;*/
   font-size: 11px;
   letter-spacing: 0.4;
 }
@@ -776,20 +789,20 @@ p.credits-item-c {
 }
 
 .info-container {
-  width: 207px;
+  width: 295px;
   color: white;
-  font-size: 11px;
+  font-size: 14px;
   border: 1px dashed white;
-  font-family: "Apercu Regular";
+  font-family: "Apercu Light";
   background-color: rgba(4,0,25,0.8);
   line-height: 1.4;
 }
 
 .info-content {
   margin-bottom: 0px;
-  padding: 30px;
+  padding: 20px;
   margin-top: 0;
-  padding-top: 40px;
+  padding-top: 30px;
 }
 
 .info-close, .info-border {
@@ -891,4 +904,18 @@ p.credits-item-c {
 
 .fullscreen-bg-video {
   width: 100%;
+}
+
+.skip-arrow img {
+  width: 18%;
+  width: 5%;
+  position: absolute;
+  bottom: 35px;
+  right: 45px;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.skip-arrow img:hover {
+  opacity: 0.8;
 }
