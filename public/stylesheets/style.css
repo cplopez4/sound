@@ -137,6 +137,10 @@ svg {
   width: 24px;
 }
 
+.ext-img {
+  width: 17px;
+}
+
 .volume-img {
   width: 290px;
 }
@@ -175,7 +179,7 @@ svg {
 }
 
 .over-content.tooltip.tt-answer {
-    font-size: 9px;
+    font-size: 10px;
     background-color: rgba(5,0,25,0.9);
     border: 1px solid #fff;
     padding: 9px;
@@ -191,6 +195,7 @@ svg {
 .over-content.tooltip p{
   margin: 3;
   line-height: 1.4;
+  font-family: "Apercu Light";
 }
 
 .over-content.tooltip .tt-title {

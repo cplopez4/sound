@@ -323,21 +323,22 @@ $(document).ready(function(){
         }
         else if(type == 5){
             /* Contorno del Cerebro */
-            fixLineAnimated($("#line-q3-q3a1"),2500);
-            fixLineAnimated($("#line-q3a1-e13"),2500);
-            fixLineAnimated($("#line-e12-e13"),2500);
-            fixLineAnimated($("#line-e10-e12"),2500);
-            fixLineAnimated($("#line-e9-e10"),2500);
-            fixLineAnimated($("#line-q1a2-e9"),2500);
-            fixLineAnimated($("#line-q1a2-e7"),2500);
-            fixLineAnimated($("#line-e6-e7"),2500);
-            fixLineAnimated($("#line-e5-e6"),2500);
-            fixLineAnimated($("#line-e3-e5"),2500);
-            fixLineAnimated($("#line-e2-e3"),2500);
             fixLineAnimated($("#line-e1-e2"),2500);
-            fixLineAnimated($("#line-q2a3-e1"),2500);
-            fixLineAnimated($("#line-q2a3-e8"),2500);
-            fixLineAnimated($("#line-q3-e8"),2500);
+            fixLineAnimated($("#line-e2-e3"),2500);
+            fixLineAnimated($("#line-e3-e5"),2500);
+            fixLineAnimated($("#line-e5-e7"),2500);
+            fixLineAnimated($("#line-q2a1e1-e7"),2500);
+            fixLineAnimated($("#line-q2a1e1-e14"),2500);
+            fixLineAnimated($("#line-e9-e14"),2500);
+            fixLineAnimated($("#line-e9-e15"),2500);
+            fixLineAnimated($("#line-e10-e15"),2500);
+            fixLineAnimated($("#line-e10-e12"),2500);
+            fixLineAnimated($("#line-e12-e13"),2500);
+            fixLineAnimated($("#line-q3a2e2-e13"),2500);
+            fixLineAnimated($("#line-q3a2e1-q3a2e2"),2500);
+            fixLineAnimated($("#line-q3a2e1-e8"),2500);
+            fixLineAnimated($("#line-q1a1e2-e8"),2500);
+            fixLineAnimated($("#line-q1a1e2-e1"),2500);
             /* Fin Contorno del Cerebro */
         }
         else{
@@ -371,6 +372,13 @@ $(document).ready(function(){
         $("#audio-intro").animate({volume: 0}, 2000);
         $("#audio-ruido").animate({volume: 0.5}, 2000);
         firstTransition();
+
+        /* ELIMINAR */
+        /*$(".point-elem").each(function() {
+            var id = "<p style='color:white;'>"+ $(this).attr("id") +"</p>";
+            $(this).append(id);
+        });*/
+
     });
 
     $(document).on("click", "#about-panel-close", function(){
@@ -384,21 +392,22 @@ $(document).ready(function(){
     function initPolygon(){
 
         var pointsArray = [
-            { point: $("div[id^='q3-']"), type: 1 },
-            { point: $("div[id^='q3a1-']"), type: 2 },
-            { point: $("div[id^='e13-']"), type: 3 },
-            { point: $("div[id^='e12-']"), type: 3 },
-            { point: $("div[id^='e10-']"), type: 3 },
-            { point: $("div[id^='e9-']"), type: 3 },
-            { point: $("div[id^='q1a2-']"), type: 2 },
-            { point: $("div[id^='e7-']"), type: 3 },
-            { point: $("div[id^='e6-']"), type: 3 },
-            { point: $("div[id^='e5-']"), type: 3 },
-            { point: $("div[id^='e3-']"), type: 3 },
-            { point: $("div[id^='e2-']"), type: 3 },
             { point: $("div[id^='e1-']"), type: 3 },
-            { point: $("div[id^='q2a3-']"), type: 2 },
-            { point: $("div[id^='e8-']"), type: 3 }
+            { point: $("div[id^='e2-']"), type: 3 },
+            { point: $("div[id^='e3-']"), type: 3 },
+            { point: $("div[id^='e5-']"), type: 3 },
+            { point: $("div[id^='e7-']"), type: 3 },
+            { point: $("div[id^='q2a1e1-']"), type: 3 },
+            { point: $("div[id^='e14-']"), type: 3 },
+            { point: $("div[id^='e9-']"), type: 3 },
+            { point: $("div[id^='e15-']"), type: 3 },
+            { point: $("div[id^='e10-']"), type: 3 },
+            { point: $("div[id^='e12-']"), type: 3 },
+            { point: $("div[id^='e13-']"), type: 3 },
+            { point: $("div[id^='q3a2e2-']"), type: 3 },
+            { point: $("div[id^='q3a2e1-']"), type: 3 },
+            { point: $("div[id^='e8-']"), type: 3 },
+            { point: $("div[id^='q1a1e2-']"), type: 3 },
         ];
 
         var pointsStr = "";
@@ -453,21 +462,22 @@ $(document).ready(function(){
             $("#audio-atencion").animate({volume: 0}, 200);
             $("#audio-ruido").animate({volume: 0.5}, 200);
 
-            fixLineAnimated($("#line-q3-q3a1"),1500);
-            fixLineAnimated($("#line-q3a1-e13"),1500);
-            fixLineAnimated($("#line-e12-e13"),1500);
-            fixLineAnimated($("#line-e10-e12"),1500);
-            fixLineAnimated($("#line-e9-e10"),1500);
-            fixLineAnimated($("#line-q1a2-e9"),1500);
-            fixLineAnimated($("#line-q1a2-e7"),1500);
-            fixLineAnimated($("#line-e6-e7"),1500);
-            fixLineAnimated($("#line-e5-e6"),1500);
-            fixLineAnimated($("#line-e3-e5"),1500);
-            fixLineAnimated($("#line-e2-e3"),1500);
-            fixLineAnimated($("#line-e1-e2"),1500);
-            fixLineAnimated($("#line-q2a3-e1"),1500);
-            fixLineAnimated($("#line-q2a3-e8"),1500);
-            fixLineAnimated($("#line-q3-e8"),1500);
+            fixLineAnimated($("#line-e1-e2"),2500);
+            fixLineAnimated($("#line-e2-e3"),2500);
+            fixLineAnimated($("#line-e3-e5"),2500);
+            fixLineAnimated($("#line-e5-e7"),2500);
+            fixLineAnimated($("#line-q2a1e1-e7"),2500);
+            fixLineAnimated($("#line-q2a1e1-e14"),2500);
+            fixLineAnimated($("#line-e9-e14"),2500);
+            fixLineAnimated($("#line-e9-e15"),2500);
+            fixLineAnimated($("#line-e10-e15"),2500);
+            fixLineAnimated($("#line-e10-e12"),2500);
+            fixLineAnimated($("#line-e12-e13"),2500);
+            fixLineAnimated($("#line-q3a2e2-e13"),2500);
+            fixLineAnimated($("#line-q3a2e1-q3a2e2"),2500);
+            fixLineAnimated($("#line-q3a2e1-e8"),2500);
+            fixLineAnimated($("#line-q1a1e2-e8"),2500);
+            fixLineAnimated($("#line-q1a1e2-e1"),2500);
         }
         //Afuera del cerebro
         else{
@@ -477,21 +487,22 @@ $(document).ready(function(){
             $("#audio-ruido").animate({volume: 0}, 200);
             $(".tt-main-container").addClass("hidden");
 
-            $("#line-q3-q3a1").fadeOut(1500);
-            $("#line-q3a1-e13").fadeOut(1500);
-            $("#line-e12-e13").fadeOut(1500);
-            $("#line-e10-e12").fadeOut(1500);
-            $("#line-e9-e10").fadeOut(1500);
-            $("#line-q1a2-e9").fadeOut(1500);
-            $("#line-q1a2-e7").fadeOut(1500);
-            $("#line-e6-e7").fadeOut(1500);
-            $("#line-e5-e6").fadeOut(1500);
-            $("#line-e3-e5").fadeOut(1500);
-            $("#line-e2-e3").fadeOut(1500);
             $("#line-e1-e2").fadeOut(1500);
-            $("#line-q2a3-e1").fadeOut(1500);
-            $("#line-q2a3-e8").fadeOut(1500);
-            $("#line-q3-e8").fadeOut(1500);
+            $("#line-e2-e3").fadeOut(1500);
+            $("#line-e3-e5").fadeOut(1500);
+            $("#line-e5-e7").fadeOut(1500);
+            $("#line-q2a1e1-e7").fadeOut(1500);
+            $("#line-q2a1e1-e14").fadeOut(1500);
+            $("#line-e9-e14").fadeOut(1500);
+            $("#line-e9-e15").fadeOut(1500);
+            $("#line-e10-e15").fadeOut(1500);
+            $("#line-e10-e12").fadeOut(1500);
+            $("#line-e12-e13").fadeOut(1500);
+            $("#line-q3a2e2-e13").fadeOut(1500);
+            $("#line-q3a2e1-q3a2e2").fadeOut(1500);
+            $("#line-q3a2e1-e8").fadeOut(1500);
+            $("#line-q1a1e2-e8").fadeOut(1500);
+            $("#line-q1a1e2-e1").fadeOut(1500);
         }
     });
 
@@ -803,7 +814,7 @@ $(document).ready(function(){
     /* Rutas */
 
     /* Pregunta 1 */
-    $("#q1-l25t47").on("click", function(){
+    $("#q1-l29t44").on("click", function(){
         clickQ1();
     });
 
@@ -815,28 +826,29 @@ $(document).ready(function(){
         $("line").attr("class","hidden");
 
         setTimeout(function(){
-             /* Respuesta 1 */
+            /* Respuesta 1 */
             drawAnimateLine(document.querySelector("#line-q1-q1a1e1"),{},0,true);
-            drawAnimateLine(document.querySelector("#line-q1a1e1-q1a1e2"),{},1,true);
-            drawAnimateLine(document.querySelector("#line-q1a1-q1a1e2"),{ reverse: true },2,true);
+            drawAnimateLine(document.querySelector("#line-q2a3-q1a1e1"),{ reverse: true },1,true);
 
             /* Respuesta 2 */
             drawAnimateLine(document.querySelector("#line-q1-q1a2e1"),{},0,true);
             drawAnimateLine(document.querySelector("#line-q1a2-q1a2e1"),{ reverse: true },1,true);
+            drawAnimateLine(document.querySelector("#line-q2-q1a2"),{ reverse: true },2,true);
+            drawAnimateLine(document.querySelector("#line-q2-q3a1"),{},3,true);
 
             setTimeout(function(){
                 $("#tt-q1a1").fadeIn(700);
-            }, 3000);
+            }, 2000);
             setTimeout(function(){
                 $("#tt-q1a2").fadeIn(700);
-            }, 2000);
+            }, 4000);
 
         }, 500);
         /* Fin Animation first click */
 
-        $("#q1-l25t47").off("click");
+        $("#q1-l29t44").off("click");
 
-        $("#q1-l25t47").on("click", function(){
+        $("#q1-l29t44").on("click", function(){
             $(".tt-main-container").addClass("hidden");
             $(".tt-q1-container").removeClass("hidden");
 
@@ -844,16 +856,18 @@ $(document).ready(function(){
 
             /* Respuesta 1 */
             $("#line-q1-q1a1e1").attr("class","");
-            $("#line-q1a1e1-q1a1e2").attr("class","");
-            $("#line-q1a1-q1a1e2").attr("class","");
+            $("#line-q2a3-q1a1e1").attr("class","");
+
             /* Respuesta 2 */
             $("#line-q1-q1a2e1").attr("class","");
             $("#line-q1a2-q1a2e1").attr("class","");
+            $("#line-q2-q1a2").attr("class","");
+            $("#line-q2-q3a1").attr("class","");
         }); 
     }
 
     /* Pregunta 2 */
-    $("#q2-l55t60").on("click", function(){
+    $("#q2-l55t53").on("click", function(){
         clickQ2();
     });
 
@@ -866,53 +880,47 @@ $(document).ready(function(){
 
         setTimeout(function(){
             /* Respuesta 1 */
-            drawAnimateLine(document.querySelector("#line-q2-q2a1e1"),{},0,true);
-            drawAnimateLine(document.querySelector("#line-q1a2e1-q2a1e1"),{ reverse: true },1,true);
-            drawAnimateLine(document.querySelector("#line-q2a1-q1a2e1"),{ reverse: true },2,true);
-            /* Respuesta 2 */
             drawAnimateLine(document.querySelector("#line-q2-q2a2"),{},0,true);
+            /* Respuesta 2 */
+            drawAnimateLine(document.querySelector("#line-q2-q1a2e1"),{},0,true);
+            drawAnimateLine(document.querySelector("#line-q2a1-q1a2e1"),{ reverse: true },1,true);
             /* Respuesta 3 */
-            drawAnimateLine(document.querySelector("#line-q2-q2a3e1"),{},0,true);
-            drawAnimateLine(document.querySelector("#line-q1a1e2-q2a3e1"),{ reverse: true },1,true);
-            drawAnimateLine(document.querySelector("#line-q2a3-q1a1e2"),{ reverse: true },2,true);
+            drawAnimateLine(document.querySelector("#line-q2-q3a2"),{},0,true);
 
             setTimeout(function(){
                 $("#tt-q2a1").fadeIn(700);
-            }, 3000);
-            setTimeout(function(){
-                $("#tt-q2a2").fadeIn(700);
             }, 1000);
             setTimeout(function(){
+                $("#tt-q2a2").fadeIn(700);
+            }, 2000);
+            setTimeout(function(){
                 $("#tt-q2a3").fadeIn(700);
-            }, 3000);
+            }, 1000);
 
         }, 500);
         /* Fin Animation first click */
 
-        $("#q2-l55t60").off("click");
+        $("#q2-l55t53").off("click");
 
-        $("#q2-l55t60").on("click", function(){
+        $("#q2-l55t53").on("click", function(){
             $(".tt-main-container").addClass("hidden");
             $(".tt-q2-container").removeClass("hidden");
 
             $("line").attr("class","hidden");
 
             /* Respuesta 1 */
-            $("#line-q2-q2a1e1").attr("class","");
-            /* Respuesta 2 */
             $("#line-q2-q2a2").attr("class","");
-            $("#line-q1a2e1-q2a1e1").attr("class","");
+            /* Respuesta 2 */
+            $("#line-q2-q1a2e1").attr("class","");
             $("#line-q2a1-q1a2e1").attr("class","");
             /* Respuesta 3 */
-            $("#line-q2-q2a3e1").attr("class","");
-            $("#line-q1a1e2-q2a3e1").attr("class","");
-            $("#line-q2a3-q1a1e2").attr("class","");
+            $("#line-q2-q3a2").attr("class","");
         }); 
     }
 
 
     /* Pregunta 3 */
-    $("#q3-l81t20").on("click", function(){
+    $("#q3-l68t37").on("click", function(){
         clickQ3();
     });
 
@@ -926,11 +934,12 @@ $(document).ready(function(){
         setTimeout(function(){
 
             /* Respuesta 1 */
-            drawAnimateLine(document.querySelector("#line-q3-q3a1"),{},0,true);
+            drawAnimateLine(document.querySelector("#line-q3-q1a1"),{},0,true);
             /* Respuesta 2 */
-            drawAnimateLine(document.querySelector("#line-q3-q3a2e1"),{},0,true);
-            drawAnimateLine(document.querySelector("#line-q3a2e1-q3a2e2"),{},1,true);
-            drawAnimateLine(document.querySelector("#line-q3a2-q3a2e2"),{ reverse: true },2,true);
+            drawAnimateLine(document.querySelector("#line-q3-q3a1"),{},0,true);
+            drawAnimateLine(document.querySelector("#line-q3a1-q3a2"),{},1,true);
+            drawAnimateLine(document.querySelector("#line-q3a2-e17"),{},2,true);
+            drawAnimateLine(document.querySelector("#line-q1a2-e17"),{ reverse: true },3,true);
 
 
             setTimeout(function(){
@@ -938,25 +947,26 @@ $(document).ready(function(){
             }, 1000);
             setTimeout(function(){
                 $("#tt-q3a2").fadeIn(700);
-            }, 3000);
+            }, 4000);
 
         }, 500);
         /* Fin Animation first click */
 
-        $("#q3-l81t20").off("click");
+        $("#q3-l68t37").off("click");
 
-        $("#q3-l81t20").on("click", function(){
+        $("#q3-l68t37").on("click", function(){
             $(".tt-main-container").addClass("hidden");
             $(".tt-q3-container").removeClass("hidden");
 
             $("line").attr("class","hidden");
 
             /* Respuesta 1 */
-            $("#line-q3-q3a1").attr("class","");
+            $("#line-q3-q1a1").attr("class","");
             /* Respuesta 2 */
-            $("#line-q3-q3a2e1").attr("class","");
-            $("#line-q3a2e1-q3a2e2").attr("class","");
-            $("#line-q3a2-q3a2e2").attr("class","");
+            $("#line-q3-q3a1").attr("class","");
+            $("#line-q3a1-q3a2").attr("class","");
+            $("#line-q3a2-e17").attr("class","");
+            $("#line-q1a2-e17").attr("class","");
         }); 
     }
 
@@ -971,8 +981,7 @@ $(document).ready(function(){
         if(type == 1 && !route1){
             /* Respuesta 1 */
             fixLine($("#line-q1-q1a1e1"));
-            fixLine($("#line-q1a1e1-q1a1e2"));
-            fixLine($("#line-q1a1-q1a1e2"));
+            fixLine($("#line-q2a3-q1a1e1"));
 
             // Extras 
             drawAnimateLine(document.querySelector("#line-q3-q1a1"),{},0,false);
@@ -991,13 +1000,10 @@ $(document).ready(function(){
             /* Respuesta 2 */
             fixLine($("#line-q1-q1a2e1"));
             fixLine($("#line-q1a2-q1a2e1"));
+            fixLine($("#line-q2-q1a2"));
+            fixLine($("#line-q2-q3a1"));
 
             /* Extras */
-            fixLine($("#line-q2a1-e7"));
-            fixLine($("#line-q1a2e1-e7"));
-            fixLine($("#line-q1a2-q2a1e1"));
-            /*fixLine($("#line-q1a2e1-q2a1e1"));*/
-            fixLine($("#line-q2a1e1-e9"));
 
             readyQ1 = true;
             route2 = true;
@@ -1005,19 +1011,9 @@ $(document).ready(function(){
         /* Q2A1 */
         else if(type == 3 && !route3){
             /* Respuesta 1 */
-            fixLine($("#line-q2-q2a1e1"));
-            fixLine($("#line-q1a2e1-q2a1e1"));
-            fixLine($("#line-q2a1-q1a2e1"));
-            
+            fixLine($("#line-q2-q2a2"));
+
             /* Extras */
-            fixLine($("#line-q1-e2"));
-            fixLine($("#line-q1-e3"));
-            fixLine($("#line-q1-e4"));
-            fixLine($("#line-q1-q2a1"));
-            fixLine($("#line-e3-e4"));
-            fixLine($("#line-e4-e5"));
-            fixLine($("#line-q2a1-e4"));
-            fixLine($("#line-q2a1-e6"));
 
             readyQ2 = true;
             route3 = true;
@@ -1025,14 +1021,10 @@ $(document).ready(function(){
         /* Q2A2 */
         else if(type == 4 && !route4){
             /* Respuesta 2 */
-            fixLine($("#line-q2-q2a2"));
+            fixLine($("#line-q2-q1a2e1"));
+            fixLine($("#line-q2a1-q1a2e1"));
 
             /* Extras */
-            fixLine($("#line-q2-e9"));
-            fixLine($("#line-q2a2-q1a2e1"));
-            fixLine($("#line-q1a2-e9"));
-            fixLine($("#line-q2a2-q2a1e1"));
-            fixLine($("#line-q2a1e1-e9"));
 
             readyQ2 = true;
             route4 = true;
@@ -1040,16 +1032,9 @@ $(document).ready(function(){
         /* Q2A3 */
         else if(type == 5 && !route5){
             /* Respuesta 3 */
-            fixLine($("#line-q2-q2a3e1"));
-            fixLine($("#line-q1a1e2-q2a3e1"));
-            fixLine($("#line-q2a3-q1a1e2"));
+            fixLine($("#line-q2-q3a2"));
 
             /* Extras */
-            fixLine($("#line-q1-e1"));
-            fixLine($("#line-q1a1e1-e1"));
-            fixLine($("#line-q1a1e1-q2a3e1"));
-            fixLine($("#line-q2a3-q1a1e1"));
-            fixLine($("#line-q2a2-q1a1e1"));
 
             readyQ2 = true;
             route5 = true;
@@ -1057,18 +1042,9 @@ $(document).ready(function(){
         /* Q3A1 */
         else if(type == 6 && !route6){
             /* Respuesta 1 */
-            fixLine($("#line-q3-q3a1"));
+            fixLine($("#line-q3-q1a1"));
 
             /* Extras */
-            fixLine($("#line-q3a1-q3a2e1"));
-            fixLine($("#line-q3a1-q3a2e2"));
-            
-            fixLine($("#line-q1a1-q3a2e1"));
-            fixLine($("#line-q1a1-q3a2e2"));
-            
-            fixLine($("#line-q3a2e2-e11"));
-            fixLine($("#line-q3a2e2-e13"));
-            fixLine($("#line-e11-e13"));
 
             readyQ3 = true;
             route6 = true;
@@ -1076,16 +1052,12 @@ $(document).ready(function(){
         /* Q3A2 */
         else if(type == 7 && !route7){
             /* Respuesta 2 */
-            fixLine($("#line-q3-q3a2e1"));
-            fixLine($("#line-q3a2e1-q3a2e2"));
-            fixLine($("#line-q3a2-q3a2e2"));
+            fixLine($("#line-q3-q3a1"));
+            fixLine($("#line-q3a1-q3a2"));
+            fixLine($("#line-q3a2-e17"));
+            fixLine($("#line-q1a2-e17"));
 
             /* Extras */
-            fixLine($("#line-q2-q3a2"));
-            fixLine($("#line-q3a2-e9"));
-            fixLine($("#line-q3a2-e10"));
-            fixLine($("#line-q3a2-e11"));
-            fixLine($("#line-e12-e11"));
 
             readyQ3 = true;
             route7 = true;
@@ -1186,88 +1158,89 @@ $(document).ready(function(){
 
         drawLine($("div[id^='q1-']"),$("div[id^='q1a1e1-']"), "line-q1-q1a1e1", 1, 3);
         drawLine($("div[id^='q1-']"),$("div[id^='q1a2e1-']"), "line-q1-q1a2e1", 1, 3);
-        drawLine($("div[id^='q1-']"),$("div[id^='q2a1-']"), "line-q1-q2a1", 1, 2);
         drawLine($("div[id^='q1-']"),$("div[id^='q2a2-']"), "line-q1-q2a2", 1, 2);
-        drawLine($("div[id^='q1-']"),$("div[id^='e1-']"), "line-q1-e1", 1, 3);
         drawLine($("div[id^='q1-']"),$("div[id^='e2-']"), "line-q1-e2", 1, 3);
         drawLine($("div[id^='q1-']"),$("div[id^='e3-']"), "line-q1-e3", 1, 3);
         drawLine($("div[id^='q1-']"),$("div[id^='e4-']"), "line-q1-e4", 1, 3);
 
         
-        drawLine($("div[id^='q2-']"),$("div[id^='q1a1-']"), "line-q2-q1a1", 1, 2);
+        drawLine($("div[id^='q2-']"),$("div[id^='q1a2-']"), "line-q2-q1a2", 1, 2);
         drawLine($("div[id^='q2-']"),$("div[id^='q2a2-']"), "line-q2-q2a2", 1, 2);
-        drawLine($("div[id^='q2-']"),$("div[id^='q3a2e2-']"), "line-q2-q3a2e2", 1, 3);
+        drawLine($("div[id^='q2-']"),$("div[id^='q3a1-']"), "line-q2-q3a1", 1, 2);
         drawLine($("div[id^='q2-']"),$("div[id^='q3a2-']"), "line-q2-q3a2", 1, 2);
-        drawLine($("div[id^='q2-']"),$("div[id^='e9-']"), "line-q2-e9", 1, 3);
-        drawLine($("div[id^='q2-']"),$("div[id^='q2a1e1-']"), "line-q2-q2a1e1", 1, 3);
         drawLine($("div[id^='q2-']"),$("div[id^='q2a3e1-']"), "line-q2-q2a3e1", 1, 3);
+        drawLine($("div[id^='q2-']"),$("div[id^='q1a2e1-']"), "line-q2-q1a2e1", 1, 3);
+        drawLine($("div[id^='q2-']"),$("div[id^='e16-']"), "line-q2-e16", 1, 3);
 
         
-        drawLine($("div[id^='q3-']"),$("div[id^='e8-']"), "line-q3-e8", 1, 3);
         drawLine($("div[id^='q3-']"),$("div[id^='q1a1-']"), "line-q3-q1a1", 1, 2);
         drawLine($("div[id^='q3-']"),$("div[id^='q3a2e1-']"), "line-q3-q3a2e1", 1, 3);
         drawLine($("div[id^='q3-']"),$("div[id^='q3a1-']"), "line-q3-q3a1", 1, 2);
+        drawLine($("div[id^='q3-']"),$("div[id^='e16-']"), "line-q3-e16", 1, 3);
+        drawLine($("div[id^='q3-']"),$("div[id^='q3a2e2-']"), "line-q3-q3a2e2", 1, 3);
 
 
         drawLine($("div[id^='q2a1-']"),$("div[id^='q1a2e1-']"), "line-q2a1-q1a2e1", 2, 3);
         drawLine($("div[id^='q2a1-']"),$("div[id^='e4-']"), "line-q2a1-e4", 2, 3);
-        drawLine($("div[id^='q2a1-']"),$("div[id^='e6-']"), "line-q2a1-e6", 2, 3);
+        drawLine($("div[id^='q2a1-']"),$("div[id^='e5-']"), "line-q2a1-e5", 2, 3);
         drawLine($("div[id^='q2a1-']"),$("div[id^='e7-']"), "line-q2a1-e7", 2, 3);
 
         
-        drawLine($("div[id^='q1a2-']"),$("div[id^='e7-']"), "line-q1a2-e7", 2, 3);
         drawLine($("div[id^='q1a2-']"),$("div[id^='q1a2e1-']"), "line-q1a2-q1a2e1", 2, 3);
         drawLine($("div[id^='q1a2-']"),$("div[id^='q2a1e1-']"), "line-q1a2-q2a1e1", 2, 3);
-        drawLine($("div[id^='q1a2-']"),$("div[id^='e9-']"), "line-q1a2-e9", 2, 3);
+        drawLine($("div[id^='q1a2-']"),$("div[id^='e14-']"), "line-q1a2-e14", 2, 3);
+        drawLine($("div[id^='q1a2-']"),$("div[id^='e17-']"), "line-q1a2-e17", 2, 3);
 
 
         drawLine($("div[id^='q2a2-']"),$("div[id^='q1a1e1-']"), "line-q2a2-q1a1e1", 2, 3);
         drawLine($("div[id^='q2a2-']"),$("div[id^='q2a3e1-']"), "line-q2a2-q2a3e1", 2, 3);
-        drawLine($("div[id^='q2a2-']"),$("div[id^='q2a1e1-']"), "line-q2a2-q2a1e1", 2, 3);
         drawLine($("div[id^='q2a2-']"),$("div[id^='q1a2e1-']"), "line-q2a2-q1a2e1", 2, 3);
 
 
-        drawLine($("div[id^='q2a3-']"),$("div[id^='e1-']"), "line-q2a3-e1", 2, 3);
         drawLine($("div[id^='q2a3-']"),$("div[id^='q1a1e1-']"), "line-q2a3-q1a1e1", 2, 3);
         drawLine($("div[id^='q2a3-']"),$("div[id^='q1a1e2-']"), "line-q2a3-q1a1e2", 2, 3);
+        drawLine($("div[id^='q2a3-']"),$("div[id^='q2a3e1-']"), "line-q2a3-q2a3e1", 2, 3);
         drawLine($("div[id^='q2a3-']"),$("div[id^='q1a1-']"), "line-q2a3-q1a1", 2, 2);
         drawLine($("div[id^='q2a3-']"),$("div[id^='e8-']"), "line-q2a3-e8", 2, 3);
 
 
         drawLine($("div[id^='q1a1-']"),$("div[id^='e8-']"), "line-q1a1-e8", 2, 3);
-        drawLine($("div[id^='q1a1-']"),$("div[id^='q1a1e2-']"), "line-q1a1-q1a1e2", 2, 3);
+        drawLine($("div[id^='q1a1-']"),$("div[id^='e16-']"), "line-q1a1-e16", 2, 3);
         drawLine($("div[id^='q1a1-']"),$("div[id^='q3a2e1-']"), "line-q1a1-q3a2e1", 2, 3);
-        drawLine($("div[id^='q1a1-']"),$("div[id^='q3a2e2-']"), "line-q1a1-q3a2e2", 2, 3);
         drawLine($("div[id^='q1a1-']"),$("div[id^='q2a3e1-']"), "line-q1a1-q2a3e1", 2, 3);
 
 
-        drawLine($("div[id^='q3a1-']"),$("div[id^='q3a2e1-']"), "line-q3a1-q3a2e1", 2, 3);
-        drawLine($("div[id^='q3a1-']"),$("div[id^='q3a2e2-']"), "line-q3a1-q3a2e2", 2, 3);
-        drawLine($("div[id^='q3a1-']"),$("div[id^='e13-']"), "line-q3a1-e13", 2, 3);
+        drawLine($("div[id^='q3a1-']"),$("div[id^='q3a2-']"), "line-q3a1-q3a2", 2, 2);
+        drawLine($("div[id^='q3a1-']"),$("div[id^='e11-']"), "line-q3a1-e11", 2, 3);
+        drawLine($("div[id^='q3a1-']"),$("div[id^='e16-']"), "line-q3a1-e16", 2, 3);
 
 
-        drawLine($("div[id^='q3a2-']"),$("div[id^='q3a2e2-']"), "line-q3a2-q3a2e2", 2, 3);
-        drawLine($("div[id^='q3a2-']"),$("div[id^='e11-']"), "line-q3a2-e11", 2, 3);
         drawLine($("div[id^='q3a2-']"),$("div[id^='e10-']"), "line-q3a2-e10", 2, 3);
-        drawLine($("div[id^='q3a2-']"),$("div[id^='e9-']"), "line-q3a2-e9", 2, 3);
+        drawLine($("div[id^='q3a2-']"),$("div[id^='e12-']"), "line-q3a2-e12", 2, 3);
+        drawLine($("div[id^='q3a2-']"),$("div[id^='e17-']"), "line-q3a2-e17", 2, 3);
 
 
         drawLine($("div[id^='q1a1e1-']"),$("div[id^='e1-']"), "line-q1a1e1-e1", 3, 3);
+        drawLine($("div[id^='q1a1e1-']"),$("div[id^='e2-']"), "line-q1a1e1-e2", 3, 3);
         drawLine($("div[id^='q1a1e1-']"),$("div[id^='q1a1e2-']"), "line-q1a1e1-q1a1e2", 3, 3);
-        drawLine($("div[id^='q1a1e1-']"),$("div[id^='q2a3e1-']"), "line-q1a1e1-q2a3e1", 3, 3);
 
 
-        drawLine($("div[id^='q1a2e1-']"),$("div[id^='e7-']"), "line-q1a2e1-e7", 3, 3);
         drawLine($("div[id^='q1a2e1-']"),$("div[id^='q2a1e1-']"), "line-q1a2e1-q2a1e1", 3, 3);
 
 
-        drawLine($("div[id^='q2a1e1-']"),$("div[id^='e9-']"), "line-q2a1e1-e9", 3, 3);
+        drawLine($("div[id^='q2a1e1-']"),$("div[id^='e7-']"), "line-q2a1e1-e7", 3, 3);
+        drawLine($("div[id^='q2a1e1-']"),$("div[id^='e14-']"), "line-q2a1e1-e14", 3, 3);
 
 
-        drawLine($("div[id^='q1a1e2-']"),$("div[id^='q2a3e1-']"), "line-q1a1e2-q2a3e1", 3, 3);
+        drawLine($("div[id^='q2a3e1-']"),$("div[id^='e16-']"), "line-q2a3e1-e16", 3, 3);
+
+
+        drawLine($("div[id^='q1a1e2-']"),$("div[id^='e1-']"), "line-q1a1e2-e1", 3, 3);
+        drawLine($("div[id^='q1a1e2-']"),$("div[id^='e8-']"), "line-q1a1e2-e8", 3, 3);
 
 
         drawLine($("div[id^='q3a2e1-']"),$("div[id^='q3a2e2-']"), "line-q3a2e1-q3a2e2", 3, 3);
+        drawLine($("div[id^='q3a2e1-']"),$("div[id^='e8-']"), "line-q3a2e1-e8", 3, 3);
 
 
         drawLine($("div[id^='q3a2e2-']"),$("div[id^='e11-']"), "line-q3a2e2-e11", 3, 3);
@@ -1279,13 +1252,16 @@ $(document).ready(function(){
         drawLine($("div[id^='e3-']"),$("div[id^='e5-']"), "line-e3-e5", 3, 3);
         drawLine($("div[id^='e3-']"),$("div[id^='e4-']"), "line-e3-e4", 3, 3);
         drawLine($("div[id^='e4-']"),$("div[id^='e5-']"), "line-e4-e5", 3, 3);
-        drawLine($("div[id^='e5-']"),$("div[id^='e6-']"), "line-e5-e6", 3, 3);
-        drawLine($("div[id^='e6-']"),$("div[id^='e7-']"), "line-e6-e7", 3, 3);
-        drawLine($("div[id^='e9-']"),$("div[id^='e10-']"), "line-e9-e10", 3, 3);
+        drawLine($("div[id^='e5-']"),$("div[id^='e7-']"), "line-e5-e7", 3, 3);
+        drawLine($("div[id^='e9-']"),$("div[id^='e14-']"), "line-e9-e14", 3, 3);
+        drawLine($("div[id^='e9-']"),$("div[id^='e15-']"), "line-e9-e15", 3, 3);
+        drawLine($("div[id^='e9-']"),$("div[id^='e17-']"), "line-e9-e17", 3, 3);
         drawLine($("div[id^='e10-']"),$("div[id^='e12-']"), "line-e10-e12", 3, 3);
+        drawLine($("div[id^='e10-']"),$("div[id^='e15-']"), "line-e10-e15", 3, 3);
         drawLine($("div[id^='e12-']"),$("div[id^='e11-']"), "line-e12-e11", 3, 3);
         drawLine($("div[id^='e12-']"),$("div[id^='e13-']"), "line-e12-e13", 3, 3);
         drawLine($("div[id^='e11-']"),$("div[id^='e13-']"), "line-e11-e13", 3, 3);
+        drawLine($("div[id^='e15-']"),$("div[id^='e17-']"), "line-e15-e17", 3, 3);
 
     }
 
