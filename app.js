@@ -5,6 +5,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+/* Mongoose - MongoDB */
+var mongoose = require('mongoose');
+var mongo = mongoose.connect('mongodb://127.0.0.1:27017/sound');
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var api = require('./routes/api');

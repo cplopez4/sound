@@ -647,7 +647,9 @@ p.about-content-t {
   margin-top: 5px;
   background-color: transparent;
   color: white;
-      border: 1px dotted;
+  border: 1px dotted;
+  font-size: 11px;
+  font-family: "Apercu Regular";
 }
 
 .about-links {
