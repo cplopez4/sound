@@ -371,13 +371,14 @@ $(document).ready(function(){
     $(document).on("click", "#bcover-btn-init", function(){
         $("#audio-intro").animate({volume: 0}, 2000);
         $("#audio-ruido").animate({volume: 0.5}, 2000);
+        $(".click-text-bottom").hide();
         firstTransition();
 
         /* ELIMINAR */
-        /*$(".point-elem").each(function() {
-            var id = "<p style='color:white;'>"+ $(this).attr("id") +"</p>";
+        $(".point-elem").each(function() {
+            var id = "<p style='color:white;font-size:11px;'>"+ $(this).attr("id") +"</p>";
             $(this).append(id);
-        });*/
+        });
 
     });
 
@@ -455,6 +456,12 @@ $(document).ready(function(){
     });
 
     $(document).on("click", "#main-container", function(e){
+
+        if($(e.target).attr("id") == "main-container" || $(e.target).attr("class") == "click-text" || $(e.target).attr("class") == "ext-img"){
+            $(".tt-main-container").addClass("hidden");
+            $("line").attr("class","hidden");
+        }
+
         //Adentro del cerebro
         if(d3.polygonContains(pointsArrayTotal,[(e.pageX + 38),(e.pageY + 13)])){
             $("#waves1").show();
@@ -488,7 +495,6 @@ $(document).ready(function(){
             $("#waves1").hide();
             $("#audio-atencion").animate({volume: 0.5}, 200);
             $("#audio-ruido").animate({volume: 0}, 200);
-            $(".tt-main-container").addClass("hidden");
 
             $(".click-text-bottom.atencion").fadeOut(800);
             $(".click-text-bottom.ruido").fadeIn(800);
@@ -583,6 +589,8 @@ $(document).ready(function(){
         $(".form-left-final").show();
         $(".form-right-final").show();
         $(".about-main-container").fadeIn(1000);
+
+        $("#about-info-form").fadeIn(1000);
     });
 
     /* Click Volver */
@@ -761,7 +769,29 @@ $(document).ready(function(){
     });
 
     $(document).on("click", "#about-info-square", function(e){
-        $(".about-main-container").fadeToggle(800);
+        $(".form-left-final").fadeOut(500);
+        $(".form-right-final").fadeOut(500);
+
+        setTimeout(function(){
+            $(".credits-container").fadeIn(500);
+            $(".content-p-init").fadeIn(500);
+        }, 500);
+        
+        $(".about-main-container").fadeIn(800);
+
+        e.stopPropagation();
+    });
+
+    $(document).on("click", "#about-info-form", function(e){
+        $(".credits-container").fadeOut(500);
+        $(".content-p-init").fadeOut(500);
+
+        setTimeout(function(){
+            $(".form-left-final").fadeIn(500);
+            $(".form-right-final").fadeIn(500);
+        }, 500);
+        
+        $(".about-main-container").fadeIn(800);
 
         e.stopPropagation();
     });
@@ -878,36 +908,39 @@ $(document).ready(function(){
     });
 
     function clickQ1(){
-        /* Animation first click */
-        $(".tt-main-container").addClass("hidden");
-        $(".tt-q1-container").removeClass("hidden");
+        if(!readyQ1 && $(".tt-q1-container").hasClass("hidden")){
+            /* Animation first click */
+            $(".tt-main-container").addClass("hidden");
 
-        $("line").attr("class","hidden");
+            $("#tt-q1a1").hide();
+            $("#tt-q1a2").hide();
 
-        setTimeout(function(){
-            /* Respuesta 1 */
-            drawAnimateLine(document.querySelector("#line-q1-q1a1e1"),{},0,true);
-            drawAnimateLine(document.querySelector("#line-q2a3-q1a1e1"),{ reverse: true },1,true);
+            $(".tt-q1-container").removeClass("hidden");
 
-            /* Respuesta 2 */
-            drawAnimateLine(document.querySelector("#line-q1-q1a2e1"),{},0,true);
-            drawAnimateLine(document.querySelector("#line-q1a2-q1a2e1"),{ reverse: true },1,true);
-            drawAnimateLine(document.querySelector("#line-q2-q1a2"),{ reverse: true },2,true);
-            drawAnimateLine(document.querySelector("#line-q2-q3a1"),{},3,true);
+            $("line").attr("class","hidden");
 
             setTimeout(function(){
-                $("#tt-q1a1").fadeIn(700);
-            }, 2000);
-            setTimeout(function(){
-                $("#tt-q1a2").fadeIn(700);
-            }, 4000);
+                /* Respuesta 1 */
+                drawAnimateLine(document.querySelector("#line-q1-q1a1e1"),{},0,true);
+                drawAnimateLine(document.querySelector("#line-q2a3-q1a1e1"),{ reverse: true },1,true);
 
-        }, 500);
-        /* Fin Animation first click */
+                /* Respuesta 2 */
+                drawAnimateLine(document.querySelector("#line-q1-q1a2e1"),{},0,true);
+                drawAnimateLine(document.querySelector("#line-q1a2-q1a2e1"),{ reverse: true },1,true);
+                drawAnimateLine(document.querySelector("#line-q2-q1a2"),{ reverse: true },2,true);
+                drawAnimateLine(document.querySelector("#line-q2-q3a1"),{},3,true);
 
-        $("#q1-l29t44").off("click");
+                setTimeout(function(){
+                    $("#tt-q1a1").fadeIn(700);
+                }, 2000);
+                setTimeout(function(){
+                    $("#tt-q1a2").fadeIn(700);
+                }, 4000);
 
-        $("#q1-l29t44").on("click", function(){
+            }, 500);
+            /* Fin Animation first click */
+        }
+        else {
             $(".tt-main-container").addClass("hidden");
             $(".tt-q1-container").removeClass("hidden");
 
@@ -922,7 +955,14 @@ $(document).ready(function(){
             $("#line-q1a2-q1a2e1").attr("class","");
             $("#line-q2-q1a2").attr("class","");
             $("#line-q2-q3a1").attr("class","");
-        }); 
+        }
+        
+
+        /*$("#q1-l29t44").off("click");
+
+        $("#q1-l29t44").on("click", function(){
+            
+        }); */
     }
 
     /* Pregunta 2 */
@@ -931,37 +971,41 @@ $(document).ready(function(){
     });
 
     function clickQ2(){
-        /* Animation first click */
-        $(".tt-main-container").addClass("hidden");
-        $(".tt-q2-container").removeClass("hidden");
+        if(!readyQ2 && $(".tt-q2-container").hasClass("hidden")){
+            /* Animation first click */
+            $(".tt-main-container").addClass("hidden");
 
-        $("line").attr("class","hidden");
+            $("#tt-q2a1").hide();
+            $("#tt-q2a2").hide();
+            $("#tt-q2a3").hide();
 
-        setTimeout(function(){
-            /* Respuesta 1 */
-            drawAnimateLine(document.querySelector("#line-q2-q2a2"),{},0,true);
-            /* Respuesta 2 */
-            drawAnimateLine(document.querySelector("#line-q2-q1a2e1"),{},0,true);
-            drawAnimateLine(document.querySelector("#line-q2a1-q1a2e1"),{ reverse: true },1,true);
-            /* Respuesta 3 */
-            drawAnimateLine(document.querySelector("#line-q2-q3a2"),{},0,true);
+            $(".tt-q2-container").removeClass("hidden");
+
+            $("line").attr("class","hidden");
 
             setTimeout(function(){
-                $("#tt-q2a1").fadeIn(700);
-            }, 1000);
-            setTimeout(function(){
-                $("#tt-q2a2").fadeIn(700);
-            }, 2000);
-            setTimeout(function(){
-                $("#tt-q2a3").fadeIn(700);
-            }, 1000);
+                /* Respuesta 1 */
+                drawAnimateLine(document.querySelector("#line-q2-q2a2"),{},0,true);
+                /* Respuesta 2 */
+                drawAnimateLine(document.querySelector("#line-q2-q1a2e1"),{},0,true);
+                drawAnimateLine(document.querySelector("#line-q2a1-q1a2e1"),{ reverse: true },1,true);
+                /* Respuesta 3 */
+                drawAnimateLine(document.querySelector("#line-q2-q3a2"),{},0,true);
 
-        }, 500);
-        /* Fin Animation first click */
+                setTimeout(function(){
+                    $("#tt-q2a1").fadeIn(700);
+                }, 1000);
+                setTimeout(function(){
+                    $("#tt-q2a2").fadeIn(700);
+                }, 2000);
+                setTimeout(function(){
+                    $("#tt-q2a3").fadeIn(700);
+                }, 1000);
 
-        $("#q2-l55t53").off("click");
-
-        $("#q2-l55t53").on("click", function(){
+            }, 500);
+            /* Fin Animation first click */
+        }
+        else {
             $(".tt-main-container").addClass("hidden");
             $(".tt-q2-container").removeClass("hidden");
 
@@ -974,7 +1018,14 @@ $(document).ready(function(){
             $("#line-q2a1-q1a2e1").attr("class","");
             /* Respuesta 3 */
             $("#line-q2-q3a2").attr("class","");
-        }); 
+        }
+        
+
+        /*$("#q2-l55t53").off("click");
+
+        $("#q2-l55t53").on("click", function(){
+            
+        }); */
     }
 
 
@@ -984,36 +1035,39 @@ $(document).ready(function(){
     });
 
     function clickQ3(){
-        /* Animation first click */
-        $(".tt-main-container").addClass("hidden");
-        $(".tt-q3-container").removeClass("hidden");
+        if(!readyQ3 && $(".tt-q3-container").hasClass("hidden")){
+            /* Animation first click */
+            $(".tt-main-container").addClass("hidden");
 
-        $("line").attr("class","hidden");
+            $("#tt-q3a1").hide();
+            $("#tt-q3a2").hide();
 
-        setTimeout(function(){
+            $(".tt-q3-container").removeClass("hidden");
 
-            /* Respuesta 1 */
-            drawAnimateLine(document.querySelector("#line-q3-q1a1"),{},0,true);
-            /* Respuesta 2 */
-            drawAnimateLine(document.querySelector("#line-q3-q3a1"),{},0,true);
-            drawAnimateLine(document.querySelector("#line-q3a1-q3a2"),{},1,true);
-            drawAnimateLine(document.querySelector("#line-q3a2-e17"),{},2,true);
-            drawAnimateLine(document.querySelector("#line-q1a2-e17"),{ reverse: true },3,true);
-
+            $("line").attr("class","hidden");
 
             setTimeout(function(){
-                $("#tt-q3a1").fadeIn(700);
-            }, 1000);
-            setTimeout(function(){
-                $("#tt-q3a2").fadeIn(700);
-            }, 4000);
 
-        }, 500);
-        /* Fin Animation first click */
+                /* Respuesta 1 */
+                drawAnimateLine(document.querySelector("#line-q3-q1a1"),{},0,true);
+                /* Respuesta 2 */
+                drawAnimateLine(document.querySelector("#line-q3-q3a1"),{},0,true);
+                drawAnimateLine(document.querySelector("#line-q3a1-q3a2"),{},1,true);
+                drawAnimateLine(document.querySelector("#line-q3a2-e17"),{},2,true);
+                drawAnimateLine(document.querySelector("#line-q1a2-e17"),{ reverse: true },3,true);
 
-        $("#q3-l68t37").off("click");
 
-        $("#q3-l68t37").on("click", function(){
+                setTimeout(function(){
+                    $("#tt-q3a1").fadeIn(700);
+                }, 1000);
+                setTimeout(function(){
+                    $("#tt-q3a2").fadeIn(700);
+                }, 4000);
+
+            }, 500);
+            /* Fin Animation first click */
+        }
+        else {
             $(".tt-main-container").addClass("hidden");
             $(".tt-q3-container").removeClass("hidden");
 
@@ -1026,7 +1080,14 @@ $(document).ready(function(){
             $("#line-q3a1-q3a2").attr("class","");
             $("#line-q3a2-e17").attr("class","");
             $("#line-q1a2-e17").attr("class","");
-        }); 
+        }
+        
+
+        /*$("#q3-l68t37").off("click");
+
+        $("#q3-l68t37").on("click", function(){
+            
+        }); */
     }
 
     /* Fin Rutas */
@@ -1043,13 +1104,13 @@ $(document).ready(function(){
             fixLine($("#line-q2a3-q1a1e1"));
 
             // Extras 
-            drawAnimateLine(document.querySelector("#line-q3-q1a1"),{},0,false);
-            drawAnimateLine(document.querySelector("#line-q2-q1a1"),{},0,false);
-            drawAnimateLine(document.querySelector("#line-q2-q3a2e2"),{},0,false);
-            drawAnimateLine(document.querySelector("#line-q1a1-e8"),{},0,false);
-            drawAnimateLine(document.querySelector("#line-q1a1-q2a3e1"),{},0,false);
-            drawAnimateLine(document.querySelector("#line-q2a2-q2a3e1"),{},0,false);
             drawAnimateLine(document.querySelector("#line-q2a3-q1a1"),{},0,false);
+            drawAnimateLine(document.querySelector("#line-q2a3-q2a3e1"),{},0,false);
+            drawAnimateLine(document.querySelector("#line-q2a3-q1a1e2"),{},0,false);
+            drawAnimateLine(document.querySelector("#line-q2a3-e8"),{},0,false);
+            drawAnimateLine(document.querySelector("#line-q1a1e1-e1"),{},0,false);
+
+            drawAnimateLine(document.querySelector("#line-q1a1-q2a3e1"),{},1,false);
 
             readyQ1 = true;
             route1 = true;
@@ -1063,6 +1124,13 @@ $(document).ready(function(){
             fixLine($("#line-q2-q3a1"));
 
             /* Extras */
+            drawAnimateLine(document.querySelector("#line-q3a1-e11"),{},0,false);
+            drawAnimateLine(document.querySelector("#line-q3a1-e16"),{},0,false);
+
+            drawAnimateLine(document.querySelector("#line-q2a3e1-e16"),{ reverse: true },1,false);
+            drawAnimateLine(document.querySelector("#line-q3a2e2-e11"),{ reverse: true },1,false);
+            drawAnimateLine(document.querySelector("#line-e11-e13"),{},1,false);
+            drawAnimateLine(document.querySelector("#line-e12-e11"),{ reverse: true },1,false);
 
             readyQ1 = true;
             route2 = true;
@@ -1073,7 +1141,12 @@ $(document).ready(function(){
             fixLine($("#line-q2-q2a2"));
 
             /* Extras */
+            drawAnimateLine(document.querySelector("#line-q2a2-q1a1e1"),{},0,false);
+            drawAnimateLine(document.querySelector("#line-q2a2-q2a3e1"),{},0,false);
+            drawAnimateLine(document.querySelector("#line-q1-q2a2"),{ reverse: true },0,false);
 
+            drawAnimateLine(document.querySelector("#line-q1-e2"),{},1,false);
+            drawAnimateLine(document.querySelector("#line-q1a1e1-e2"),{},1,false);
             readyQ2 = true;
             route3 = true;
         }
@@ -1084,6 +1157,14 @@ $(document).ready(function(){
             fixLine($("#line-q2a1-q1a2e1"));
 
             /* Extras */
+            drawAnimateLine(document.querySelector("#line-q2a1-e4"),{},0,false);
+            drawAnimateLine(document.querySelector("#line-q2a1-e5"),{},0,false);
+
+            drawAnimateLine(document.querySelector("#line-q1-e4"),{ reverse: true },1,false);
+            drawAnimateLine(document.querySelector("#line-e4-e5"),{},1,false);
+            drawAnimateLine(document.querySelector("#line-e3-e4"),{ reverse: true },1,false);
+
+            drawAnimateLine(document.querySelector("#line-q1-e3"),{},2,false);
 
             readyQ2 = true;
             route4 = true;
@@ -1094,6 +1175,13 @@ $(document).ready(function(){
             fixLine($("#line-q2-q3a2"));
 
             /* Extras */
+            drawAnimateLine(document.querySelector("#line-q3a2-e10"),{},0,false);
+            drawAnimateLine(document.querySelector("#line-q3a2-e12"),{},0,false);
+
+            drawAnimateLine(document.querySelector("#line-e9-e17"),{ reverse: true },1,false);
+            drawAnimateLine(document.querySelector("#line-e15-e17"),{ reverse: true },1,false);
+            drawAnimateLine(document.querySelector("#line-q2-e16"),{},1,false);
+            drawAnimateLine(document.querySelector("#line-q2-q2a3e1"),{},1,false);
 
             readyQ2 = true;
             route5 = true;
@@ -1104,6 +1192,14 @@ $(document).ready(function(){
             fixLine($("#line-q3-q1a1"));
 
             /* Extras */
+            drawAnimateLine(document.querySelector("#line-q1a1-e8"),{},0,false);
+            drawAnimateLine(document.querySelector("#line-q1a1-e16"),{},0,false);
+            drawAnimateLine(document.querySelector("#line-q1a1-q3a2e1"),{},0,false);
+
+            drawAnimateLine(document.querySelector("#line-q3-e16"),{ reverse: true },1,false);
+            drawAnimateLine(document.querySelector("#line-q3-q3a2e1"),{ reverse: true },1,false);
+
+            drawAnimateLine(document.querySelector("#line-q3-q3a2e2"),{},2,false);
 
             readyQ3 = true;
             route6 = true;
@@ -1117,6 +1213,13 @@ $(document).ready(function(){
             fixLine($("#line-q1a2-e17"));
 
             /* Extras */
+            drawAnimateLine(document.querySelector("#line-q1a2-q2a1e1"),{},0,false);
+            drawAnimateLine(document.querySelector("#line-q1a2-e14"),{},0,false);
+
+            drawAnimateLine(document.querySelector("#line-q1a2e1-q2a1e1"),{ reverse: true },1,false);
+            drawAnimateLine(document.querySelector("#line-q2a1-e7"),{ reverse: true },1,false);
+
+            drawAnimateLine(document.querySelector("#line-q2a2-q1a2e1"),{ reverse: true },2,false);
 
             readyQ3 = true;
             route7 = true;
@@ -1154,8 +1257,8 @@ $(document).ready(function(){
                 setTimeout(function(){
                     $("#final-1").fadeToggle(2500);
                     $("#final-2").fadeToggle(2500);
-                }, 7000);
-            }, 7000)
+                }, 8000);
+            }, 6000)
         }
     }
 

@@ -801,7 +801,11 @@ p.credits-item-c {
 }
 
 .about-info {
-  width: 11px;
+  width: 13px;
+}
+
+.about-form {
+  width: 26px;
 }
 
 .over-content.info {
@@ -822,14 +826,14 @@ p.credits-item-c {
   margin-bottom: 0px;
   padding: 20px;
   margin-top: 0;
-  padding-top: 30px;
+  padding-top: 39px;
 }
 
 .info-close, .info-border {
-  width: 22px;
+  width: 28px;
   position: absolute;
   text-align: center;
-  height: 22px;
+  height: 28px;
   border: 1px dashed white;
   cursor: pointer;
   top: 0px;
@@ -844,7 +848,7 @@ p.credits-item-c {
 }
 
 .info-close span {
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.4;
 }
 
@@ -954,6 +958,7 @@ p.credits-item-c {
   top: 92%;
   left: 11%;
   color: white;
+  z-index: -999;
 }
 
 .click-text {
