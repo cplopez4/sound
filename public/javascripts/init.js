@@ -10,7 +10,7 @@ var pointsArrayTotal = [];
 /* En cirlcles, 1=Q1A1, 2=Q1A2, 3=Q2A1, 4=Q2A2, 5=Q2A3, 6=Q3A1, 7=Q3A2 */
 var json = { data: {
         clicks: [],
-        name: "",
+        manifest: "",
         email: "",
         age: "",
         gender: "",
@@ -59,7 +59,16 @@ $(document).ready(function(){
     var audio_atencion = document.querySelector('#audio-atencion');
     audio_atencion.volume = 0;
     var audio_intro = document.querySelector('#audio-intro');
-    audio_intro.volume = 0.5;
+    audio_intro.volume = 0.1;
+
+    /* Volumen Hover Cruces Exteriores */
+    var audio_celular = document.querySelector('#audio-celular');
+    audio_celular.volume = 0.2;
+    var audio_estrella = document.querySelector('#audio-estrella');
+    audio_estrella.volume = 0.2;
+    var audio_perro = document.querySelector('#audio-perro');
+    audio_perro.volume = 0.4;
+
 
     timeout1 = setTimeout(function(){
         $(".skip-arrow").fadeToggle(1500);
@@ -370,7 +379,7 @@ $(document).ready(function(){
 
     $(document).on("click", "#bcover-btn-init", function(){
         $("#audio-intro").animate({volume: 0}, 2000);
-        $("#audio-ruido").animate({volume: 0.5}, 2000);
+        $("#audio-ruido").animate({volume: 0.1}, 2000);
         $(".click-text-bottom").hide();
         firstTransition();
 
@@ -467,7 +476,7 @@ $(document).ready(function(){
             $("#waves1").show();
             $("#waves2").hide();
             $("#audio-atencion").animate({volume: 0}, 200);
-            $("#audio-ruido").animate({volume: 0.5}, 200);
+            $("#audio-ruido").animate({volume: 0.1}, 200);
 
             $(".click-text-bottom.atencion").fadeIn(800);
             $(".click-text-bottom.ruido").fadeOut(800);
@@ -493,7 +502,7 @@ $(document).ready(function(){
         else{
             $("#waves2").show();
             $("#waves1").hide();
-            $("#audio-atencion").animate({volume: 0.5}, 200);
+            $("#audio-atencion").animate({volume: 0.1}, 200);
             $("#audio-ruido").animate({volume: 0}, 200);
 
             $(".click-text-bottom.atencion").fadeOut(800);
@@ -696,7 +705,7 @@ $(document).ready(function(){
         $('#video-modal-close').fadeOut(500);
         $("#audio-ruido").trigger("play");
         $("#audio-atencion").trigger("play");
-        $("#audio-ruido").animate({volume: 0.5}, 200);
+        $("#audio-ruido").animate({volume: 0.1}, 200);
 
         var iframe = $('#vimeo-player')[0];
         var player = $f(iframe);
@@ -755,6 +764,10 @@ $(document).ready(function(){
             /*json.data.name = $("#");*/
             json.data.email = $("#input-email").val();
             json.data.explain = $("input[name='explain']:checked").val();
+            json.data.age = $("input[name='age']:checked").val();
+            json.data.gender = $("input[name='gender']:checked").val();
+            json.data.country = $("#country-select option:selected").text();
+            json.data.city = $("#city-input").val();
         }
     });
 

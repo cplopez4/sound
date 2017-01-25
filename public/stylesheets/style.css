@@ -885,7 +885,7 @@ p.credits-item-c {
 }
 
 .final-inline {
-  width: 49%;
+  width: 30%;
 }
 
 .final-inline img {
@@ -896,7 +896,7 @@ p.credits-item-c {
 .final-btn {
   width: 60px;
   border: 1px dotted white;
-  background-color: rgba(4,0,25,0.7);
+  background-color: rgba(4,0,25,0.8);
   cursor: pointer;
 }
 
