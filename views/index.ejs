@@ -39,6 +39,36 @@
   <source src="audio/click_ruido.aif" type="audio/aif">
 </audio>
 
+<!-- Click Cruces Exteriores -->
+
+<!-- Click Perro -->
+<audio class="audio-ext" id="audio-perro" >
+  <source src="audio/perro.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Click Knock -->
+<audio class="audio-ext" id="audio-knock" >
+  <source src="audio/knock.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Click Celular -->
+<audio class="audio-ext" id="audio-celular" >
+  <source src="audio/celular.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Click Bici -->
+<audio class="audio-ext" id="audio-bici" >
+  <source src="audio/bici.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Click Estrella -->
+<audio class="audio-ext" id="audio-estrella" >
+  <source src="audio/estrella.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Fin Click Cruces Exteriores -->
+
+
 <!-- About Page -->
 <div class="about-main-container hidden">
 <img id="about-panel-close" src="images/pregunta.svg">
@@ -482,12 +512,12 @@
   <div class="cover-container cover-msg">
     <div class="cover-next-msg">
       <p class="cover-next-s">Antes de comenzar, es altamente recomendable que utilices audífonos.</p>
-      <div id="bcover-btn-init" class="cover-inline-img"><img src="images/flecha2.svg"></div>
+      <div id="bcover-btn-init" class="cover-inline-img"><img src="images/start.svg"></div>
     </div>
   </div>
 </div>
 
-<div class="skip-arrow hidden"><img src="images/flecha2.svg"></div>
+<div class="skip-arrow hidden"><p class="skip-text">saltar intro</p></div>
 
 <!-- Fin Elementos de Introducción -->
 
@@ -560,7 +590,7 @@
     </div>
   </div>
   <div class="cover-container cover-msg btns-container">
-    <div class="cover-next-msg">
+    <div class="cover-next-msg final-btns">
       <div class="cover-inline-img final-inline"><img id="arrow-inv" src="images/flecha2.svg"><div id="back-btn" class="final-btn"><p>Volver</p></div></div>
       <div class="cover-inline-img final-inline"><div id="finish-btn" class="final-btn"><p>Finalizar</p></div><img src="images/flecha2.svg"></div>
     </div>
@@ -657,20 +687,32 @@
     <!-- Fin Puntos Extra -->
 
     <!-- Extras Exteriores -->
-    <div class="over-content extra point-elem" id="e18-l15t25" style="left:15%;top:25%;"><img id="img-e18" class="ext-img" src="images/cruz_afuera.svg"></div>
-    <div class="over-content extra point-elem" id="e19-l8t55" style="left:8%;top:55%;"><img id="img-e19" class="ext-img" src="images/cruz_afuera.svg"></div>
-    <div class="over-content extra point-elem" id="e20-l11t88" style="left:11%;top:88%;"><img id="img-e20" class="ext-img" src="images/cruz_afuera.svg"></div>
-    <div class="over-content extra point-elem" id="e21-l90t89" style="left:90%;top:89%;"><img id="img-e21" class="ext-img" src="images/cruz_afuera.svg"></div>
-    <div class="over-content extra point-elem" id="e22-l92t64" style="left:92%;top:64%;"><img id="img-e22" class="ext-img" src="images/cruz_afuera.svg"></div>
-    <div class="over-content extra point-elem" id="e23-l84t37" style="left:84%;top:37%;"><img id="img-e23" class="ext-img" src="images/cruz_afuera.svg"></div>
-    <div class="over-content extra point-elem" id="e24-l91t25" style="left:91%;top:25%;"><img id="img-e24" class="ext-img" src="images/cruz_afuera.svg"></div>
-    <div class="over-content extra point-elem" id="e25-l77t11" style="left:77%;top:11%;"><img id="img-e25" class="ext-img" src="images/cruz_afuera.svg"></div>
+    <div class="over-content extra point-elem exterior" id="e18-l5t25" style="left:7%;top:26%;"><img id="img-e18" data-id="0" class="ext-img" src="images/cruz_afuera.svg"></div>
+    <div class="over-content extra point-elem exterior" id="e19-l5t53" style="left:7%;top:54%;"><img id="img-e19" data-id="1" class="ext-img" src="images/cruz_afuera.svg"></div>
+    <div class="over-content extra point-elem exterior" id="e20-l5t90" style="left:7%;top:91%;"><img id="img-e20" data-id="2" class="ext-img" src="images/cruz_afuera.svg"></div>
+    <div class="over-content extra point-elem exterior" id="e21-l82t90" style="left:84%;top:91%;"><img id="img-e21" data-id="3" class="ext-img" src="images/cruz_afuera.svg"></div>
+    <div class="over-content extra point-elem exterior" id="e22-l94t90" style="left:96%;top:91%;"><img id="img-e22" data-id="4" class="ext-img" src="images/cruz_afuera.svg"></div>
+    <div class="over-content extra point-elem exterior" id="e23-l94t53" style="left:96%;top:54%;"><img id="img-e23" data-id="5" class="ext-img" src="images/cruz_afuera.svg"></div>
+    <div class="over-content extra point-elem exterior" id="e24-l94t9" style="left:96%;top:10%;"><img id="img-e24" data-id="6" class="ext-img" src="images/cruz_afuera.svg"></div>
+    <div class="over-content extra point-elem exterior" id="e25-l82t9" style="left:84%;top:10%;"><img id="img-e25" data-id="7" class="ext-img" src="images/cruz_afuera.svg"></div>
     <!-- Fin Extras Exteriores -->
-
 
 
   <!-- Fin Puntos -->
 
+  <!-- Textos Atención y Ruido -->
+
+  <div class="over-content click-text-bottom atencion hidden">
+      <p class="click-text">/atención//mundo externo///>bajo gasto energético/alerta</p>
+  </div>
+
+  <div class="over-content click-text-bottom ruido hidden">
+      <p class="click-text">/reposo//divagación//actividad intrínseca/</p>
+      <p class="click-text">/modo default/&lt;alto gasto energético</p>
+  </div>
+
+  <!-- Fin Textos Atención y Ruido -->
+  
 
   <!-- Tooltips -->
     

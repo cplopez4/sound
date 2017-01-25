@@ -66,7 +66,7 @@ canvas.second-wave {
   width: 100%;
   height: 110%;
   z-index: -9998;
-  background-color: rgba(4,0,25,0.5);
+  background-color: rgba(4,0,25,0.1);
   position: absolute;
 }
 
@@ -139,6 +139,15 @@ svg {
 
 .ext-img {
   width: 17px;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+          transition:         transform 0.5s ease-in-out;
+}
+
+.ext-img:hover {
+    -webkit-transform:rotate(180deg);
+    -moz-transform:rotate(180deg);
+    -o-transform:rotate(180deg);
 }
 
 .volume-img {
@@ -173,13 +182,13 @@ svg {
 
 .over-content.tooltip {
     color: white;
-    max-width: 200px;
+    max-width: 210px;
     font-size: 11px;
     padding: 15px;
 }
 
 .over-content.tooltip.tt-answer {
-    font-size: 10px;
+    font-size: 11px;
     background-color: rgba(5,0,25,0.9);
     border: 1px solid #fff;
     padding: 9px;
@@ -200,7 +209,7 @@ svg {
 
 .over-content.tooltip .tt-title {
   /*font-weight: bold;*/
-  font-family: "Apercu Bold";
+  font-family: "Apercu Regular";
 }
 
 .tt-main-container {
@@ -307,7 +316,7 @@ iframe {
 
 .main-cover-container {
   position: absolute;
-  left: 50%;
+  left: 49%;
   color: white;
   margin-top: 22%;
   text-align: center;
@@ -326,23 +335,28 @@ iframe {
 
 .cover-container.cover-msg {
   background-color: transparent;
+  padding-top: 30px;
 }
 
 .cover-next-msg {
-  width: 235px;
+  width: 205px;
 }
 
 .cover-next-s {
-  font-size: 10px;
+  font-size: 12px;
   text-align: left;
-  width: 75%;
-  display: inline-block;
+  width: 100%;
+  /*display: inline-block;*/
   line-height: 1.5;
 }
 
 .cover-inline-img {
-  width: 18%;
+  width: 15%;
   display: inline-block;
+}
+
+.cover-inline-img:hover {
+  opacity: 0.7;
 }
 
 .cover-inline-img img {
@@ -417,6 +431,7 @@ iframe {
   font-size: 15px;
   margin: 0;
   letter-spacing: 1;
+  font-family: "Apercu Light";
 }
 
 .cover-container.cover-intro {
@@ -889,6 +904,7 @@ p.credits-item-c {
 
 .btns-container.cover-msg {
   margin-top: 30px;
+  padding-top: 10px;
 }
 
 #video-modal-close {
@@ -911,16 +927,38 @@ p.credits-item-c {
   width: 100%;
 }
 
-.skip-arrow img {
-  width: 18%;
-  width: 5%;
+.skip-arrow p {
+  font-size: 9px;
+  color: white;
+  font-family: "Apercu Mono";
   position: absolute;
   bottom: 35px;
-  right: 45px;
+  right: 50px;
   cursor: pointer;
   z-index: 999;
 }
 
-.skip-arrow img:hover {
-  opacity: 0.8;
+.skip-arrow p:hover {
+  opacity: 0.7;
 }
+
+#cover-home {
+  margin-top: 21%;
+}
+
+.cover-next-msg.final-btns {
+  width: 265px;
+}
+
+.click-text-bottom {
+  top: 92%;
+  left: 11%;
+  color: white;
+}
+
+.click-text {
+  font-size: 11px;
+  font-family: "Apercu Mono";
+  margin: 0px;
+}
+

@@ -99,7 +99,7 @@ $(document).ready(function(){
         }, 7000);
     }, 1200);
 
-    $(document).on("click", ".skip-arrow img", function(){
+    $(document).on("click", ".skip-arrow p", function(){
         clearTimeout(timeout1);
         clearTimeout(timeout2);
         clearTimeout(timeout3);
@@ -323,22 +323,22 @@ $(document).ready(function(){
         }
         else if(type == 5){
             /* Contorno del Cerebro */
-            fixLineAnimated($("#line-e1-e2"),2500);
-            fixLineAnimated($("#line-e2-e3"),2500);
-            fixLineAnimated($("#line-e3-e5"),2500);
-            fixLineAnimated($("#line-e5-e7"),2500);
-            fixLineAnimated($("#line-q2a1e1-e7"),2500);
-            fixLineAnimated($("#line-q2a1e1-e14"),2500);
-            fixLineAnimated($("#line-e9-e14"),2500);
-            fixLineAnimated($("#line-e9-e15"),2500);
-            fixLineAnimated($("#line-e10-e15"),2500);
-            fixLineAnimated($("#line-e10-e12"),2500);
-            fixLineAnimated($("#line-e12-e13"),2500);
-            fixLineAnimated($("#line-q3a2e2-e13"),2500);
-            fixLineAnimated($("#line-q3a2e1-q3a2e2"),2500);
-            fixLineAnimated($("#line-q3a2e1-e8"),2500);
-            fixLineAnimated($("#line-q1a1e2-e8"),2500);
-            fixLineAnimated($("#line-q1a1e2-e1"),2500);
+            $("#line-e1-e2").fadeIn(2500);
+            $("#line-e2-e3").fadeIn(2500);
+            $("#line-e3-e5").fadeIn(2500);
+            $("#line-e5-e7").fadeIn(2500);
+            $("#line-q2a1e1-e7").fadeIn(2500);
+            $("#line-q2a1e1-e14").fadeIn(2500);
+            $("#line-e9-e14").fadeIn(2500);
+            $("#line-e9-e15").fadeIn(2500);
+            $("#line-e10-e15").fadeIn(2500);
+            $("#line-e10-e12").fadeIn(2500);
+            $("#line-e12-e13").fadeIn(2500);
+            $("#line-q3a2e2-e13").fadeIn(2500);
+            $("#line-q3a2e1-q3a2e2").fadeIn(2500);
+            $("#line-q3a2e1-e8").fadeIn(2500);
+            $("#line-q1a1e2-e8").fadeIn(2500);
+            $("#line-q1a1e2-e1").fadeIn(2500);
             /* Fin Contorno del Cerebro */
         }
         else{
@@ -462,22 +462,25 @@ $(document).ready(function(){
             $("#audio-atencion").animate({volume: 0}, 200);
             $("#audio-ruido").animate({volume: 0.5}, 200);
 
-            fixLineAnimated($("#line-e1-e2"),2500);
-            fixLineAnimated($("#line-e2-e3"),2500);
-            fixLineAnimated($("#line-e3-e5"),2500);
-            fixLineAnimated($("#line-e5-e7"),2500);
-            fixLineAnimated($("#line-q2a1e1-e7"),2500);
-            fixLineAnimated($("#line-q2a1e1-e14"),2500);
-            fixLineAnimated($("#line-e9-e14"),2500);
-            fixLineAnimated($("#line-e9-e15"),2500);
-            fixLineAnimated($("#line-e10-e15"),2500);
-            fixLineAnimated($("#line-e10-e12"),2500);
-            fixLineAnimated($("#line-e12-e13"),2500);
-            fixLineAnimated($("#line-q3a2e2-e13"),2500);
-            fixLineAnimated($("#line-q3a2e1-q3a2e2"),2500);
-            fixLineAnimated($("#line-q3a2e1-e8"),2500);
-            fixLineAnimated($("#line-q1a1e2-e8"),2500);
-            fixLineAnimated($("#line-q1a1e2-e1"),2500);
+            $(".click-text-bottom.atencion").fadeIn(800);
+            $(".click-text-bottom.ruido").fadeOut(800);
+
+            fixLineAnimated($("#line-e1-e2"),1500);
+            fixLineAnimated($("#line-e2-e3"),1500);
+            fixLineAnimated($("#line-e3-e5"),1500);
+            fixLineAnimated($("#line-e5-e7"),1500);
+            fixLineAnimated($("#line-q2a1e1-e7"),1500);
+            fixLineAnimated($("#line-q2a1e1-e14"),1500);
+            fixLineAnimated($("#line-e9-e14"),1500);
+            fixLineAnimated($("#line-e9-e15"),1500);
+            fixLineAnimated($("#line-e10-e15"),1500);
+            fixLineAnimated($("#line-e10-e12"),1500);
+            fixLineAnimated($("#line-e12-e13"),1500);
+            fixLineAnimated($("#line-q3a2e2-e13"),1500);
+            fixLineAnimated($("#line-q3a2e1-q3a2e2"),1500);
+            fixLineAnimated($("#line-q3a2e1-e8"),1500);
+            fixLineAnimated($("#line-q1a1e2-e8"),1500);
+            fixLineAnimated($("#line-q1a1e2-e1"),1500);
         }
         //Afuera del cerebro
         else{
@@ -486,6 +489,9 @@ $(document).ready(function(){
             $("#audio-atencion").animate({volume: 0.5}, 200);
             $("#audio-ruido").animate({volume: 0}, 200);
             $(".tt-main-container").addClass("hidden");
+
+            $(".click-text-bottom.atencion").fadeOut(800);
+            $(".click-text-bottom.ruido").fadeIn(800);
 
             $("#line-e1-e2").fadeOut(1500);
             $("#line-e2-e3").fadeOut(1500);
@@ -514,10 +520,45 @@ $(document).ready(function(){
         $(".point-elem").css("z-index", "auto");
         $(".main-cover-container#cover-home").fadeToggle(1800);
 
+        $("#line-e1-e2").fadeOut(1000);
+        $("#line-e2-e3").fadeOut(1000);
+        $("#line-e3-e5").fadeOut(1000);
+        $("#line-e5-e7").fadeOut(1000);
+        $("#line-q2a1e1-e7").fadeOut(1000);
+        $("#line-q2a1e1-e14").fadeOut(1000);
+        $("#line-e9-e14").fadeOut(1000);
+        $("#line-e9-e15").fadeOut(1000);
+        $("#line-e10-e15").fadeOut(1000);
+        $("#line-e10-e12").fadeOut(1000);
+        $("#line-e12-e13").fadeOut(1000);
+        $("#line-q3a2e2-e13").fadeOut(1000);
+        $("#line-q3a2e1-q3a2e2").fadeOut(1000);
+        $("#line-q3a2e1-e8").fadeOut(1000);
+        $("#line-q1a1e2-e8").fadeOut(1000);
+        $("#line-q1a1e2-e1").fadeOut(1000);
+
+        setTimeout(function(){
+            fixLineAnimated($("#line-e1-e2"),1000);
+            fixLineAnimated($("#line-e2-e3"),1000);
+            fixLineAnimated($("#line-e3-e5"),1000);
+            fixLineAnimated($("#line-e5-e7"),1000);
+            fixLineAnimated($("#line-q2a1e1-e7"),1000);
+            fixLineAnimated($("#line-q2a1e1-e14"),1000);
+            fixLineAnimated($("#line-e9-e14"),1000);
+            fixLineAnimated($("#line-e9-e15"),1000);
+            fixLineAnimated($("#line-e10-e15"),1000);
+            fixLineAnimated($("#line-e10-e12"),1000);
+            fixLineAnimated($("#line-e12-e13"),1000);
+            fixLineAnimated($("#line-q3a2e2-e13"),1000);
+            fixLineAnimated($("#line-q3a2e1-q3a2e2"),1000);
+            fixLineAnimated($("#line-q3a2e1-e8"),1000);
+            fixLineAnimated($("#line-q1a1e2-e8"),1000);
+            fixLineAnimated($("#line-q1a1e2-e1"),1000);
+        },800);
 
         setTimeout(function(){
             coverTransition();
-        }, 1000);4
+        }, 1000);
     }
 
     function coverTransition(){
@@ -529,6 +570,8 @@ $(document).ready(function(){
         $(".canvas-mask").fadeToggle(1800);
         $(".canvas-mask-net").fadeToggle(1800);
         $(".point-elem").fadeToggle(1800);
+
+        $(".click-text-bottom.atencion").fadeIn(1800);
     }
 
 
@@ -733,6 +776,22 @@ $(document).ready(function(){
       }, function() {
         $(".about-title").hide("slide", { direction: "left" }, 400);
       }
+    );
+
+    /* Hover Cruces Exteriores - Audios */
+    $(".ext-img").hover(
+      function() {
+        var id = $(this).attr("data-id");
+
+        if(id == "0"){ $("#audio-perro")[0].play(); }
+        else if(id == "1"){ $("#audio-estrella")[0].play(); }
+        else if(id == "2"){ $("#audio-celular")[0].play(); }
+        else if(id == "3"){ $("#audio-perro")[0].play(); }
+        else if(id == "4"){ $("#audio-bici")[0].play(); }
+        else if(id == "5"){ $("#audio-celular")[0].play(); }
+        else if(id == "6"){ $("#audio-knock")[0].play(); }
+        else if(id == "7"){ $("#audio-estrella")[0].play(); }
+      }, function() {}
     );
 
     $(document).on("focus", "#city-input", function(){
@@ -1085,6 +1144,10 @@ $(document).ready(function(){
             $("line").filter(function() { return $(this).css("display") == "none" }).fadeToggle(5000);
             
             $("video").fadeOut(5000);
+
+            $(".point-elem.exterior").fadeOut(5000);
+
+            $(".click-text-bottom").fadeOut(5000);
 
             setTimeout(function(){  
                 $("#final-1").fadeToggle(2500);
