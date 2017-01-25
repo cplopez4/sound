@@ -375,10 +375,10 @@ $(document).ready(function(){
         firstTransition();
 
         /* ELIMINAR */
-        $(".point-elem").each(function() {
+        /*$(".point-elem").each(function() {
             var id = "<p style='color:white;font-size:11px;'>"+ $(this).attr("id") +"</p>";
             $(this).append(id);
-        });
+        });*/
 
     });
 
