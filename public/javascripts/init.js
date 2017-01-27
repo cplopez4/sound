@@ -134,201 +134,62 @@ $(document).ready(function(){
     function showIntroLines(type){
         if(type == 1){
             /* Respuesta 1 */
-            fixLineAnimated($("#line-q1-q1a1e1"),2500);
-            fixLineAnimated($("#line-q1a1e1-q1a1e2"),2500);
-            fixLineAnimated($("#line-q1a1-q1a1e2"),2500);
+            drawAnimateLine(document.querySelector("#line-q2a3-q1a1"),{ initWait: 1500 },0,false);
+            drawAnimateLine(document.querySelector("#line-q2a3-q2a3e1"),{ initWait: 1500 },0,false);
+            drawAnimateLine(document.querySelector("#line-q2a3-q1a1e2"),{ initWait: 1500 },0,false);
+            drawAnimateLine(document.querySelector("#line-q2a3-e8"),{ initWait: 1500 },0,false);
+            drawAnimateLine(document.querySelector("#line-q1a1e1-e1"),{ initWait: 1500 },0,false);
 
-            /* Extras */
-            fixLineAnimated($("#line-q3-q1a1"),2500);
-            fixLineAnimated($("#line-q2-q1a1"),2500);
-            fixLineAnimated($("#line-q2-q3a2e2"),2500);
-            fixLineAnimated($("#line-q1a1-e8"),2500);
-            fixLineAnimated($("#line-q1a1-q2a3e1"),2500);
-            fixLineAnimated($("#line-q2a2-q2a3e1"),2500);
-            fixLineAnimated($("#line-q2a3-q1a1"),2500);
-            fixLineAnimated($("#line-q1-e3"),2500);
-            fixLineAnimated($("#line-q1-e4"),2500);
-            fixLineAnimated($("#line-q1-q2a1"),2500);
-            fixLineAnimated($("#line-e3-e4"),2500);
-            fixLineAnimated($("#line-e4-e5"),2500);
-            /* Respuesta 2 */
-            fixLineAnimated($("#line-q1-q1a2e1"),2500);
-            fixLineAnimated($("#line-q1a2-q1a2e1"),2500);
+            drawAnimateLine(document.querySelector("#line-q1a1-q2a3e1"),{ initWait: 1500 },1,false);
+            drawAnimateLine(document.querySelector("#line-q3a1-e11"),{ initWait: 1500 },0,false);
+            drawAnimateLine(document.querySelector("#line-q3a1-e16"),{ initWait: 1500 },0,false);
 
-            /* Extras */
-            fixLineAnimated($("#line-q2a1-e7"),2500);
-            fixLineAnimated($("#line-q1a2e1-e7"),2500);
-            fixLineAnimated($("#line-q1a2-q2a1e1"),2500);
-            fixLineAnimated($("#line-q2a1e1-e9"),2500);
-
-            /* Respuesta 1 */
-            fixLineAnimated($("#line-q3-q3a1"),2500);
-
-            /* Extras */
-            fixLineAnimated($("#line-q3a1-q3a2e1"),2500);
-            fixLineAnimated($("#line-q3a1-q3a2e2"),2500);
-            
-            fixLineAnimated($("#line-q1a1-q3a2e1"),2500);
-            fixLineAnimated($("#line-q1a1-q3a2e2"),2500);
-            
-            fixLineAnimated($("#line-q3a2e2-e11"),2500);
-            fixLineAnimated($("#line-q3a2e2-e13"),2500);
-            fixLineAnimated($("#line-e11-e13"),2500);
-
-            /* Respuesta 2 */
-            fixLineAnimated($("#line-q3-q3a2e1"),2500);
-            fixLineAnimated($("#line-q3a2e1-q3a2e2"),2500);
-            fixLineAnimated($("#line-q3a2-q3a2e2"),2500);
-
-            /* Extras */
-            fixLineAnimated($("#line-q2-q3a2"),2500);
-            fixLineAnimated($("#line-q3a2-e9"),2500);
-            fixLineAnimated($("#line-q3a2-e10"),2500);
-            fixLineAnimated($("#line-q3a2-e11"),2500);
-            fixLineAnimated($("#line-e12-e11"),2500);
+            drawAnimateLine(document.querySelector("#line-q2a3e1-e16"),{ initWait: 1500, reverse: true },1,false);
+            drawAnimateLine(document.querySelector("#line-q3a2e2-e11"),{ initWait: 1500, reverse: true },1,false);
+            drawAnimateLine(document.querySelector("#line-e11-e13"),{ initWait: 1500 },1,false);
+            drawAnimateLine(document.querySelector("#line-e12-e11"),{ initWait: 1500, reverse: true },1,false);
         }
         else if(type == 2){
-            fixLineAnimated($("#line-q2-q2a1e1"),2500);
-            fixLineAnimated($("#line-q1a2e1-q2a1e1"),2500);
-            fixLineAnimated($("#line-q2a1-q1a2e1"),2500);
-            
-            /* Extras */
-            fixLineAnimated($("#line-q1-e2"),2500);
-            fixLineAnimated($("#line-q1-e3"),2500);
-            fixLineAnimated($("#line-q1-e4"),2500);
-            fixLineAnimated($("#line-q1-q2a1"),2500);
-            fixLineAnimated($("#line-e3-e4"),2500);
-            fixLineAnimated($("#line-e4-e5"),2500);
-            fixLineAnimated($("#line-q2a1-e4"),2500);
-            fixLineAnimated($("#line-q2a1-e6"),2500);
+            drawAnimateLine(document.querySelector("#line-q2a2-q1a1e1"),{ initWait: 1500 },0,false);
+            drawAnimateLine(document.querySelector("#line-q2a2-q2a3e1"),{ initWait: 1500 },0,false);
+            drawAnimateLine(document.querySelector("#line-q1-q2a2"),{ initWait: 1500, reverse: true },0,false);
 
-            fixLineAnimated($("#line-q2-q3a2e2"),2500);
-            fixLineAnimated($("#line-q1a1-e8"),2500);
-            fixLineAnimated($("#line-q1a1-q2a3e1"),2500);
-            fixLineAnimated($("#line-q2a2-q2a3e1"),2500);
-            fixLineAnimated($("#line-q2a3-q1a1"),2500);
+            drawAnimateLine(document.querySelector("#line-q1-e2"),{ initWait: 1500 },1,false);
+            drawAnimateLine(document.querySelector("#line-q1a1e1-e2"),{ initWait: 1500 },1,false);
+            drawAnimateLine(document.querySelector("#line-q2a1-e4"),{ initWait: 1500 },0,false);
+            drawAnimateLine(document.querySelector("#line-q2a1-e5"),{ initWait: 1500 },0,false);
 
-            /* Respuesta 2 */
-            fixLineAnimated($("#line-q1-q1a2e1"),2500);
-            fixLineAnimated($("#line-q1a2-q1a2e1"),2500);
+            drawAnimateLine(document.querySelector("#line-q1-e4"),{ initWait: 1500, reverse: true },1,false);
+            drawAnimateLine(document.querySelector("#line-e4-e5"),{ initWait: 1500 },1,false);
+            drawAnimateLine(document.querySelector("#line-e3-e4"),{ initWait: 1500, reverse: true },1,false);
 
-            /* Respuesta 2 */
-            fixLineAnimated($("#line-q2-q2a2"),2500);
-            fixLineAnimated($("#line-q3a1-q3a2e1"),2500);
-            fixLineAnimated($("#line-q3a1-q3a2e2"),2500);
-            /* Extras */
-            fixLineAnimated($("#line-q2-e9"),2500);
-            fixLineAnimated($("#line-q2a2-q1a2e1"),2500);
-            fixLineAnimated($("#line-q1a2-e9"),2500);
-            fixLineAnimated($("#line-q2a2-q2a1e1"),2500);
-            fixLineAnimated($("#line-q2a1e1-e9"),2500);
-
-            /* Respuesta 3 */
-            fixLineAnimated($("#line-q2-q2a3e1"),2500);
-            fixLineAnimated($("#line-q1a1e2-q2a3e1"),2500);
-            fixLineAnimated($("#line-q2a3-q1a1e2"),2500);
-
-            /* Extras */
-            fixLineAnimated($("#line-q1-e1"),2500);
-            fixLineAnimated($("#line-q1a1e1-e1"),2500);
-            fixLineAnimated($("#line-q1a1e1-q2a3e1"),2500);
-            fixLineAnimated($("#line-q2a3-q1a1e1"),2500);
-            fixLineAnimated($("#line-q2a2-q1a1e1"),2500);
+            drawAnimateLine(document.querySelector("#line-q1-e3"),{ initWait: 1500 },2,false);
         }
         else if(type == 3){
-            /* Respuesta 1 */
-           
-            fixLineAnimated($("#line-q1-q1a1e1"),2500);
-            fixLineAnimated($("#line-q1a1e1-q1a1e2"),2500);
-            fixLineAnimated($("#line-q1a1-q1a1e2"),2500);
+            drawAnimateLine(document.querySelector("#line-q3a2-e10"),{ initWait: 1500 },0,false);
+            drawAnimateLine(document.querySelector("#line-q3a2-e12"),{ initWait: 1500 },0,false);
 
+            drawAnimateLine(document.querySelector("#line-e9-e17"),{ initWait: 1500, reverse: true },1,false);
+            drawAnimateLine(document.querySelector("#line-e15-e17"),{ initWait: 1500, reverse: true },1,false);
+            drawAnimateLine(document.querySelector("#line-q2-e16"),{ initWait: 1500 },1,false);
+            drawAnimateLine(document.querySelector("#line-q2-q2a3e1"),{ initWait: 1500 },1,false);
+            drawAnimateLine(document.querySelector("#line-q1a1-e8"),{ initWait: 1500 },0,false);
+            drawAnimateLine(document.querySelector("#line-q1a1-e16"),{ initWait: 1500 },0,false);
+            drawAnimateLine(document.querySelector("#line-q1a1-q3a2e1"),{ initWait: 1500 },0,false);
 
-            fixLineAnimated($("#line-q2-q1a1"),2500);
-            fixLineAnimated($("#line-q2-q3a2e2"),2500);
-            fixLineAnimated($("#line-q1a1-e8"),2500);
-            /* Extras */
-            fixLineAnimated($("#line-q3a1-q3a2e1"),2500);
-            fixLineAnimated($("#line-q2a2-q2a3e1"),2500);
-            fixLineAnimated($("#line-q2a3-q1a1"),2500);
+            drawAnimateLine(document.querySelector("#line-q3-e16"),{ initWait: 1500, reverse: true },1,false);
+            drawAnimateLine(document.querySelector("#line-q3-q3a2e1"),{ initWait: 1500, reverse: true },1,false);
 
-            /* Respuesta 2 */
-            fixLineAnimated($("#line-q1-q1a2e1"),2500);
-            fixLineAnimated($("#line-q1a2-q1a2e1"),2500);
-
-            /* Respuesta 2 */
-            fixLineAnimated($("#line-q2-q2a2"),2500);
-            fixLineAnimated($("#line-q3a1-q3a2e1"),2500);
-            
-            fixLineAnimated($("#line-q1a1-q3a2e1"),2500);
-            fixLineAnimated($("#line-q1a1-q3a2e2"),2500);
-            
-            fixLineAnimated($("#line-q3a2e2-e11"),2500);
-            fixLineAnimated($("#line-q3a2e2-e13"),2500);
-            fixLineAnimated($("#line-e11-e13"),2500);
-
-            /* Respuesta 2 */
-            fixLineAnimated($("#line-q3-q3a2e1"),2500);
-            fixLineAnimated($("#line-q3a2e1-q3a2e2"),2500);
-            fixLineAnimated($("#line-q3a2-q3a2e2"),2500);
-
-            /* Extras */
-            fixLineAnimated($("#line-q2-q3a2"),2500);
-            fixLineAnimated($("#line-q3a2-e9"),2500);
-            fixLineAnimated($("#line-q3a2-e10"),2500);
-            fixLineAnimated($("#line-q3a2-e11"),2500);
-            fixLineAnimated($("#line-e12-e11"),2500);
-            fixLineAnimated($("#line-q1-q2a1"),2500);
-            fixLineAnimated($("#line-e3-e4"),2500);
-            fixLineAnimated($("#line-e4-e5"),2500);
-            fixLineAnimated($("#line-q2a1-e4"),2500);
-            fixLineAnimated($("#line-q2a1-e6"),2500);
-
-            fixLineAnimated($("#line-q2-q3a2e2"),2500);
-            fixLineAnimated($("#line-q1a1-e8"),2500);
-            fixLineAnimated($("#line-q1a1-q2a3e1"),2500);
-            fixLineAnimated($("#line-q2a2-q2a3e1"),2500);
-            fixLineAnimated($("#line-q2a3-q1a1"),2500);
+            drawAnimateLine(document.querySelector("#line-q3-q3a2e2"),{ initWait: 1500 },2,false);
         }
         else if(type == 4){
-             /* Extras */
-            fixLineAnimated($("#line-q2-q3a2"),2500);
-            fixLineAnimated($("#line-q3a2-e9"),2500);
-            fixLineAnimated($("#line-q3a2-e10"),2500);
-            fixLineAnimated($("#line-q3a2-e11"),2500);
-            fixLineAnimated($("#line-e12-e11"),2500);
-            fixLineAnimated($("#line-q1-q2a1"),2500);
-            fixLineAnimated($("#line-e3-e4"),2500);
-            fixLineAnimated($("#line-e4-e5"),2500);
-            fixLineAnimated($("#line-q2a1-e4"),2500);
-            fixLineAnimated($("#line-q2a1-e6"),2500);
+            drawAnimateLine(document.querySelector("#line-q1a2-q2a1e1"),{ initWait: 1500 },0,false);
+            drawAnimateLine(document.querySelector("#line-q1a2-e14"),{ initWait: 1500 },0,false);
 
-            fixLineAnimated($("#line-q2-q3a2e2"),2500);
-            fixLineAnimated($("#line-q1a1-e8"),2500);
-            fixLineAnimated($("#line-q1a1-q2a3e1"),2500);
-            fixLineAnimated($("#line-q2a2-q2a3e1"),2500);
-            fixLineAnimated($("#line-q2a2-q1a2e1"),2500);
-            fixLineAnimated($("#line-q2a2-q2a1e1"),2500);
-            fixLineAnimated($("#line-q2a1e1-e9"),2500);
-            fixLineAnimated($("#line-q2-q3a2"),2500);
-            fixLineAnimated($("#line-q3a2-e9"),2500);
-            fixLineAnimated($("#line-q3a2-e10"),2500);
-            fixLineAnimated($("#line-q3a2-e11"),2500);
-            fixLineAnimated($("#line-e12-e11"),2500);
-            fixLineAnimated($("#line-q1-q2a1"),2500);
-            fixLineAnimated($("#line-e3-e4"),2500);
-            /* Extras */
-            fixLineAnimated($("#line-q2-q3a2"),2500);
-            fixLineAnimated($("#line-q3a2-e9"),2500);
-            fixLineAnimated($("#line-q3a2-e10"),2500);
-            fixLineAnimated($("#line-q3a2-e11"),2500);
-            fixLineAnimated($("#line-e12-e11"),2500);
-            fixLineAnimated($("#line-q1-q2a1"),2500);
-            fixLineAnimated($("#line-e3-e4"),2500);
+            drawAnimateLine(document.querySelector("#line-q1a2e1-q2a1e1"),{ initWait: 1500, reverse: true },1,false);
+            drawAnimateLine(document.querySelector("#line-q2a1-e7"),{ initWait: 1500, reverse: true },1,false);
 
-            fixLineAnimated($("#line-q1a1-e8"),2500);
-            fixLineAnimated($("#line-q1a1-q2a3e1"),2500);
-            fixLineAnimated($("#line-q2a2-q2a3e1"),2500);
-            fixLineAnimated($("#line-q2a3-q1a1"),2500);
+            drawAnimateLine(document.querySelector("#line-q2a2-q1a2e1"),{ initWait: 1500, reverse: true },2,false);
         }
         else if(type == 5){
             /* Contorno del Cerebro */
@@ -600,11 +461,17 @@ $(document).ready(function(){
         $(".about-main-container").fadeIn(1000);
 
         $("#about-info-form").fadeIn(1000);
+
+        setTimeout(function(){
+            $(".point-elem.exterior").fadeIn(1500);
+        }, 1000);
     });
 
     /* Click Volver */
     $(document).on("click", "#back-btn", function(e){
         $("#final-2").fadeOut(1500);
+
+        $(".point-elem.exterior").fadeIn(2000);
     });
 
     /* Fin Guión Transiciones */
@@ -864,6 +731,8 @@ $(document).ready(function(){
 
     function drawAnimateLine(line, options, n, dashedOp) {
 
+        var initWait = options.initWait || 500;
+
         setTimeout(function(){
 
             $(line).attr("class","");
@@ -921,7 +790,7 @@ $(document).ready(function(){
                 callback()
             }, duration)
 
-        }, ((n*1000)+500));
+        }, ((n*1000)+initWait));
     }
 
 
@@ -1282,7 +1151,7 @@ $(document).ready(function(){
                 setTimeout(function(){
                     $("#final-1").fadeToggle(2500);
                     $("#final-2").fadeToggle(2500);
-                }, 8000);
+                }, 9000);
             }, 6000)
         }
     }
