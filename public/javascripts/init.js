@@ -141,21 +141,7 @@ $(document).ready(function(){
             drawAnimateLine(document.querySelector("#line-q1a1e1-e1"),{ initWait: 1500 },0,false);
 
             drawAnimateLine(document.querySelector("#line-q1a1-q2a3e1"),{ initWait: 1500 },1,false);
-            drawAnimateLine(document.querySelector("#line-q3a1-e11"),{ initWait: 1500 },0,false);
-            drawAnimateLine(document.querySelector("#line-q3a1-e16"),{ initWait: 1500 },0,false);
 
-            drawAnimateLine(document.querySelector("#line-q2a3e1-e16"),{ initWait: 1500, reverse: true },1,false);
-            drawAnimateLine(document.querySelector("#line-q3a2e2-e11"),{ initWait: 1500, reverse: true },1,false);
-            drawAnimateLine(document.querySelector("#line-e11-e13"),{ initWait: 1500 },1,false);
-            drawAnimateLine(document.querySelector("#line-e12-e11"),{ initWait: 1500, reverse: true },1,false);
-        }
-        else if(type == 2){
-            drawAnimateLine(document.querySelector("#line-q2a2-q1a1e1"),{ initWait: 1500 },0,false);
-            drawAnimateLine(document.querySelector("#line-q2a2-q2a3e1"),{ initWait: 1500 },0,false);
-            drawAnimateLine(document.querySelector("#line-q1-q2a2"),{ initWait: 1500, reverse: true },0,false);
-
-            drawAnimateLine(document.querySelector("#line-q1-e2"),{ initWait: 1500 },1,false);
-            drawAnimateLine(document.querySelector("#line-q1a1e1-e2"),{ initWait: 1500 },1,false);
             drawAnimateLine(document.querySelector("#line-q2a1-e4"),{ initWait: 1500 },0,false);
             drawAnimateLine(document.querySelector("#line-q2a1-e5"),{ initWait: 1500 },0,false);
 
@@ -164,8 +150,57 @@ $(document).ready(function(){
             drawAnimateLine(document.querySelector("#line-e3-e4"),{ initWait: 1500, reverse: true },1,false);
 
             drawAnimateLine(document.querySelector("#line-q1-e3"),{ initWait: 1500 },2,false);
+
+            drawAnimateLine(document.querySelector("#line-q1a2-q2a1e1"),{ initWait: 1500 },0,false);
+            drawAnimateLine(document.querySelector("#line-q1a2-e14"),{ initWait: 1500 },0,false);
+
+            drawAnimateLine(document.querySelector("#line-q1a2e1-q2a1e1"),{ initWait: 1500, reverse: true },1,false);
+            drawAnimateLine(document.querySelector("#line-q2a1-e7"),{ initWait: 1500, reverse: true },1,false);
+
+            drawAnimateLine(document.querySelector("#line-q2a2-q1a2e1"),{ initWait: 1500, reverse: true },2,false);
+
+        }
+        else if(type == 2){
+            drawAnimateLine(document.querySelector("#line-q2a2-q1a1e1"),{ initWait: 1500 },0,false);
+            drawAnimateLine(document.querySelector("#line-q2a2-q2a3e1"),{ initWait: 1500 },0,false);
+            drawAnimateLine(document.querySelector("#line-q1-q2a2"),{ initWait: 1500, reverse: true },0,false);
+
+            drawAnimateLine(document.querySelector("#line-q1-e2"),{ initWait: 1500 },1,false);
+            drawAnimateLine(document.querySelector("#line-q1a1e1-e2"),{ initWait: 1500 },1,false);
+
+            drawAnimateLine(document.querySelector("#line-q3a1-e11"),{ initWait: 1500 },0,false);
+            drawAnimateLine(document.querySelector("#line-q3a1-e16"),{ initWait: 1500 },0,false);
+
+            drawAnimateLine(document.querySelector("#line-q2a3e1-e16"),{ initWait: 1500, reverse: true },1,false);
+            drawAnimateLine(document.querySelector("#line-q3a2e2-e11"),{ initWait: 1500, reverse: true },1,false);
+            drawAnimateLine(document.querySelector("#line-e11-e13"),{ initWait: 1500 },1,false);
+            drawAnimateLine(document.querySelector("#line-e12-e11"),{ initWait: 1500, reverse: true },1,false);
+
+
+            drawAnimateLine(document.querySelector("#line-q3-q1a1"),{ initWait: 1500 },0,false);
+
+            drawAnimateLine(document.querySelector("#line-q3-q3a1"),{ initWait: 1500 },0,false);
+            drawAnimateLine(document.querySelector("#line-q3a1-q3a2"),{ initWait: 1500 },1,false);
+            drawAnimateLine(document.querySelector("#line-q3a2-e17"),{ initWait: 1500 },2,false);
+            drawAnimateLine(document.querySelector("#line-q1a2-e17"),{ initWait: 1500, reverse: true },3,false);
         }
         else if(type == 3){
+            drawAnimateLine(document.querySelector("#line-q1-q1a1e1"),{ initWait: 1500 },0,false);
+            drawAnimateLine(document.querySelector("#line-q2a3-q1a1e1"),{ initWait: 1500, reverse: true },1,false);
+
+            drawAnimateLine(document.querySelector("#line-q1-q1a2e1"),{ initWait: 1500 },0,false);
+            drawAnimateLine(document.querySelector("#line-q1a2-q1a2e1"),{ initWait: 1500, reverse: true },1,false);
+            drawAnimateLine(document.querySelector("#line-q2-q1a2"),{ initWait: 1500, reverse: true },2,false);
+            drawAnimateLine(document.querySelector("#line-q2-q3a1"),{ initWait: 1500 },3,false);
+
+            drawAnimateLine(document.querySelector("#line-q2-q2a2"),{ initWait: 1500 },0,false);
+
+            drawAnimateLine(document.querySelector("#line-q2-q1a2e1"),{ initWait: 1500 },0,false);
+            drawAnimateLine(document.querySelector("#line-q2a1-q1a2e1"),{ initWait: 1500, reverse: true },1,false);
+
+            drawAnimateLine(document.querySelector("#line-q2-q3a2"),{ initWait: 1500 },0,false);
+        }
+        else if(type == 4){
             drawAnimateLine(document.querySelector("#line-q3a2-e10"),{ initWait: 1500 },0,false);
             drawAnimateLine(document.querySelector("#line-q3a2-e12"),{ initWait: 1500 },0,false);
 
@@ -173,6 +208,7 @@ $(document).ready(function(){
             drawAnimateLine(document.querySelector("#line-e15-e17"),{ initWait: 1500, reverse: true },1,false);
             drawAnimateLine(document.querySelector("#line-q2-e16"),{ initWait: 1500 },1,false);
             drawAnimateLine(document.querySelector("#line-q2-q2a3e1"),{ initWait: 1500 },1,false);
+            
             drawAnimateLine(document.querySelector("#line-q1a1-e8"),{ initWait: 1500 },0,false);
             drawAnimateLine(document.querySelector("#line-q1a1-e16"),{ initWait: 1500 },0,false);
             drawAnimateLine(document.querySelector("#line-q1a1-q3a2e1"),{ initWait: 1500 },0,false);
@@ -181,15 +217,6 @@ $(document).ready(function(){
             drawAnimateLine(document.querySelector("#line-q3-q3a2e1"),{ initWait: 1500, reverse: true },1,false);
 
             drawAnimateLine(document.querySelector("#line-q3-q3a2e2"),{ initWait: 1500 },2,false);
-        }
-        else if(type == 4){
-            drawAnimateLine(document.querySelector("#line-q1a2-q2a1e1"),{ initWait: 1500 },0,false);
-            drawAnimateLine(document.querySelector("#line-q1a2-e14"),{ initWait: 1500 },0,false);
-
-            drawAnimateLine(document.querySelector("#line-q1a2e1-q2a1e1"),{ initWait: 1500, reverse: true },1,false);
-            drawAnimateLine(document.querySelector("#line-q2a1-e7"),{ initWait: 1500, reverse: true },1,false);
-
-            drawAnimateLine(document.querySelector("#line-q2a2-q1a2e1"),{ initWait: 1500, reverse: true },2,false);
         }
         else if(type == 5){
             /* Contorno del Cerebro */
@@ -217,6 +244,7 @@ $(document).ready(function(){
     }
 
     function resetLines(){
+        $("line").attr("class","hidden");
         $("line").attr("style","");
         $("line").attr('stroke-linecap', "round");
         $("line").attr('stroke-dasharray', "1,5");
@@ -1151,7 +1179,7 @@ $(document).ready(function(){
                 setTimeout(function(){
                     $("#final-1").fadeToggle(2500);
                     $("#final-2").fadeToggle(2500);
-                }, 9000);
+                }, 10000);
             }, 6000)
         }
     }
