@@ -12,6 +12,7 @@
 <script src="javascripts/jquery-1.10.2.min.js"></script>
 <script src="javascripts/jquery-ui.js"></script>
 <script src="javascripts/jquery.qtip.min.js"></script>
+<script src="javascripts/jquery.rotate.min.js"></script>
 <script src="javascripts/wave.js"></script>
 
 <!-- Audio Introducción -->
@@ -93,7 +94,7 @@
         </p>
         
         <div class="form-left-final hidden">
-          <p class="about-content-p about-content-p-final">Esta plataforma es el primer prototipo de un proyecto colaborativo entre neurociencia y diseño, acogido por la Escuela de Diseño y la Facultad de Medicina de la Pontificia Universidad Católica de Chile. Este, que tiene por objetivo desarrollar una obra interactiva para la Sala Anilla del Museo de Arte Contemporáneo (MAC, Parque Forestal), a inaugurarse en septiembre de 2017. Tanto las respuestas recogidas en el formulario a continuación como el registro de tu navegación en esta plataforma, servirán para diseñar la obra futura. Si estás de acuerdo en compartir con nosotros de forma anónima esta información, presiona enviar al final del formulario.<br><br>¡Te agradecemos tu participación!</p><br>
+          <p class="about-content-p about-content-p-final">Esta plataforma es el primer prototipo de un proyecto colaborativo entre neurociencia y diseño, acogido por la Escuela de Diseño y la Facultad de Medicina de la Pontificia Universidad Católica de Chile. Tiene por objetivo desarrollar una obra interactiva que será inaugurada en septiembre del 2017 en el Museo de Arte Contemporáneo. Tanto las respuestas recogidas en el formulario a continuación como el registro de tu navegación en esta plataforma, servirán para diseñar la obra futura. Si estás de acuerdo en compartir con nosotros de forma anónima esta información, presiona enviar al final del formulario.<br><br>¡Te agradecemos tu participación!<br><br>Más información (<a target="_blank" href="http://xdefault.cl">http://xdefault.cl</a>)</p><br>
           <div class="form-about-left-fix">
             <div class="form-inner">
               <div class="form-left">
@@ -369,22 +370,36 @@
       <div class="about-right">
 
         <div class="credits-container">
-          <p class="about-content-t">CRÉDITOS</p>
+          
           <div class="about-credits">
+            <p class="about-content-t">CRÉDITOS</p>
 
-            <ul class="credits-list">
+            <ul class="credits-list small-list">
               <li class="credits-item"><p class="credits-item-t">Diseño y realización</p><p class="credits-item-c">Karina Hyland</p></li>
-              <li class="credits-item"><p class="credits-item-t">Programación web</p><p class="credits-item-c">Cristhian López</p></li>
               <li class="credits-item"><p class="credits-item-t right">Investigadores responsables</p><p class="credits-item-c right">Manuela Garretón y Tomás Ossandón</p></li>
               <li class="credits-item"><p class="credits-item-t right">Diseño sonoro</p><p class="credits-item-c right">Pablo Garretón</p></li>
-            </ul>
-            <ul class="credits-list small-list">
+              <li class="credits-item"><p class="credits-item-t">Programación web</p><p class="credits-item-c">Cristhian López</p></li>
               <li class="credits-item"><p class="credits-item-t right">Locución</p><p class="credits-item-c right">Francisca Huber</p></li>
             </ul>
           
           </div>
+          <div class="about-credits links">
+          <p class="about-content-t">LINKS DE INTERÉS</p>
+
+            <ul class="credits-list small-list">
+              <li class="credits-item"><p class="credits-item-t">Papers</p></li>
+              <li class="credits-item"><a target="_blank" href="https://pdfs.semanticscholar.org/aa94/9d605049459a1a581b4563237140ab72b239.pdf"><p class="credits-item-c right">The Brain's Default Network, anatomy, function and relevance to disease.<br>(Buckner, Andrews-Hanna Schacter, 2008)</p></a></li>
+              <li class="credits-item m-bot-45"><a target="_blank" href="http://www.appliedneuroscience.com/Default%20mode-a%20brief%20history.pdf"><p class="credits-item-c right">A default mode of brain function: a brief history of an evolving idea<br>(Raichle, Snyder, 2007)</p></a></li>
+              <li class="credits-item"><p class="credits-item-t">Otros</p></li>
+              <li class="credits-item"><a target="_blank" href="http://www.quepasa.cl/articulo/ciencia/2015/11/mientras-dormias.shtml/"><p class="credits-item-c right">Mientras dormías, Revista Qué Pasa</p></a></li>
+              <li class="credits-item"><a target="_blank" href="http://karinahy.com/memoria"><p class="credits-item-c right">Memoria proyecto de título</p></a></li>
+            </ul>
+          
+          </div>
+
+          <div class="logo-uc"><img class="logo-diseno" src="images/logo.svg"><img src="images/medicina.svg"></div>
           <p class="credits-support">Este proyecto ha sido realizado con el apoyo de la Vicerrectoría de Investigación de la Pontificia Universidad Católica de Chile </p>
-          <div class="logo-uc"><img src="images/logo.svg"></div>
+
         </div>
         
         <div class="form-right-final hidden">
@@ -640,7 +655,8 @@
 
   <div class="over-content info hidden" style="left:107px;top:68px;">
     <div class="info-container">
-      <p class="info-content">Para explorar y distinguir los dos estados principales en los que puede estar la mente, puedes hacer click en cualquier cruz de la pantalla.</p>
+      <p class="info-content">Para explorar la plataforma haz click en los distintos tipos de cruces.</p>
+      <div class="cross-container"><img class="cross-img" src="images/instrucciones.png"></div>
       <div class="info-close"><span>x</span></div>
       <div class="info-border"></div>
     </div>
@@ -739,8 +755,8 @@
     <!-- Pregunta 1 -->
     <div class="tt-q1-container tt-main-container hidden">
       <div class="over-content tooltip arrowbox-right tt-question" id="tt-q1" style="left:7%;top:38%;">
-        <p class="tt-content">Hay dos principales momentos en los que estamos donde el cerebro entra en estado de reposo.</p>
-        <p class="tt-title">¿En cuál de estas dos situaciones te encuentras más a menudo?</p>
+        <p class="tt-content">Existen dos situaciones que permiten entrar en estado de reposo.</p>
+        <p class="tt-title">¿En cuál de estas dos te encuentras más a menudo?</p>
       </div>
       
       <div class="over-content tooltip tt-answer hidden" video-id="198436388" id="tt-q1a1" style="left:50%;top:24%;">

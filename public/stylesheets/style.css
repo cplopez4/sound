@@ -611,10 +611,12 @@ p.about-content-t {
   font-family: "Apercu Bold";
   /*font-weight: bold;*/
   letter-spacing: 1;
+  font-size: 14px;
+  margin-bottom: 22px;
 }
 
 .about-title-container{
-  width: 40%;
+  width: 37%;
   margin-bottom: 35px;
   margin-left: 60px;
 }
@@ -636,6 +638,8 @@ p.about-content-t {
 .about-right {
   font-size: 12px;
   margin-top: 12px;
+  top: 89px;
+  position: absolute;
 }
 
 .about-right span {
@@ -687,6 +691,7 @@ ul.credits-list.small-list {
 
 .credits-item p {
   margin: 0;
+  margin-bottom: 2px;
 }
 
 .credits-item {
@@ -700,13 +705,13 @@ ul.credits-list.small-list {
 .credits-item-t {
   letter-spacing: 0.6;
   font-family: "Apercu Mono";
-  font-size: 11px;
+  font-size: 12px;
 }
 
 p.credits-item-c {
-  font-family: "Apercu Bold";
+  font-family: "Apercu Regular";
   /*font-weight: bold;*/
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.4;
 }
 
@@ -806,7 +811,7 @@ p.credits-item-c {
 }
 
 .logo-uc img {
-  width: 160px;
+  width: 35%;
   margin-left: -7px;
 }
 
@@ -823,20 +828,19 @@ p.credits-item-c {
 }
 
 .info-container {
-  width: 295px;
+  width: 330px;
   color: white;
-  font-size: 14px;
+  font-size: 18px;
   border: 1px dashed white;
   font-family: "Apercu Light";
   background-color: rgba(4,0,25,0.8);
-  line-height: 1.4;
+  line-height: 1.6;
 }
 
 .info-content {
   margin-bottom: 0px;
-  padding: 20px;
+  padding: 39px 50px 30px 50px;
   margin-top: 0;
-  padding-top: 39px;
 }
 
 .info-close, .info-border {
@@ -985,7 +989,55 @@ p.credits-item-c {
 }
 
 .credits-support {
-  margin-top: 30px;
-  font-size: 9px;
+  margin-top: 33px;
+  font-size: 15px;
+  width: 88%;
 }
 
+.cross-container {
+  padding: 10px 100px 30px;
+}
+
+.cross-img {
+  width: 125px;
+}
+
+.over-content.tooltip#tt-q1 {
+  padding-top: 19px;
+  padding-bottom: 19px;
+}
+
+.over-content.tooltip#tt-q1 .tt-content {
+  margin-bottom: 10px;
+}
+
+.about-credits {
+  width: 49%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.about-credits.links {
+  width: 40%;
+}
+
+.credits-item.m-bot-45 {
+  margin-bottom: 45px;
+}
+
+.logo-diseno {
+  margin-right: 14%;
+}
+
+.about-content-p.about-content-p-final a {
+  color: white;
+}
+
+.credits-item a {
+  color: white;
+  text-decoration: none;
+}
+
+.credits-item a:hover p {
+  opacity: 0.8;
+}
