@@ -990,7 +990,7 @@ p.credits-item-c {
 
 .credits-support {
   margin-top: 33px;
-  font-size: 15px;
+  font-size: 12px;
   width: 88%;
 }
 
@@ -1039,5 +1039,13 @@ p.credits-item-c {
 }
 
 .credits-item a:hover p {
+  opacity: 0.8;
+}
+
+a.more-info-link {
+  text-decoration: none;
+}
+
+a.more-info-link:hover {
   opacity: 0.8;
 }

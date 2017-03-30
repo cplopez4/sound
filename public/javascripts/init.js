@@ -490,7 +490,7 @@ $(document).ready(function(){
 
         setTimeout(function(){
             $(".over-content.info").fadeOut(1000);
-        }, 8000);
+        }, 15000);
     }
 
 
@@ -660,10 +660,7 @@ $(document).ready(function(){
     }); */
 
     $(document).on("click", ".btn-send", function(){
-        if($("#input-email").val() == ""){
-            $("#input-email").css("border","1px solid #F1002F");
-        }
-        else if(!isValidEmailAddress($("#input-email").val())) {
+        if($("#input-email").val() != "" && !isValidEmailAddress($("#input-email").val())) {
             $("#input-email").css("border","1px solid #F1002F");
             $(".about-wrong").fadeToggle(400); 
             
@@ -709,6 +706,7 @@ $(document).ready(function(){
         $(".form-right-final").fadeOut(500);
 
         setTimeout(function(){
+            $(".about-right").css({ 'top':'89px', 'position':'absolute' });
             $(".credits-container").fadeIn(500);
             $(".content-p-init").fadeIn(500);
         }, 500);
@@ -723,6 +721,7 @@ $(document).ready(function(){
         $(".content-p-init").fadeOut(500);
 
         setTimeout(function(){
+            $(".about-right").css({ 'top':'0px', 'position':'relative' });
             $(".form-left-final").fadeIn(500);
             $(".form-right-final").fadeIn(500);
         }, 500);
@@ -1037,6 +1036,9 @@ $(document).ready(function(){
     function fixRoute(type){
         /* Q1A1 */
         if(type == 1 && !route1){
+            $("#img-q1").attr("src", "images/pregunta_verde.png");
+            $("#img-q2a3").attr("src", "images/respuesta_verde.png");
+
             /* Respuesta 1 */
             fixLine($("#line-q1-q1a1e1"));
             fixLine($("#line-q2a3-q1a1e1"));
@@ -1057,6 +1059,9 @@ $(document).ready(function(){
         }
         /* Q1A2 */
         else if(type == 2 && !route2){
+            $("#img-q1").attr("src", "images/pregunta_verde.png");
+            $("#img-q3a1").attr("src", "images/respuesta_verde.png");
+
             /* Respuesta 2 */
             fixLine($("#line-q1-q1a2e1"));
             fixLine($("#line-q1a2-q1a2e1"));
@@ -1077,6 +1082,9 @@ $(document).ready(function(){
         }
         /* Q2A1 */
         else if(type == 3 && !route3){
+            $("#img-q2").attr("src", "images/pregunta_verde.png");
+            $("#img-q2a2").attr("src", "images/respuesta_verde.png");
+
             /* Respuesta 1 */
             fixLine($("#line-q2-q2a2"));
 
@@ -1092,6 +1100,9 @@ $(document).ready(function(){
         }
         /* Q2A2 */
         else if(type == 4 && !route4){
+            $("#img-q2").attr("src", "images/pregunta_verde.png");
+            $("#img-q2a1").attr("src", "images/respuesta_verde.png");
+
             /* Respuesta 2 */
             fixLine($("#line-q2-q1a2e1"));
             fixLine($("#line-q2a1-q1a2e1"));
@@ -1111,6 +1122,9 @@ $(document).ready(function(){
         }
         /* Q2A3 */
         else if(type == 5 && !route5){
+            $("#img-q2").attr("src", "images/pregunta_verde.png");
+            $("#img-q3a2").attr("src", "images/respuesta_verde.png");
+
             /* Respuesta 3 */
             fixLine($("#line-q2-q3a2"));
 
@@ -1128,6 +1142,9 @@ $(document).ready(function(){
         }
         /* Q3A1 */
         else if(type == 6 && !route6){
+            $("#img-q3").attr("src", "images/pregunta_verde.png");
+            $("#img-q1a1").attr("src", "images/respuesta_verde.png");
+
             /* Respuesta 1 */
             fixLine($("#line-q3-q1a1"));
 
@@ -1146,6 +1163,9 @@ $(document).ready(function(){
         }
         /* Q3A2 */
         else if(type == 7 && !route7){
+            $("#img-q3").attr("src", "images/pregunta_verde.png");
+            $("#img-q1a2").attr("src", "images/respuesta_verde.png");
+
             /* Respuesta 2 */
             fixLine($("#line-q3-q3a1"));
             fixLine($("#line-q3a1-q3a2"));
