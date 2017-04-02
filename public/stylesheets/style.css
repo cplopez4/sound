@@ -1049,3 +1049,7 @@ a.more-info-link {
 a.more-info-link:hover {
   opacity: 0.8;
 }
+
+#final-1 {
+  max-width: 550px;
+}
