@@ -4,16 +4,23 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var i18n = require('i18n');
 
 /* Mongoose - MongoDB */
 var mongoose = require('mongoose');
 var mongo = mongoose.connect('mongodb://127.0.0.1:27017/sound');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 var api = require('./routes/api');
 
 var app = express();
+
+i18n.configure({
+  locales: ['es', 'en'],
+  directory: __dirname + '/locales'
+});
+
+app.use(i18n.init);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -27,7 +34,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
 app.use('/api', api);
 
 // catch 404 and forward to error handler
