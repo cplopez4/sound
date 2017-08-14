@@ -18,7 +18,8 @@
 		},
 		"slide_4": {
 			"line_1": "The brain constantly tells stories to itself and it does so by default"
-		}
+		},
+		"skip": "skip intro"
 	},
 	"home": {
 		"title": "DEFAULT STORIES",

@@ -18,13 +18,82 @@
 		},
 		"slide_4": {
 			"line_1": "El cerebro se cuenta historias constantemente, y lo hace por default"
-		}
+		},
+		"skip": "saltar intro"
 	},
 	"home": {
-		"title": "HISTORIAS POR DEFUALT",
+		"title": "HISTORIAS POR DEFAULT",
 		"subtitle": "Una experiencia interactiva sobre la red neuronal por defecto",
 		"hint": "Antes de comenzar, es altamente recomendable que utilices audífonos"
+	},
+	"main": {
+		"question_1": {
+			"title": "Existen dos situaciones que permiten entrar en estado de reposo.",
+			"subtitle": "¿En cuál de estas dos te encuentras más a menudo?",
+			"answer_1": {
+				"title": "A. No realizando ninguna actividad",
+				"subtitle": "(contemplación, soñando despierto)",
+				"video_id": "198436388"
+			},
+			"answer_2": {
+				"title": "B. Realizando alguna actividad mecánica",
+				"subtitle": "(lavarse los dientes, preparar café, colorear, caminar",
+				"video_id": "198436637"
+			}
+		},
+		"question_2": {
+			"title": "Sabemos que es imposible volver al pasado o ir al futuro. Sin embargo, la mente tiene la capacidad de viajar en el tiempo.",
+			"subtitle": "¿Hacia qué tiempos sueles ir?",
+			"answer_1": {
+				"title": "A. Pasado",
+				"video_id": "198436888"
+			},
+			"answer_2": {
+				"title": "B. Futuro",
+				"video_id": "198437182"
+			},
+			"answer_3": {
+				"title": "C. Ninguno en particular",
+				"video_id": "198439697"
+			}						
+		},
+		"question_3": {
+			"title": "La divagación mental puede generar distintos efectos en las personas.",
+			"subtitle": "¿Qué consecuencias crees que ha tenido para tí estar en estados de reposo?",
+			"answer_1": {
+				"title": "A. Positivos",
+				"video_id": "198441387"
+			},
+			"answer_2": {
+				"title": "B. Negativos",
+				"video_id": "198473361"
+			}
+		},
+		"hintbox": "Para explorar la plataforma haz click en los distintos tipos de cruces.",
+		"about_slide": "SOBRE EL PROYECTO"
+	},
+	"outro": {
+		"slide_1": {
+			"line_1": "En el 2001, el neurocientífico Marcus Raichle",
+			"line_2": "descubrió un conjunto de zonas cerebrales que se activan",
+			"line_3": "durante la divagación y le otorgó",
+			"line_4": "el nombre de RED NEURONAL POR DEFECTO",
+			"line_5": "o en inglés: DEFAULT MODE NETWORK (DMN)"
+		},
+		"slide_2": {
+			"line_1": "El descubrimiento de esta red cambió",
+			"line_2": "nuestra noción de que el cerebro solamente",
+			"line_3": "está activo cuando realizamos una tarea",
+			"line_4": "Hoy sabemos que el cerebro jamás está en reposo",
+			"line_5": "y que los momentos en los que no existen metas",
+			"line_6": "claras son los de mayor lucidez y creatividad."
+		},
+		"buttons": {
+			"back": "Go back",
+			"end": "End"
+		}
+	},
+	"form": {
+		
 	}
-
 }
-
