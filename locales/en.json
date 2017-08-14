@@ -1,0 +1,29 @@
+{
+	"intro": {
+		"slide_1": {
+			"line_1": "Since the year 1900, when the brain was not",
+			"line_2": "being stimulated or performing a task, it was",
+			"line_3": "thought it entered into a state of rest."
+		},
+		"slide_2": {
+			"line_1": "Therefore without stimuli, neuronal",
+			"line_2": "activity did not correspond to any",
+			"line_3": "relevant cognitive process."
+		},
+		"slide_3": {
+			"line_1": "In 2001, it was discovered that the brain is not only",
+			"line_2": "working when performing a task, but rather all the",
+			"line_3": "activity before and after a stimulus, consumes a lot",
+			"line_4": "of energy and occupies most of the day."
+		},
+		"slide_4": {
+			"line_1": "The brain constantly tells stories to itself and it does so by default"
+		}
+	},
+	"home": {
+		"title": "DEFAULT STORIES",
+		"subtitle": "An interactive experience about the default mode network",
+		"hint": "The use of headphones is highly recommended"
+	}
+}
+

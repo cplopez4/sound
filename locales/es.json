@@ -1,0 +1,30 @@
+{
+	"intro": {
+		"slide_1": {
+			"line_1": "Desde el año 1900, se pensaba que cuando el",
+			"line_2": "cerebro no estaba siendo estimulado o realizando",
+			"line_3": "alguna tarea, entraba en estado de reposo."
+		},
+		"slide_2": {
+			"line_1": "Se pensaba que sin estímulos,",
+			"line_2": "la actividad neuronal no correspondía a",
+			"line_3": "ningún proceso cognitivo relevante."
+		},
+		"slide_3": {
+			"line_1": "En el año 2001 se descubrió que el cerebro no solo",
+			"line_2": "está trabajando cuando realizamos una tarea,",
+			"line_3": "sino que toda la actividad previa y posterior a un estímulo,",
+			"line_4": "consume mucha energía y ocupa gran parte del día."
+		},
+		"slide_4": {
+			"line_1": "El cerebro se cuenta historias constantemente, y lo hace por default"
+		}
+	},
+	"home": {
+		"title": "HISTORIAS POR DEFUALT",
+		"subtitle": "Una experiencia interactiva sobre la red neuronal por defecto",
+		"hint": "Antes de comenzar, es altamente recomendable que utilices audífonos"
+	}
+
+}
+
