@@ -1,5 +1,5 @@
 <head>
-  <title>Historias por default</title>
+  <title><%= title %></title>
 </head>
 
 <link href="stylesheets/style.css" rel="stylesheet" type="text/css">
@@ -94,29 +94,29 @@
         </p>
         
         <div class="form-left-final hidden">
-          <p class="about-content-p about-content-p-final">Esta plataforma es el primer prototipo de un proyecto colaborativo entre neurociencia y diseño, acogido por la Escuela de Diseño y la Facultad de Medicina de la Pontificia Universidad Católica de Chile. Tiene por objetivo desarrollar una obra interactiva que será inaugurada en septiembre del 2017 en el Museo de Arte Contemporáneo. Tanto las respuestas recogidas en el formulario a continuación como el registro de tu navegación en esta plataforma, servirán para diseñar la obra futura. Si estás de acuerdo en compartir con nosotros esta información, presiona enviar al final del formulario.<br><br>¡Te agradecemos tu participación!<br><br><a class="more-info-link" target="_blank" href="http://xdefault.cl">Más información</a></p><br>
+          <p class="about-content-p about-content-p-final"><%= __('form.content.text') %><br><br><%= __('form.content.greeting') %><br><br><a class="more-info-link" target="_blank" href="http://xdefault.cl"><%= __('form.content.more_info') %></a></p><br>
           <div class="form-about-left-fix">
             <div class="form-inner">
               <div class="form-left">
                 <div class="left-age">
-                  <span>Edad</span><br>
+                  <span><%= __('form.input.age.header') %></span><br>
                   <input type="radio" name="age" value="0" checked> 14-20<br>
                   <input type="radio" name="age" value="1"> 21-27<br>
                   <input type="radio" name="age" value="2"> 28-34<br>
                   <input type="radio" name="age" value="3"> 35-42<br>
-                  <input type="radio" name="age" value="4"> 43 o más<br>
+                  <input type="radio" name="age" value="4"> <%= __('form.input.age.last') %><br>
                 </div>
               </div>
               
               <div class="form-right">
-                <span>Género</span><br>
-                <input type="radio" name="gender" value="M" checked> Masculino<br>
-                <input type="radio" name="gender" value="F"> Femenino<br>
+                <span><%= __('form.input.gender.header') %></span><br>
+                <input type="radio" name="gender" value="M" checked> <%= __('form.input.gender.male') %><br>
+                <input type="radio" name="gender" value="F"> <%= __('form.input.gender.female') %><br>
               </div>
 
             <div class="form-left">
                 <div class="left-country">
-                  <span>País</span><br>
+                  <span><%= __('form.input.country') %></span><br>
                   <select id="country-select" name="country">
                     <option value="AF">Afganistán</option>
                     <option value="AL">Albania</option>
@@ -357,7 +357,7 @@
               </div>
 
               <div class="form-right">
-                <span>Ciudad</span><br>
+                <span><%= __('form.input.city') %></span><br>
                 <input type="text" name="city" id="city-input"/>
               </div>
 
@@ -403,26 +403,26 @@
         </div>
         
         <div class="form-right-final hidden">
-          <span>¿Podrías explicarle a alguien qué es la red neuronal por defecto?</span><br>
-          <input type="radio" name="explain" value="1" checked> Si<br>
-          <input type="radio" name="explain" value="0"> No<br><br>
+          <span><%= __('form.input.explain') %></span><br>
+          <input type="radio" name="explain" value="1" checked> <%= __('extra.yes') %><br>
+          <input type="radio" name="explain" value="0"> <%= __('extra.no') %><br><br>
 
-          <span>¿Cómo se manifiesta en ti la DMN? Puedes marcar más de una.</span><br>
-          <input type="checkbox" name="manifest" value="Voces" checked> Voces<br>
-          <input type="checkbox" name="manifest" value="Imagenes"> Imágenes<br>
-          <input type="checkbox" name="manifest" value="Sonidos"> Sonidos<br>
-          <input type="checkbox" name="manifest" value="Emociones"> Emociones<br>
-          <input type="checkbox" name="manifest" value="Personas"> Personas<br>
-          <input type="checkbox" name="manifest" value="Conceptos"> Conceptos<br><br><br><br>
+          <span><%= __('form.input.list.title') %></span><br>
+          <input type="checkbox" name="manifest" value="Voces" checked> <%= __('form.input.list.voices') %><br>
+          <input type="checkbox" name="manifest" value="Imagenes"> <%= __('form.input.list.images') %><br>
+          <input type="checkbox" name="manifest" value="Sonidos"> <%= __('form.input.list.sound') %><br>
+          <input type="checkbox" name="manifest" value="Emociones"> <%= __('form.input.list.emotions') %><br>
+          <input type="checkbox" name="manifest" value="Personas"> <%= __('form.input.list.people') %><br>
+          <input type="checkbox" name="manifest" value="Conceptos"> <%= __('form.input.list.concepts') %><br><br><br><br>
 
-          <span>¿Tienes alguna pregunta adicional? Puedes escribirla en el siguiente recuadro:</span><br>
+          <span><%= __('form.input.text_area') %></span><br>
           <textarea id="comment-textarea" class="about-textarea" name="comment" rows="6" cols="68"></textarea><br><br>
 
           <div class="about-email">
             <input type="text" name="email" id="input-email" placeholder="nombre@email.com" />
-            <button class="btn-send">Enviar</button>
-            <p class="about-flash" style="display:none">Tus respuestas se han enviado con éxito, puedes cerrar el formulario y volver a la red para seguir explorando</p>
-            <p class="about-wrong" style="display:none">El correo ingresado no es válido</p>
+            <button class="btn-send"><%= __('extra.send') %></button>
+            <p class="about-flash" style="display:none"><%= __('extra.send_success') %></p>
+            <p class="about-wrong" style="display:none"><%= __('extra.send_error') %></p>
           </div>
         </div>
 
@@ -560,27 +560,27 @@
 <div class="main-cover-container hidden" id="final-1">
   <div class="cover-container cover-intro">
     <div class="title-container">
-      <p class="cover-title-i">En el 2001, el neurocientífico Marcus Raichle</p>
+      <p class="cover-title-i"><%= __('outro.slide_1.line_1') %></p>
     </div>
   </div>
   <div class="cover-container cover-intro">
     <div class="title-container">
-      <p class="cover-title-i">descubrió un conjunto de zonas cerebrales que se activan</p>
+      <p class="cover-title-i"><%= __('outro.slide_1.line_2') %></p>
     </div>
   </div>
   <div class="cover-container cover-intro">
     <div class="title-container">
-      <p class="cover-title-i">durante la divagación y le otorgó</p>
+      <p class="cover-title-i"><%= __('outro.slide_1.line_3') %></p>
     </div>
   </div>
   <div class="cover-container cover-intro">
     <div class="title-container">
-      <p class="cover-title-i">el nombre de RED NEURONAL POR DEFECTO</p>
+      <p class="cover-title-i"><%= __('outro.slide_1.line_4') %></p>
     </div>
   </div>
   <div class="cover-container cover-intro">
     <div class="title-container">
-      <p class="cover-title-i">o en inglés: DEFAULT MODE NETWORK (DMN)</p>
+      <p class="cover-title-i"><%= __('outro.slide_1.line_5') %></p>
     </div>
   </div>
 </div>
@@ -589,38 +589,38 @@
 <div class="main-cover-container hidden" id="final-2">
   <div class="cover-container cover-intro">
     <div class="title-container">
-      <p class="cover-title-i">El descubrimiento de esta red cambió</p>
+      <p class="cover-title-i"><%= __('outro.slide_2.line_1') %></p>
     </div>
   </div>
   <div class="cover-container cover-intro">
     <div class="title-container">
-      <p class="cover-title-i">nuestra noción de que el cerebro solamente</p>
+      <p class="cover-title-i"><%= __('outro.slide_2.line_2') %></p>
     </div>
   </div>
   <div class="cover-container cover-intro">
     <div class="title-container">
-      <p class="cover-title-i">está activo cuando realizamos una tarea.</p>
+      <p class="cover-title-i"><%= __('outro.slide_2.line_3') %></p>
     </div>
   </div>
   <div class="cover-container cover-intro">
     <div class="title-container">
-      <p class="cover-title-i">Hoy sabemos que el cerebro jamás está en reposo</p>
+      <p class="cover-title-i"><%= __('outro.slide_2.line_4') %></p>
     </div>
   </div>
   <div class="cover-container cover-intro">
     <div class="title-container">
-      <p class="cover-title-i">y que los momentos en los que no existen metas</p>
+      <p class="cover-title-i"><%= __('outro.slide_2.line_5') %></p>
     </div>
   </div>
   <div class="cover-container cover-intro">
     <div class="title-container">
-      <p class="cover-title-i">claras son los de mayor lucidez y creatividad.</p>
+      <p class="cover-title-i"><%= __('outro.slide_2.line_6') %></p>
     </div>
   </div>
   <div class="cover-container cover-msg btns-container">
     <div class="cover-next-msg final-btns">
-      <div class="cover-inline-img final-inline"><div id="back-btn" class="final-btn"><p>Volver</p></div></div>
-      <div class="cover-inline-img final-inline"><div id="finish-btn" class="final-btn"><p>Finalizar</p></div></div>
+      <div class="cover-inline-img final-inline"><div id="back-btn" class="final-btn"><p><%= __('outro.buttons.back') %></p></div></div>
+      <div class="cover-inline-img final-inline"><div id="finish-btn" class="final-btn"><p><%= __('outro.buttons.end') %></p></div></div>
     </div>
   </div>
 </div>
@@ -733,13 +733,13 @@
   <!-- Textos Atención y Ruido -->
 
   <div class="over-content click-text-bottom ruido hidden">
-      <p class="click-text">estado de<br>atención</p>
-      <p class="click-text p-click-text">estímulos<br>externos//<br>alerta<br>//bajo gasto<br>energético/<br>foco/<br>metas externas</p>
+      <p class="click-text"><%= __('main.info_text.attention.title.line_1') %><br><%= __('main.info_text.attention.title.line_2') %></p>
+      <p class="click-text p-click-text"><%= __('main.info_text.attention.content.line_1') %><br><%= __('main.info_text.attention.content.line_2') %><br><%= __('main.info_text.attention.content.line_3') %><br><%= __('main.info_text.attention.content.line_4') %><br><%= __('main.info_text.attention.content.line_5') %>/<br><%= __('main.info_text.attention.content.line_6') %><br><%= __('main.info_text.attention.content.line_7') %></p>
   </div>
 
   <div class="over-content click-text-bottom atencion hidden">
-      <p class="click-text">estado de<br>reposo</p>
-      <p class="click-text p-click-text">estado interno<br>divagación//<br>actividad<br>intrínseca<br>//alto gasto<br>energético/<br>modo default/</p>
+      <p class="click-text"><%= __('main.info_text.resting.title.line_1') %><br><%= __('main.info_text.resting.title.line_2') %></p>
+      <p class="click-text p-click-text"><%= __('main.info_text.resting.content.line_1') %><br><%= __('main.info_text.resting.content.line_2') %><br><%= __('main.info_text.resting.content.line_3') %><br><%= __('main.info_text.resting.content.line_4') %><br><%= __('main.info_text.resting.content.line_5') %>/<br><%= __('main.info_text.resting.content.line_6') %><br><%= __('main.info_text.resting.content.line_7') %></p>
   </div>
 
   <!-- Fin Textos Atención y Ruido -->
@@ -750,18 +750,18 @@
     <!-- Pregunta 1 -->
     <div class="tt-q1-container tt-main-container hidden">
       <div class="over-content tooltip arrowbox-right tt-question" id="tt-q1" style="left:7%;top:38%;">
-        <p class="tt-content">Existen dos situaciones que permiten entrar en estado de reposo.</p>
-        <p class="tt-title">¿En cuál de estas dos te encuentras más a menudo?</p>
+        <p class="tt-content"><%= __('main.question_1.title') %></p>
+        <p class="tt-title"><%= __('main.question_1.subtitle') %></p>
       </div>
       
-      <div class="over-content tooltip tt-answer hidden" video-id="198436388" id="tt-q1a1" style="left:50%;top:24%;">
-        <p class="tt-title">A. No realizando ninguna actividad</p>
-        <p class="tt-content">(contemplación, soñando despierto)</p>
+      <div class="over-content tooltip tt-answer hidden" video-id="<%= __('main.question_1.answer_1.video_id') %>" id="tt-q1a1" style="left:50%;top:24%;">
+        <p class="tt-title"><%= __('main.question_1.answer_1.title') %></p>
+        <p class="tt-content"><%= __('main.question_1.answer_1.subtitle') %></p>
       </div>
 
-      <div class="over-content tooltip tt-answer hidden" video-id="198436637" id="tt-q1a2" style="left:69%;top:54%;">
-        <p class="tt-title">B. Realizando alguna actividad mecánica</p>
-        <p class="tt-content">(lavarse los dientes, preparar café, colorear, caminar)</p>
+      <div class="over-content tooltip tt-answer hidden" video-id="<%= __('main.question_1.answer_2.video_id') %>" id="tt-q1a2" style="left:69%;top:54%;">
+        <p class="tt-title"><%= __('main.question_1.answer_2.title') %></p>
+        <p class="tt-content"><%= __('main.question_1.answer_2.subtitle') %></p>
       </div>
     </div>
     <!-- Fin Pregunta 1 -->
@@ -769,20 +769,20 @@
     <!-- Pregunta 2 -->
     <div class="tt-q2-container tt-main-container hidden">
       <div class="over-content tooltip arrowbox-left tt-question" id="tt-q2" style="left:62%;top:47%;">
-        <p class="tt-content">Sabemos que es imposible volver al pasado o ir al futuro. Sin embargo, la mente tiene la capacidad de viajar en el tiempo.</p>
-        <p class="tt-title">¿Hacia qué tiempos sueles ir?</p>
+        <p class="tt-content"><%= __('main.question_2.title') %></p>
+        <p class="tt-title"><%= __('main.question_2.subtitle') %></p>
       </div>
       
-      <div class="over-content tooltip tt-answer hidden" video-id="198436888" id="tt-q2a1" style="left:38%;top:47%;">
-        <p class="tt-content">A. Pasado</p>
+      <div class="over-content tooltip tt-answer hidden" video-id="<%= __('main.question_2.answer_1.video_id') %>" id="tt-q2a1" style="left:38%;top:47%;">
+        <p class="tt-content"><%= __('main.question_2.answer_1.title') %></p>
       </div>
 
-      <div class="over-content tooltip tt-answer hidden" video-id="198437182" id="tt-q2a2" style="left:33%;top:71%;">
-        <p class="tt-content">B. Futuro</p>
+      <div class="over-content tooltip tt-answer hidden" video-id="<%= __('main.question_2.answer_2.video_id') %>" id="tt-q2a2" style="left:33%;top:71%;">
+        <p class="tt-content"><%= __('main.question_2.answer_2.title') %></p>
       </div>
 
-      <div class="over-content tooltip tt-answer hidden" video-id="198439697" id="tt-q2a3" style="left:54%;top:71%;">
-        <p class="tt-content">C. Ninguno en particular</p>
+      <div class="over-content tooltip tt-answer hidden" video-id="<%= __('main.question_2.answer_3.video_id') %>" id="tt-q2a3" style="left:54%;top:71%;">
+        <p class="tt-content"><%= __('main.question_2.answer_3.title') %></p>
       </div>
     </div>
     <!-- Fin Pregunta 2 -->
@@ -790,16 +790,16 @@
     <!-- Pregunta 3 -->
     <div class="tt-q3-container tt-main-container hidden">
       <div class="over-content tooltip arrowbox-left tt-question" id="tt-q3" style="left:75%;top:31%;">
-        <p class="tt-content">La divagación mental puede generar distintos efectos en las personas.</p>
-        <p class="tt-title">¿Qué consecuencias crees que ha tenido para tí estar en estados de reposo?</p>
+        <p class="tt-content"><%= __('main.question_3.title') %></p>
+        <p class="tt-title"><%= __('main.question_3.subtitle') %></p>
       </div>
       
-      <div class="over-content tooltip tt-answer hidden" video-id="198441387" id="tt-q3a1" style="left:55%;top:29%;">
-        <p class="tt-content">A. Positivos</p>
+      <div class="over-content tooltip tt-answer hidden" video-id="<%= __('main.question_3.answer_1.video_id') %>" id="tt-q3a1" style="left:55%;top:29%;">
+        <p class="tt-content"><%= __('main.question_3.answer_1.title') %></p>
       </div>
 
-      <div class="over-content tooltip tt-answer hidden" video-id="198473361" id="tt-q3a2" style="left:44%;top:67%;">
-        <p class="tt-content">B. Negativos</p>
+      <div class="over-content tooltip tt-answer hidden" video-id="<%= __('main.question_3.answer_2.video_id') %>" id="tt-q3a2" style="left:44%;top:67%;">
+        <p class="tt-content"><%= __('main.question_3.answer_2.title') %></p>
       </div>
     </div>
     <!-- Fin Pregunta 3 -->

@@ -70,7 +70,39 @@
 			}
 		},
 		"hintbox": "Para explorar la plataforma haz click en los distintos tipos de cruces.",
-		"about_slide": "SOBRE EL PROYECTO"
+		"about_slide": "SOBRE EL PROYECTO",
+		"info_text": {
+			"attention": {
+				"title": {
+					"line_1": "estado de",
+					"line_2": "atención"
+				},
+				"content": {
+					"line_1": "estímulos",
+					"line_2": "externos//",
+					"line_3": "alerta",
+					"line_4": "//bajo gasto",
+					"line_5": "energético",
+					"line_6": "foco/",
+					"line_7": "metas externas"
+				}
+			},
+			"resting": {
+				"title": {
+					"line_1": "estado de",
+					"line_2": "reposo"
+				},
+				"content": {
+					"line_1": "estado interno",
+					"line_2": "divagación//",
+					"line_3": "actividad",
+					"line_4": "intrínseca",
+					"line_5": "//alto gasto",
+					"line_6": "energético/",
+					"line_7": "modo default/"
+				}
+			}
+		}
 	},
 	"outro": {
 		"slide_1": {
@@ -104,7 +136,11 @@
 				"header": "Edad",
 				"last": "43 o más"
 			},
-			"gender": "Género",
+			"gender": {
+				"header": "Género",
+				"male": "Masculino",
+				"female": "Femenino"
+			},
 			"country": "País",
 			"city": "Ciudad",
 			"explain": "¿Podrías explicarle a alguien qué es la red neuronal por defecto?",

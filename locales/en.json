@@ -70,7 +70,39 @@
 			}
 		},
 		"hintbox": "To explore the platform click in any of the crosses on the screen.",
-		"about_slide": "ABOUT THE PROJECT"
+		"about_slide": "ABOUT THE PROJECT",
+		"info_text": {
+			"attention": {
+				"title": {
+					"line_1": "attention",
+					"line_2": "state"
+				},
+				"content": {
+					"line_1": "external",
+					"line_2": "stimulus//",
+					"line_3": "alert",
+					"line_4": "//low",
+					"line_5": "metabolism/",
+					"line_6": "goal-directed",
+					"line_7": "task"
+				}
+			},
+			"resting": {
+				"title": {
+					"line_1": "resting",
+					"line_2": "state"
+				},
+				"content": {
+					"line_1": "internal state",
+					"line_2": "mind wandering//",
+					"line_3": "intrinsic",
+					"line_4": "activity",
+					"line_5": "//high",
+					"line_6": "metabolism/",
+					"line_7": "default mode/"
+				}
+			}
+		}
 	},
 	"outro": {
 		"slide_1": {
@@ -104,7 +136,11 @@
 				"header": "Age",
 				"last": "43 or more"
 			},
-			"gender": "Gender",
+			"gender": {
+				"header": "Gender",
+				"male": "Male",
+				"female": "Female"
+			},
 			"country": "Country",
 			"city": "City",
 			"explain": "Could you explain the default mode network to someone else?",
