@@ -37,7 +37,7 @@
 			},
 			"answer_2": {
 				"title": "B. Realizando alguna actividad mecánica",
-				"subtitle": "(lavarse los dientes, preparar café, colorear, caminar",
+				"subtitle": "(lavarse los dientes, preparar café, colorear, caminar)",
 				"video_id": "198436637"
 			}
 		},
@@ -169,11 +169,11 @@
 			"items": {
 				"design": {
 					"header": "Diseño y realización",
-					"content": "Karina Hyland"
+					"content": "<a href='http://karinahy.com/' target='_blank'>Karina Hyland</a>"
 				},
 				"research": {
 					"header": "Investigadores responsables",
-					"content": "Manuela Garretón y Tomás Ossandón"
+					"content": "<a href='http://manuelagarreton.cl' target='_blank'>Manuela Garretón</a> y Tomás Ossandón"
 				},
 				"sound": {
 					"header": "Diseño sonoro",
@@ -181,7 +181,7 @@
 				},
 				"web": {
 					"header": "Programación web",
-					"content": "Cristhian López"
+					"content": "<a href='https://about.me/rura' target='_blank'>Cristhian López</a>"
 				},
 				"naration": {
 					"header": "Locución",

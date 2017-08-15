@@ -33,12 +33,12 @@
 			"answer_1": {
 				"title": "A. Doing nothing",
 				"subtitle": "(contemplating)",
-				"video_id": "198436388"
+				"video_id": "229759469"
 			},
 			"answer_2": {
 				"title": "B. Doing something mechanic.",
-				"subtitle": "(brushing my teeth, making coffee, walking",
-				"video_id": "198436637"
+				"subtitle": "(brushing my teeth, making coffee, walking)",
+				"video_id": "229759748"
 			}
 		},
 		"question_2": {
@@ -46,27 +46,27 @@
 			"subtitle": "Where do you travel the most?",
 			"answer_1": {
 				"title": "A. To the past",
-				"video_id": "198436888"
+				"video_id": "229760416"
 			},
 			"answer_2": {
 				"title": "B. To the future",
-				"video_id": "198437182"
+				"video_id": "229330846"
 			},
 			"answer_3": {
 				"title": "C. None in particular",
-				"video_id": "198439697"
+				"video_id": "229760065"
 			}
 		},
 		"question_3": {
-			"title": "Mind wandering can have different effects in people.",
-			"subtitle": "How do you feel about the consequences when entering in this state?",
+			"title": "Mind wandering can have different effects in people.<br><br>",
+			"subtitle": "How do you feel about the consequences when entering this state?",
 			"answer_1": {
 				"title": "A. Positively",
-				"video_id": "198441387"
+				"video_id": "229760730"
 			},
 			"answer_2": {
 				"title": "B. Negatively",
-				"video_id": "198473361"
+				"video_id": "229336518"
 			}
 		},
 		"hintbox": "To explore the platform click in any of the crosses on the screen.",
@@ -169,11 +169,11 @@
 			"items": {
 				"design": {
 					"header": "Design and production",
-					"content": "Karina Hyland"
+					"content": "<a href='http://karinahy.com/' target='_blank'>Karina Hyland</a>"
 				},
 				"research": {
 					"header": "Research consultants",
-					"content": "Manuela Garretón and Tomás Ossandón"
+					"content": "<a href='http://manuelagarreton.cl' target='_blank'>Manuela Garretón</a> and Tomás Ossandón"
 				},
 				"sound": {
 					"header": "Sound design",
@@ -181,7 +181,7 @@
 				},
 				"web": {
 					"header": "Web development",
-					"content": "Cristhian López"
+					"content": "<a href='https://about.me/rura' target='_blank'>Cristhian López</a>"
 				},
 				"naration": {
 					"header": "Voiceover",
