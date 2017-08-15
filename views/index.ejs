@@ -77,21 +77,14 @@
     
     <div class="about-topnav">
       <div class="about-title-container">
-        <p>HISTORIAS POR <b>DEFAULT</b></p>
+        <p><%- __('about.title') %></p>
       </div>
     </div>
 
     <div class="about-bottom">
       <div class="about-left">
 
-        <p class="about-content-p content-p-init">Frente a la pregunta sobre qué está sucediendo actualmente en los estudios de neurociencia y por ende qué sabemos sobre nuestro propio cerebro, nace <b>Visualizando las dinámicas intrínsecas del cerebro</b>, un proyecto de creación colaborativa entre diseño y neurociencia.<br><br>
-
-        Durante el 2016 este equipo interdisciplinario ha trabajado en desarrollar un proyecto que dé cuenta de estas dinámicas y estados por los que nuestro cerebro transita en la vida cotidiana. El resultado de este proceso será una obra interactiva e inmersiva que se presentará en el Museo de Arte Contemporáneo de Santiago, Chile en septiembre de 2017.<br><br>
-
-        <b>Historias por default</b> es parte del proceso de creación de esta obra y se ha convertido en una plataforma web que a partir de una narrativa interactiva, comunica los conceptos más relevantes detrás de estos estudios de neurociencia. Hoy día nos permite observar cómo las personas comprenden e interactúan con los contenidos presentados y recolectar datos que servirán para realizar el diseño final de la obra.<br><br>
-
-        Historias por default ha sido llevado a cabo por Karina Hyland como parte de su proyecto de título de la Escuela de Diseño UC junto con el apoyo y colaboración del resto del equipo. 
-        </p>
+        <p class="about-content-p content-p-init"><%- __('about.content.text_1') %><br><br><%- __('about.content.text_2') %><br><br><%- __('about.content.text_3') %><br><br><%- __('about.content.text_4') %></p>
         
         <div class="form-left-final hidden">
           <p class="about-content-p about-content-p-final"><%= __('form.content.text') %><br><br><%= __('form.content.greeting') %><br><br><a class="more-info-link" target="_blank" href="http://xdefault.cl"><%= __('form.content.more_info') %></a></p><br>
@@ -372,33 +365,33 @@
         <div class="credits-container">
           
           <div class="about-credits">
-            <p class="about-content-t">CRÉDITOS</p>
+            <p class="about-content-t"><%- __('about.credits.title') %></p>
 
             <ul class="credits-list small-list">
-              <li class="credits-item"><p class="credits-item-t">Diseño y realización</p><p class="credits-item-c">Karina Hyland</p></li>
-              <li class="credits-item"><p class="credits-item-t right">Investigadores responsables</p><p class="credits-item-c right">Manuela Garretón y Tomás Ossandón</p></li>
-              <li class="credits-item"><p class="credits-item-t right">Diseño sonoro</p><p class="credits-item-c right">Pablo Garretón</p></li>
-              <li class="credits-item"><p class="credits-item-t">Programación web</p><p class="credits-item-c">Cristhian López</p></li>
-              <li class="credits-item"><p class="credits-item-t right">Locución</p><p class="credits-item-c right">Francisca Huber</p></li>
+              <li class="credits-item"><p class="credits-item-t"><%- __('about.credits.items.design.header') %></p><p class="credits-item-c"><%- __('about.credits.items.design.content') %></p></li>
+              <li class="credits-item"><p class="credits-item-t right"><%- __('about.credits.items.research.header') %></p><p class="credits-item-c right"><%- __('about.credits.items.research.content') %></p></li>
+              <li class="credits-item"><p class="credits-item-t right"><%- __('about.credits.items.sound.header') %></p><p class="credits-item-c right"><%- __('about.credits.items.sound.content') %></p></li>
+              <li class="credits-item"><p class="credits-item-t"><%- __('about.credits.items.web.header') %></p><p class="credits-item-c"><%- __('about.credits.items.web.content') %></p></li>
+              <li class="credits-item"><p class="credits-item-t right"><%- __('about.credits.items.naration.header') %></p><p class="credits-item-c right"><%- __('about.credits.items.naration.content') %></p></li>
             </ul>
           
           </div>
           <div class="about-credits links">
-          <p class="about-content-t">LINKS DE INTERÉS</p>
+          <p class="about-content-t"><%- __('about.links.title') %></p>
 
             <ul class="credits-list small-list">
-              <li class="credits-item"><p class="credits-item-t">Papers</p></li>
-              <li class="credits-item"><a target="_blank" href="https://pdfs.semanticscholar.org/aa94/9d605049459a1a581b4563237140ab72b239.pdf"><p class="credits-item-c right">The Brain's Default Network, anatomy, function and relevance to disease.<br>(Buckner, Andrews-Hanna Schacter, 2008)</p></a></li>
-              <li class="credits-item m-bot-45"><a target="_blank" href="http://www.appliedneuroscience.com/Default%20mode-a%20brief%20history.pdf"><p class="credits-item-c right">A default mode of brain function: a brief history of an evolving idea<br>(Raichle, Snyder, 2007)</p></a></li>
-              <li class="credits-item"><p class="credits-item-t">Otros</p></li>
-              <li class="credits-item"><a target="_blank" href="http://www.quepasa.cl/articulo/ciencia/2015/11/mientras-dormias.shtml/"><p class="credits-item-c right">Mientras dormías, Revista Qué Pasa</p></a></li>
-              <li class="credits-item"><a target="_blank" href="http://karinahy.com/memoria"><p class="credits-item-c right">Memoria proyecto de título</p></a></li>
+              <li class="credits-item"><p class="credits-item-t"><%- __('about.links.items.papers.title') %></p></li>
+              <li class="credits-item"><a target="_blank" href="https://pdfs.semanticscholar.org/aa94/9d605049459a1a581b4563237140ab72b239.pdf"><p class="credits-item-c right"><%- __('about.links.items.papers.content_1') %></p></a></li>
+              <li class="credits-item m-bot-45"><a target="_blank" href="http://www.appliedneuroscience.com/Default%20mode-a%20brief%20history.pdf"><p class="credits-item-c right"><%- __('about.links.items.papers.content_2') %></p></a></li>
+              <li class="credits-item"><p class="credits-item-t"><%- __('about.links.items.others.title') %></p></li>
+              <li class="credits-item"><a target="_blank" href="http://www.quepasa.cl/articulo/ciencia/2015/11/mientras-dormias.shtml/"><p class="credits-item-c right"><%- __('about.links.items.others.content_1') %></p></a></li>
+              <li class="credits-item"><a target="_blank" href="http://karinahy.com/memoria"><p class="credits-item-c right"><%- __('about.links.items.others.content_2') %></p></a></li>
             </ul>
           
           </div>
 
           <div class="logo-uc"><a target="_blank" href="http://diseno.uc.cl/"><img class="logo-diseno" src="images/logo.svg"></a><a target="_blank" href="http://medicina.uc.cl/psiquiatria/"><img src="images/medicina.svg"></a></div>
-          <p class="credits-support">Obra realizada con el aporte de la Dirección de Artes y Cultura, Vicerrectoría de Investigación de la Pontificia Universidad Católica de Chile</p>
+          <p class="credits-support"><%- __('about.footer') %></p>
 
         </div>
         
@@ -419,7 +412,7 @@
           <textarea id="comment-textarea" class="about-textarea" name="comment" rows="6" cols="68"></textarea><br><br>
 
           <div class="about-email">
-            <input type="text" name="email" id="input-email" placeholder="nombre@email.com" />
+            <input type="text" name="email" id="input-email" placeholder="<%= __('extra.placeholder') %>" />
             <button class="btn-send"><%= __('extra.send') %></button>
             <p class="about-flash" style="display:none"><%= __('extra.send_success') %></p>
             <p class="about-wrong" style="display:none"><%= __('extra.send_error') %></p>
@@ -734,12 +727,12 @@
 
   <div class="over-content click-text-bottom ruido hidden">
       <p class="click-text"><%= __('main.info_text.attention.title.line_1') %><br><%= __('main.info_text.attention.title.line_2') %></p>
-      <p class="click-text p-click-text"><%= __('main.info_text.attention.content.line_1') %><br><%= __('main.info_text.attention.content.line_2') %><br><%= __('main.info_text.attention.content.line_3') %><br><%= __('main.info_text.attention.content.line_4') %><br><%= __('main.info_text.attention.content.line_5') %>/<br><%= __('main.info_text.attention.content.line_6') %><br><%= __('main.info_text.attention.content.line_7') %></p>
+      <p class="click-text p-click-text"><%= __('main.info_text.attention.content.line_1') %><br><%= __('main.info_text.attention.content.line_2') %><br><%= __('main.info_text.attention.content.line_3') %><br><%= __('main.info_text.attention.content.line_4') %><br><%= __('main.info_text.attention.content.line_5') %><br><%= __('main.info_text.attention.content.line_6') %><br><%= __('main.info_text.attention.content.line_7') %></p>
   </div>
 
   <div class="over-content click-text-bottom atencion hidden">
       <p class="click-text"><%= __('main.info_text.resting.title.line_1') %><br><%= __('main.info_text.resting.title.line_2') %></p>
-      <p class="click-text p-click-text"><%= __('main.info_text.resting.content.line_1') %><br><%= __('main.info_text.resting.content.line_2') %><br><%= __('main.info_text.resting.content.line_3') %><br><%= __('main.info_text.resting.content.line_4') %><br><%= __('main.info_text.resting.content.line_5') %>/<br><%= __('main.info_text.resting.content.line_6') %><br><%= __('main.info_text.resting.content.line_7') %></p>
+      <p class="click-text p-click-text"><%= __('main.info_text.resting.content.line_1') %><br><%= __('main.info_text.resting.content.line_2') %><br><%= __('main.info_text.resting.content.line_3') %><br><%= __('main.info_text.resting.content.line_4') %><br><%= __('main.info_text.resting.content.line_5') %><br><%= __('main.info_text.resting.content.line_6') %><br><%= __('main.info_text.resting.content.line_7') %></p>
   </div>
 
   <!-- Fin Textos Atención y Ruido -->

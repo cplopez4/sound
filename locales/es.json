@@ -151,16 +151,67 @@
 				"sound": "Sonidos",
 				"emotions": "Emociones",
 				"people": "Personas",
-				"concepts": "Conceptos",
+				"concepts": "Conceptos"
 			},
 			"text_area": "¿Tienes alguna pregunta adicional? Puedes escribirla en el siguiente recuadro:"
 		}
+	},
+	"about": {
+		"title": "HISTORIAS POR <b>DEFAULT</b>",
+		"content": {
+			"text_1": "Frente a la pregunta sobre qué está sucediendo actualmente en los estudios de neurociencia y por ende qué sabemos sobre nuestro propio cerebro, nace <b>Visualizando las dinámicas intrínsecas del cerebro</b>, un proyecto de creación colaborativa entre diseño y neurociencia.",
+			"text_2": "Durante el 2016 este equipo interdisciplinario ha trabajado en desarrollar un proyecto que dé cuenta de estas dinámicas y estados por los que nuestro cerebro transita en la vida cotidiana. El resultado de este proceso será una obra interactiva e inmersiva que se presentará en el Museo de Arte Contemporáneo de Santiago, Chile en septiembre de 2017.",
+			"text_3": "<b>Historias por default</b> es parte del proceso de creación de esta obra y se ha convertido en una plataforma web que a partir de una narrativa interactiva, comunica los conceptos más relevantes detrás de estos estudios de neurociencia. Hoy día nos permite observar cómo las personas comprenden e interactúan con los contenidos presentados y recolectar datos que servirán para realizar el diseño final de la obra.",
+			"text_4": "Historias por default ha sido llevado a cabo por Karina Hyland como parte de su proyecto de título de la Escuela de Diseño UC junto con el apoyo y colaboración del resto del equipo."
+		},
+		"credits": {
+			"title": "CRÉDITOS",
+			"items": {
+				"design": {
+					"header": "Diseño y realización",
+					"content": "Karina Hyland"
+				},
+				"research": {
+					"header": "Investigadores responsables",
+					"content": "Manuela Garretón y Tomás Ossandón"
+				},
+				"sound": {
+					"header": "Diseño sonoro",
+					"content": "Pablo Garretón"
+				},
+				"web": {
+					"header": "Programación web",
+					"content": "Cristhian López"
+				},
+				"naration": {
+					"header": "Locución",
+					"content": "Francisca Huber"
+				}
+			}
+		},
+		"links": {
+			"title": "LINKS DE INTERÉS",
+			"items": {
+				"papers": {
+					"title": "Papers",
+					"content_1": "The Brain's Default Network, anatomy, function and relevance to disease.<br>(Buckner, Andrews-Hanna Schacter, 2008)",
+					"content_2": "A default mode of brain function: a brief history of an evolving idea<br>(Raichle, Snyder, 2007)"
+				},
+				"others": {
+					"title": "Otros",
+					"content_1": "Mientras dormías, Revista Qué Pasa",
+					"content_2": "Memoria proyecto de título"
+				}
+			}
+		},
+		"footer": "Obra realizada con el aporte de la Dirección de Artes y Cultura, Vicerrectoría de Investigación de la Pontificia Universidad Católica de Chile."
 	},
 	"extra": {
 		"yes": "Si",
 		"no": "No",
 		"send": "Enviar",
 		"send_success": "Tus respuestas se han enviado con éxito, puedes cerrar el formulario y volver a la red para seguir explorando",
-		"send_error": "El correo ingresado no es válido"
+		"send_error": "El correo ingresado no es válido",
+		"placeholder": "nombre@email.com"
 	}
 }

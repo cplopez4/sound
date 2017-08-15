@@ -55,11 +55,11 @@
 			"answer_3": {
 				"title": "C. None in particular",
 				"video_id": "198439697"
-			}						
+			}
 		},
 		"question_3": {
 			"title": "Mind wandering can have different effects in people.",
-			"subtitle": "How do you feel about the consequences when entering this state?",
+			"subtitle": "How do you feel about the consequences when entering in this state?",
 			"answer_1": {
 				"title": "A. Positively",
 				"video_id": "198441387"
@@ -131,7 +131,7 @@
 			"greeting": "We thank you for your participation!",
 			"more_info": "More information"
 		},
-		"input":{
+		"input": {
 			"age": {
 				"header": "Age",
 				"last": "43 or more"
@@ -151,17 +151,67 @@
 				"sound": "Sound",
 				"emotions": "Emotions",
 				"people": "People",
-				"concepts": "Concepts",
+				"concepts": "Concepts"
 			},
 			"text_area": "If you have any additional questions, you can write them below."
 		}
+	},
+	"about": {
+		"title": "<b>DEFAULT</b> STORIES",
+		"content": {
+			"text_1": "Facing the question of what is currently happening in neuroscience studies and therefore what we know about our own brain, arises <b>Visualizing the intrinsic dynamics of the brain</b>, a project of collaborative creation between design and neuroscience.",
+			"text_2": "During 2016 this interdisciplinary team has worked on developing a project that accounts for these dynamics and states through which our brain transits. This process will end with an interactive and immersive artwork to be presented at the Museum of Contemporary Art of Santiago, Chile in September 2017.",
+			"text_3": "<b>Default Stories</b> is part of the process of creation of this work and has become a web platform that, based on an interactive narrative, communicates the most relevant concepts behind these neuroscience studies. Today it allows us to observe how people understand and interact with the contents presented and collect data that will serve to realize the final artwork.",
+			"text_4": "Default Stories has been developed by Karina Hyland as part of her School Design bachelor thesis project along with the support and collaboration of the rest of the team."
+		},
+		"credits": {
+			"title": "CREDITS",
+			"items": {
+				"design": {
+					"header": "Design and production",
+					"content": "Karina Hyland"
+				},
+				"research": {
+					"header": "Research consultants",
+					"content": "Manuela Garretón and Tomás Ossandón"
+				},
+				"sound": {
+					"header": "Sound design",
+					"content": "Pablo Garretón"
+				},
+				"web": {
+					"header": "Web development",
+					"content": "Cristhian López"
+				},
+				"naration": {
+					"header": "Voiceover",
+					"content": "Francisca Huber"
+				}
+			}
+		},
+		"links": {
+			"title": "ADDITIONAL INFORMATION",
+			"items": {
+				"papers": {
+					"title": "Papers",
+					"content_1": "The Brain's Default Network, anatomy, function and relevance to disease.<br>(Buckner, Andrews-Hanna Schacter, 2008)",
+					"content_2": "A default mode of brain function: a brief history of an evolving idea<br>(Raichle, Snyder, 2007)"
+				},
+				"others": {
+					"title": "Others",
+					"content_1": "Mientras dormías (While you were sleeping), Interview to Tomás Ossandón from Qué Pasa magazine",
+					"content_2": "Bachelor thesis document"
+				}
+			}
+		},
+		"footer": "This project was supported by the Arts and Culture Division from the Research Department at Pontificia Universidad Católica de Chile."
 	},
 	"extra": {
 		"yes": "Yes",
 		"no": "No",
 		"send": "Send",
 		"send_success": "Your answers have been submitted successfully, now you can close this form and go back navigating through the network",
-		"send_error": "Invalid e-mail format"
+		"send_error": "Invalid e-mail format",
+		"placeholder": "name@email.com"
 	}
 }
-

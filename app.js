@@ -16,10 +16,13 @@ var api = require('./routes/api');
 var app = express();
 
 i18n.configure({
-  locales: ['es', 'en'],
-  directory: __dirname + '/locales',
-  objectNotation: true,
-  defaultLocale: 'es'
+    locales: ['es', 'en'],
+    defaultLocale: 'es',
+    directory: __dirname + '/locales',
+    objectNotation: true,
+    autoReload: true,
+    updateFiles: true,
+    syncFiles: true
 });
 
 app.use(i18n.init);
