@@ -25,6 +25,107 @@
 		"title": "DEFAULT STORIES",
 		"subtitle": "An interactive experience about the default mode network",
 		"hint": "The use of headphones is highly recommended"
+	},
+	"main": {
+		"question_1": {
+			"title": "There are two possible situations where the brain could enter the resting-state.",
+			"subtitle": "In which of these situations do you find yourself more often?",
+			"answer_1": {
+				"title": "A. Doing nothing",
+				"subtitle": "(contemplating)",
+				"video_id": "198436388"
+			},
+			"answer_2": {
+				"title": "B. Doing something mechanic.",
+				"subtitle": "(brushing my teeth, making coffee, walking",
+				"video_id": "198436637"
+			}
+		},
+		"question_2": {
+			"title": "We know going back to the past or step into the future is impossible. Nevertheless, the brain has the ability to travel in time.",
+			"subtitle": "Where do you travel the most?",
+			"answer_1": {
+				"title": "A. To the past",
+				"video_id": "198436888"
+			},
+			"answer_2": {
+				"title": "B. To the future",
+				"video_id": "198437182"
+			},
+			"answer_3": {
+				"title": "C. None in particular",
+				"video_id": "198439697"
+			}						
+		},
+		"question_3": {
+			"title": "Mind wandering can have different effects in people.",
+			"subtitle": "How do you feel about the consequences when entering this state?",
+			"answer_1": {
+				"title": "A. Positively",
+				"video_id": "198441387"
+			},
+			"answer_2": {
+				"title": "B. Negatively",
+				"video_id": "198473361"
+			}
+		},
+		"hintbox": "To explore the platform click in any of the crosses on the screen.",
+		"about_slide": "ABOUT THE PROJECT"
+	},
+	"outro": {
+		"slide_1": {
+			"line_1": "In 2001, the neuroscientist Marcus Raichle",
+			"line_2": "discovered a set of brain areas",
+			"line_3": "that activated during the time the mind",
+			"line_4": "was wandering and gave it the name of",
+			"line_5": "DEFAULT MODE NETWORK (DMN)"
+		},
+		"slide_2": {
+			"line_1": "The discovery of this network changed ",
+			"line_2": "our notion that the brain is only active",
+			"line_3": "when we perform a task. Today we know",
+			"line_4": "that the brain is never resting and the",
+			"line_5": "moments in which it does not have clear goals",
+			"line_6": "are those of greater lucidity and creativity."
+		},
+		"buttons": {
+			"back": "Back",
+			"end": "End"
+		}
+	},
+	"form": {
+		"content": {
+			"text": "This web experience is the first prototype of a collaborative project between neuroscience and design, hosted by the School of Design and the Faculty of Medicine of the Pontificia Universidad Católica de Chile. Both the answers included in the form below and the registration of your navigation on this platform, will serve to design a future work to be presented in the Museum of Contemporary Art (MAC, Parque Forestal) in September 2017. If you agree to share this information with us, press send at the end of the form.",
+			"greeting": "We thank you for your participation!",
+			"more_info": "More information"
+		},
+		"input":{
+			"age": {
+				"header": "Age",
+				"last": "43 or more"
+			},
+			"gender": "Gender",
+			"country": "Country",
+			"city": "City",
+			"explain": "Could you explain the default mode network to someone else?",
+			"list": {
+				"title": "Select from the following list, which elements describe better your personal experience of the DMN:",
+				"voices": "Voices",
+				"images": "Images",
+				"sound": "Sound",
+				"emotions": "Emotions",
+				"people": "People",
+				"concepts": "Concepts",
+			},
+			"text_area": "If you have any additional questions, you can write them below."
+		}
+	},
+	"extra": {
+		"yes": "Yes",
+		"no": "No",
+		"send": "Send",
+		"send_success": "Your answers have been submitted successfully, now you can close this form and go back navigating through the network",
+		"send_error": "Invalid e-mail format"
 	}
 }
 

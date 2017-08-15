@@ -89,11 +89,42 @@
 			"line_6": "claras son los de mayor lucidez y creatividad."
 		},
 		"buttons": {
-			"back": "Go back",
-			"end": "End"
+			"back": "Volver",
+			"end": "Finalizar"
 		}
 	},
 	"form": {
-		
+		"content": {
+			"text": "Esta plataforma es el primer prototipo de un proyecto colaborativo entre neurociencia y diseño, acogido por la Escuela de Diseño y la Facultad de Medicina de la Pontificia Universidad Católica de Chile. Tiene por objetivo desarrollar una obra interactiva que será inaugurada en septiembre del 2017 en el Museo de Arte Contemporáneo. Tanto las respuestas recogidas en el formulario a continuación como el registro de tu navegación en esta plataforma, servirán para diseñar la obra futura. Si estás de acuerdo en compartir con nosotros esta información, presiona enviar al final del formulario.",
+			"greeting": "¡Te agradecemos tu participación!",
+			"more_info": "Más información"
+		},
+		"input":{
+			"age": {
+				"header": "Edad",
+				"last": "43 o más"
+			},
+			"gender": "Género",
+			"country": "País",
+			"city": "Ciudad",
+			"explain": "¿Podrías explicarle a alguien qué es la red neuronal por defecto?",
+			"list": {
+				"title": "¿Cómo se manifiesta en ti la DMN? Puedes marcar más de una.",
+				"voices": "Voces",
+				"images": "Imágenes",
+				"sound": "Sonidos",
+				"emotions": "Emociones",
+				"people": "Personas",
+				"concepts": "Conceptos",
+			},
+			"text_area": "¿Tienes alguna pregunta adicional? Puedes escribirla en el siguiente recuadro:"
+		}
+	},
+	"extra": {
+		"yes": "Si",
+		"no": "No",
+		"send": "Enviar",
+		"send_success": "Tus respuestas se han enviado con éxito, puedes cerrar el formulario y volver a la red para seguir explorando",
+		"send_error": "El correo ingresado no es válido"
 	}
 }
